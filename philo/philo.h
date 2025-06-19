@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/19 03:26:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/19 06:01:21 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,17 @@
  * time_to_sleep								-
  * number_of_times_each_philosopher_must_eat	-
  */
+
+typedef enum e_fork_side
+{
+	LEFT = 0,
+	RIGHT = 1
+}	t_fork_side;
+
 typedef struct s_philo
 {
-	int	id;
+	int				id;
+	pthread_mutex_t	*left_fork[2];
 }	t_philo;
 
 # define MSG_VALID_ARGS "number_of_philosophers time_to_die time_to_eat\
