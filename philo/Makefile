@@ -17,6 +17,7 @@ SANITIZE= -g -fsanitize=address
 RM = rm -rf
 
 SRC = main.c
+INCLUDE = philo.h
 OBJ = $(SRC:.c=.o)
 
 .PHONY: all

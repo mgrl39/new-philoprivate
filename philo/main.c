@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/19 01:23:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/19 02:09:31 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	write(1, "ERROR", 5);
+	printf("%s\n", MSG_VALID_ARGS);
 }
 
 int	main(int argc, char *argv[])
