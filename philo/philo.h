@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/19 02:13:20 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/19 02:26:31 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
  * pthread_mutex_destroy, pthread_mutex_lock,
  * pthread_mutex_unlock
  */
+
+# define RESET	"\033[0m"
+# define RED	"\033[38;5;203m"
+# define GOLD	"\033[38;5;220m"
+# define GREEN	"\033[38;5;120m"
 
 # define MSG_VALID_ARGS "number_of_philosophers time_to_die time_to_eat\
  time_to_sleep [number_of_times_each_philosopher_must_eat]"
