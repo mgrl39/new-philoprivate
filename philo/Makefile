@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/19 01:54:11 by meghribe          #+#    #+#              #
-#    Updated: 2025/06/19 05:45:17 by meghribe         ###   ########.fr        #
+#    Updated: 2025/06/21 01:38:27 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -pthread
 SANITIZE= -g -fsanitize=address
 RM = rm -rf
 
-SRC = main.c
+SRC = main.c utils.c init.c routine.c monitor.c
 INCLUDE = philo.h
 OBJ = $(SRC:.c=.o)
 

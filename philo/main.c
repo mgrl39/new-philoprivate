@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/21 01:24:18 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/21 01:39:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ void	ft_error(char *msg)
 }
 
 
-void	check_arguments(argc, argv)
+int	check_args(int argc, char *argv[])
 {
+	(void)argc;
+	(void)argv;
+	return (1);
 }
 int	main(int argc, char *argv[])
 {
