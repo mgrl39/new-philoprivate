@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/21 00:59:50 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/21 01:31:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef enum e_fork_side
 typedef struct s_philo
 {
 	int				id;
-	pthread_mutex_t	*left_fork[2];
+	pthread_mutex_t	*forks[2];
 }	t_philo;
 
 #endif
