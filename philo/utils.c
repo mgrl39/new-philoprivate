@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/19 03:27:13 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/21 00:45:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,17 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 		res = res * 10 + (nptr[i++] - 48);
 	return (res * mult);
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+long	get_time(void)
+{
+	struct timeval	tv;
+
+	// TODO: return 0 for success, or -1 for failure.
+	gettimeofday(&tv, NULL);
 }
