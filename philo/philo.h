@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/21 01:31:39 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/21 01:50:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,39 @@
  * number_of_times_each_philosopher_must_eat	-
  */
 
+typedef struct s_philo	t_philo;
+
 typedef enum e_fork_side
 {
 	LEFT = 0,
 	RIGHT = 1
 }	t_fork_side;
 
+typedef struct s_data
+{
+	int		num_philos;
+	int		time_to_die;
+	int		time_to_eat;
+	int		time_to_sleep;
+	int		num_meals;
+	int		all_ate;
+	int		someone_died;
+	long		start_time;
+	t_philo		*philos;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	write_lock;
+	pthread_mutex_t	meal_lock;
+	pthread_mutex_t	death_lock;
+}	t_data;
+
 typedef struct s_philo
 {
 	int				id;
+	int				meals_eaten;
+	long			last_meal_time;
 	pthread_mutex_t	*forks[2];
+	pthread_t		thread;
+	t_data			*data;
 }	t_philo;
 
 #endif
