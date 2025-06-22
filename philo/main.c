@@ -14,8 +14,7 @@
 
 int	ft_error(char *msg)
 {
-	printf("%s%s%s\n", RED, msg, RESET);
-	return (1);
+	return (!!printf("%s%s%s\n", RED, msg, RESET));
 }
 
 int	check_args(int argc, char *argv[])
