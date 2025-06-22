@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 06:55:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/22 08:39:22 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	take_forks(t_philo *philo)
 {
+	if (!philo)
+		return ;
 	pthread_mutex_lock(philo->forks[LEFT]);
 	print_status(philo, MSG_FORK);
 	pthread_mutex_lock(philo->forks[RIGHT]);
@@ -22,6 +24,8 @@ static void	take_forks(t_philo *philo)
 
 static void	eat(t_philo *philo)
 {
+	if (!philo)
+		return ;
 	print_status(philo, MSG_EAT);
 	pthread_mutex_lock(&philo->data->locks.meal_lock);
 	philo->last_meal_time = get_time();
@@ -34,6 +38,8 @@ static void	eat(t_philo *philo)
 
 static void	sleep_and_think(t_philo *philo)
 {
+	if (!philo)
+		return ;
 	print_status(philo, MSG_SLEEP);
 	usleep(philo->data->times.to_sleep * 1000);
 	print_status(philo, MSG_THINK);
