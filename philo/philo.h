@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 06:57:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/22 08:21:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int		ft_philo_atoi(const char *str, int *result);
 void	print_status(t_philo *philo, char *msg);
 long	get_time(void);
 int		ft_error(char *msg);
-int	init_philos(t_data *data);
-int	init_mutexes(t_data *data);
+int		init_philos(t_data *data);
+int		init_mutexes(t_data *data);
 
 #endif
