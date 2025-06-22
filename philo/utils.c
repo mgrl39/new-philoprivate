@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 04:56:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/22 06:58:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_isdigit(int c)
 
 int	ft_philo_atoi(const char *str, int *result)
 {
-	size_t	i;
+	size_t			i;
 	long long		num;
 
 	i = 0;
@@ -44,7 +44,6 @@ int	ft_philo_atoi(const char *str, int *result)
 	return (1);
 }
 
-
 long	get_time(void)
 {
 	struct timeval	tv;
@@ -52,4 +51,17 @@ long	get_time(void)
 	if (gettimeofday(&tv, NULL) == -1)
 		return (-1);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
+
+void	print_status(t_philo *philo, char *msg)
+{
+	long	timestamp;
+
+	pthread_mutex_lock(&philo->data->locks.write_lock);
+	if (!philo->data->someone_died)
+	{
+		timestamp = get_time() - philo->data->start_time;
+		printf("%ld %d %s\n", timestamp, philo->id, msg);
+	}
+	pthread_mutex_unlock(&philo->data->locks.write_lock);
 }
