@@ -47,14 +47,6 @@
 # define GOLD	"\033[38;5;220m"
 # define GREEN	"\033[38;5;120m"
 
-/**
- * number_of_philosophers						-	
- * time_to_die									-
- * time_to_eat									-
- * time_to_sleep								-
- * number_of_times_each_philosopher_must_eat	-
- */
-
 typedef struct s_philo	t_philo;
 
 typedef enum e_fork_side
@@ -63,26 +55,45 @@ typedef enum e_fork_side
 	RIGHT = 1
 }	t_fork_side;
 
+typedef struct e_state
+{
+	THINKING = 0,
+	EATING = 1,
+	SLEEPING = 2,
+	DEAD = 3
+}	t_state;
+
+typedef struct s_timings
+{
+	int		to_die;
+	int     to_eat;
+	int     to_sleep;
+}	t_timings;
+
+typedef struct s_mutex
+{
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	write_lock;
+	pthread_mutex_t	meal_lock;
+	pthread_mutex_t	death_lock;
+}	t_mutex;
+
 typedef struct s_data
 {
 	int		num_philos;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
 	int		num_meals;
 	int		all_ate;
 	int		someone_died;
 	long		start_time;
 	t_philo		*philos;
-	pthread_mutex_t	*forks;
-	pthread_mutex_t	write_lock;
-	pthread_mutex_t	meal_lock;
-	pthread_mutex_t	death_lock;
+	t_timings	times;
+	t_mutex		locks;
 }	t_data;
 
 typedef struct s_philo
 {
 	int				id;
+	t_state			state;
 	int				meals_eaten;
 	long			last_meal_time;
 	pthread_mutex_t	*forks[2];
