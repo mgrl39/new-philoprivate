@@ -34,6 +34,10 @@
 # define MSG_THINK "is thinking"
 # define MSG_DIED "died"
 
+/* Warning Messages */
+# define MSG_MUTEX_DESTROY_ERR "Warning: Failed to destroy %s"
+# define MSG_FORK_DESTROY_ERR "Warning: Failed to destroy fork mutex %d"
+
 /*
  * memset, printf, malloc, free, write,
  * usleep, gettimeofday, pthread_create,
@@ -105,5 +109,7 @@ int		ft_philo_atoi(const char *str, int *result);
 void	print_status(t_philo *philo, char *msg);
 long	get_time(void);
 int		ft_error(char *msg);
+int	init_philos(t_data *data);
+int	init_mutexes(t_data *data);
 
 #endif
