@@ -12,24 +12,23 @@
 
 #include "philo.h"
 
-void	ft_error(char *msg)
+int	ft_error(char *msg)
 {
-	printf("%s\n", msg);
+	printf("%s%s%s\n", RED, msg, RESET);
+	return (1);
 }
-
 
 int	check_args(int argc, char *argv[])
 {
-	(void)argc;
-	(void)argv;
-	return (1);
+	return ((void)argc, (void)argv, 1);
 }
+
 int	main(int argc, char *argv[])
 {
 	if (argc < 5 || argc > 6)
-		return (ft_error(RED MSG_USAGE RESET), 1);
+		return (ft_error(MSG_USAGE));
 	if (!check_args(argc, argv))
-		return (ft_error(RED MSG_INVALID_ARGS), 1);
+		return (ft_error(MSG_INVALID_ARGS));
 	return (0);
 	(void)argv;
 }

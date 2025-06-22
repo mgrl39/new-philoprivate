@@ -55,7 +55,7 @@ typedef enum e_fork_side
 	RIGHT = 1
 }	t_fork_side;
 
-typedef struct e_state
+typedef enum e_state
 {
 	THINKING = 0,
 	EATING = 1,
