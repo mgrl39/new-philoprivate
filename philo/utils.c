@@ -57,11 +57,17 @@ void	print_status(t_philo *philo, char *msg)
 {
 	long	timestamp;
 
+	if (!philo || !msg || !philo->data)
+		return ;
 	pthread_mutex_lock(&philo->data->locks.write_lock);
 	if (!philo->data->someone_died)
 	{
-		timestamp = get_time() - philo->data->start_time;
-		printf("%ld %d %s\n", timestamp, philo->id, msg);
+		timestamp = get_time();
+		if (timestamp != -1)
+		{
+			timestamp -= philo->data->start_time;
+			printf("%ld %d %s\n", timestamp, philo->id, msg);
+		}
 	}
 	pthread_mutex_unlock(&philo->data->locks.write_lock);
 }
