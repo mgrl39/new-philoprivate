@@ -6,35 +6,44 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/21 01:18:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/22 04:56:30 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include "limits.h"
 
-int	ft_atoi(const char *nptr)
-{
-	size_t	i;
-	int		res;
-	int		mult;
-
-	i = 0;
-	res = 0;
-	mult = 1;
-	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-		if (nptr[i++] == '-')
-			mult = -1;
-	while (nptr[i] >= 48 && nptr[i] <= 57)
-		res = res * 10 + (nptr[i++] - 48);
-	return (res * mult);
-}
-
-int	ft_isdigit(int c)
+static int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
+
+int	ft_philo_atoi(const char *str, int *result)
+{
+	size_t	i;
+	long long		num;
+
+	i = 0;
+	num = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+')
+		i++;
+	if (!ft_isdigit(str[i]))
+		return (0);
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		num = num * 10 + (str[i] - '0');
+		if (num > INT_MAX)
+			return (0);
+		i++;
+	}
+	if (str[i] != '\0' || num == 0)
+		return (0);
+	*result = (int)num;
+	return (1);
+}
+
 
 long	get_time(void)
 {

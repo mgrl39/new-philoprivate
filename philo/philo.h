@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/21 01:50:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/22 04:52:29 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,6 @@ typedef struct s_philo
 	t_data			*data;
 }	t_philo;
 
+
+int     ft_philo_atoi(const char *str, int *result);
 #endif
