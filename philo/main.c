@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/25 16:29:09 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:38:42 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	ft_error(char *msg)
 /**
  * @brief Parses and validates command line arguments.
  *
- * Converts arguments to integers and checks validity. Sets default for num meals if not provided.
+ * Converts arguments to integers and checks validity. 
+ * Sets default for num meals if not provided.
  *
  * @param argc Argument count
  * @param argv Argument vector

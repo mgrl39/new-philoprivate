@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/25 16:19:29 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:38:29 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	init_mutexes(t_data *data)
 /**
  * Initializes the philosoher structures/
  *
- * Allocates memory for each philosopher and sets their IDs, pointer to the shared data
+ * Allocates memory for each philosopher and sets their IDs, 
+ * pointer to the shared data
  * and assigns the correspondign left and right forks (mutex pointers).
  *
  * @param data Pointer to the shared data structure.
