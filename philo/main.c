@@ -20,9 +20,9 @@ int	ft_error(char *msg)
 static	int	check_args(int argc, char *argv[], t_data *data)
 {
 	if (!ft_philo_atoi(argv[1], &data->num_philos)
-		|| !ft_philo_atoi(argv[2], &data->times.to_die)
-		|| !ft_philo_atoi(argv[3], &data->times.to_eat)
-		|| !ft_philo_atoi(argv[4], &data->times.to_sleep)
+		|| !ft_philo_atoi(argv[2], &data->time_to_die)
+		|| !ft_philo_atoi(argv[3], &data->time_to_eat)
+		|| !ft_philo_atoi(argv[4], &data->time_to_sleep)
 		|| (argc == 6 && !ft_philo_atoi(argv[5], &data->num_meals)))
 		return (ft_error(MSG_INVALID_ARGS));
 	if (argc == 5)
@@ -48,22 +48,22 @@ void	clean_data(t_data *data)
 
 	if (!data)
 		return ;
-	if (data->locks.forks)
+	if (data->forks)
 	{
 		i = 0;
 		while (i < data->num_philos)
 		{
-			if (pthread_mutex_destroy(&data->locks.forks[i]) != 0)
+			if (pthread_mutex_destroy(&data->forks[i]) != 0)
 				printf("%s" MSG_FORK_DESTROY_ERR "%s\n", RED, i, RESET);
 			i++;
 		}
-		free(data->locks.forks);
+		free(data->forks);
 	}
-	if (pthread_mutex_destroy(&data->locks.write_lock) != 0)
+	if (pthread_mutex_destroy(&data->write_lock) != 0)
 		printf("%s" MSG_MUTEX_DESTROY_ERR "%s\n", RED, "write lock", RESET);
-	if (pthread_mutex_destroy(&data->locks.meal_lock) != 0)
+	if (pthread_mutex_destroy(&data->meal_lock) != 0)
 		printf("%s" MSG_MUTEX_DESTROY_ERR "%s\n", RED, "meal lock", RESET);
-	if (pthread_mutex_destroy(&data->locks.death_lock) != 0)
+	if (pthread_mutex_destroy(&data->death_lock) != 0)
 		printf("%s" MSG_MUTEX_DESTROY_ERR "%s\n", RED, "death lock", RESET);
 	if (data->philos)
 		free(data->philos);

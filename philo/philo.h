@@ -51,53 +51,32 @@
 # define GOLD	"\033[38;5;220m"
 # define GREEN	"\033[38;5;120m"
 
+/* Fork indices */
+# define LEFT 0
+# define RIGHT 1
+
 typedef struct s_philo	t_philo;
 
-typedef enum e_fork_side
+typedef struct s_data
 {
-	LEFT = 0,
-	RIGHT = 1
-}	t_fork_side;
-
-typedef enum e_state
-{
-	THINKING = 0,
-	EATING = 1,
-	SLEEPING = 2,
-	DEAD = 3
-}	t_state;
-
-typedef struct s_timings
-{
-	int		to_die;
-	int		to_eat;
-	int		to_sleep;
-}	t_timings;
-
-typedef struct s_mutex
-{
+	int				num_philos;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				num_meals;
+	int				all_ate;
+	int				someone_died;
+	long			start_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write_lock;
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	death_lock;
-}	t_mutex;
-
-typedef struct s_data
-{
-	int			num_philos;
-	int			num_meals;
-	int			all_ate;
-	int			someone_died;
-	long		start_time;
-	t_philo		*philos;
-	t_timings	times;
-	t_mutex		locks;
+	t_philo			*philos;
 }	t_data;
 
 typedef struct s_philo
 {
 	int				id;
-	t_state			state;
 	int				meals_eaten;
 	long			last_meal_time;
 	pthread_mutex_t	*forks[2];
@@ -105,11 +84,13 @@ typedef struct s_philo
 	t_data			*data;
 }	t_philo;
 
+/* Function prototypes */
 int		ft_philo_atoi(const char *str, int *result);
 void	print_status(t_philo *philo, char *msg);
 long	get_time(void);
 int		ft_error(char *msg);
 int		init_philos(t_data *data);
 int		init_mutexes(t_data *data);
+void	*philosopher_routine(void *arg);
 
 #endif
