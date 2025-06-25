@@ -27,11 +27,11 @@ static void	eat(t_philo *philo)
 	if (!philo)
 		return ;
 	print_status(philo, MSG_EAT);
-	pthread_mutex_lock(&philo->data->locks.meal_lock);
+	pthread_mutex_lock(&philo->data->meal_lock);
 	philo->last_meal_time = get_time();
 	philo->meals_eaten++;
-	pthread_mutex_unlock(&philo->data->locks.meal_lock);
-	usleep(philo->data->times.to_eat * 1000);
+	pthread_mutex_unlock(&philo->data->meal_lock);
+	usleep(philo->data->time_to_eat * 1000);
 	pthread_mutex_unlock(philo->forks[RIGHT]);
 	pthread_mutex_unlock(philo->forks[LEFT]);
 }
@@ -41,7 +41,7 @@ static void	sleep_and_think(t_philo *philo)
 	if (!philo)
 		return ;
 	print_status(philo, MSG_SLEEP);
-	usleep(philo->data->times.to_sleep * 1000);
+	usleep(philo->data->time_to_sleep * 1000);
 	print_status(philo, MSG_THINK);
 }
 
@@ -52,7 +52,7 @@ void	*philosopher_routine(void *arg)
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
 		usleep(1000);
-	while (!philo->data->someone_died && (philo->data->num_meals == -1\
+	while (!philo->data->someone_died && (philo->data->num_meals == -1 \
 	|| philo->meals_eaten < philo->data->num_meals))
 	{
 		take_forks(philo);
