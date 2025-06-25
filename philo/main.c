@@ -6,17 +6,33 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/25 15:44:35 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:29:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/**
+ * @brief Prints an error message and returns 1.
+ *
+ * @param msg The error message to print.
+ * @return Always returns 1 (as boolean).
+ */
 int	ft_error(char *msg)
 {
 	return (!!printf("%s%s%s\n", RED, msg, RESET));
 }
 
+/**
+ * @brief Parses and validates command line arguments.
+ *
+ * Converts arguments to integers and checks validity. Sets default for num meals if not provided.
+ *
+ * @param argc Argument count
+ * @param argv Argument vector
+ * @param data Pointer to the shared data structure
+ * @return 0 on succes, 1 on failure
+ */
 static	int	check_args(int argc, char *argv[], t_data *data)
 {
 	if (!ft_philo_atoi(argv[1], &data->num_philos)
@@ -30,6 +46,14 @@ static	int	check_args(int argc, char *argv[], t_data *data)
 	return (0);
 }
 
+/**
+ * @brief Initializes the shared data structure and all related resources.
+ *
+ * Sets all memory to zero, then initializes mutexes and philosophers.
+ *
+ * @param data Pointer to the shared data structure
+ * return 0 on succes, 1 on failure.
+ */
 static int	init_data(t_data *data)
 {
 	memset(data, 0, sizeof(t_data));
@@ -40,6 +64,13 @@ static int	init_data(t_data *data)
 	return (0);
 }
 
+/**
+ * @brief cleans up and frees all allocated resources.
+ *
+ * Destroys all mutexes and frees allocated memory for forks and philosophers.
+ *
+ * @param data Pointer to the shared data structure.
+ */
 void	clean_data(t_data *data)
 {
 	int	i;
@@ -67,6 +98,15 @@ void	clean_data(t_data *data)
 		free(data->philos);
 }
 
+/**
+ * @brief Main entry point of the program.
+ *
+ * Parser arguments, initializes data, and performs cleanup.
+ *
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @return 0 on succes, 1 on failure.
+ */
 int	main(int argc, char *argv[])
 {
 	t_data	data;
