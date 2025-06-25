@@ -6,12 +6,21 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 07:37:19 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:19:29 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/**
+ * Initializes the mutexes required for the simulation
+ *
+ * Allocates and initializes one mutex per fork, as well as separate mutexes for
+ * writing output, meal tracking, and death detection.
+ *
+ * @param data Pointer to the shared data structure
+ * @return 0 on succes, 1 on failure
+ */
 int	init_mutexes(t_data *data)
 {
 	int	i;
@@ -33,6 +42,15 @@ int	init_mutexes(t_data *data)
 	return (0);
 }
 
+/**
+ * Initializes the philosoher structures/
+ *
+ * Allocates memory for each philosopher and sets their IDs, pointer to the shared data
+ * and assigns the correspondign left and right forks (mutex pointers).
+ *
+ * @param data Pointer to the shared data structure.
+ * @return 0 on succes, 1 on failure
+ */
 int	init_philos(t_data *data)
 {
 	int	i;
