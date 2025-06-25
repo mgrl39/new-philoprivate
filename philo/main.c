@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 08:22:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/25 15:44:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ static	int	check_args(int argc, char *argv[], t_data *data)
 static int	init_data(t_data *data)
 {
 	memset(data, 0, sizeof(t_data));
-	data->someone_died = 0;
-	data->all_ate = 0;
 	if (init_mutexes(data))
 		return (1);
 	if (init_philos(data))
