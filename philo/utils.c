@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 07:24:43 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:34:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	print_status(t_philo *philo, char *msg)
 	if (!philo || !msg || !philo->data)
 		return ;
 	pthread_mutex_lock(&philo->data->write_lock);
-	if (!philo->data->someone_died)
+	if (!check_death_flag(philo->data))
 	{
 		timestamp = get_time();
 		if (timestamp != -1)

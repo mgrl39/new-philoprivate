@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 10:26:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:33:44 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,15 @@ void	*philo_loop(void *arg)
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
 		usleep(1000);
-	while (!philo->data->someone_died && (philo->data->num_meals == -1 \
+	while (!check_death_flag(philo->data) && (philo->data->num_meals == -1 \
 	|| philo->meals_eaten < philo->data->num_meals))
 	{
 		take_forks(philo);
 		eat(philo);
-		sleep_and_think(philo);
+		if (philo->forks[RIGHT])
+			sleep_and_think(philo);
+		else
+			usleep(1000);
 	}
 	return (NULL);
 }
