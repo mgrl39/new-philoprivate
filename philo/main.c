@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 06:32:22 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 06:41:14 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putstr_fd(char *s, int fd)
 	i = 0;
 	while (s[i])
 		i++;
-	write(fd, &s, i);
+	write(fd, s, i);
 }
 
 /**
@@ -111,6 +111,12 @@ void	clean_data(t_data *data)
 		free(data->philos);
 }
 
+
+int	start_simulation(t_data	*data)
+{
+	return ((void)data, 0);
+}
+
 /**
  * @brief Main entry point of the program.
  *
@@ -130,6 +136,11 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (init_data(&data))
 		return (1);
+	if (start_simulation(&data))
+	{
+		clean_data(&data);
+		return (1);
+	}
 	clean_data(&data);
 	return (0);
 }

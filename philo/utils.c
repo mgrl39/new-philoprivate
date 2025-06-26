@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 06:58:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 07:24:43 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	print_status(t_philo *philo, char *msg)
 		if (timestamp != -1)
 		{
 			timestamp -= philo->data->start_time;
-			printf("%ld %d %s\n", timestamp, philo->id, msg);
+			printf("%6ld %d %s\n", timestamp, philo->id, msg);
 		}
 	}
 	pthread_mutex_unlock(&philo->data->write_lock);
