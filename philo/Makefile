@@ -6,14 +6,14 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/19 01:54:11 by meghribe          #+#    #+#              #
-#    Updated: 2025/06/21 01:38:27 by meghribe         ###   ########.fr        #
+#    Updated: 2025/06/26 08:11:01 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
-SANITIZE= -g -fsanitize=address
+SANITIZE= -g -fsanitize=thread
 RM = rm -rf
 
 SRC = main.c utils.c init.c routine.c monitor.c

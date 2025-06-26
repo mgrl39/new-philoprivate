@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 08:39:22 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 07:34:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	sleep_and_think(t_philo *philo)
 	print_status(philo, MSG_THINK);
 }
 
-void	*philosopher_routine(void *arg)
+void	*philo_loop(void *arg)
 {
 	t_philo	*philo;
 

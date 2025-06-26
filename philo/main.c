@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 06:41:14 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 08:46:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	ft_putstr_fd(char *s, int fd)
  */
 int	ft_error(char *msg)
 {
-	return (!!printf("%s%s%s\n", RED, msg, RESET));
+	ft_putstr_fd(RED, 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd(RESET, 2);
+	return (ft_putstr_fd("\n", 2), 1);
 }
 
 /**
@@ -137,10 +140,6 @@ int	main(int argc, char *argv[])
 	if (init_data(&data))
 		return (1);
 	if (start_simulation(&data))
-	{
-		clean_data(&data);
-		return (1);
-	}
-	clean_data(&data);
-	return (0);
+		return (clean_data(&data), 1);
+	return (clean_data(&data), 0);
 }

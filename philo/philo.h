@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/22 08:21:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 08:29:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 /* Error Messages */
 # define MSG_USAGE "Usage: ./philo n_philos t_die t_eat t_sleep [n_meals]"
-# define MSG_INVALID_ARGS "Error: Arguments must be positive integers"
-# define MSG_MALLOC_ERR "Error: memory allocation failed"
+# define MSG_INVALID_ARGS "Error: Invalid input. Use positive integers only."
 # define MSG_THREAD_ERR "Error: Thread creation failed"
+# define MSG_MALLOC_ERR "Error: Memory allocation failed"
 # define MSG_MUTEX_ERR "Error: Mutex initialization failed"
 
 /* Status Messages */
