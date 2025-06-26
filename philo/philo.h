@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 09:08:08 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:18:50 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,5 @@ int		init_philos(t_data *data);
 int		init_mutexes(t_data *data);
 void	*philosopher_routine(void *arg);
 void	*philo_loop(void *arg);
+void	monitor_simulation(t_data *data);
 #endif

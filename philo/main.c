@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 09:07:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:18:25 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void	clean_data(t_data *data)
 		free(data->philos);
 }
 
-
 int	start_simulation(t_data	*data)
 {
 	int	i;
@@ -127,8 +126,7 @@ int	start_simulation(t_data	*data)
 			return (ft_error(MSG_THREAD_ERR));
 		i++;
 	}
-	usleep(5000000);
-	data->someone_died = 1;
+	monitor_simulation(data);
 	i = 0;
 	while (i < data->num_philos)
 		pthread_join(data->philos[i++].thread, NULL);

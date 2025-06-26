@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 07:34:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:26:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,22 @@ static void	take_forks(t_philo *philo)
 		return ;
 	pthread_mutex_lock(philo->forks[LEFT]);
 	print_status(philo, MSG_FORK);
-	pthread_mutex_lock(philo->forks[RIGHT]);
-	print_status(philo, MSG_FORK);
+	if (philo->forks[RIGHT])
+	{
+		pthread_mutex_lock(philo->forks[RIGHT]);
+		print_status(philo, MSG_FORK);
+	}
 }
 
 static void	eat(t_philo *philo)
 {
 	if (!philo)
 		return ;
+	if (!philo->forks[RIGHT])
+	{
+		pthread_mutex_unlock(philo->forks[LEFT]);
+		return ;
+	}
 	print_status(philo, MSG_EAT);
 	pthread_mutex_lock(&philo->data->meal_lock);
 	philo->last_meal_time = get_time();
