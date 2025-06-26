@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 10:19:47 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:45:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
  */
 void	set_death_flag(t_data *data)
 {
-	(void)data;
 	pthread_mutex_lock(&data->death_lock);
 	data->someone_died = 1;
 	pthread_mutex_unlock(&data->death_lock);
@@ -86,6 +85,7 @@ void	monitor_simulation(t_data *data)
 {
 	int	i;
 
+	usleep(5000);
 	while (!check_death_flag(data))
 	{
 		i = 0;
