@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 08:46:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/26 09:07:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ static	int	check_args(int argc, char *argv[], t_data *data)
 static int	init_data(t_data *data)
 {
 	memset(data, 0, sizeof(t_data));
+	data->start_time = get_time();
 	if (init_mutexes(data))
 		return (1);
 	if (init_philos(data))
@@ -117,7 +118,21 @@ void	clean_data(t_data *data)
 
 int	start_simulation(t_data	*data)
 {
-	return ((void)data, 0);
+	int	i;
+
+	i = 0;
+	while (i < data->num_philos)
+	{
+		if (pthread_create(&data->philos[i].thread, NULL, philo_loop, &data->philos[i]))
+			return (ft_error(MSG_THREAD_ERR));
+		i++;
+	}
+	usleep(5000000);
+	data->someone_died = 1;
+	i = 0;
+	while (i < data->num_philos)
+		pthread_join(data->philos[i++].thread, NULL);
+	return (0);
 }
 
 /**
