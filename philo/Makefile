@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/19 01:54:11 by meghribe          #+#    #+#              #
-#    Updated: 2025/06/27 13:35:19 by meghribe         ###   ########.fr        #
+#    Updated: 2025/06/27 15:14:28 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ LDFLAGS = -pthread -fsanitize=thread
 RM = rm -rf
 MKDIR = mkdir -p
 
-SRC_DIR = src
+SRC_DIR = .
 OBJ_DIR = obj
-INC_DIR = include
+INC_DIR = .
 
 SRCS = main.c utils.c init.c routine.c monitor.c
 HEADER = $(INC_DIR)/philo.h
