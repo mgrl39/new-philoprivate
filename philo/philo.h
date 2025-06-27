@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:48:15 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 10:41:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	debug_print(const char *format, ...);
 # define RED	"\033[38;5;203m"
 # define GOLD	"\033[38;5;220m"
 # define GREEN	"\033[38;5;120m"
+# define BLUE	"\033[38;5;75m"
+# define PURPLE	"\033[38;5;147m"
 
 /* Fork indices */
 # define LEFT 0

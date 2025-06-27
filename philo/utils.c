@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:41:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 10:54:17 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,16 @@ long	get_time(void)
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
 void	print_status(t_philo *philo, char *msg)
 {
 	long	timestamp;
@@ -90,7 +100,19 @@ void	print_status(t_philo *philo, char *msg)
 		if (timestamp != -1)
 		{
 			timestamp -= philo->table->start_time;
-			printf("%6ld %d %s\n", timestamp, philo->id, msg);
+			printf("%06ld %d ", timestamp, philo->id);
+			if (ft_strcmp(msg, MSG_FORK) == 0)
+				printf(GOLD "%s" RESET "\n", msg);
+			else if (ft_strcmp(msg, MSG_EAT) == 0)
+				printf(GREEN "%s" RESET "\n", msg);
+			else if (ft_strcmp(msg, MSG_SLEEP) == 0)
+				printf("\033[38;5;75m%s" RESET "\n", msg);
+			else if (ft_strcmp(msg, MSG_THINK) == 0)
+				printf("\033[38;5;147m%s" RESET "\n", msg);
+			else if (ft_strcmp(msg, MSG_DIED) == 0)
+				printf(RED "%s" RESET "\n", msg);
+			else
+				printf("%s\n", msg);
 		}
 	}
 	pthread_mutex_unlock(&philo->table->write_lock);

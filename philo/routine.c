@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 10:28:43 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 11:11:26 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static void	eat(t_philo *philo)
 	if (!philo->forks[RIGHT])
 	{
 		debug_print("Filosofo %d no uede comer (solo tiene un tenedor)", philo->id);
-		pthread_mutex_unlock(philo->forks[LEFT]);
+		//pthread_mutex_unlock(philo->forks[LEFT]);
 		return ;
 	}
 	debug_print("Filosofo %d comienodo", philo->id);
@@ -164,7 +164,10 @@ void	*philo_loop(void *arg)
 			/**
 			 * Caso especial: filosof cno un solo tenedor no puede comer, asi que solo espera a morir */
 			debug_print("Filosofo %d esperando morir (sin tenedor derecho)", philo->id);
-			usleep(1000);
+			while (!check_death_flag(philo->table))
+				usleep(1000);
+			pthread_mutex_unlock(philo->forks[LEFT]);
+			break ;
 		}
 	}
 	return (NULL);
