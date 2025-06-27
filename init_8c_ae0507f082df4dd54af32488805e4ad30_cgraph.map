@@ -1,0 +1,18 @@
+<map id="init_table" name="init_table">
+<area shape="rect" id="Node000001" title="Initializes the shared table structure and all related resources." alt="" coords="5,50,88,75"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#ae454cdf1e6c8d3be9256a937f11efa39" title="Prints debug messages if DEBUG is enabled." alt="" coords="291,25,389,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,48,95,27,135,10,176,3,217,4,290,18,289,23,216,10,176,9,137,15,98,31,66,52"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="149,123,229,149"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="71,73,137,110,148,115,146,120,135,114,69,78"/>
+<area shape="rect" id="Node000004" href="$init_8c.html#a803da164314e505c37bb43299d8ed14a" title=" " alt="" coords="136,25,243,50"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="88,53,122,47,123,52,89,58"/>
+<area shape="rect" id="Node000007" href="$init_8c.html#ad0c577bbe9ae96b5220d6fb28201119b" title=" " alt="" coords="145,74,234,99"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="89,67,131,74,131,80,88,72"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="243,35,277,35,277,40,243,40"/>
+<area shape="rect" id="Node000005" href="$utils_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="305,74,375,99"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="230,48,293,69,291,74,228,53"/>
+<area shape="rect" id="Node000006" href="$utils_8c.html#acefce9ac519f8f8b7d3fde33dbafe469" title=" " alt="" coords="437,74,533,99"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="375,84,424,84,424,89,375,89"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="228,72,286,52,288,57,230,77"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="234,84,292,84,292,89,234,89"/>
+</map>

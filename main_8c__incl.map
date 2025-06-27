@@ -1,0 +1,17 @@
+<map id="philo/main.c" name="philo/main.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="228,5,331,31"/>
+<area shape="rect" id="Node000002" href="$philo_8h.html" title=" " alt="" coords="246,79,313,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,31,282,65,277,65,277,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,76,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="246,105,90,152,88,146,245,100"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="100,152,171,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="257,106,172,148,170,143,255,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="195,152,270,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="274,106,250,142,246,139,269,103"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="294,152,361,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="289,103,314,139,310,142,285,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="385,152,469,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="304,102,392,144,390,148,302,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="494,152,585,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="313,99,485,146,483,151,312,104"/>
+</map>

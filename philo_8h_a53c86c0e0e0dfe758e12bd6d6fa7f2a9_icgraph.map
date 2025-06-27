@@ -1,0 +1,7 @@
+<map id="ft_philo_atoi" name="ft_philo_atoi">
+<area shape="rect" id="Node000001" title=" " alt="" coords="251,5,353,31"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a32eb5a782cae7fe8bf61cbc040cd4b3a" title="Parses and validates command line arguments." alt="" coords="108,5,203,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,21,203,21,203,15,237,15"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
+</map>

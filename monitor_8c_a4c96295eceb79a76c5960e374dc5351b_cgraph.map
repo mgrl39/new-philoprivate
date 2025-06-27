@@ -1,0 +1,14 @@
+<map id="check_philo_death" name="check_philo_death">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,148,81"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="389,5,469,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,53,196,41,374,20,375,25,196,46,132,59"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="205,56,304,81"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,66,191,66,191,71,148,71"/>
+<area shape="rect" id="Node000006" href="$monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42" title=" " alt="" coords="196,105,313,131"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="124,79,195,99,194,104,122,84"/>
+<area shape="poly" id="edge5_Node000003_Node000002" title=" " alt="" coords="298,53,374,31,376,36,300,58"/>
+<area shape="rect" id="Node000004" href="$monitor_8c.html#a8faea8170611d67c9e4a7b8039ded7a2" title=" " alt="" coords="361,55,496,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="304,66,347,65,348,71,304,71"/>
+<area shape="rect" id="Node000005" href="$utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="387,104,470,129"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="302,79,374,99,373,104,301,84"/>
+</map>
