@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 08:57:28 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:34:03 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	init_philos(t_data *data)
 		debug_print("Configurando filosofo %d", i + 1);
 		data->philos[i].id = i + 1;
 		data->philos[i].data = data;
+		data->philos[i].meals_eaten = 0;
 		data->philos[i].last_meal_time = data->start_time;
 		data->philos[i].forks[LEFT] = &data->forks[i];
 		data->philos[i].forks[RIGHT] = &data->forks[(i + 1) % data->num_philos];

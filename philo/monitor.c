@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:23:22 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:31:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,31 @@ int	check_all_ate(t_data *data)
 	int	i;
 	int	finished_eating;
 
+	debug_print("En check_all_ate: num_meals=%d", data->num_meals);
 	if (data->num_meals == -1)
+	{
+		debug_print("No hay limite de comidas, retornando 0");
 		return (0);
+	}
 	finished_eating = 0;
 	pthread_mutex_lock(&data->meal_lock);
 	i = 0;
 	while (i < data->num_philos)
 	{
+		debug_print("Filosofo %d ha comido %d veces (necesita %d)", 
+				i + 1, data->philos[i].meals_eaten, data->num_meals);
 		if (data->philos[i].meals_eaten >= data->num_meals)
 			finished_eating++;
 		i++;
 	}
 	pthread_mutex_unlock(&data->meal_lock);
+	debug_print("%d de %d filosofos han comido suficiente", finished_eating, data->num_philos);
 	if (finished_eating == data->num_philos)
+	{
+		debug_print("Todos los filosofos han comido suficiente!");
 		return (set_death_flag(data), 1);
+	}
+	debug_print("No todos los filosofso han comido suficiente");
 	return (0);
 }
 

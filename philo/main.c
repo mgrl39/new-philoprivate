@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:02:46 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:28:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static	int	check_args(int argc, char *argv[], t_data *data)
 		|| !ft_philo_atoi(argv[4], &data->time_to_sleep)
 		|| (argc == 6 && !ft_philo_atoi(argv[5], &data->num_meals)))
 		return (ft_error(MSG_INVALID_ARGS));
-	if (argc == 5)
+	if ((argc == 6 && data->num_meals == 0) || (argc == 5))
 		data->num_meals = -1;
 	return (0);
 }
