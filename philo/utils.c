@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 10:34:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 08:31:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,3 +71,30 @@ void	print_status(t_philo *philo, char *msg)
 	}
 	pthread_mutex_unlock(&philo->data->write_lock);
 }
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+		i++;
+	write(fd, s, i);
+}
+
+/**
+ * @brief Prints an error message and returns 1.
+ *
+ * @param msg The error message to print.
+ * @return Always returns 1 (as boolean).
+ */
+int	ft_error(char *msg)
+{
+	ft_putstr_fd(RED, 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd(RESET, 2);
+	return (ft_putstr_fd("\n", 2), 1);
+}
+

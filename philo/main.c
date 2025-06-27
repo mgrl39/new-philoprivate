@@ -6,37 +6,11 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 10:18:25 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 08:31:29 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-		i++;
-	write(fd, s, i);
-}
-
-/**
- * @brief Prints an error message and returns 1.
- *
- * @param msg The error message to print.
- * @return Always returns 1 (as boolean).
- */
-int	ft_error(char *msg)
-{
-	ft_putstr_fd(RED, 2);
-	ft_putstr_fd(msg, 2);
-	ft_putstr_fd(RESET, 2);
-	return (ft_putstr_fd("\n", 2), 1);
-}
 
 /**
  * @brief Parses and validates command line arguments.
