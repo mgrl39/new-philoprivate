@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:41:25 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:45:32 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ int	init_philos(t_table *table)
 int	init_table(t_table *table)
 {
 	debug_print("Iniciando init_table");
-	memset(table, 0, sizeof(t_table));
 	table->start_time = get_time();
 	debug_print("Tiempo de inicio: %ld", table->start_time);
 	debug_print("Iniciando mutexes");

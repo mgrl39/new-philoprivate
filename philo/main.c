@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:40:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:46:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ int	main(int argc, char *argv[])
 
 	if (argc < 5 || argc > 6)
 		return (ft_error(MSG_USAGE));
+	memset(&table, 0, sizeof(t_table));
 	debug_print("Validando argumentos");
 	if (check_args(argc, argv, &table))
 		return (1);
