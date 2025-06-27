@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 12:33:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:18:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,6 @@ int		ft_philo_atoi(const char *str, int *result);
 void	print_status(t_philo *philo, char *msg);
 long	get_time(void);
 int		ft_error(char *msg);
-int		init_philos(t_table *table);
-int		init_mutexes(t_table *table);
-void	*philosopher_routine(void *arg);
 void	*philo_loop(void *arg);
 void	monitor_simulation(t_table *table);
 int		check_death_flag(t_table *table);
