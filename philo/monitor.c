@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 12:32:04 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:19:34 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	check_all_ate(t_table *table)
 	i = 0;
 	while (i < table->num_philos)
 	{
-		debug_print("Filosofo %d ha comido %d veces (necesita %d)", 
+		debug_print("Filosofo %d ha comido %d veces (necesita %d)",
 				i + 1, table->philos[i].meals_eaten, table->num_meals);
 		if (table->philos[i].meals_eaten >= table->num_meals)
 			finished_eating++;
