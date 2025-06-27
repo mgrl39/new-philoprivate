@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:40:19 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:48:15 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
  * DEBUG MODE DEBUG MODE DEBUG MODE 
  * ================================
  */
-# define DEBUG 1
+# define DEBUG 0
 
 /* Debug function */
 void	debug_print(const char *format, ...);
