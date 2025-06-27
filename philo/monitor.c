@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/26 10:45:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:23:22 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,18 +85,28 @@ void	monitor_simulation(t_data *data)
 {
 	int	i;
 
+	debug_print("Monitor inicializado");
 	usleep(5000);
 	while (!check_death_flag(data))
 	{
 		i = 0;
 		while (i < data->num_philos && !check_death_flag(data))
 		{
+			debug_print("Verificando si filosofo %d ha muerto", i + 1);
 			if (check_philo_death(&data->philos[i]))
+			{
+				debug_print("Filosofo %d ha muerto!", i + 1);
 				return ;
+			}
 			i++;
 		}
+		debug_print("Verificando si todos han comido suficiente");
 		if (check_all_ate(data))
+		{
+			debug_print("Todos los filosofos han comido suficiente");
 			return ;
+		}
 		usleep(1000);
 	}
+	debug_print("Monitor terminado");
 }
