@@ -6,32 +6,44 @@
 #    By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/19 01:54:11 by meghribe          #+#    #+#              #
-#    Updated: 2025/06/26 08:11:01 by meghribe         ###   ########.fr        #
+#    Updated: 2025/06/27 13:35:19 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread
-SANITIZE= -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -g
+LDFLAGS = -pthread -fsanitize=thread
 RM = rm -rf
+MKDIR = mkdir -p
 
-SRC = main.c utils.c init.c routine.c monitor.c
-INCLUDE = philo.h
-OBJ = $(SRC:.c=.o)
+SRC_DIR = src
+OBJ_DIR = obj
+INC_DIR = include
+
+SRCS = main.c utils.c init.c routine.c monitor.c
+HEADER = $(INC_DIR)/philo.h
+
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+DEPS = $(OBJS:.o=.d)
 
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(SANITIZE) $(OBJ) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
 
-%.o:%.c $(INCLUDE) Makefile
-	$(CC) $(CFLAGS) $(SANITIZE) -c $< -o $@
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c $(HEADER) Makefile | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -MMD -MP -I $(INC_DIR) -c $< -o $@
+
+$(OBJ_DIR):
+	$(MKDIR) $(OBJ_DIR)
+
+-include $(DEPS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_DIR)
 
 .PHONY: fclean
 fclean: clean
