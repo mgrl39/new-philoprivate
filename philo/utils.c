@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:04:19 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:41:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,19 +81,19 @@ void	print_status(t_philo *philo, char *msg)
 {
 	long	timestamp;
 
-	if (!philo || !msg || !philo->data)
+	if (!philo || !msg || !philo->table)
 		return ;
-	pthread_mutex_lock(&philo->data->write_lock);
-	if (!check_death_flag(philo->data))
+	pthread_mutex_lock(&philo->table->write_lock);
+	if (!check_death_flag(philo->table))
 	{
 		timestamp = get_time();
 		if (timestamp != -1)
 		{
-			timestamp -= philo->data->start_time;
+			timestamp -= philo->table->start_time;
 			printf("%6ld %d %s\n", timestamp, philo->id, msg);
 		}
 	}
-	pthread_mutex_unlock(&philo->data->write_lock);
+	pthread_mutex_unlock(&philo->table->write_lock);
 }
 
 void	ft_putstr_fd(char *s, int fd)

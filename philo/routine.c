@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:21:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:41:32 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ static void	eat(t_philo *philo)
 	}
 	debug_print("Filosofo %d comienodo", philo->id);
 	print_status(philo, MSG_EAT);
-	pthread_mutex_lock(&philo->data->meal_lock);
+	pthread_mutex_lock(&philo->table->meal_lock);
 	philo->last_meal_time = get_time();
 	philo->meals_eaten++;
 	debug_print("Filosofo %d actualizado: comidas=%d, ultimo tiempo=%ld",
 			philo->id, philo->meals_eaten, philo->last_meal_time);
-	pthread_mutex_unlock(&philo->data->meal_lock);
-	usleep(philo->data->time_to_eat * 1000);
+	pthread_mutex_unlock(&philo->table->meal_lock);
+	usleep(philo->table->time_to_eat * 1000);
 	debug_print("Filosofo %d soltando tenedores", philo->id);
 	pthread_mutex_unlock(philo->forks[RIGHT]);
 	pthread_mutex_unlock(philo->forks[LEFT]);
@@ -64,7 +64,7 @@ static void	sleep_and_think(t_philo *philo)
 	if (!philo)
 		return ;
 	print_status(philo, MSG_SLEEP);
-	usleep(philo->data->time_to_sleep * 1000);
+	usleep(philo->table->time_to_sleep * 1000);
 	print_status(philo, MSG_THINK);
 }
 
@@ -76,8 +76,8 @@ void	*philo_loop(void *arg)
 	debug_print("Filosofo %d iniciado", philo->id);
 	if (philo->id % 2 == 0)
 		usleep(1000);
-	while (!check_death_flag(philo->data) && (philo->data->num_meals == -1 \
-	|| philo->meals_eaten < philo->data->num_meals))
+	while (!check_death_flag(philo->table) && (philo->table->num_meals == -1 \
+	|| philo->meals_eaten < philo->table->num_meals))
 	{
 		debug_print("Filosofo %d intentando comer tenedores", philo->id);
 		take_forks(philo);

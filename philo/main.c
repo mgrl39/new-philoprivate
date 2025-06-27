@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:28:04 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:40:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
  *
  * @param argc Argument count
  * @param argv Argument vector
- * @param data Pointer to the shared data structure
+ * @param table Pointer to the shared table structure
  * @return 0 on succes, 1 on failure
  */
-static	int	check_args(int argc, char *argv[], t_data *data)
+static	int	check_args(int argc, char *argv[], t_table *table)
 {
-	if (!ft_philo_atoi(argv[1], &data->num_philos)
-		|| !ft_philo_atoi(argv[2], &data->time_to_die)
-		|| !ft_philo_atoi(argv[3], &data->time_to_eat)
-		|| !ft_philo_atoi(argv[4], &data->time_to_sleep)
-		|| (argc == 6 && !ft_philo_atoi(argv[5], &data->num_meals)))
+	if (!ft_philo_atoi(argv[1], &table->num_philos)
+		|| !ft_philo_atoi(argv[2], &table->time_to_die)
+		|| !ft_philo_atoi(argv[3], &table->time_to_eat)
+		|| !ft_philo_atoi(argv[4], &table->time_to_sleep)
+		|| (argc == 6 && !ft_philo_atoi(argv[5], &table->num_meals)))
 		return (ft_error(MSG_INVALID_ARGS));
-	if ((argc == 6 && data->num_meals == 0) || (argc == 5))
-		data->num_meals = -1;
+	if ((argc == 6 && table->num_meals == 0) || (argc == 5))
+		table->num_meals = -1;
 	return (0);
 }
 
@@ -41,48 +41,48 @@ static	int	check_args(int argc, char *argv[], t_data *data)
  *
  * Destroys all mutexes and frees allocated memory for forks and philosophers.
  *
- * @param data Pointer to the shared data structure.
+ * @param table Pointer to the shared table structure.
  */
-void	clean_data(t_data *data)
+void	clean_table(t_table *table)
 {
 	int	i;
 
-	if (!data)
+	if (!table)
 		return ;
-	if (data->forks)
+	if (table->forks)
 	{
 		i = 0;
-		while (i < data->num_philos)
+		while (i < table->num_philos)
 		{
-			if (pthread_mutex_destroy(&data->forks[i]) != 0)
+			if (pthread_mutex_destroy(&table->forks[i]) != 0)
 				printf("%s" MSG_FORK_DESTROY_ERR "%s\n", RED, i, RESET);
 			i++;
 		}
-		free(data->forks);
+		free(table->forks);
 	}
-	if (pthread_mutex_destroy(&data->write_lock) != 0)
+	if (pthread_mutex_destroy(&table->write_lock) != 0)
 		printf("%s" MSG_MUTEX_DESTROY_ERR "%s\n", RED, "write lock", RESET);
-	if (pthread_mutex_destroy(&data->meal_lock) != 0)
+	if (pthread_mutex_destroy(&table->meal_lock) != 0)
 		printf("%s" MSG_MUTEX_DESTROY_ERR "%s\n", RED, "meal lock", RESET);
-	if (pthread_mutex_destroy(&data->death_lock) != 0)
+	if (pthread_mutex_destroy(&table->death_lock) != 0)
 		printf("%s" MSG_MUTEX_DESTROY_ERR "%s\n", RED, "death lock", RESET);
-	if (data->philos)
-		free(data->philos);
+	if (table->philos)
+		free(table->philos);
 }
 
 /**
  * Estaria bien meejorar la mierda esta de erro al crear hilo para filosofo.
  */
-int	start_simulation(t_data	*data)
+int	start_simulation(t_table	*table)
 {
 	int	i;
 
 	i = 0;
 	debug_print("Iniciando start_simulation");
-	while (i < data->num_philos)
+	while (i < table->num_philos)
 	{
 		debug_print("creando hilo para filosofo %d", i + 1);
-		if (pthread_create(&data->philos[i].thread, NULL, philo_loop, &data->philos[i]))
+		if (pthread_create(&table->philos[i].thread, NULL, philo_loop, &table->philos[i]))
 		{
 			debug_print("Error al crear hilo para filosofo %d", i + 1);
 			return (ft_error(MSG_THREAD_ERR));
@@ -91,13 +91,13 @@ int	start_simulation(t_data	*data)
 		i++;
 	}
 	debug_print("Todos los hilos creados, iniciando monitoreo");
-	monitor_simulation(data);
+	monitor_simulation(table);
 	debug_print("Monitoreo terminado, esperando a que terminen los hilos");
 	i = 0;
-	while (i < data->num_philos)
+	while (i < table->num_philos)
 	{
 		debug_print("Esperando a que termine el hilo del filosofo %d", i + 1);
-		pthread_join(data->philos[i++].thread, NULL);
+		pthread_join(table->philos[i++].thread, NULL);
 		debug_print("Hilo del filosofo %d terminado", i + 1);
 	}
 	debug_print("Todos los hilos terminados");
@@ -107,7 +107,7 @@ int	start_simulation(t_data	*data)
 /**
  * @brief Main entry point of the program.
  *
- * Parser arguments, initializes data, and performs cleanup.
+ * Parser arguments, initializes table, and performs cleanup.
  *
  * @param argc Argument count.
  * @param argv Argument vector.
@@ -115,19 +115,19 @@ int	start_simulation(t_data	*data)
  */
 int	main(int argc, char *argv[])
 {
-	t_data	data;
+	t_table	table;
 
 	if (argc < 5 || argc > 6)
 		return (ft_error(MSG_USAGE));
 	debug_print("Validando argumentos");
-	if (check_args(argc, argv, &data))
+	if (check_args(argc, argv, &table))
 		return (1);
 	debug_print("Inicializando datos");
-	if (init_data(&data))
+	if (init_table(&table))
 		return (1);
 	debug_print("Inicializando simulacion");
-	if (start_simulation(&data))
-		return (clean_data(&data), 1);
+	if (start_simulation(&table))
+		return (clean_table(&table), 1);
 	debug_print("Simulacion terminada");
-	return (clean_data(&data), 0);
+	return (clean_table(&table), 0);
 }

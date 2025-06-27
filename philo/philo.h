@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 08:49:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:40:19 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	debug_print(const char *format, ...);
 
 typedef struct s_philo	t_philo;
 
-typedef struct s_data
+typedef struct s_table
 {
 	int				num_philos;
 	int				time_to_die;
@@ -82,7 +82,7 @@ typedef struct s_data
 	pthread_mutex_t	meal_lock;
 	pthread_mutex_t	death_lock;
 	t_philo			*philos;
-}	t_data;
+}	t_table;
 
 typedef struct s_philo
 {
@@ -91,7 +91,7 @@ typedef struct s_philo
 	long			last_meal_time;
 	pthread_mutex_t	*forks[2];
 	pthread_t		thread;
-	t_data			*data;
+	t_table			*table;
 }	t_philo;
 
 /* Function prototypes */
@@ -99,11 +99,11 @@ int		ft_philo_atoi(const char *str, int *result);
 void	print_status(t_philo *philo, char *msg);
 long	get_time(void);
 int		ft_error(char *msg);
-int		init_philos(t_data *data);
-int		init_mutexes(t_data *data);
+int		init_philos(t_table *table);
+int		init_mutexes(t_table *table);
 void	*philosopher_routine(void *arg);
 void	*philo_loop(void *arg);
-void	monitor_simulation(t_data *data);
-int		check_death_flag(t_data *data);
-int		init_data(t_data *data);
+void	monitor_simulation(t_table *table);
+int		check_death_flag(t_table *table);
+int		init_table(t_table *table);
 #endif
