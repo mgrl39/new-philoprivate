@@ -6,13 +6,16 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 10:54:17 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 12:32:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include "limits.h"
+#include <limits.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/time.h>
 
 /**
  * TEMPORAL THING
