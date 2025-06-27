@@ -6,11 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:45:32 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 12:30:50 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <string.h>
+#include <stdlib.h>
 
 /**
  * Initializes the mutexes required for the simulation

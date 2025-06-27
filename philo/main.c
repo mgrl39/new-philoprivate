@@ -6,11 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 09:46:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 12:32:29 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * @brief Parses and validates command line arguments.
