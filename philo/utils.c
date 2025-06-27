@@ -6,12 +6,36 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 08:31:13 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 08:48:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include "limits.h"
+#include <stdarg.h>
+
+/**
+ * TEMPORAL THING
+ * @brief Prints debug messages if DEBUG is enabled.
+ *
+ * @param format Format string like printf
+ * @param ... Varibale arguments
+ */
+void	debug_print(const char *format, ...)
+{
+	va_list	args;
+
+	if (DEBUG)
+	{
+		va_start(args, format);
+		printf(GOLD);
+		printf("[DEBUG] ");
+		printf(RESET);
+		vprintf(format, args);
+		printf("\n");
+		va_end(args);
+	}
+}
 
 static int	ft_isdigit(int c)
 {

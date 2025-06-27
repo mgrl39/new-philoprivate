@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 08:31:29 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:02:46 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,6 @@ static	int	check_args(int argc, char *argv[], t_data *data)
 		return (ft_error(MSG_INVALID_ARGS));
 	if (argc == 5)
 		data->num_meals = -1;
-	return (0);
-}
-
-/**
- * @brief Initializes the shared data structure and all related resources.
- *
- * Sets all memory to zero, then initializes mutexes and philosophers.
- *
- * @param data Pointer to the shared data structure
- * return 0 on succes, 1 on failure.
- */
-static int	init_data(t_data *data)
-{
-	memset(data, 0, sizeof(t_data));
-	data->start_time = get_time();
-	if (init_mutexes(data))
-		return (1);
-	if (init_philos(data))
-		return (1);
 	return (0);
 }
 
@@ -89,21 +70,37 @@ void	clean_data(t_data *data)
 		free(data->philos);
 }
 
+/**
+ * Estaria bien meejorar la mierda esta de erro al crear hilo para filosofo.
+ */
 int	start_simulation(t_data	*data)
 {
 	int	i;
 
 	i = 0;
+	debug_print("Iniciando start_simulation");
 	while (i < data->num_philos)
 	{
+		debug_print("creando hilo para filosofo %d", i + 1);
 		if (pthread_create(&data->philos[i].thread, NULL, philo_loop, &data->philos[i]))
+		{
+			debug_print("Error al crear hilo para filosofo %d", i + 1);
 			return (ft_error(MSG_THREAD_ERR));
+		}
+		debug_print("hilo para filosofo %d creado con exito", i + 1);
 		i++;
 	}
+	debug_print("Todos los hilos creados, iniciando monitoreo");
 	monitor_simulation(data);
+	debug_print("Monitoreo terminado, esperando a que terminen los hilos");
 	i = 0;
 	while (i < data->num_philos)
+	{
+		debug_print("Esperando a que termine el hilo del filosofo %d", i + 1);
 		pthread_join(data->philos[i++].thread, NULL);
+		debug_print("Hilo del filosofo %d terminado", i + 1);
+	}
+	debug_print("Todos los hilos terminados");
 	return (0);
 }
 
@@ -122,11 +119,15 @@ int	main(int argc, char *argv[])
 
 	if (argc < 5 || argc > 6)
 		return (ft_error(MSG_USAGE));
+	debug_print("Validando argumentos");
 	if (check_args(argc, argv, &data))
 		return (1);
+	debug_print("Inicializando datos");
 	if (init_data(&data))
 		return (1);
+	debug_print("Inicializando simulacion");
 	if (start_simulation(&data))
 		return (clean_data(&data), 1);
+	debug_print("Simulacion terminada");
 	return (clean_data(&data), 0);
 }

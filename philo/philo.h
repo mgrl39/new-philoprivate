@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 08:30:40 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/27 08:49:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@
 # include <stdio.h>
 # include <pthread.h>
 # include <sys/time.h>
+
+/**
+ * ================================
+ * DEBUG MODE DEBUG MODE DEBUG MODE 
+ * ================================
+ */
+# define DEBUG 1
+
+/* Debug function */
+void	debug_print(const char *format, ...);
 
 /* Error Messages */
 # define MSG_USAGE "Usage: ./philo n_philos t_die t_eat t_sleep [n_meals]"
@@ -95,4 +105,5 @@ void	*philosopher_routine(void *arg);
 void	*philo_loop(void *arg);
 void	monitor_simulation(t_data *data);
 int		check_death_flag(t_data *data);
+int		init_data(t_data *data);
 #endif
