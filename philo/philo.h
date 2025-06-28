@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 15:22:41 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 10:57:12 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,29 @@ typedef struct s_table	t_table;
 
 struct s_table
 {
-		int				num_philos;
-		int				time_to_die;
-		int				time_to_eat;
-		int				time_to_sleep;
-		int				num_meals;
-		int				all_ate;
-		int				someone_died;
-		long			start_time;
-		pthread_mutex_t	*forks;
-		pthread_mutex_t	write_lock;
-		pthread_mutex_t	meal_lock;
-		pthread_mutex_t	death_lock;
-		t_philo			*philos;
+	int				num_philos;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				num_meals;
+	int				all_ate;
+	int				someone_died;
+	long			start_time;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	write_lock;
+	pthread_mutex_t	meal_lock;
+	pthread_mutex_t	death_lock;
+	t_philo			*philos;
 };
 
 struct s_philo
 {
-		int				id;
-		int				meals_eaten;
-		long			last_meal_time;
-		pthread_mutex_t	*forks[2];
-		pthread_t		thread;
-		t_table			*table;
+	int				id;
+	int				meals_eaten;
+	long			last_meal_time;
+	pthread_mutex_t	*forks[2];
+	pthread_t		thread;
+	t_table			*table;
 };
 
 /* Function prototypes */
