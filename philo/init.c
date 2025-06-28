@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:27:48 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 11:42:21 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	init_mutexes(t_table *table)
 }
 
 /**
- * Initializes the philosoher structures/
+ * Initializes the philosohers structures
  *
  * Allocates memory for each philosopher and sets their IDs, 
  * pointer to the shared table

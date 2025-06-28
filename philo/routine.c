@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:27:58 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 11:41:32 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ static void	eat(t_philo *philo)
 	}
 	if (!philo->forks[RIGHT])
 	{
-		debug_print("Filosofo %d no uede comer (solo tiene un tenedor)", philo->id);
+		debug_print("Filosofo %d no uede comer (solo tiene un tenedor)"
+			, philo->id);
 		return ;
 	}
 	debug_print("Filosofo %d comienodo", philo->id);

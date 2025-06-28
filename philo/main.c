@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 12:32:29 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 11:42:58 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ int	start_simulation(t_table	*table)
 	while (i < table->num_philos)
 	{
 		debug_print("creando hilo para filosofo %d", i + 1);
-		if (pthread_create(&table->philos[i].thread, NULL, philo_loop, &table->philos[i]))
+		if (pthread_create(&table->philos[i].thread, NULL, \
+				philo_loop, &table->philos[i]))
 		{
 			debug_print("Error al crear hilo para filosofo %d", i + 1);
 			return (ft_error(MSG_THREAD_ERR));
