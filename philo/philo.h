@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 14:27:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 15:55:05 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		check_death_flag(t_table *table);
 int		init_table(t_table *table);
 int		ft_error(char *msg);
 int		ft_philo_atoi(const char *str, int *result);
+int		ft_strcmp(char *s1, char *s2);
 
 /* Error Messages */
 # define MSG_USAGE "Usage: ./philo n_philos t_die t_eat t_sleep [n_meals]"
@@ -98,6 +99,28 @@ int		ft_philo_atoi(const char *str, int *result);
 /* Fork indices */
 # define LEFT 0
 # define RIGHT 1
+
+/* Error Codes */
+# define ERR_NOT_DIGIT	-1
+# define ERR_NEGATIVE	-2
+# define ERR_OVERFLOW	-3
+# define ERR_ZERO_VALUE	-4
+
+/* Detailed Error Message */
+# define MSG_ERR_NOT_DIGIT "Error: '%s' contains non-numeric characters. \
+	Please use only digits."
+# define MSG_ERR_NEGATIVE "Error: '%s' is a negative number. Please use only \
+	positive values."
+# define MSG_ERR_OVERFLOW "Error: '%s' is too large. maximum allowed value \
+	is %d."
+# define MSG_ERR_ZERO_PHILO "Error: Number of philosophers cannot be zero"
+# define MSG_ARG_PHILOS "number of philosophers"
+# define MSG_ARG_DIE_TIME "time to die"
+# define MSG_ARG_EAT_TIME "time to eat"
+# define MSG_ARG_SLEEP_TIME "time to sleep"
+# define MSG_ARG_MEALS "number of meals"
+
+void	print_argument_error(int error, const char *arg, const char *param);
 
 /*
  * memset, printf, malloc, free, write,

@@ -6,23 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:22:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 14:25:48 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 15:49:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdio.h>
+#include <limits.h>
 #include <unistd.h>
-
-static int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
-}
 
 void	print_status(t_philo *philo, char *msg)
 {
@@ -85,4 +76,16 @@ int	ft_error(char *msg)
 	ft_putstr_fd(msg, 2);
 	ft_putstr_fd(RESET, 2);
 	return (ft_putstr_fd("\n", 2), 1);
+}
+
+void	print_argument_error(int error, const char *arg, const char *param_name)
+{
+	if (error == ERR_NOT_DIGIT)
+		printf(RED MSG_ERR_NOT_DIGIT RESET "\n", arg);
+	else if (error == ERR_NEGATIVE)
+		printf(RED MSG_ERR_NEGATIVE RESET "\n", arg);
+	else if (error == ERR_OVERFLOW)
+		printf(RED MSG_ERR_OVERFLOW RESET "\n", arg, INT_MAX);
+	else if (error == ERR_ZERO_VALUE)
+		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", param_name, arg);
 }

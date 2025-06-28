@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:29:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 15:57:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,35 @@ int	ft_philo_atoi(const char *str, int *result)
 {
 	size_t			i;
 	long long		num;
+	int				sign;
 
 	i = 0;
 	num = 0;
+	sign = 1;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '+')
 		i++;
+	else if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
 	if (!ft_isdigit(str[i]))
-		return (0);
+		return (ERR_NOT_DIGIT);
 	while (str[i] && ft_isdigit(str[i]))
 	{
 		num = num * 10 + (str[i] - '0');
 		if (num > INT_MAX)
-			return (0);
+			return (ERR_OVERFLOW);
 		i++;
 	}
-	if (str[i] != '\0' || num == 0)
-		return (0);
+	if (str[i] != '\0')
+		return (ERR_NOT_DIGIT);
+	if (sign == -1)
+		return (ERR_NEGATIVE);
+	if (num == 0)
+		return (ERR_ZERO_VALUE);
 	*result = (int)num;
 	return (1);
 }
@@ -55,4 +66,14 @@ long	get_time(void)
 	if (gettimeofday(&tv, NULL) == -1)
 		return (-1);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
