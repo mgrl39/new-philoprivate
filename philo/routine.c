@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:41:32 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 12:12:37 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,8 @@ static void	take_forks(t_philo *philo)
 /**
  * Importante: actualizamos el tiempop de la ultima comida.
  * Esto es critico para el monitoreo de muerte por hambre
- */
-/**
  * El filosofo come durante time_to_eat milisegundos.
  * Esto simula el tiempo que tarda en comer
- */
-/**
  * Importante: Liberamos los tenedores en el orden invverso
  * auq ue los tomamos para reducir la probiabilidad de deadlock
  */
@@ -99,8 +95,7 @@ static void	eat(t_philo *philo)
 	}
 	if (!philo->forks[RIGHT])
 	{
-		debug_print("Filosofo %d no uede comer (solo tiene un tenedor)"
-			, philo->id);
+		debug_print("Filosofo %d cant eat", philo->id);
 		return ;
 	}
 	debug_print("Filosofo %d comienodo", philo->id);

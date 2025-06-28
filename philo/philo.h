@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:29:46 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 12:10:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,20 @@
 typedef struct s_philo	t_philo;
 typedef struct s_table	t_table;
 
+/**
+ * Numerro de filosofos
+ * Tiempo amxximo sin comer (ms)
+ * Tempo comiendo (ms)
+ * Tiempo durmiendo (ms)
+ * Comidas requeridas (-1 = infinito)
+ * Bandera de muerte
+ * Tiempo de inicio
+ * Mutex para tenedores
+ * Mutex para salida
+ * Mutex para acceso a comidas
+ * Mutex para acceso a muerte
+ * Array de filosofos
+ */
 struct s_table
 {
 	int				num_philos;
@@ -35,6 +49,14 @@ struct s_table
 	t_philo			*philos;
 };
 
+/**
+ * ID del filosofo
+ * Comidas consumidas
+ * Ultimo timepo de comida
+ * Tenedores [LEFT, RIGHT]
+ * hilo del filosofo
+ * Referencia a mesa compartida
+ */
 struct s_philo
 {
 	int				id;

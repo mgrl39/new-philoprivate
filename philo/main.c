@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:42:58 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 11:49:43 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,6 @@ void	clean_table(t_table *table)
 		free(table->philos);
 }
 
-/**
- * Estaria bien meejorar la mierda esta de erro al crear hilo para filosofo.
- */
 int	start_simulation(t_table	*table)
 {
 	int	i;

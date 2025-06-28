@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:43:45 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 12:12:01 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	check_all_ate(t_table *table)
 		i++;
 	}
 	pthread_mutex_unlock(&table->meal_lock);
-	debug_print("%d de %d filosofos han comido suficiente", 
+	debug_print("%d de %d filosofos han comido suficiente",
 		finished_eating, table->num_philos);
 	if (finished_eating == table->num_philos)
 	{
