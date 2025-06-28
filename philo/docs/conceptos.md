@@ -29,5 +29,33 @@ pthread_mutex_unlock(&lock);
 3. Retraso inicial para Equilibrio:
 ```c
 if (philo->id % 2 == 0) usleep(10000);
-``
+```
 
+## Por Que esta solucion Funciona
+### Anti-Deadlock
+- Filosofos pares: Derecho primero
+- Filosofos impares: Izquiredo primero
+- Rompe la dependencia circular.
+
+## Gestion Eficiente de Recursos
+1. Verificacion Periodica
+- Monitor chequeaa estado cada 1ms
+- Balance entre precision y uso de CPU
+
+2. Sleeps Controlados:
+- `usleep(time_to_eat * 1000)`
+- Simula acciones sin consumir CPU
+
+## Patrones del proyecto
+### Pool de hilos
+```c
+for (int i = 0 ; i < N ; i++) {
+	pthread_create(&threads[i], NULL, task, &data[i]);
+}
+```
+### Monitor Centralizado
+- Un hilo que verifica estado global
+- Util para servidores o sistemas de tiempo real
+### Sincronizacion jerarquica
+- Muutex principaales para recursos criticos
+- Sub-mutex para compoenetnes especificos
