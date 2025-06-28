@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:05:56 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 11:27:58 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static void	eat(t_philo *philo)
 	philo->last_meal_time = get_time();
 	philo->meals_eaten++;
 	debug_print("Filosofo %d actualizado: comidas=%d, ultimo tiempo=%ld",
-			philo->id, philo->meals_eaten, philo->last_meal_time);
+		philo->id, philo->meals_eaten, philo->last_meal_time);
 	pthread_mutex_unlock(&philo->table->meal_lock);
 	usleep(philo->table->time_to_eat * 1000);
 	debug_print("Filosofo %d soltando tenedores", philo->id);

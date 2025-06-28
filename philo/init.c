@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:11:59 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 11:27:48 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	init_philos(t_table *table)
 		table->philos[i].meals_eaten = 0;
 		table->philos[i].last_meal_time = table->start_time;
 		table->philos[i].forks[LEFT] = &table->forks[i];
-		table->philos[i].forks[RIGHT] = 
+		table->philos[i].forks[RIGHT] = \
 			&table->forks[(i + 1) % table->num_philos];
 		if (table->num_philos == 1)
 		{
