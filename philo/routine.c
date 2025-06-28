@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 12:12:37 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 13:36:29 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,8 @@ static void	sleep_and_think(t_philo *philo)
  */
 /* Bucle principal de la vida del filosofo */
 /**
- * Caso especial: filosof cno un solo tenedor no puede comer, asi que solo espera a morir */
+ * Caso especial: filosof cno un solo tenedor no puede comer
+ * , asi que solo espera a morir */
 void	*philo_loop(void *arg)
 {
 	t_philo	*philo;
@@ -160,7 +161,7 @@ void	*philo_loop(void *arg)
 		}
 		else
 		{
-			debug_print("Filosofo %d esperando morir (sin tenedor derecho)", philo->id);
+			debug_print("Filosofo %d waiting die (sin tenedor derecho)", philo->id);
 			while (!check_death_flag(philo->table))
 				usleep(1000);
 			pthread_mutex_unlock(philo->forks[LEFT]);
