@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 14:27:46 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 15:55:37 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,43 @@
 #include <stdio.h>
 
 /**
- * @brief Parses and validates command line arguments.
- *
- * Converts arguments to integers and checks validity. 
- * Sets default for num meals if not provided.
- *
- * @param argc Argument count
- * @param argv Argument vector
- * @param table Pointer to the shared table structure
- * @return 0 on succes, 1 on failure
+ * @return int 1 on success, 0 on failure
  */
-static	int	check_args(int argc, char *argv[], t_table *table)
+static int	validate_arg(char *arg, int *value, char *param, int zero_allow)
 {
-	if (!ft_philo_atoi(argv[1], &table->num_philos)
-		|| !ft_philo_atoi(argv[2], &table->time_to_die)
-		|| !ft_philo_atoi(argv[3], &table->time_to_eat)
-		|| !ft_philo_atoi(argv[4], &table->time_to_sleep)
-		|| (argc == 6 && !ft_philo_atoi(argv[5], &table->num_meals)))
-		return (ft_error(MSG_INVALID_ARGS));
-	if ((argc == 6 && table->num_meals == 0) || (argc == 5))
+	int	result;
+
+	result = ft_philo_atoi(arg, value);
+	if (result <= 0)
+	{
+		if (result == ERR_ZERO_VALUE && zero_allow)
+			return (1);
+		if (result == ERR_ZERO_VALUE && !zero_allow && \
+				(!ft_strcmp(param, MSG_ARG_PHILOS)))
+			ft_error(MSG_ERR_ZERO_PHILO);
+		else
+			print_argument_error(result, arg, param);
+		return (0);
+	}
+	return (1);
+}
+
+/**
+ * @return 1 on succes, 0 on failure
+ */
+static	int	check_args(int ac, char *av[], t_table *table)
+{
+	if (!validate_arg(av[1], &table->num_philos, MSG_ARG_PHILOS, 0))
+		return (1);
+	if (!validate_arg(av[2], &table->time_to_die, MSG_ARG_DIE_TIME, 0))
+		return (1);
+	if (!validate_arg(av[3], &table->time_to_eat, MSG_ARG_EAT_TIME, 0))
+		return (1);
+	if (!validate_arg(av[4], &table->time_to_sleep, MSG_ARG_SLEEP_TIME, 0))
+		return (1);
+	if (ac == 6 && !validate_arg(av[5], &table->num_meals, MSG_ARG_MEALS, 1))
+		return (1);
+	if ((ac == 6 && table->num_meals == 0) || (ac == 5))
 		table->num_meals = -1;
 	return (0);
 }
@@ -105,15 +123,6 @@ int	start_simulation(t_table	*table)
 	return (0);
 }
 
-/**
- * @brief Main entry point of the program.
- *
- * Parser arguments, initializes table, and performs cleanup.
- *
- * @param argc Argument count.
- * @param argv Argument vector.
- * @return 0 on succes, 1 on failure.
- */
 int	main(int argc, char *argv[])
 {
 	t_table	table;
