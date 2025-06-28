@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:22:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:30:05 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 14:25:48 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	print_status(t_philo *philo, char *msg)
 			else if (ft_strcmp(msg, MSG_EAT) == 0)
 				printf(GREEN "%s" RESET "\n", msg);
 			else if (ft_strcmp(msg, MSG_SLEEP) == 0)
-				printf("\033[38;5;75m%s" RESET "\n", msg);
+				printf(BLUE "%s" RESET "\n", msg);
 			else if (ft_strcmp(msg, MSG_THINK) == 0)
-				printf("\033[38;5;147m%s" RESET "\n", msg);
+				printf(PURPLE "%s" RESET "\n", msg);
 			else if (ft_strcmp(msg, MSG_DIED) == 0)
 				printf(RED "%s" RESET "\n", msg);
 			else
