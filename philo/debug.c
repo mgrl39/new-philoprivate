@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:10:03 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 11:10:58 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 14:27:30 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * @param format Format string like printf
  * @param ... Varibale arguments
  */
-void	debug_print(const char *format, ...)
+void	dp(const char *format, ...)
 {
 	va_list	args;
 

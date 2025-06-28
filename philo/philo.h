@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 12:15:44 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 14:27:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ int		ft_philo_atoi(const char *str, int *result);
 # define DEBUG 0
 
 /* Debug function */
-void	debug_print(const char *format, ...);
+/* Debug Print = dp */
+void	dp(const char *format, ...);
 
 /**
  * ================================
