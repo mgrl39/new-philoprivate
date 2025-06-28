@@ -18,11 +18,12 @@ var searchData=
   ['primer_20error_20encontrado_15',['Caso 12: Mezcla de errores (se muestra el primer error encontrado)',['../md_philo_2docs_2parsing.html#autotoc_md30',1,'']]],
   ['principal_16',['Flujo principal',['../md_philo_2docs_2explained.html#autotoc_md14',1,'']]],
   ['print_2ec_17',['print.c',['../print_8c.html',1,'']]],
-  ['print_5fargument_5ferror_18',['print_argument_error',['../philo_8h.html#a9f619a13928655443e0a0a6acb6e3f16',1,'print_argument_error(int error, const char *arg, const char *param):&#160;print.c'],['../print_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6',1,'print_argument_error(int error, const char *arg, const char *param_name):&#160;print.c']]],
+  ['print_5fargument_5ferror_18',['print_argument_error',['../print_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6',1,'print_argument_error(int error, const char *arg, const char *param_name):&#160;print.c'],['../philo_8h.html#a9f619a13928655443e0a0a6acb6e3f16',1,'print_argument_error(int error, const char *arg, const char *param):&#160;print.c']]],
   ['print_5fstatus_19',['print_status',['../print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5',1,'print_status(t_philo *philo, char *msg):&#160;print.c'],['../philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5',1,'print_status(t_philo *philo, char *msg):&#160;print.c']]],
-  ['problemas_20comunes_20',['Problemas Comunes',['../md_philo_2docs_2conceptos.html#autotoc_md1',1,'']]],
-  ['proyecto_21',['proyecto',['../md_philo_2docs_2conceptos.html#autotoc_md6',1,'Patrones del proyecto'],['../md_philo_2docs_2conceptos.html#autotoc_md2',1,'Patrones usados en el proyecto']]],
-  ['proyecto_20phiossopheerrs_22',['Explicacion del proyecto Phiossopheerrs',['../md_philo_2docs_2explained.html',1,'']]],
-  ['pruebas_20de_20parseo_20de_20argumentos_23',['Pruebas de parseo de argumentos',['../md_philo_2docs_2parsing.html',1,'']]],
-  ['purple_24',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
+  ['print_5fusage_20',['print_usage',['../print_8c.html#a84365b0f701e1f4a7424d21046ae2d24',1,'print_usage(char *argv[]):&#160;print.c'],['../philo_8h.html#a84365b0f701e1f4a7424d21046ae2d24',1,'print_usage(char *argv[]):&#160;print.c']]],
+  ['problemas_20comunes_21',['Problemas Comunes',['../md_philo_2docs_2conceptos.html#autotoc_md1',1,'']]],
+  ['proyecto_22',['proyecto',['../md_philo_2docs_2conceptos.html#autotoc_md6',1,'Patrones del proyecto'],['../md_philo_2docs_2conceptos.html#autotoc_md2',1,'Patrones usados en el proyecto']]],
+  ['proyecto_20phiossopheerrs_23',['Explicacion del proyecto Phiossopheerrs',['../md_philo_2docs_2explained.html',1,'']]],
+  ['pruebas_20de_20parseo_20de_20argumentos_24',['Pruebas de parseo de argumentos',['../md_philo_2docs_2parsing.html',1,'']]],
+  ['purple_25',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
 ];

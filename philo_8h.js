@@ -48,5 +48,6 @@ var philo_8h =
     [ "monitor_simulation", "philo_8h.html#a619d6413dfafa5ea8cc18edb9e5a8097", null ],
     [ "philo_loop", "philo_8h.html#af59d70ba88dde40771d84ab61f87ea58", null ],
     [ "print_argument_error", "philo_8h.html#a9f619a13928655443e0a0a6acb6e3f16", null ],
-    [ "print_status", "philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5", null ]
+    [ "print_status", "philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5", null ],
+    [ "print_usage", "philo_8h.html#a84365b0f701e1f4a7424d21046ae2d24", null ]
 ];
