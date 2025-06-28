@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 15:55:37 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 16:43:28 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,11 @@ int	start_simulation(t_table	*table)
 
 	i = 0;
 	dp("Iniciando start_simulation");
+	table->start_time = get_time();
+
+	while (i < table->num_philos)
+		table->philos[i++].last_meal_time = table->start_time;
+	i = 0;
 	while (i < table->num_philos)
 	{
 		dp("creando hilo para filosofo %d", i + 1);
