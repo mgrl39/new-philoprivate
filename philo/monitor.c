@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 14:28:06 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 16:31:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	monitor_simulation(t_table *table)
 	int	i;
 
 	dp("Monitor inicializado");
-	usleep(5000);
+	usleep(500);
 	while (!check_death_flag(table))
 	{
 		i = 0;

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:22:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 15:49:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 17:48:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,25 @@ void	print_argument_error(int error, const char *arg, const char *param_name)
 	else if (error == ERR_OVERFLOW)
 		printf(RED MSG_ERR_OVERFLOW RESET "\n", arg, INT_MAX);
 	else if (error == ERR_ZERO_VALUE)
-		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", param_name, arg);
+		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", \
+		param_name, arg);
+}
+
+void	print_usage(char *argv[])
+{
+	printf(BLUE "\n=== PHILOSOPHERS USAGE GUIDE ===\n" RESET);
+	printf("\nSyntax: " GOLD
+		"%s num_philos time_to_die time_to_eat time_to_sleep [num_meals]"
+		RESET "\n\n", argv[0]);
+	printf("Parameters:\n");
+	printf(" " PURPLE "num_philos	" RESET
+		": Number of philosophers at the table\n");
+	printf(" " PURPLE "time_to_die	" RESET
+		": Time in ms until a philosopher dies from Starvation\n");
+	printf(" " PURPLE "time_to_eat	" RESET
+		": Time in ms it takes for a philosopher to eat\n");
+	printf(" " PURPLE "time_to_sleep 	" RESET
+		": Time in ms it takes for a philosopher to sleep\n");
+	printf(" " PURPLE "num_meals	" RESET
+		": [Optional] Number of times each must eat \n\n");
 }
