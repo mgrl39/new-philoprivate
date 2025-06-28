@@ -1,4 +1,24 @@
 var searchData=
 [
-  ['purple_0',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
+  ['msg_5farg_5fdie_5ftime_0',['MSG_ARG_DIE_TIME',['../philo_8h.html#a4824f9d3a6fda34a3020a928470d4513',1,'philo.h']]],
+  ['msg_5farg_5feat_5ftime_1',['MSG_ARG_EAT_TIME',['../philo_8h.html#acda3a54afb229e2af852ee92d6d157d7',1,'philo.h']]],
+  ['msg_5farg_5fmeals_2',['MSG_ARG_MEALS',['../philo_8h.html#aad53f6de5f30e2084da1fe99e0b9ba39',1,'philo.h']]],
+  ['msg_5farg_5fphilos_3',['MSG_ARG_PHILOS',['../philo_8h.html#a1dc771dff39a1210c106d0a8f1004536',1,'philo.h']]],
+  ['msg_5farg_5fsleep_5ftime_4',['MSG_ARG_SLEEP_TIME',['../philo_8h.html#a9bdeadd8f8d01d786eac75f5b40c46ea',1,'philo.h']]],
+  ['msg_5fdied_5',['MSG_DIED',['../philo_8h.html#a49e3dcd8846177e61a535665ff89b96e',1,'philo.h']]],
+  ['msg_5feat_6',['MSG_EAT',['../philo_8h.html#aa632dde01d4b5f1b634a45d5aad70a3a',1,'philo.h']]],
+  ['msg_5ferr_5fnegative_7',['MSG_ERR_NEGATIVE',['../philo_8h.html#aa4e88b7761691918b9b597ad123fcec3',1,'philo.h']]],
+  ['msg_5ferr_5fnot_5fdigit_8',['MSG_ERR_NOT_DIGIT',['../philo_8h.html#ae484a8397b8f5aa50d4b6770460e8d50',1,'philo.h']]],
+  ['msg_5ferr_5foverflow_9',['MSG_ERR_OVERFLOW',['../philo_8h.html#ac25ab058389b2529d9651a6c20d95449',1,'philo.h']]],
+  ['msg_5ferr_5fzero_5fphilo_10',['MSG_ERR_ZERO_PHILO',['../philo_8h.html#aa16746a137b588f89857439456c56940',1,'philo.h']]],
+  ['msg_5ffork_11',['MSG_FORK',['../philo_8h.html#a7c22682ea139ac648eaa7a2951381640',1,'philo.h']]],
+  ['msg_5ffork_5fdestroy_5ferr_12',['MSG_FORK_DESTROY_ERR',['../philo_8h.html#a2ff5119559781a92cec28729c6c2b4b8',1,'philo.h']]],
+  ['msg_5finvalid_5fargs_13',['MSG_INVALID_ARGS',['../philo_8h.html#a13e6b7f68dbc00c43d2eeda800d2f572',1,'philo.h']]],
+  ['msg_5fmalloc_5ferr_14',['MSG_MALLOC_ERR',['../philo_8h.html#a9809e2e1b74148a85cdf7405b493b6a9',1,'philo.h']]],
+  ['msg_5fmutex_5fdestroy_5ferr_15',['MSG_MUTEX_DESTROY_ERR',['../philo_8h.html#a8e548b5970a83a5b1714d7911b47503b',1,'philo.h']]],
+  ['msg_5fmutex_5ferr_16',['MSG_MUTEX_ERR',['../philo_8h.html#a61306cbcbf60f60255824e59df1e6b96',1,'philo.h']]],
+  ['msg_5fsleep_17',['MSG_SLEEP',['../philo_8h.html#a04d4171c13be166553207bfda405c811',1,'philo.h']]],
+  ['msg_5fthink_18',['MSG_THINK',['../philo_8h.html#a602010673c815569a4aa8ffe6165038a',1,'philo.h']]],
+  ['msg_5fthread_5ferr_19',['MSG_THREAD_ERR',['../philo_8h.html#a5f52bb1d67565662f5f291a1ec23e738',1,'philo.h']]],
+  ['msg_5fusage_20',['MSG_USAGE',['../philo_8h.html#aeb475190c04eaab4815a7721b2d768a5',1,'philo.h']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['blue_0',['BLUE',['../philo_8h.html#a79d10e672abb49ad63eeaa8aaef57c38',1,'philo.h']]]
+  ['2_3a_20argumentos_20no_20numéricos_0',['Caso 2: Argumentos no numéricos',['../md_philo_2docs_2parsing.html#autotoc_md20',1,'']]]
 ];

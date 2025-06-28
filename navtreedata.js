@@ -49,6 +49,21 @@ var NAVTREE =
       [ "Por Que funciona", "md_philo_2docs_2explained.html#autotoc_md17", null ]
     ] ],
     [ "links", "md_philo_2docs_2links.html", null ],
+    [ "Pruebas de parseo de argumentos", "md_philo_2docs_2parsing.html", [
+      [ "Caso 1: Número incorrecto de argumentos", "md_philo_2docs_2parsing.html#autotoc_md19", null ],
+      [ "Caso 2: Argumentos no numéricos", "md_philo_2docs_2parsing.html#autotoc_md20", null ],
+      [ "Caso 3: Valores negativos", "md_philo_2docs_2parsing.html#autotoc_md21", null ],
+      [ "Caso 4: Valores demasiado grandes", "md_philo_2docs_2parsing.html#autotoc_md22", null ],
+      [ "Caso 5: Filósofos igual a cero", "md_philo_2docs_2parsing.html#autotoc_md23", null ],
+      [ "Caso 6: Tiempo para morir igual a cero", "md_philo_2docs_2parsing.html#autotoc_md24", null ],
+      [ "Caso 7: Tiempo para comer igual a cero", "md_philo_2docs_2parsing.html#autotoc_md25", null ],
+      [ "Caso 8: Tiempo para dormir igual a cero", "md_philo_2docs_2parsing.html#autotoc_md26", null ],
+      [ "Caso 9: Número de comidas con caracteres no numéricos", "md_philo_2docs_2parsing.html#autotoc_md27", null ],
+      [ "Caso 10: Número de comidas negativo", "md_philo_2docs_2parsing.html#autotoc_md28", null ],
+      [ "Caso 11: Número de comidas igual a cero (válido, pero especial)", "md_philo_2docs_2parsing.html#autotoc_md29", null ],
+      [ "Caso 12: Mezcla de errores (se muestra el primer error encontrado)", "md_philo_2docs_2parsing.html#autotoc_md30", null ],
+      [ "Funcionamiento correcto", "md_philo_2docs_2parsing.html#autotoc_md31", null ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

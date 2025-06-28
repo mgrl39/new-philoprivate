@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['links_0',['links',['../md_philo_2docs_2links.html',1,'']]]
+  ['general_0',['Descripcion general',['../md_philo_2docs_2description.html',1,'']]]
 ];

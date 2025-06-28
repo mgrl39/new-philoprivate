@@ -130,21 +130,21 @@ Include dependency graph for main.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a32eb5a782cae7fe8bf61cbc040cd4b3a" id="r_a32eb5a782cae7fe8bf61cbc040cd4b3a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a32eb5a782cae7fe8bf61cbc040cd4b3a">check_args</a> (int argc, char *argv[], <a class="el" href="philo_8h.html#a3a1d8e4332315885da833b46801b67fb">t_table</a> *table)</td></tr>
-<tr class="memdesc:a32eb5a782cae7fe8bf61cbc040cd4b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and validates command line arguments.  <br /></td></tr>
-<tr class="separator:a32eb5a782cae7fe8bf61cbc040cd4b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac72ff019fa362d766a1ec4124d786985" id="r_ac72ff019fa362d766a1ec4124d786985"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985">validate_arg</a> (char *arg, int *value, char *param, int zero_allow)</td></tr>
+<tr class="separator:ac72ff019fa362d766a1ec4124d786985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf0fe5b820226183436cca19d19d5dc" id="r_a3bf0fe5b820226183436cca19d19d5dc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3bf0fe5b820226183436cca19d19d5dc">check_args</a> (int ac, char *av[], <a class="el" href="philo_8h.html#a3a1d8e4332315885da833b46801b67fb">t_table</a> *table)</td></tr>
+<tr class="separator:a3bf0fe5b820226183436cca19d19d5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e1a47db9db1a87075c996c9a37f75d" id="r_a48e1a47db9db1a87075c996c9a37f75d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a> (<a class="el" href="philo_8h.html#a3a1d8e4332315885da833b46801b67fb">t_table</a> *table)</td></tr>
 <tr class="memdesc:a48e1a47db9db1a87075c996c9a37f75d"><td class="mdescLeft">&#160;</td><td class="mdescRight">cleans up and frees all allocated resources.  <br /></td></tr>
 <tr class="separator:a48e1a47db9db1a87075c996c9a37f75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0c41741f9fce76bc9b6e485653e0cdf" id="r_aa0c41741f9fce76bc9b6e485653e0cdf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf">start_simulation</a> (<a class="el" href="philo_8h.html#a3a1d8e4332315885da833b46801b67fb">t_table</a> *table)</td></tr>
 <tr class="separator:aa0c41741f9fce76bc9b6e485653e0cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main entry point of the program.  <br /></td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a32eb5a782cae7fe8bf61cbc040cd4b3a" name="a32eb5a782cae7fe8bf61cbc040cd4b3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32eb5a782cae7fe8bf61cbc040cd4b3a">&#9670;&#160;</a></span>check_args()</h2>
+<a id="a3bf0fe5b820226183436cca19d19d5dc" name="a3bf0fe5b820226183436cca19d19d5dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf0fe5b820226183436cca19d19d5dc">&#9670;&#160;</a></span>check_args()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,13 +156,13 @@ Functions</h2></td></tr>
           <td class="memname">static int check_args </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
+          <td class="paramname"><em>ac</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[], </td>
+          <td class="paramname"><em>av</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -182,34 +182,30 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>1 on succes, 0 on failure </dd></dl>
 
-<p>Parses and validates command line arguments. </p>
-<p>Converts arguments to integers and checks validity. Sets default for num meals if not provided.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">argc</td><td>Argument count </td></tr>
-    <tr><td class="paramname">argv</td><td>Argument vector </td></tr>
-    <tr><td class="paramname">table</td><td>Pointer to the shared table structure </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on succes, 1 on failure </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00029">29</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   30</span>{</div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a>(argv[1], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#aca1d276c5167a2501038a879b5e44a37">num_philos</a>)</div>
-<div class="line"><span class="lineno">   32</span>        || !<a class="code hl_function" href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a>(argv[2], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a>)</div>
-<div class="line"><span class="lineno">   33</span>        || !<a class="code hl_function" href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a>(argv[3], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a>)</div>
-<div class="line"><span class="lineno">   34</span>        || !<a class="code hl_function" href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a>(argv[4], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a>)</div>
-<div class="line"><span class="lineno">   35</span>        || (argc == 6 &amp;&amp; !<a class="code hl_function" href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a>(argv[5], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a>)))</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a>(<a class="code hl_define" href="philo_8h.html#a13e6b7f68dbc00c43d2eeda800d2f572">MSG_INVALID_ARGS</a>));</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">if</span> ((argc == 6 &amp;&amp; table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> == 0) || (argc == 5))</div>
-<div class="line"><span class="lineno">   38</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> = -1;</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   40</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a13e6b7f68dbc00c43d2eeda800d2f572"><div class="ttname"><a href="philo_8h.html#a13e6b7f68dbc00c43d2eeda800d2f572">MSG_INVALID_ARGS</a></div><div class="ttdeci">#define MSG_INVALID_ARGS</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00082">philo.h:82</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a53c86c0e0e0dfe758e12bd6d6fa7f2a9"><div class="ttname"><a href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a></div><div class="ttdeci">int ft_philo_atoi(const char *str, int *result)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00025">utils.c:25</a></div></div>
-<div class="ttc" id="aphilo_8h_html_ae546bf4dce28969af541ca3dfe06fc4d"><div class="ttname"><a href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a></div><div class="ttdeci">int ft_error(char *msg)</div><div class="ttdoc">Prints an error message and returns 1.</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00082">print.c:82</a></div></div>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00043">43</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>{</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985">validate_arg</a>(av[1], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#aca1d276c5167a2501038a879b5e44a37">num_philos</a>, <a class="code hl_define" href="philo_8h.html#a1dc771dff39a1210c106d0a8f1004536">MSG_ARG_PHILOS</a>, 0))</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985">validate_arg</a>(av[2], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a>, <a class="code hl_define" href="philo_8h.html#a4824f9d3a6fda34a3020a928470d4513">MSG_ARG_DIE_TIME</a>, 0))</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985">validate_arg</a>(av[3], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a>, <a class="code hl_define" href="philo_8h.html#acda3a54afb229e2af852ee92d6d157d7">MSG_ARG_EAT_TIME</a>, 0))</div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985">validate_arg</a>(av[4], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a>, <a class="code hl_define" href="philo_8h.html#a9bdeadd8f8d01d786eac75f5b40c46ea">MSG_ARG_SLEEP_TIME</a>, 0))</div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (ac == 6 &amp;&amp; !<a class="code hl_function" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985">validate_arg</a>(av[5], &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a>, <a class="code hl_define" href="philo_8h.html#aad53f6de5f30e2084da1fe99e0b9ba39">MSG_ARG_MEALS</a>, 1))</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">if</span> ((ac == 6 &amp;&amp; table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> == 0) || (ac == 5))</div>
+<div class="line"><span class="lineno">   56</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> = -1;</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   58</span>}</div>
+<div class="ttc" id="amain_8c_html_ac72ff019fa362d766a1ec4124d786985"><div class="ttname"><a href="main_8c.html#ac72ff019fa362d766a1ec4124d786985">validate_arg</a></div><div class="ttdeci">static int validate_arg(char *arg, int *value, char *param, int zero_allow)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00021">main.c:21</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a1dc771dff39a1210c106d0a8f1004536"><div class="ttname"><a href="philo_8h.html#a1dc771dff39a1210c106d0a8f1004536">MSG_ARG_PHILOS</a></div><div class="ttdeci">#define MSG_ARG_PHILOS</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00117">philo.h:117</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a4824f9d3a6fda34a3020a928470d4513"><div class="ttname"><a href="philo_8h.html#a4824f9d3a6fda34a3020a928470d4513">MSG_ARG_DIE_TIME</a></div><div class="ttdeci">#define MSG_ARG_DIE_TIME</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00118">philo.h:118</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a9bdeadd8f8d01d786eac75f5b40c46ea"><div class="ttname"><a href="philo_8h.html#a9bdeadd8f8d01d786eac75f5b40c46ea">MSG_ARG_SLEEP_TIME</a></div><div class="ttdeci">#define MSG_ARG_SLEEP_TIME</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00120">philo.h:120</a></div></div>
+<div class="ttc" id="aphilo_8h_html_aad53f6de5f30e2084da1fe99e0b9ba39"><div class="ttname"><a href="philo_8h.html#aad53f6de5f30e2084da1fe99e0b9ba39">MSG_ARG_MEALS</a></div><div class="ttdeci">#define MSG_ARG_MEALS</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00121">philo.h:121</a></div></div>
+<div class="ttc" id="aphilo_8h_html_acda3a54afb229e2af852ee92d6d157d7"><div class="ttname"><a href="philo_8h.html#acda3a54afb229e2af852ee92d6d157d7">MSG_ARG_EAT_TIME</a></div><div class="ttdeci">#define MSG_ARG_EAT_TIME</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00119">philo.h:119</a></div></div>
 <div class="ttc" id="astructs__table_html_a2a3839a6429ef1c8663fc3509799bb42"><div class="ttname"><a href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">s_table::time_to_die</a></div><div class="ttdeci">int time_to_die</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00038">philo.h:38</a></div></div>
 <div class="ttc" id="astructs__table_html_a5d86694ff3f0df52e8dafec9719f5176"><div class="ttname"><a href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">s_table::time_to_eat</a></div><div class="ttdeci">int time_to_eat</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00039">philo.h:39</a></div></div>
 <div class="ttc" id="astructs__table_html_aca1d276c5167a2501038a879b5e44a37"><div class="ttname"><a href="structs__table.html#aca1d276c5167a2501038a879b5e44a37">s_table::num_philos</a></div><div class="ttdeci">int num_philos</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00037">philo.h:37</a></div></div>
@@ -218,26 +214,32 @@ Functions</h2></td></tr>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_cgraph.png" border="0" usemap="#amain_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_cgraph" alt=""/></div>
-<map name="amain_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_cgraph" id="amain_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_cgraph">
-<area shape="rect" title="Parses and validates command line arguments." alt="" coords="5,31,100,56"/>
-<area shape="rect" href="print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="165,5,234,31"/>
-<area shape="poly" title=" " alt="" coords="100,33,151,24,152,29,101,38"/>
-<area shape="rect" href="utils_8c.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9" title=" " alt="" coords="148,55,251,80"/>
-<area shape="poly" title=" " alt="" coords="101,48,135,54,134,59,100,54"/>
-<area shape="rect" href="print_8c.html#ab0d14669421e64af28e31e9dbd97ec09" title="Prints a message in the fd." alt="" coords="299,5,395,31"/>
-<area shape="poly" title=" " alt="" coords="234,15,285,15,285,21,234,21"/>
-<area shape="rect" href="utils_8c.html#a942dd0d78727d6a8f2e27903a21e2430" title=" " alt="" coords="307,55,386,80"/>
-<area shape="poly" title=" " alt="" coords="251,65,294,65,294,70,251,70"/>
+<div class="center"><img src="main_8c_a3bf0fe5b820226183436cca19d19d5dc_cgraph.png" border="0" usemap="#amain_8c_a3bf0fe5b820226183436cca19d19d5dc_cgraph" alt=""/></div>
+<map name="amain_8c_a3bf0fe5b820226183436cca19d19d5dc_cgraph" id="amain_8c_a3bf0fe5b820226183436cca19d19d5dc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,80,100,105"/>
+<area shape="rect" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985" title=" " alt="" coords="148,80,251,105"/>
+<area shape="poly" title=" " alt="" coords="100,90,134,90,134,95,100,95"/>
+<area shape="rect" href="print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="344,5,413,31"/>
+<area shape="poly" title=" " alt="" coords="222,77,298,40,330,28,332,33,300,44,224,82"/>
+<area shape="rect" href="utils_8c.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9" title=" " alt="" coords="327,55,430,80"/>
+<area shape="poly" title=" " alt="" coords="250,83,313,74,314,79,251,88"/>
+<area shape="rect" href="utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="337,104,420,129"/>
+<area shape="poly" title=" " alt="" coords="251,97,324,107,323,112,250,102"/>
+<area shape="rect" href="print_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6" title=" " alt="" coords="299,153,459,179"/>
+<area shape="poly" title=" " alt="" coords="226,103,300,138,322,147,320,152,298,143,223,108"/>
+<area shape="rect" href="print_8c.html#ab0d14669421e64af28e31e9dbd97ec09" title="Prints a message in the fd." alt="" coords="507,5,603,31"/>
+<area shape="poly" title=" " alt="" coords="413,15,493,15,493,21,413,21"/>
+<area shape="rect" href="utils_8c.html#a942dd0d78727d6a8f2e27903a21e2430" title=" " alt="" coords="515,55,594,80"/>
+<area shape="poly" title=" " alt="" coords="430,65,501,65,501,70,430,70"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_icgraph.png" border="0" usemap="#amain_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_icgraph" alt=""/></div>
-<map name="amain_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_icgraph" id="amain_8c_a32eb5a782cae7fe8bf61cbc040cd4b3a_icgraph">
-<area shape="rect" title="Parses and validates command line arguments." alt="" coords="108,5,203,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,60,31"/>
+<div class="center"><img src="main_8c_a3bf0fe5b820226183436cca19d19d5dc_icgraph.png" border="0" usemap="#amain_8c_a3bf0fe5b820226183436cca19d19d5dc_icgraph" alt=""/></div>
+<map name="amain_8c_a3bf0fe5b820226183436cca19d19d5dc_icgraph" id="amain_8c_a3bf0fe5b820226183436cca19d19d5dc_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,203,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
 <area shape="poly" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
 </map>
 </div>
@@ -269,36 +271,36 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00049">49</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">   52</span> </div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (!table)</div>
-<div class="line"><span class="lineno">   54</span>        return ;</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>)</div>
-<div class="line"><span class="lineno">   56</span>    {</div>
-<div class="line"><span class="lineno">   57</span>        i = 0;</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
-<div class="line"><span class="lineno">   59</span>        {</div>
-<div class="line"><span class="lineno">   60</span>            <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>[i]) != 0)</div>
-<div class="line"><span class="lineno">   61</span>                printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a2ff5119559781a92cec28729c6c2b4b8">MSG_FORK_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, i, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
-<div class="line"><span class="lineno">   62</span>            i++;</div>
-<div class="line"><span class="lineno">   63</span>        }</div>
-<div class="line"><span class="lineno">   64</span>        free(table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>);</div>
-<div class="line"><span class="lineno">   65</span>    }</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#aca39c6b5aa1be6952709ad50c840f948">write_lock</a>) != 0)</div>
-<div class="line"><span class="lineno">   67</span>        printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, <span class="stringliteral">&quot;write lock&quot;</span>, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>) != 0)</div>
-<div class="line"><span class="lineno">   69</span>        printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, <span class="stringliteral">&quot;meal lock&quot;</span>, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>) != 0)</div>
-<div class="line"><span class="lineno">   71</span>        printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, <span class="stringliteral">&quot;death lock&quot;</span>, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>)</div>
-<div class="line"><span class="lineno">   73</span>        free(table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>);</div>
-<div class="line"><span class="lineno">   74</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a2ff5119559781a92cec28729c6c2b4b8"><div class="ttname"><a href="philo_8h.html#a2ff5119559781a92cec28729c6c2b4b8">MSG_FORK_DESTROY_ERR</a></div><div class="ttdeci">#define MSG_FORK_DESTROY_ERR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00089">philo.h:89</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a8d23feea868a983c8c2b661e1e16972f"><div class="ttname"><a href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></div><div class="ttdeci">#define RED</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00111">philo.h:111</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a8e548b5970a83a5b1714d7911b47503b"><div class="ttname"><a href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a></div><div class="ttdeci">#define MSG_MUTEX_DESTROY_ERR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00088">philo.h:88</a></div></div>
-<div class="ttc" id="aphilo_8h_html_ab702106cf3b3e96750b6845ded4e0299"><div class="ttname"><a href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a></div><div class="ttdeci">#define RESET</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00110">philo.h:110</a></div></div>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00067">67</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span> (!table)</div>
+<div class="line"><span class="lineno">   72</span>        return ;</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>)</div>
+<div class="line"><span class="lineno">   74</span>    {</div>
+<div class="line"><span class="lineno">   75</span>        i = 0;</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
+<div class="line"><span class="lineno">   77</span>        {</div>
+<div class="line"><span class="lineno">   78</span>            <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>[i]) != 0)</div>
+<div class="line"><span class="lineno">   79</span>                printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a2ff5119559781a92cec28729c6c2b4b8">MSG_FORK_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, i, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
+<div class="line"><span class="lineno">   80</span>            i++;</div>
+<div class="line"><span class="lineno">   81</span>        }</div>
+<div class="line"><span class="lineno">   82</span>        free(table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>);</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#aca39c6b5aa1be6952709ad50c840f948">write_lock</a>) != 0)</div>
+<div class="line"><span class="lineno">   85</span>        printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, <span class="stringliteral">&quot;write lock&quot;</span>, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>) != 0)</div>
+<div class="line"><span class="lineno">   87</span>        printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, <span class="stringliteral">&quot;meal lock&quot;</span>, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">if</span> (pthread_mutex_destroy(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>) != 0)</div>
+<div class="line"><span class="lineno">   89</span>        printf(<span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a> <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, <span class="stringliteral">&quot;death lock&quot;</span>, <a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>);</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>)</div>
+<div class="line"><span class="lineno">   91</span>        free(table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>);</div>
+<div class="line"><span class="lineno">   92</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a2ff5119559781a92cec28729c6c2b4b8"><div class="ttname"><a href="philo_8h.html#a2ff5119559781a92cec28729c6c2b4b8">MSG_FORK_DESTROY_ERR</a></div><div class="ttdeci">#define MSG_FORK_DESTROY_ERR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00090">philo.h:90</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a8d23feea868a983c8c2b661e1e16972f"><div class="ttname"><a href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></div><div class="ttdeci">#define RED</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00134">philo.h:134</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a8e548b5970a83a5b1714d7911b47503b"><div class="ttname"><a href="philo_8h.html#a8e548b5970a83a5b1714d7911b47503b">MSG_MUTEX_DESTROY_ERR</a></div><div class="ttdeci">#define MSG_MUTEX_DESTROY_ERR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00089">philo.h:89</a></div></div>
+<div class="ttc" id="aphilo_8h_html_ab702106cf3b3e96750b6845ded4e0299"><div class="ttname"><a href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a></div><div class="ttdeci">#define RESET</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00133">philo.h:133</a></div></div>
 <div class="ttc" id="astructs__table_html_a2c3129b4b451031b04ada0c16e397b76"><div class="ttname"><a href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">s_table::forks</a></div><div class="ttdeci">pthread_mutex_t * forks</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00045">philo.h:45</a></div></div>
 <div class="ttc" id="astructs__table_html_a441280c897f6b6530454ec61a32febb7"><div class="ttname"><a href="structs__table.html#a441280c897f6b6530454ec61a32febb7">s_table::meal_lock</a></div><div class="ttdeci">pthread_mutex_t meal_lock</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00047">philo.h:47</a></div></div>
 <div class="ttc" id="astructs__table_html_ab17844cffbf227b620291893dcde186c"><div class="ttname"><a href="structs__table.html#ab17844cffbf227b620291893dcde186c">s_table::philos</a></div><div class="ttdeci">t_philo * philos</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00049">philo.h:49</a></div></div>
@@ -310,7 +312,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="main_8c_a48e1a47db9db1a87075c996c9a37f75d_icgraph.png" border="0" usemap="#amain_8c_a48e1a47db9db1a87075c996c9a37f75d_icgraph" alt=""/></div>
 <map name="amain_8c_a48e1a47db9db1a87075c996c9a37f75d_icgraph" id="amain_8c_a48e1a47db9db1a87075c996c9a37f75d_icgraph">
 <area shape="rect" title="cleans up and frees all allocated resources." alt="" coords="108,5,205,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,60,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
 <area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
 </map>
 </div>
@@ -343,117 +345,112 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Main entry point of the program. </p>
-<p>Parser arguments, initializes table, and performs cleanup.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">argc</td><td>Argument count. </td></tr>
-    <tr><td class="paramname">argv</td><td>Argument vector. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on succes, 1 on failure. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00117">117</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  118</span>{</div>
-<div class="line"><span class="lineno">  119</span>    <a class="code hl_struct" href="structs__table.html">t_table</a> table;</div>
-<div class="line"><span class="lineno">  120</span> </div>
-<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">if</span> (argc &lt; 5 || argc &gt; 6)</div>
-<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a>(<a class="code hl_define" href="philo_8h.html#aeb475190c04eaab4815a7721b2d768a5">MSG_USAGE</a>));</div>
-<div class="line"><span class="lineno">  123</span>    memset(&amp;table, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structs__table.html">t_table</a>));</div>
-<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Validando argumentos&quot;</span>);</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="main_8c.html#a32eb5a782cae7fe8bf61cbc040cd4b3a">check_args</a>(argc, argv, &amp;table))</div>
-<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Inicializando datos&quot;</span>);</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="init_8c.html#ae0507f082df4dd54af32488805e4ad30">init_table</a>(&amp;table))</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">return</span> (1);</div>
-<div class="line"><span class="lineno">  130</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Inicializando simulacion&quot;</span>);</div>
-<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf">start_simulation</a>(&amp;table))</div>
-<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a>(&amp;table), 1);</div>
-<div class="line"><span class="lineno">  133</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Simulacion terminada&quot;</span>);</div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a>(&amp;table), 0);</div>
-<div class="line"><span class="lineno">  135</span>}</div>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00126">126</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  127</span>{</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_struct" href="structs__table.html">t_table</a> table;</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (argc &lt; 5 || argc &gt; 6)</div>
+<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a>(<a class="code hl_define" href="philo_8h.html#aeb475190c04eaab4815a7721b2d768a5">MSG_USAGE</a>));</div>
+<div class="line"><span class="lineno">  132</span>    memset(&amp;table, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structs__table.html">t_table</a>));</div>
+<div class="line"><span class="lineno">  133</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Validando argumentos&quot;</span>);</div>
+<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="main_8c.html#a3bf0fe5b820226183436cca19d19d5dc">check_args</a>(argc, argv, &amp;table))</div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">  136</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Inicializando datos&quot;</span>);</div>
+<div class="line"><span class="lineno">  137</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="init_8c.html#ae0507f082df4dd54af32488805e4ad30">init_table</a>(&amp;table))</div>
+<div class="line"><span class="lineno">  138</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">  139</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Inicializando simulacion&quot;</span>);</div>
+<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf">start_simulation</a>(&amp;table))</div>
+<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a>(&amp;table), 1);</div>
+<div class="line"><span class="lineno">  142</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Simulacion terminada&quot;</span>);</div>
+<div class="line"><span class="lineno">  143</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a>(&amp;table), 0);</div>
+<div class="line"><span class="lineno">  144</span>}</div>
 <div class="ttc" id="adebug_8c_html_aedc0b0d900adb99366a050adc302e5e7"><div class="ttname"><a href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a></div><div class="ttdeci">void dp(const char *format,...)</div><div class="ttdoc">Prints debug messages if DEBUG is enabled.</div><div class="ttdef"><b>Definition</b> <a href="debug_8c_source.html#l00024">debug.c:24</a></div></div>
 <div class="ttc" id="ainit_8c_html_ae0507f082df4dd54af32488805e4ad30"><div class="ttname"><a href="init_8c.html#ae0507f082df4dd54af32488805e4ad30">init_table</a></div><div class="ttdeci">int init_table(t_table *table)</div><div class="ttdoc">Initializes the shared table structure and all related resources.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00120">init.c:120</a></div></div>
-<div class="ttc" id="amain_8c_html_a32eb5a782cae7fe8bf61cbc040cd4b3a"><div class="ttname"><a href="main_8c.html#a32eb5a782cae7fe8bf61cbc040cd4b3a">check_args</a></div><div class="ttdeci">static int check_args(int argc, char *argv[], t_table *table)</div><div class="ttdoc">Parses and validates command line arguments.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00029">main.c:29</a></div></div>
-<div class="ttc" id="amain_8c_html_a48e1a47db9db1a87075c996c9a37f75d"><div class="ttname"><a href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a></div><div class="ttdeci">void clean_table(t_table *table)</div><div class="ttdoc">cleans up and frees all allocated resources.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00049">main.c:49</a></div></div>
-<div class="ttc" id="amain_8c_html_aa0c41741f9fce76bc9b6e485653e0cdf"><div class="ttname"><a href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf">start_simulation</a></div><div class="ttdeci">int start_simulation(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00076">main.c:76</a></div></div>
-<div class="ttc" id="aphilo_8h_html_aeb475190c04eaab4815a7721b2d768a5"><div class="ttname"><a href="philo_8h.html#aeb475190c04eaab4815a7721b2d768a5">MSG_USAGE</a></div><div class="ttdeci">#define MSG_USAGE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00081">philo.h:81</a></div></div>
+<div class="ttc" id="amain_8c_html_a3bf0fe5b820226183436cca19d19d5dc"><div class="ttname"><a href="main_8c.html#a3bf0fe5b820226183436cca19d19d5dc">check_args</a></div><div class="ttdeci">static int check_args(int ac, char *av[], t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00043">main.c:43</a></div></div>
+<div class="ttc" id="amain_8c_html_a48e1a47db9db1a87075c996c9a37f75d"><div class="ttname"><a href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a></div><div class="ttdeci">void clean_table(t_table *table)</div><div class="ttdoc">cleans up and frees all allocated resources.</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00067">main.c:67</a></div></div>
+<div class="ttc" id="amain_8c_html_aa0c41741f9fce76bc9b6e485653e0cdf"><div class="ttname"><a href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf">start_simulation</a></div><div class="ttdeci">int start_simulation(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="main_8c_source.html#l00094">main.c:94</a></div></div>
+<div class="ttc" id="aphilo_8h_html_ae546bf4dce28969af541ca3dfe06fc4d"><div class="ttname"><a href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a></div><div class="ttdeci">int ft_error(char *msg)</div><div class="ttdoc">Prints an error message and returns 1.</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00073">print.c:73</a></div></div>
+<div class="ttc" id="aphilo_8h_html_aeb475190c04eaab4815a7721b2d768a5"><div class="ttname"><a href="philo_8h.html#aeb475190c04eaab4815a7721b2d768a5">MSG_USAGE</a></div><div class="ttdeci">#define MSG_USAGE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00082">philo.h:82</a></div></div>
 <div class="ttc" id="astructs__table_html"><div class="ttname"><a href="structs__table.html">s_table</a></div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00035">philo.h:36</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title="Main entry point of the program." alt="" coords="5,333,60,359"/>
-<area shape="rect" href="main_8c.html#a32eb5a782cae7fe8bf61cbc040cd4b3a" title="Parses and validates command line arguments." alt="" coords="125,107,219,132"/>
-<area shape="poly" title=" " alt="" coords="33,332,39,297,53,249,74,197,106,150,121,137,124,141,110,153,79,200,58,251,45,299,38,333"/>
-<area shape="rect" href="print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="518,157,587,183"/>
-<area shape="poly" title=" " alt="" coords="37,332,63,288,83,263,106,243,156,214,209,193,264,178,319,168,423,161,504,163,504,168,423,166,320,174,265,183,210,198,158,219,110,247,87,267,67,291,42,335"/>
-<area shape="rect" href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d" title="cleans up and frees all allocated resources." alt="" coords="123,509,221,535"/>
-<area shape="poly" title=" " alt="" coords="39,358,61,423,82,462,110,496,115,500,112,504,106,500,77,465,56,426,34,360"/>
-<area shape="rect" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7" title="Prints debug messages if DEBUG is enabled." alt="" coords="711,485,750,511"/>
-<area shape="poly" title=" " alt="" coords="61,348,293,395,625,467,699,487,697,492,623,473,292,400,60,354"/>
-<area shape="rect" href="init_8c.html#ae0507f082df4dd54af32488805e4ad30" title="Initializes the shared table structure and all related resources." alt="" coords="131,257,213,283"/>
-<area shape="poly" title=" " alt="" coords="56,331,135,287,137,292,58,335"/>
-<area shape="rect" href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf" title=" " alt="" coords="108,460,236,485"/>
-<area shape="poly" title=" " alt="" coords="44,358,70,397,110,439,129,451,126,456,106,443,66,400,39,361"/>
-<area shape="poly" title=" " alt="" coords="220,122,434,149,505,160,504,165,433,154,219,127"/>
-<area shape="rect" href="utils_8c.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9" title=" " alt="" coords="307,5,410,31"/>
-<area shape="poly" title=" " alt="" coords="191,104,283,48,312,34,314,39,285,52,193,109"/>
-<area shape="rect" href="print_8c.html#ab0d14669421e64af28e31e9dbd97ec09" title="Prints a message in the fd." alt="" coords="683,157,779,183"/>
-<area shape="poly" title=" " alt="" coords="587,167,669,167,669,173,587,173"/>
-<area shape="rect" href="utils_8c.html#a942dd0d78727d6a8f2e27903a21e2430" title=" " alt="" coords="513,5,592,31"/>
-<area shape="poly" title=" " alt="" coords="410,15,499,15,499,21,410,21"/>
-<area shape="poly" title=" " alt="" coords="214,277,429,332,544,368,625,401,674,436,711,473,707,477,670,440,623,406,542,373,427,337,213,282"/>
-<area shape="rect" href="utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="865,624,945,649"/>
-<area shape="poly" title=" " alt="" coords="187,255,229,224,283,193,424,126,487,99,547,80,606,72,665,78,696,87,727,100,791,143,805,157,818,177,840,228,858,293,873,364,894,506,904,610,899,611,889,507,868,365,853,294,835,230,813,179,801,160,788,147,724,105,694,92,664,83,606,77,548,85,489,104,426,131,285,198,231,229,190,259"/>
-<area shape="rect" href="init_8c.html#a803da164314e505c37bb43299d8ed14a" title=" " alt="" coords="305,257,412,283"/>
-<area shape="poly" title=" " alt="" coords="214,267,291,267,291,273,214,273"/>
-<area shape="rect" href="init_8c.html#ad0c577bbe9ae96b5220d6fb28201119b" title=" " alt="" coords="314,208,403,233"/>
-<area shape="poly" title=" " alt="" coords="213,257,300,233,302,238,214,262"/>
-<area shape="poly" title=" " alt="" coords="401,255,432,242,480,216,522,188,524,193,483,220,434,247,403,260"/>
-<area shape="poly" title=" " alt="" coords="412,261,461,259,516,263,573,276,600,287,626,301,647,319,665,339,694,386,714,432,726,471,721,473,709,434,689,388,661,342,643,322,622,306,598,291,572,281,516,268,461,264,413,266"/>
-<area shape="poly" title=" " alt="" coords="403,207,504,180,505,185,404,212"/>
-<area shape="poly" title=" " alt="" coords="404,213,453,212,511,217,571,232,600,245,626,261,650,284,670,310,700,368,719,425,728,471,723,472,713,427,695,370,665,313,646,287,622,265,597,249,570,237,511,222,453,217,404,219"/>
-<area shape="poly" title=" " alt="" coords="194,458,300,391,367,345,432,293,487,240,530,192,534,195,490,244,435,297,370,349,302,396,197,462"/>
-<area shape="poly" title=" " alt="" coords="236,473,698,494,697,499,236,478"/>
-<area shape="rect" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097" title=" " alt="" coords="284,760,433,785"/>
-<area shape="poly" title=" " alt="" coords="221,483,238,496,254,519,264,540,270,581,272,624,277,647,286,673,311,714,338,748,334,751,307,717,282,675,271,649,266,625,264,582,259,542,250,521,234,500,218,488"/>
-<area shape="rect" href="routine_8c.html#af59d70ba88dde40771d84ab61f87ea58" title=" " alt="" coords="314,636,403,661"/>
-<area shape="poly" title=" " alt="" coords="215,483,238,496,272,526,302,561,345,623,341,626,298,564,268,530,234,500,213,488"/>
-<area shape="poly" title=" " alt="" coords="368,758,431,673,452,633,462,616,480,599,516,578,549,570,583,565,623,553,698,514,701,519,625,558,584,570,550,575,518,583,483,603,466,619,456,635,436,675,372,761"/>
-<area shape="rect" href="monitor_8c.html#a247aa842c19135b51fec47157f973e62" title=" " alt="" coords="497,760,608,785"/>
-<area shape="poly" title=" " alt="" coords="433,770,483,770,483,775,433,775"/>
-<area shape="rect" href="monitor_8c.html#a8faea8170611d67c9e4a7b8039ded7a2" title=" " alt="" coords="837,860,972,885"/>
-<area shape="poly" title=" " alt="" coords="370,784,413,838,445,867,482,889,530,904,580,913,630,916,681,915,774,903,849,886,850,892,775,908,681,920,630,921,579,918,529,909,480,894,442,871,409,842,366,787"/>
-<area shape="rect" href="monitor_8c.html#a4c96295eceb79a76c5960e374dc5351b" title=" " alt="" coords="481,809,624,835"/>
-<area shape="poly" title=" " alt="" coords="410,783,489,803,488,808,409,788"/>
-<area shape="poly" title=" " alt="" coords="606,758,622,747,645,722,664,693,694,631,713,572,723,524,728,525,718,573,699,633,669,696,649,725,626,751,609,762"/>
-<area shape="rect" href="monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42" title=" " alt="" coords="672,759,789,784"/>
-<area shape="poly" title=" " alt="" coords="608,770,658,769,658,775,608,775"/>
-<area shape="poly" title=" " alt="" coords="625,829,665,830,708,826,750,815,788,794,800,783,808,771,814,745,819,716,825,700,835,684,868,655,871,659,839,688,830,703,824,717,820,746,813,773,804,786,791,799,752,820,709,831,665,835,624,835"/>
-<area shape="poly" title=" " alt="" coords="598,807,671,785,673,790,599,812"/>
-<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="681,697,780,723"/>
-<area shape="poly" title=" " alt="" coords="600,807,623,796,637,784,647,772,670,745,694,728,697,732,674,749,651,776,641,788,625,800,603,812"/>
-<area shape="poly" title=" " alt="" coords="761,695,860,652,862,657,763,700"/>
-<area shape="poly" title=" " alt="" coords="756,721,791,745,845,799,887,848,883,851,841,802,788,749,753,725"/>
-<area shape="rect" href="print_8c.html#ada258d4339f708943c1f34e0e98308fa" title=" " alt="" coords="863,697,946,723"/>
-<area shape="poly" title=" " alt="" coords="780,707,850,707,850,713,780,713"/>
-<area shape="poly" title=" " alt="" coords="371,634,417,594,447,572,480,553,538,531,598,515,697,498,698,504,599,520,540,536,482,558,450,576,420,598,375,638"/>
-<area shape="poly" title=" " alt="" coords="373,660,402,698,436,747,448,777,454,803,463,825,483,845,508,857,543,865,633,875,732,877,823,875,823,880,732,882,632,880,542,870,506,862,480,850,458,828,449,804,443,779,431,750,398,701,369,663"/>
-<area shape="rect" href="routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551" title=" " alt="" coords="531,612,574,637"/>
-<area shape="poly" title=" " alt="" coords="403,641,517,626,518,632,404,646"/>
-<area shape="rect" href="routine_8c.html#a609ab24efca0e9444e3221f78a0b7185" title=" " alt="" coords="489,711,617,736"/>
-<area shape="poly" title=" " alt="" coords="390,659,482,697,501,704,499,709,480,702,388,664"/>
-<area shape="rect" href="routine_8c.html#a9d4b235c43ff8416b674a311403e7c88" title=" " alt="" coords="507,661,598,687"/>
-<area shape="poly" title=" " alt="" coords="404,652,494,664,493,669,403,657"/>
-<area shape="poly" title=" " alt="" coords="573,615,623,590,669,555,706,519,710,523,672,559,625,595,576,620"/>
-<area shape="poly" title=" " alt="" coords="574,623,851,632,851,638,574,628"/>
-<area shape="poly" title=" " alt="" coords="576,629,625,648,699,688,696,692,623,652,574,634"/>
-<area shape="poly" title=" " alt="" coords="617,716,668,712,668,717,617,721"/>
-<area shape="poly" title=" " alt="" coords="597,661,622,648,653,619,680,585,716,522,720,525,684,588,657,622,626,652,600,666"/>
-<area shape="poly" title=" " alt="" coords="599,680,668,695,667,700,598,686"/>
+<area shape="rect" title=" " alt="" coords="5,357,60,383"/>
+<area shape="rect" href="main_8c.html#a3bf0fe5b820226183436cca19d19d5dc" title=" " alt="" coords="125,55,219,80"/>
+<area shape="poly" title=" " alt="" coords="31,357,34,310,44,242,66,167,84,131,106,98,120,85,123,89,110,101,88,133,71,169,49,243,39,311,37,357"/>
+<area shape="rect" href="print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="717,156,787,181"/>
+<area shape="poly" title=" " alt="" coords="51,355,118,312,220,255,281,226,346,199,413,177,481,162,541,156,601,154,704,160,703,166,601,160,541,161,482,167,414,182,348,204,283,231,223,259,120,317,54,359"/>
+<area shape="rect" href="main_8c.html#a48e1a47db9db1a87075c996c9a37f75d" title="cleans up and frees all allocated resources." alt="" coords="123,508,221,533"/>
+<area shape="poly" title=" " alt="" coords="41,382,65,436,84,467,110,495,116,499,113,504,106,499,80,470,60,438,36,384"/>
+<area shape="rect" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7" title="Prints debug messages if DEBUG is enabled." alt="" coords="733,484,771,509"/>
+<area shape="poly" title=" " alt="" coords="61,371,293,408,625,466,720,487,718,492,623,471,292,413,60,377"/>
+<area shape="rect" href="init_8c.html#ae0507f082df4dd54af32488805e4ad30" title="Initializes the shared table structure and all related resources." alt="" coords="317,307,400,332"/>
+<area shape="poly" title=" " alt="" coords="60,363,303,325,304,330,61,368"/>
+<area shape="rect" href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf" title=" " alt="" coords="108,459,236,484"/>
+<area shape="poly" title=" " alt="" coords="48,381,75,408,110,437,131,450,128,455,106,442,71,412,44,385"/>
+<area shape="rect" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985" title=" " alt="" coords="501,55,604,80"/>
+<area shape="poly" title=" " alt="" coords="220,65,487,65,487,70,220,70"/>
+<area shape="poly" title=" " alt="" coords="587,78,625,97,650,116,673,134,706,150,703,155,671,139,646,120,623,102,585,82"/>
+<area shape="rect" href="utils_8c.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9" title=" " alt="" coords="701,5,803,31"/>
+<area shape="poly" title=" " alt="" coords="603,52,687,31,688,36,605,57"/>
+<area shape="rect" href="utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="906,105,989,131"/>
+<area shape="poly" title=" " alt="" coords="605,76,672,89,790,103,893,112,892,117,790,108,672,94,604,81"/>
+<area shape="rect" href="print_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6" title=" " alt="" coords="672,55,832,80"/>
+<area shape="poly" title=" " alt="" coords="604,65,658,65,658,70,604,70"/>
+<area shape="rect" href="print_8c.html#ab0d14669421e64af28e31e9dbd97ec09" title="Prints a message in the fd." alt="" coords="899,156,995,181"/>
+<area shape="poly" title=" " alt="" coords="787,166,886,166,886,171,787,171"/>
+<area shape="rect" href="utils_8c.html#a942dd0d78727d6a8f2e27903a21e2430" title=" " alt="" coords="908,5,987,31"/>
+<area shape="poly" title=" " alt="" coords="803,15,894,15,894,21,803,21"/>
+<area shape="poly" title=" " alt="" coords="401,325,505,352,566,373,625,400,683,436,729,473,725,477,679,440,623,404,564,378,503,357,399,330"/>
+<area shape="rect" href="utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="907,684,987,709"/>
+<area shape="poly" title=" " alt="" coords="401,318,504,327,565,338,625,354,689,376,739,396,784,425,834,471,873,521,904,576,926,628,941,670,936,672,921,630,899,578,868,524,830,474,781,429,737,401,688,381,623,359,564,343,503,333,400,323"/>
+<area shape="rect" href="init_8c.html#a803da164314e505c37bb43299d8ed14a" title=" " alt="" coords="499,207,606,232"/>
+<area shape="poly" title=" " alt="" coords="377,304,423,274,480,242,498,234,500,239,483,247,425,279,380,309"/>
+<area shape="rect" href="init_8c.html#ad0c577bbe9ae96b5220d6fb28201119b" title=" " alt="" coords="508,256,597,281"/>
+<area shape="poly" title=" " alt="" coords="399,306,494,281,496,286,401,311"/>
+<area shape="poly" title=" " alt="" coords="603,204,703,178,705,183,604,209"/>
+<area shape="poly" title=" " alt="" coords="605,230,626,243,651,269,673,298,708,361,732,422,747,470,742,471,727,424,703,363,669,301,647,272,622,247,603,234"/>
+<area shape="poly" title=" " alt="" coords="595,254,623,242,675,215,719,187,722,191,677,219,625,247,597,258"/>
+<area shape="poly" title=" " alt="" coords="567,280,733,472,729,475,563,283"/>
+<area shape="poly" title=" " alt="" coords="176,457,213,382,244,336,282,293,331,253,373,228,420,211,481,193,540,179,600,171,704,165,704,171,601,176,541,184,482,198,422,216,376,233,334,258,286,297,249,339,218,385,181,460"/>
+<area shape="poly" title=" " alt="" coords="236,471,719,493,718,498,236,477"/>
+<area shape="rect" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097" title=" " alt="" coords="284,811,433,836"/>
+<area shape="poly" title=" " alt="" coords="221,482,238,495,255,517,265,538,272,579,275,621,287,672,317,741,346,797,341,800,312,743,281,674,269,622,267,579,260,540,250,520,234,499,218,486"/>
+<area shape="rect" href="routine_8c.html#af59d70ba88dde40771d84ab61f87ea58" title=" " alt="" coords="314,635,403,660"/>
+<area shape="poly" title=" " alt="" coords="215,482,238,494,272,525,302,559,345,621,341,625,298,562,268,529,234,499,213,487"/>
+<area shape="poly" title=" " alt="" coords="364,809,423,692,456,631,479,597,515,575,548,567,582,563,623,551,719,509,721,514,625,557,583,568,549,572,518,580,483,601,461,634,428,695,369,812"/>
+<area shape="rect" href="monitor_8c.html#a247aa842c19135b51fec47157f973e62" title=" " alt="" coords="497,811,608,836"/>
+<area shape="poly" title=" " alt="" coords="433,821,483,821,483,826,433,826"/>
+<area shape="rect" href="monitor_8c.html#a8faea8170611d67c9e4a7b8039ded7a2" title=" " alt="" coords="880,760,1015,785"/>
+<area shape="poly" title=" " alt="" coords="376,834,422,867,451,883,482,895,550,900,665,899,776,895,831,890,862,871,889,846,929,795,934,799,893,850,865,876,833,895,776,901,665,905,550,905,481,901,449,888,419,872,373,838"/>
+<area shape="rect" href="monitor_8c.html#a4c96295eceb79a76c5960e374dc5351b" title=" " alt="" coords="481,860,624,885"/>
+<area shape="poly" title=" " alt="" coords="410,833,489,854,488,859,409,839"/>
+<area shape="poly" title=" " alt="" coords="566,808,593,781,622,746,660,685,693,622,738,521,743,523,697,625,664,688,626,749,597,784,570,812"/>
+<area shape="rect" href="monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42" title=" " alt="" coords="693,811,811,836"/>
+<area shape="poly" title=" " alt="" coords="608,821,680,821,680,826,608,826"/>
+<area shape="poly" title=" " alt="" coords="625,882,674,885,728,882,782,870,807,860,830,846,842,836,850,825,857,802,863,776,878,747,912,716,916,719,882,750,868,777,862,803,855,828,846,840,834,851,809,865,783,875,728,887,674,890,624,887"/>
+<area shape="poly" title=" " alt="" coords="604,857,686,837,687,842,605,863"/>
+<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="703,709,801,735"/>
+<area shape="poly" title=" " alt="" coords="600,858,623,846,648,824,670,798,725,743,729,747,674,801,652,828,625,851,602,862"/>
+<area shape="poly" title=" " alt="" coords="757,708,792,630,812,577,829,521,835,485,838,438,842,328,851,220,861,176,878,143,892,131,896,135,882,146,866,178,856,221,847,328,844,438,841,485,835,523,817,579,797,632,762,710"/>
+<area shape="poly" title=" " alt="" coords="801,713,893,701,894,706,802,718"/>
+<area shape="poly" title=" " alt="" coords="802,732,885,754,884,759,801,737"/>
+<area shape="poly" title=" " alt="" coords="371,632,417,592,447,570,480,552,544,528,610,512,718,496,719,502,611,517,546,533,482,556,450,575,420,596,375,636"/>
+<area shape="poly" title=" " alt="" coords="372,658,417,703,448,727,482,745,531,761,582,773,686,785,784,786,866,780,866,786,784,791,686,790,581,778,530,766,480,750,445,731,413,707,369,662"/>
+<area shape="rect" href="routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551" title=" " alt="" coords="531,660,574,685"/>
+<area shape="poly" title=" " alt="" coords="404,650,518,666,517,671,403,656"/>
+<area shape="rect" href="routine_8c.html#a609ab24efca0e9444e3221f78a0b7185" title=" " alt="" coords="489,709,617,735"/>
+<area shape="poly" title=" " alt="" coords="390,658,482,696,501,702,499,707,480,700,388,663"/>
+<area shape="rect" href="routine_8c.html#a9d4b235c43ff8416b674a311403e7c88" title=" " alt="" coords="507,611,598,636"/>
+<area shape="poly" title=" " alt="" coords="403,639,493,628,494,633,404,645"/>
+<area shape="poly" title=" " alt="" coords="574,666,598,659,623,646,658,617,689,583,734,520,738,523,693,586,661,621,625,651,600,664,575,671"/>
+<area shape="poly" title=" " alt="" coords="575,671,893,691,893,696,574,677"/>
+<area shape="poly" title=" " alt="" coords="575,675,690,704,689,709,574,680"/>
+<area shape="poly" title=" " alt="" coords="617,719,688,719,688,725,617,725"/>
+<area shape="poly" title=" " alt="" coords="585,608,623,589,678,552,724,516,727,520,681,556,625,594,587,613"/>
+<area shape="poly" title=" " alt="" coords="594,634,625,646,676,673,721,700,718,704,674,678,623,651,592,639"/>
 </map>
 </div>
 
@@ -475,39 +472,39 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00076">76</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>    i = 0;</div>
-<div class="line"><span class="lineno">   81</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Iniciando start_simulation&quot;</span>);</div>
-<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
-<div class="line"><span class="lineno">   83</span>    {</div>
-<div class="line"><span class="lineno">   84</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;creando hilo para filosofo %d&quot;</span>, i + 1);</div>
-<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">if</span> (pthread_create(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i].<a class="code hl_variable" href="structs__philo.html#aa057a8fde3946bf045a4383e55ba3da4">thread</a>, NULL, \</div>
-<div class="line"><span class="lineno">   86</span>                <a class="code hl_function" href="philo_8h.html#af59d70ba88dde40771d84ab61f87ea58">philo_loop</a>, &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i]))</div>
-<div class="line"><span class="lineno">   87</span>        {</div>
-<div class="line"><span class="lineno">   88</span>            <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Error al crear hilo para filosofo %d&quot;</span>, i + 1);</div>
-<div class="line"><span class="lineno">   89</span>            <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a>(<a class="code hl_define" href="philo_8h.html#a5f52bb1d67565662f5f291a1ec23e738">MSG_THREAD_ERR</a>));</div>
-<div class="line"><span class="lineno">   90</span>        }</div>
-<div class="line"><span class="lineno">   91</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;hilo para filosofo %d creado con exito&quot;</span>, i + 1);</div>
-<div class="line"><span class="lineno">   92</span>        i++;</div>
-<div class="line"><span class="lineno">   93</span>    }</div>
-<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Todos los hilos creados, iniciando monitoreo&quot;</span>);</div>
-<div class="line"><span class="lineno">   95</span>    <a class="code hl_function" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a>(table);</div>
-<div class="line"><span class="lineno">   96</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Monitoreo terminado, esperando a que terminen los hilos&quot;</span>);</div>
-<div class="line"><span class="lineno">   97</span>    i = 0;</div>
-<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
-<div class="line"><span class="lineno">   99</span>    {</div>
-<div class="line"><span class="lineno">  100</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Esperando a que termine el hilo del filosofo %d&quot;</span>, i + 1);</div>
-<div class="line"><span class="lineno">  101</span>        pthread_join(table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i++].<a class="code hl_variable" href="structs__philo.html#aa057a8fde3946bf045a4383e55ba3da4">thread</a>, NULL);</div>
-<div class="line"><span class="lineno">  102</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Hilo del filosofo %d terminado&quot;</span>, i + 1);</div>
-<div class="line"><span class="lineno">  103</span>    }</div>
-<div class="line"><span class="lineno">  104</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Todos los hilos terminados&quot;</span>);</div>
-<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">  106</span>}</div>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00094">94</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>{</div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>    i = 0;</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Iniciando start_simulation&quot;</span>);</div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
+<div class="line"><span class="lineno">  101</span>    {</div>
+<div class="line"><span class="lineno">  102</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;creando hilo para filosofo %d&quot;</span>, i + 1);</div>
+<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">if</span> (pthread_create(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i].<a class="code hl_variable" href="structs__philo.html#aa057a8fde3946bf045a4383e55ba3da4">thread</a>, NULL, \</div>
+<div class="line"><span class="lineno">  104</span>                <a class="code hl_function" href="philo_8h.html#af59d70ba88dde40771d84ab61f87ea58">philo_loop</a>, &amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i]))</div>
+<div class="line"><span class="lineno">  105</span>        {</div>
+<div class="line"><span class="lineno">  106</span>            <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Error al crear hilo para filosofo %d&quot;</span>, i + 1);</div>
+<div class="line"><span class="lineno">  107</span>            <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a>(<a class="code hl_define" href="philo_8h.html#a5f52bb1d67565662f5f291a1ec23e738">MSG_THREAD_ERR</a>));</div>
+<div class="line"><span class="lineno">  108</span>        }</div>
+<div class="line"><span class="lineno">  109</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;hilo para filosofo %d creado con exito&quot;</span>, i + 1);</div>
+<div class="line"><span class="lineno">  110</span>        i++;</div>
+<div class="line"><span class="lineno">  111</span>    }</div>
+<div class="line"><span class="lineno">  112</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Todos los hilos creados, iniciando monitoreo&quot;</span>);</div>
+<div class="line"><span class="lineno">  113</span>    <a class="code hl_function" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a>(table);</div>
+<div class="line"><span class="lineno">  114</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Monitoreo terminado, esperando a que terminen los hilos&quot;</span>);</div>
+<div class="line"><span class="lineno">  115</span>    i = 0;</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
+<div class="line"><span class="lineno">  117</span>    {</div>
+<div class="line"><span class="lineno">  118</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Esperando a que termine el hilo del filosofo %d&quot;</span>, i + 1);</div>
+<div class="line"><span class="lineno">  119</span>        pthread_join(table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i++].<a class="code hl_variable" href="structs__philo.html#aa057a8fde3946bf045a4383e55ba3da4">thread</a>, NULL);</div>
+<div class="line"><span class="lineno">  120</span>        <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Hilo del filosofo %d terminado&quot;</span>, i + 1);</div>
+<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  122</span>    <a class="code hl_function" href="debug_8c.html#aedc0b0d900adb99366a050adc302e5e7">dp</a>(<span class="stringliteral">&quot;Todos los hilos terminados&quot;</span>);</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">  124</span>}</div>
 <div class="ttc" id="amonitor_8c_html_a619d6413dfafa5ea8cc18edb9e5a8097"><div class="ttname"><a href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a></div><div class="ttdeci">void monitor_simulation(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00097">monitor.c:97</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a5f52bb1d67565662f5f291a1ec23e738"><div class="ttname"><a href="philo_8h.html#a5f52bb1d67565662f5f291a1ec23e738">MSG_THREAD_ERR</a></div><div class="ttdeci">#define MSG_THREAD_ERR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00083">philo.h:83</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a5f52bb1d67565662f5f291a1ec23e738"><div class="ttname"><a href="philo_8h.html#a5f52bb1d67565662f5f291a1ec23e738">MSG_THREAD_ERR</a></div><div class="ttdeci">#define MSG_THREAD_ERR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00084">philo.h:84</a></div></div>
 <div class="ttc" id="aphilo_8h_html_af59d70ba88dde40771d84ab61f87ea58"><div class="ttname"><a href="philo_8h.html#af59d70ba88dde40771d84ab61f87ea58">philo_loop</a></div><div class="ttdeci">void * philo_loop(void *arg)</div><div class="ttdef"><b>Definition</b> <a href="routine_8c_source.html#l00142">routine.c:142</a></div></div>
 <div class="ttc" id="astructs__philo_html_aa057a8fde3946bf045a4383e55ba3da4"><div class="ttname"><a href="structs__philo.html#aa057a8fde3946bf045a4383e55ba3da4">s_philo::thread</a></div><div class="ttdeci">pthread_t thread</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00066">philo.h:66</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -543,7 +540,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="462,79,612,293,608,297,458,82"/>
 <area shape="poly" title=" " alt="" coords="673,330,745,351,743,356,672,335"/>
 <area shape="poly" title=" " alt="" coords="672,304,748,282,749,287,673,309"/>
-<area shape="rect" href="print_8c.html#ada258d4339f708943c1f34e0e98308fa" title=" " alt="" coords="761,307,843,332"/>
+<area shape="rect" href="utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="761,307,843,332"/>
 <area shape="poly" title=" " alt="" coords="678,317,747,317,747,322,678,322"/>
 <area shape="poly" title=" " alt="" coords="283,280,378,242,497,210,595,190,596,195,498,215,380,247,285,285"/>
 <area shape="poly" title=" " alt="" coords="269,307,329,386,360,424,380,444,431,461,485,467,540,464,595,454,646,439,693,421,766,387,768,392,695,426,648,444,596,459,541,469,485,472,430,466,377,448,356,428,324,389,265,310"/>
@@ -567,8 +564,113 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="main_8c_aa0c41741f9fce76bc9b6e485653e0cdf_icgraph.png" border="0" usemap="#amain_8c_aa0c41741f9fce76bc9b6e485653e0cdf_icgraph" alt=""/></div>
 <map name="amain_8c_aa0c41741f9fce76bc9b6e485653e0cdf_icgraph" id="amain_8c_aa0c41741f9fce76bc9b6e485653e0cdf_icgraph">
 <area shape="rect" title=" " alt="" coords="108,5,236,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,5,60,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
 <area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac72ff019fa362d766a1ec4124d786985" name="ac72ff019fa362d766a1ec4124d786985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac72ff019fa362d766a1ec4124d786985">&#9670;&#160;</a></span>validate_arg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int validate_arg </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>param</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>zero_allow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>int 1 on success, 0 on failure </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00021">21</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>{</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordtype">int</span> result;</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    result = <a class="code hl_function" href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a>(arg, value);</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span> (result &lt;= 0)</div>
+<div class="line"><span class="lineno">   27</span>    {</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (result == <a class="code hl_define" href="philo_8h.html#a6ce08348b8e4db71d2c55ff3ac8f25da">ERR_ZERO_VALUE</a> &amp;&amp; zero_allow)</div>
+<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   30</span>        <span class="keywordflow">if</span> (result == <a class="code hl_define" href="philo_8h.html#a6ce08348b8e4db71d2c55ff3ac8f25da">ERR_ZERO_VALUE</a> &amp;&amp; !zero_allow &amp;&amp; \</div>
+<div class="line"><span class="lineno">   31</span>                (!<a class="code hl_function" href="philo_8h.html#abd118f33a5a0fe00b6cbbfb0eeae25a5">ft_strcmp</a>(param, <a class="code hl_define" href="philo_8h.html#a1dc771dff39a1210c106d0a8f1004536">MSG_ARG_PHILOS</a>)))</div>
+<div class="line"><span class="lineno">   32</span>            <a class="code hl_function" href="philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a>(<a class="code hl_define" href="philo_8h.html#aa16746a137b588f89857439456c56940">MSG_ERR_ZERO_PHILO</a>);</div>
+<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   34</span>            <a class="code hl_function" href="philo_8h.html#a9f619a13928655443e0a0a6acb6e3f16">print_argument_error</a>(result, arg, param);</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   36</span>    }</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">return</span> (1);</div>
+<div class="line"><span class="lineno">   38</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a53c86c0e0e0dfe758e12bd6d6fa7f2a9"><div class="ttname"><a href="philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9">ft_philo_atoi</a></div><div class="ttdeci">int ft_philo_atoi(const char *str, int *result)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00025">utils.c:25</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a6ce08348b8e4db71d2c55ff3ac8f25da"><div class="ttname"><a href="philo_8h.html#a6ce08348b8e4db71d2c55ff3ac8f25da">ERR_ZERO_VALUE</a></div><div class="ttdeci">#define ERR_ZERO_VALUE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00107">philo.h:107</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a9f619a13928655443e0a0a6acb6e3f16"><div class="ttname"><a href="philo_8h.html#a9f619a13928655443e0a0a6acb6e3f16">print_argument_error</a></div><div class="ttdeci">void print_argument_error(int error, const char *arg, const char *param)</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00081">print.c:81</a></div></div>
+<div class="ttc" id="aphilo_8h_html_aa16746a137b588f89857439456c56940"><div class="ttname"><a href="philo_8h.html#aa16746a137b588f89857439456c56940">MSG_ERR_ZERO_PHILO</a></div><div class="ttdeci">#define MSG_ERR_ZERO_PHILO</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00116">philo.h:116</a></div></div>
+<div class="ttc" id="aphilo_8h_html_abd118f33a5a0fe00b6cbbfb0eeae25a5"><div class="ttname"><a href="philo_8h.html#abd118f33a5a0fe00b6cbbfb0eeae25a5">ft_strcmp</a></div><div class="ttdeci">int ft_strcmp(char *s1, char *s2)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00071">utils.c:71</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_ac72ff019fa362d766a1ec4124d786985_cgraph.png" border="0" usemap="#amain_8c_ac72ff019fa362d766a1ec4124d786985_cgraph" alt=""/></div>
+<map name="amain_8c_ac72ff019fa362d766a1ec4124d786985_cgraph" id="amain_8c_ac72ff019fa362d766a1ec4124d786985_cgraph">
+<area shape="rect" title=" " alt="" coords="5,80,108,105"/>
+<area shape="rect" href="print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="201,5,271,31"/>
+<area shape="poly" title=" " alt="" coords="79,77,155,40,188,28,189,33,157,44,81,82"/>
+<area shape="rect" href="utils_8c.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9" title=" " alt="" coords="185,55,287,80"/>
+<area shape="poly" title=" " alt="" coords="108,83,171,74,171,79,109,88"/>
+<area shape="rect" href="utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="195,104,277,129"/>
+<area shape="poly" title=" " alt="" coords="109,97,181,107,180,112,108,102"/>
+<area shape="rect" href="print_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6" title=" " alt="" coords="156,153,316,179"/>
+<area shape="poly" title=" " alt="" coords="83,103,157,138,180,147,178,152,155,143,81,108"/>
+<area shape="rect" href="print_8c.html#ab0d14669421e64af28e31e9dbd97ec09" title="Prints a message in the fd." alt="" coords="364,5,460,31"/>
+<area shape="poly" title=" " alt="" coords="271,15,350,15,350,21,271,21"/>
+<area shape="rect" href="utils_8c.html#a942dd0d78727d6a8f2e27903a21e2430" title=" " alt="" coords="373,55,451,80"/>
+<area shape="poly" title=" " alt="" coords="287,65,359,65,359,70,287,70"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_ac72ff019fa362d766a1ec4124d786985_icgraph.png" border="0" usemap="#amain_8c_ac72ff019fa362d766a1ec4124d786985_icgraph" alt=""/></div>
+<map name="amain_8c_ac72ff019fa362d766a1ec4124d786985_icgraph" id="amain_8c_ac72ff019fa362d766a1ec4124d786985_icgraph">
+<area shape="rect" title=" " alt="" coords="251,5,353,31"/>
+<area shape="rect" href="main_8c.html#a3bf0fe5b820226183436cca19d19d5dc" title=" " alt="" coords="108,5,203,31"/>
+<area shape="poly" title=" " alt="" coords="237,21,203,21,203,15,237,15"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
 </map>
 </div>
 

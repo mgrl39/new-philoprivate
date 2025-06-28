@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['para_20comer_20igual_20a_20cero_0',['Caso 7: Tiempo para comer igual a cero',['../md_philo_2docs_2parsing.html#autotoc_md25',1,'']]],
+  ['para_20dormir_20igual_20a_20cero_1',['Caso 8: Tiempo para dormir igual a cero',['../md_philo_2docs_2parsing.html#autotoc_md26',1,'']]],
+  ['para_20morir_20igual_20a_20cero_2',['Caso 6: Tiempo para morir igual a cero',['../md_philo_2docs_2parsing.html#autotoc_md24',1,'']]],
+  ['parseo_20de_20argumentos_3',['Pruebas de parseo de argumentos',['../md_philo_2docs_2parsing.html',1,'']]],
+  ['parsing_2emd_4',['parsing.md',['../parsing_8md.html',1,'']]],
+  ['patrones_20del_20proyecto_5',['Patrones del proyecto',['../md_philo_2docs_2conceptos.html#autotoc_md6',1,'']]],
+  ['patrones_20usados_20en_20el_20proyecto_6',['Patrones usados en el proyecto',['../md_philo_2docs_2conceptos.html#autotoc_md2',1,'']]],
+  ['pero_20especial_7',['Caso 11: Número de comidas igual a cero (válido, pero especial)',['../md_philo_2docs_2parsing.html#autotoc_md29',1,'']]],
+  ['philo_2eh_8',['philo.h',['../philo_8h.html',1,'']]],
+  ['philo_5floop_9',['philo_loop',['../philo_8h.html#af59d70ba88dde40771d84ab61f87ea58',1,'philo_loop(void *arg):&#160;routine.c'],['../routine_8c.html#af59d70ba88dde40771d84ab61f87ea58',1,'philo_loop(void *arg):&#160;routine.c']]],
+  ['philos_10',['philos',['../structs__table.html#ab17844cffbf227b620291893dcde186c',1,'s_table']]],
+  ['phiossopheerrs_11',['Explicacion del proyecto Phiossopheerrs',['../md_philo_2docs_2explained.html',1,'']]],
+  ['pool_20de_20hilos_12',['Pool de hilos',['../md_philo_2docs_2conceptos.html#autotoc_md7',1,'']]],
+  ['por_20que_20esta_20solucion_20funciona_13',['Por Que esta solucion Funciona',['../md_philo_2docs_2conceptos.html#autotoc_md3',1,'']]],
+  ['por_20que_20funciona_14',['Por Que funciona',['../md_philo_2docs_2explained.html#autotoc_md17',1,'']]],
+  ['primer_20error_20encontrado_15',['Caso 12: Mezcla de errores (se muestra el primer error encontrado)',['../md_philo_2docs_2parsing.html#autotoc_md30',1,'']]],
+  ['principal_16',['Flujo principal',['../md_philo_2docs_2explained.html#autotoc_md14',1,'']]],
+  ['print_2ec_17',['print.c',['../print_8c.html',1,'']]],
+  ['print_5fargument_5ferror_18',['print_argument_error',['../philo_8h.html#a9f619a13928655443e0a0a6acb6e3f16',1,'print_argument_error(int error, const char *arg, const char *param):&#160;print.c'],['../print_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6',1,'print_argument_error(int error, const char *arg, const char *param_name):&#160;print.c']]],
+  ['print_5fstatus_19',['print_status',['../print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5',1,'print_status(t_philo *philo, char *msg):&#160;print.c'],['../philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5',1,'print_status(t_philo *philo, char *msg):&#160;print.c']]],
+  ['problemas_20comunes_20',['Problemas Comunes',['../md_philo_2docs_2conceptos.html#autotoc_md1',1,'']]],
+  ['proyecto_21',['proyecto',['../md_philo_2docs_2conceptos.html#autotoc_md6',1,'Patrones del proyecto'],['../md_philo_2docs_2conceptos.html#autotoc_md2',1,'Patrones usados en el proyecto']]],
+  ['proyecto_20phiossopheerrs_22',['Explicacion del proyecto Phiossopheerrs',['../md_philo_2docs_2explained.html',1,'']]],
+  ['pruebas_20de_20parseo_20de_20argumentos_23',['Pruebas de parseo de argumentos',['../md_philo_2docs_2parsing.html',1,'']]],
+  ['purple_24',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
+];

@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['recursos_0',['Gestion Eficiente de Recursos',['../md_philo_2docs_2conceptos.html#autotoc_md5',1,'']]],
-  ['red_1',['RED',['../philo_8h.html#a8d23feea868a983c8c2b661e1e16972f',1,'philo.h']]],
-  ['reset_2',['RESET',['../philo_8h.html#ab702106cf3b3e96750b6845ded4e0299',1,'philo.h']]],
-  ['right_3',['RIGHT',['../philo_8h.html#a80fb826a684cf3f0d306b22aa100ddac',1,'philo.h']]],
-  ['routine_2ec_4',['routine.c',['../routine_8c.html',1,'']]]
+  ['general_0',['Descripcion general',['../md_philo_2docs_2description.html',1,'']]],
+  ['generales_1',['Instrucciones generales',['../md_philo_2docs_2description.html#autotoc_md11',1,'']]],
+  ['gestion_20eficiente_20de_20recursos_2',['Gestion Eficiente de Recursos',['../md_philo_2docs_2conceptos.html#autotoc_md5',1,'']]],
+  ['get_5ftime_3',['get_time',['../philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27',1,'get_time(void):&#160;utils.c'],['../utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27',1,'get_time(void):&#160;utils.c']]],
+  ['gold_4',['GOLD',['../philo_8h.html#af468028083c9e52aa2c94ef3b9940450',1,'philo.h']]],
+  ['grandes_5',['Caso 4: Valores demasiado grandes',['../md_philo_2docs_2parsing.html#autotoc_md22',1,'']]],
+  ['green_6',['GREEN',['../philo_8h.html#acfbc006ea433ad708fdee3e82996e721',1,'philo.h']]]
 ];
