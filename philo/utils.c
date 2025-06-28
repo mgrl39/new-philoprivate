@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 12:32:59 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 11:10:22 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,6 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/time.h>
-
-/**
- * TEMPORAL THING
- * @brief Prints debug messages if DEBUG is enabled.
- *
- * @param format Format string like printf
- * @param ... Varibale arguments
- */
-void	debug_print(const char *format, ...)
-{
-	va_list	args;
-
-	if (DEBUG)
-	{
-		va_start(args, format);
-		printf(GOLD);
-		printf("[DEBUG] ");
-		printf(RESET);
-		vprintf(format, args);
-		printf("\n");
-		va_end(args);
-	}
-}
 
 static int	ft_isdigit(int c)
 {
