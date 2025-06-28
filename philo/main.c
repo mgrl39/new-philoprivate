@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 16:43:28 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 17:47:42 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ int	start_simulation(t_table	*table)
 	i = 0;
 	dp("Iniciando start_simulation");
 	table->start_time = get_time();
-
 	while (i < table->num_philos)
 		table->philos[i++].last_meal_time = table->start_time;
 	i = 0;
@@ -133,11 +132,11 @@ int	main(int argc, char *argv[])
 	t_table	table;
 
 	if (argc < 5 || argc > 6)
-		return (ft_error(MSG_USAGE));
+		return (print_usage(argv), 1);
 	memset(&table, 0, sizeof(t_table));
 	dp("Validando argumentos");
 	if (check_args(argc, argv, &table))
-		return (1);
+		return (print_usage(argv), 1);
 	dp("Inicializando datos");
 	if (init_table(&table))
 		return (1);

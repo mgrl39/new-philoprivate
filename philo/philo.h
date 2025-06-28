@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 15:55:05 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 17:44:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,11 @@ int		ft_strcmp(char *s1, char *s2);
 
 /* Detailed Error Message */
 # define MSG_ERR_NOT_DIGIT "Error: '%s' contains non-numeric characters. \
-	Please use only digits."
+Please use only digits."
 # define MSG_ERR_NEGATIVE "Error: '%s' is a negative number. Please use only \
-	positive values."
+positive values."
 # define MSG_ERR_OVERFLOW "Error: '%s' is too large. maximum allowed value \
-	is %d."
+is %d."
 # define MSG_ERR_ZERO_PHILO "Error: Number of philosophers cannot be zero"
 # define MSG_ARG_PHILOS "number of philosophers"
 # define MSG_ARG_DIE_TIME "time to die"
@@ -121,6 +121,7 @@ int		ft_strcmp(char *s1, char *s2);
 # define MSG_ARG_MEALS "number of meals"
 
 void	print_argument_error(int error, const char *arg, const char *param);
+void	print_usage(char *argv[]);
 
 /*
  * memset, printf, malloc, free, write,
