@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 12:33:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 14:27:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,67 @@
 
 # include <pthread.h>
 
-/**
- * ================================
- * DEBUG MODE DEBUG MODE DEBUG MODE 
- * ================================
- */
-# define DEBUG 0
+typedef struct s_philo	t_philo;
+typedef struct s_table	t_table;
 
-/* Debug function */
-void	debug_print(const char *format, ...);
+/**
+ * Numerro de filosofos
+ * Tiempo amxximo sin comer (ms)
+ * Tempo comiendo (ms)
+ * Tiempo durmiendo (ms)
+ * Comidas requeridas (-1 = infinito)
+ * Bandera de muerte
+ * Tiempo de inicio
+ * Mutex para tenedores
+ * Mutex para salida
+ * Mutex para acceso a comidas
+ * Mutex para acceso a muerte
+ * Array de filosofos
+ */
+struct s_table
+{
+	int				num_philos;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				num_meals;
+	int				all_ate;
+	int				someone_died;
+	long			start_time;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	write_lock;
+	pthread_mutex_t	meal_lock;
+	pthread_mutex_t	death_lock;
+	t_philo			*philos;
+};
+
+/**
+ * ID del filosofo
+ * Comidas consumidas
+ * Ultimo timepo de comida
+ * Tenedores [LEFT, RIGHT]
+ * hilo del filosofo
+ * Referencia a mesa compartida
+ */
+struct s_philo
+{
+	int				id;
+	int				meals_eaten;
+	long			last_meal_time;
+	pthread_mutex_t	*forks[2];
+	pthread_t		thread;
+	t_table			*table;
+};
+
+/* Function prototypes */
+long	get_time(void);
+void	print_status(t_philo *philo, char *msg);
+void	*philo_loop(void *arg);
+void	monitor_simulation(t_table *table);
+int		check_death_flag(t_table *table);
+int		init_table(t_table *table);
+int		ft_error(char *msg);
+int		ft_philo_atoi(const char *str, int *result);
 
 /* Error Messages */
 # define MSG_USAGE "Usage: ./philo n_philos t_die t_eat t_sleep [n_meals]"
@@ -32,6 +84,10 @@ void	debug_print(const char *format, ...);
 # define MSG_MALLOC_ERR "Error: Memory allocation failed"
 # define MSG_MUTEX_ERR "Error: Mutex initialization failed"
 
+/* Warning Messages */
+# define MSG_MUTEX_DESTROY_ERR "Warning: Failed to destroy %s"
+# define MSG_FORK_DESTROY_ERR "Warning: Failed to destroy fork mutex %d"
+
 /* Status Messages */
 # define MSG_FORK "has taken a fork"
 # define MSG_EAT "is eating"
@@ -39,9 +95,9 @@ void	debug_print(const char *format, ...);
 # define MSG_THINK "is thinking"
 # define MSG_DIED "died"
 
-/* Warning Messages */
-# define MSG_MUTEX_DESTROY_ERR "Warning: Failed to destroy %s"
-# define MSG_FORK_DESTROY_ERR "Warning: Failed to destroy fork mutex %d"
+/* Fork indices */
+# define LEFT 0
+# define RIGHT 1
 
 /*
  * memset, printf, malloc, free, write,
@@ -58,49 +114,18 @@ void	debug_print(const char *format, ...);
 # define BLUE	"\033[38;5;75m"
 # define PURPLE	"\033[38;5;147m"
 
-/* Fork indices */
-# define LEFT 0
-# define RIGHT 1
+/**
+ * ================================
+ * DEBUG MODE DEBUG MODE DEBUG MODE 
+ * ================================
+ */
+# define DEBUG 0
 
-typedef struct s_philo	t_philo;
+/* Debug function */
+/* Debug Print = dp */
+void	dp(const char *format, ...);
 
-typedef struct s_table
-{
-	int				num_philos;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				num_meals;
-	int				all_ate;
-	int				someone_died;
-	long			start_time;
-	pthread_mutex_t	*forks;
-	pthread_mutex_t	write_lock;
-	pthread_mutex_t	meal_lock;
-	pthread_mutex_t	death_lock;
-	t_philo			*philos;
-}	t_table;
-
-typedef struct s_philo
-{
-	int				id;
-	int				meals_eaten;
-	long			last_meal_time;
-	pthread_mutex_t	*forks[2];
-	pthread_t		thread;
-	t_table			*table;
-}	t_philo;
-
-/* Function prototypes */
-int		ft_philo_atoi(const char *str, int *result);
-void	print_status(t_philo *philo, char *msg);
-long	get_time(void);
-int		ft_error(char *msg);
-int		init_philos(t_table *table);
-int		init_mutexes(t_table *table);
-void	*philosopher_routine(void *arg);
-void	*philo_loop(void *arg);
-void	monitor_simulation(t_table *table);
-int		check_death_flag(t_table *table);
-int		init_table(t_table *table);
+/**
+ * ================================
+ */
 #endif

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/27 12:32:29 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 14:27:46 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,37 +73,35 @@ void	clean_table(t_table *table)
 		free(table->philos);
 }
 
-/**
- * Estaria bien meejorar la mierda esta de erro al crear hilo para filosofo.
- */
 int	start_simulation(t_table	*table)
 {
 	int	i;
 
 	i = 0;
-	debug_print("Iniciando start_simulation");
+	dp("Iniciando start_simulation");
 	while (i < table->num_philos)
 	{
-		debug_print("creando hilo para filosofo %d", i + 1);
-		if (pthread_create(&table->philos[i].thread, NULL, philo_loop, &table->philos[i]))
+		dp("creando hilo para filosofo %d", i + 1);
+		if (pthread_create(&table->philos[i].thread, NULL, \
+				philo_loop, &table->philos[i]))
 		{
-			debug_print("Error al crear hilo para filosofo %d", i + 1);
+			dp("Error al crear hilo para filosofo %d", i + 1);
 			return (ft_error(MSG_THREAD_ERR));
 		}
-		debug_print("hilo para filosofo %d creado con exito", i + 1);
+		dp("hilo para filosofo %d creado con exito", i + 1);
 		i++;
 	}
-	debug_print("Todos los hilos creados, iniciando monitoreo");
+	dp("Todos los hilos creados, iniciando monitoreo");
 	monitor_simulation(table);
-	debug_print("Monitoreo terminado, esperando a que terminen los hilos");
+	dp("Monitoreo terminado, esperando a que terminen los hilos");
 	i = 0;
 	while (i < table->num_philos)
 	{
-		debug_print("Esperando a que termine el hilo del filosofo %d", i + 1);
+		dp("Esperando a que termine el hilo del filosofo %d", i + 1);
 		pthread_join(table->philos[i++].thread, NULL);
-		debug_print("Hilo del filosofo %d terminado", i + 1);
+		dp("Hilo del filosofo %d terminado", i + 1);
 	}
-	debug_print("Todos los hilos terminados");
+	dp("Todos los hilos terminados");
 	return (0);
 }
 
@@ -123,15 +121,15 @@ int	main(int argc, char *argv[])
 	if (argc < 5 || argc > 6)
 		return (ft_error(MSG_USAGE));
 	memset(&table, 0, sizeof(t_table));
-	debug_print("Validando argumentos");
+	dp("Validando argumentos");
 	if (check_args(argc, argv, &table))
 		return (1);
-	debug_print("Inicializando datos");
+	dp("Inicializando datos");
 	if (init_table(&table))
 		return (1);
-	debug_print("Inicializando simulacion");
+	dp("Inicializando simulacion");
 	if (start_simulation(&table))
 		return (clean_table(&table), 1);
-	debug_print("Simulacion terminada");
+	dp("Simulacion terminada");
 	return (clean_table(&table), 0);
 }
