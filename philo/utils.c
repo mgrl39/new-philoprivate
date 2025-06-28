@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 15:57:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 16:13:47 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	ft_philo_atoi(const char *str, int *result)
 	return (1);
 }
 
+// TODO: CHECK WHAT WILL HAPPEN WITH THE -1
 long	get_time(void)
 {
 	struct timeval	tv;

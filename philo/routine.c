@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 14:28:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/28 16:31:18 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ void	*philo_loop(void *arg)
 	philo = (t_philo *)arg;
 	dp("Filosofo %d iniciado", philo->id);
 	if (philo->id % 2 == 0)
-		usleep(10000);
+		usleep(1000);
 	while (!check_death_flag(philo->table) && (philo->table->num_meals == -1 \
 				|| philo->meals_eaten < philo->table->num_meals))
 	{
