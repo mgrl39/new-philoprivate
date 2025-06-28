@@ -1,9 +1,25 @@
 var searchData=
 [
-  ['philo_2eh_0',['philo.h',['../philo_8h.html',1,'']]],
-  ['philo_5floop_1',['philo_loop',['../philo_8h.html#af59d70ba88dde40771d84ab61f87ea58',1,'philo_loop(void *arg):&#160;routine.c'],['../routine_8c.html#af59d70ba88dde40771d84ab61f87ea58',1,'philo_loop(void *arg):&#160;routine.c']]],
-  ['philos_2',['philos',['../structs__table.html#ab17844cffbf227b620291893dcde186c',1,'s_table']]],
-  ['philosopher_5froutine_3',['philosopher_routine',['../philo_8h.html#aebc037e52b6227ff0b5ad16ea1f21c2d',1,'philo.h']]],
-  ['print_5fstatus_4',['print_status',['../philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5',1,'print_status(t_philo *philo, char *msg):&#160;utils.c'],['../utils_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5',1,'print_status(t_philo *philo, char *msg):&#160;utils.c']]],
-  ['purple_5',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
+  ['main_0',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]],
+  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
+  ['makefile_2',['Makefile',['../Makefile.html',1,'']]],
+  ['meal_5flock_3',['meal_lock',['../structs__table.html#a441280c897f6b6530454ec61a32febb7',1,'s_table']]],
+  ['meals_5featen_4',['meals_eaten',['../structs__philo.html#aaec02dd4e9600f851662e7555a785991',1,'s_philo']]],
+  ['mecanismos_20clave_5',['Mecanismos clave',['../md_philo_2docs_2explained.html#autotoc_md15',1,'']]],
+  ['mode_20debug_20mode_20debug_20mode_6',['DEBUG MODE DEBUG MODE DEBUG MODE',['../philo_8h.html#autotoc_md19',1,'']]],
+  ['monitor_20centralizado_7',['Monitor Centralizado',['../md_philo_2docs_2conceptos.html#autotoc_md8',1,'']]],
+  ['monitor_2ec_8',['monitor.c',['../monitor_8c.html',1,'']]],
+  ['monitor_5fsimulation_9',['monitor_simulation',['../philo_8h.html#a619d6413dfafa5ea8cc18edb9e5a8097',1,'monitor_simulation(t_table *table):&#160;monitor.c'],['../monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097',1,'monitor_simulation(t_table *table):&#160;monitor.c']]],
+  ['msg_5fdied_10',['MSG_DIED',['../philo_8h.html#a49e3dcd8846177e61a535665ff89b96e',1,'philo.h']]],
+  ['msg_5feat_11',['MSG_EAT',['../philo_8h.html#aa632dde01d4b5f1b634a45d5aad70a3a',1,'philo.h']]],
+  ['msg_5ffork_12',['MSG_FORK',['../philo_8h.html#a7c22682ea139ac648eaa7a2951381640',1,'philo.h']]],
+  ['msg_5ffork_5fdestroy_5ferr_13',['MSG_FORK_DESTROY_ERR',['../philo_8h.html#a2ff5119559781a92cec28729c6c2b4b8',1,'philo.h']]],
+  ['msg_5finvalid_5fargs_14',['MSG_INVALID_ARGS',['../philo_8h.html#a13e6b7f68dbc00c43d2eeda800d2f572',1,'philo.h']]],
+  ['msg_5fmalloc_5ferr_15',['MSG_MALLOC_ERR',['../philo_8h.html#a9809e2e1b74148a85cdf7405b493b6a9',1,'philo.h']]],
+  ['msg_5fmutex_5fdestroy_5ferr_16',['MSG_MUTEX_DESTROY_ERR',['../philo_8h.html#a8e548b5970a83a5b1714d7911b47503b',1,'philo.h']]],
+  ['msg_5fmutex_5ferr_17',['MSG_MUTEX_ERR',['../philo_8h.html#a61306cbcbf60f60255824e59df1e6b96',1,'philo.h']]],
+  ['msg_5fsleep_18',['MSG_SLEEP',['../philo_8h.html#a04d4171c13be166553207bfda405c811',1,'philo.h']]],
+  ['msg_5fthink_19',['MSG_THINK',['../philo_8h.html#a602010673c815569a4aa8ffe6165038a',1,'philo.h']]],
+  ['msg_5fthread_5ferr_20',['MSG_THREAD_ERR',['../philo_8h.html#a5f52bb1d67565662f5f291a1ec23e738',1,'philo.h']]],
+  ['msg_5fusage_21',['MSG_USAGE',['../philo_8h.html#aeb475190c04eaab4815a7721b2d768a5',1,'philo.h']]]
 ];

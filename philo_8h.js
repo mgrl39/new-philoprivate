@@ -26,15 +26,12 @@ var philo_8h =
     [ "t_philo", "philo_8h.html#a7b20ce4f97b6f0dc2e44a50c149be74d", null ],
     [ "t_table", "philo_8h.html#a3a1d8e4332315885da833b46801b67fb", null ],
     [ "check_death_flag", "philo_8h.html#a8faea8170611d67c9e4a7b8039ded7a2", null ],
-    [ "debug_print", "philo_8h.html#ae454cdf1e6c8d3be9256a937f11efa39", null ],
+    [ "dp", "philo_8h.html#aedc0b0d900adb99366a050adc302e5e7", null ],
     [ "ft_error", "philo_8h.html#ae546bf4dce28969af541ca3dfe06fc4d", null ],
     [ "ft_philo_atoi", "philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9", null ],
     [ "get_time", "philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27", null ],
-    [ "init_mutexes", "philo_8h.html#a803da164314e505c37bb43299d8ed14a", null ],
-    [ "init_philos", "philo_8h.html#ad0c577bbe9ae96b5220d6fb28201119b", null ],
     [ "init_table", "philo_8h.html#ae0507f082df4dd54af32488805e4ad30", null ],
     [ "monitor_simulation", "philo_8h.html#a619d6413dfafa5ea8cc18edb9e5a8097", null ],
     [ "philo_loop", "philo_8h.html#af59d70ba88dde40771d84ab61f87ea58", null ],
-    [ "philosopher_routine", "philo_8h.html#aebc037e52b6227ff0b5ad16ea1f21c2d", null ],
     [ "print_status", "philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5", null ]
 ];

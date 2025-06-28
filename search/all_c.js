@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['red_0',['RED',['../philo_8h.html#a8d23feea868a983c8c2b661e1e16972f',1,'philo.h']]],
-  ['reset_1',['RESET',['../philo_8h.html#ab702106cf3b3e96750b6845ded4e0299',1,'philo.h']]],
-  ['right_2',['RIGHT',['../philo_8h.html#a80fb826a684cf3f0d306b22aa100ddac',1,'philo.h']]],
-  ['routine_2ec_3',['routine.c',['../routine_8c.html',1,'']]]
+  ['num_5fmeals_0',['num_meals',['../structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c',1,'s_table']]],
+  ['num_5fphilos_1',['num_philos',['../structs__table.html#aca1d276c5167a2501038a879b5e44a37',1,'s_table']]]
 ];

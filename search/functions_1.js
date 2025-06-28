@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debug_5fprint_0',['debug_print',['../philo_8h.html#ae454cdf1e6c8d3be9256a937f11efa39',1,'debug_print(const char *format,...):&#160;utils.c'],['../utils_8c.html#ae454cdf1e6c8d3be9256a937f11efa39',1,'debug_print(const char *format,...):&#160;utils.c']]]
+  ['dp_0',['dp',['../debug_8c.html#aedc0b0d900adb99366a050adc302e5e7',1,'dp(const char *format,...):&#160;debug.c'],['../philo_8h.html#aedc0b0d900adb99366a050adc302e5e7',1,'dp(const char *format,...):&#160;debug.c']]]
 ];

@@ -1,0 +1,21 @@
+<map id="ft_putstr_fd" name="ft_putstr_fd">
+<area shape="rect" id="Node000001" title="Prints a message in the fd." alt="" coords="556,107,652,132"/>
+<area shape="rect" id="Node000002" href="$print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="439,107,508,132"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="542,122,508,122,508,117,542,117"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a32eb5a782cae7fe8bf61cbc040cd4b3a" title="Parses and validates command line arguments." alt="" coords="125,5,219,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,99,423,74,390,52,346,37,301,27,219,20,220,15,302,22,348,32,392,48,426,69,454,95"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point of the program." alt="" coords="5,81,60,107"/>
+<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="425,105,390,97,296,88,202,86,60,94,60,89,202,81,296,82,391,91,427,100"/>
+<area shape="rect" id="Node000005" href="$init_8c.html#a803da164314e505c37bb43299d8ed14a" title=" " alt="" coords="284,107,391,132"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="425,122,391,122,391,117,425,117"/>
+<area shape="rect" id="Node000007" href="$init_8c.html#ad0c577bbe9ae96b5220d6fb28201119b" title=" " alt="" coords="293,156,382,181"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="427,139,374,158,372,153,425,134"/>
+<area shape="rect" id="Node000008" href="$main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf" title=" " alt="" coords="108,181,236,207"/>
+<area shape="poly" id="edge10_Node000002_Node000008" title=" " alt="" coords="456,145,428,174,392,196,353,207,312,212,236,208,237,203,312,207,352,202,390,192,425,169,452,141"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="134,39,109,52,56,84,53,79,107,48,131,35"/>
+<area shape="rect" id="Node000006" href="$init_8c.html#ae0507f082df4dd54af32488805e4ad30" title="Initializes the shared table structure and all related resources." alt="" coords="131,107,213,132"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="270,122,214,122,214,117,270,117"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="117,112,60,101,61,96,118,107"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="280,154,213,134,214,129,282,149"/>
+<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="140,175,50,109,53,105,144,171"/>
+</map>
