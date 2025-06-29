@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 16:13:47 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 09:14:36 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,12 @@ int	ft_strcmp(char *s1, char *s2)
 	while (s1[i] && s1[i] == s2[i])
 		i++;
 	return (s1[i] - s2[i]);
+}
+
+int	ft_error(char *msg)
+{
+	ft_putstr_fd(RED, 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd(RESET, 2);
+	return (ft_putstr_fd("\n", 2), 1);
 }

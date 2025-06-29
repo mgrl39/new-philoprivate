@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 17:44:09 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 09:12:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ is %d."
 
 void	print_argument_error(int error, const char *arg, const char *param);
 void	print_usage(char *argv[]);
+void	ft_putstr_fd(char *s, int fd);
 
 /*
  * memset, printf, malloc, free, write,
@@ -138,18 +139,4 @@ void	print_usage(char *argv[]);
 # define BLUE	"\033[38;5;75m"
 # define PURPLE	"\033[38;5;147m"
 
-/**
- * ================================
- * DEBUG MODE DEBUG MODE DEBUG MODE 
- * ================================
- */
-# define DEBUG 0
-
-/* Debug function */
-/* Debug Print = dp */
-void	dp(const char *format, ...);
-
-/**
- * ================================
- */
 #endif

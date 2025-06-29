@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 16:31:18 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 09:11:37 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,10 @@
 /* Despues toman el tenedor izquierdo */
 /* Los filosofos impares toman primero el tenedor izquierdo */
 /* Despues toman el tenedor derecho */
-/*
-   dp("Filosofo %d tomando tenedor izquierdo", philo->id);
-   pthread_mutex_lock(philo->forks[LEFT]);
-   print_status(philo, MSG_FORK);
-   if (philo->forks[RIGHT])
-   {
-   dp("Filosofo %d tomando tenedor derecho", philo->id);
-   pthread_mutex_lock(philo->forks[RIGHT]);
-   print_status(philo, MSG_FORK);
-   }
-   else
-   dp("Filosofo %d no tiene tenedor derecho", philo->id);
-*/
 static void	take_forks(t_philo *philo)
 {
 	if (!philo)
-	{
-		dp("Error: philo es NULL en take_forks");
 		return ;
-	}
 	if (philo->id % 2 == 0)
 	{
 		if (philo->forks[RIGHT])
@@ -89,25 +73,15 @@ static void	take_forks(t_philo *philo)
 static void	eat(t_philo *philo)
 {
 	if (!philo)
-	{
-		dp("Error: philo es NULL en eat");
 		return ;
-	}
 	if (!philo->forks[RIGHT])
-	{
-		dp("Filosofo %d cant eat", philo->id);
 		return ;
-	}
-	dp("Filosofo %d comienodo", philo->id);
 	print_status(philo, MSG_EAT);
 	pthread_mutex_lock(&philo->table->meal_lock);
 	philo->last_meal_time = get_time();
 	philo->meals_eaten++;
-	dp("Filosofo %d actualizado: comidas=%d, ultimo tiempo=%ld",
-		philo->id, philo->meals_eaten, philo->last_meal_time);
 	pthread_mutex_unlock(&philo->table->meal_lock);
 	usleep(philo->table->time_to_eat * 1000);
-	dp("Filosofo %d soltando tenedores", philo->id);
 	pthread_mutex_unlock(philo->forks[RIGHT]);
 	pthread_mutex_unlock(philo->forks[LEFT]);
 }
@@ -144,24 +118,17 @@ void	*philo_loop(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	dp("Filosofo %d iniciado", philo->id);
 	if (philo->id % 2 == 0)
 		usleep(1000);
 	while (!check_death_flag(philo->table) && (philo->table->num_meals == -1 \
 				|| philo->meals_eaten < philo->table->num_meals))
 	{
-		dp("Filosofo %d intentando comer tenedores", philo->id);
 		take_forks(philo);
-		dp("Filosofo %d intentando comer", philo->id);
 		eat(philo);
 		if (philo->forks[RIGHT])
-		{
-			dp("filosofo %d intentando dormir y pensar", philo->id);
 			sleep_and_think(philo);
-		}
 		else
 		{
-			dp("Filosofo %d waiting die (sin tenedor derecho)", philo->id);
 			while (!check_death_flag(philo->table))
 				usleep(1000);
 			pthread_mutex_unlock(philo->forks[LEFT]);
