@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 11:16:52 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:07:03 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <stdio.h>
 
 /**
- * @return int 1 on success, 0 on failure
+ * @return 0 on succes, 1 on failure
  */
-static int	validate_arg(char *arg, int *value, char *param, int zero_allow)
+static int	parse_and_check(char *arg, int *value, char *param, int zero_allow)
 {
 	int	result;
 
@@ -26,35 +26,37 @@ static int	validate_arg(char *arg, int *value, char *param, int zero_allow)
 	if (result <= 0)
 	{
 		if (result == ERR_ZERO_VALUE && zero_allow)
-			return (1);
+			return (FAILURE);
 		if (result == ERR_ZERO_VALUE && !zero_allow && \
 				(!ft_strcmp(param, MSG_ARG_PHILOS)))
 			ft_error(MSG_ERR_ZERO_PHILO);
 		else
 			print_argument_error(result, arg, param);
-		return (0);
+		return (FAILURE);
 	}
-	return (1);
+	return (SUCCESS);
 }
 
 /**
- * @return 1 on succes, 0 on failure
+ * Parses, validates, and stores all command-line arguments into the table.
+ *
+ * @return 0 on success, 1 on failure
  */
-static	int	check_args(int ac, char *av[], t_table *table)
+static	int	process_arguments(int ac, char *av[], t_table *table)
 {
-	if (!validate_arg(av[1], &table->num_philos, MSG_ARG_PHILOS, 0))
-		return (1);
-	if (!validate_arg(av[2], &table->time_to_die, MSG_ARG_DIE_TIME, 0))
-		return (1);
-	if (!validate_arg(av[3], &table->time_to_eat, MSG_ARG_EAT_TIME, 0))
-		return (1);
-	if (!validate_arg(av[4], &table->time_to_sleep, MSG_ARG_SLEEP_TIME, 0))
-		return (1);
-	if (ac == 6 && !validate_arg(av[5], &table->num_meals, MSG_ARG_MEALS, 1))
-		return (1);
+	if (parse_and_check(av[1], &table->num_philos, MSG_ARG_PHILOS, 0))
+		return (FAILURE);
+	if (parse_and_check(av[2], &table->time_to_die, MSG_ARG_DIE_TIME, 0))
+		return (FAILURE);
+	if (parse_and_check(av[3], &table->time_to_eat, MSG_ARG_EAT_TIME, 0))
+		return (FAILURE);
+	if (parse_and_check(av[4], &table->time_to_sleep, MSG_ARG_SLEEP_TIME, 0))
+		return (FAILURE);
+	if (ac == 6 && parse_and_check(av[5], &table->num_meals, MSG_ARG_MEALS, 1))
+		return (FAILURE);
 	if ((ac == 6 && table->num_meals == 0) || (ac == 5))
 		table->num_meals = -1;
-	return (0);
+	return (SUCCESS);
 }
 
 /**
@@ -121,7 +123,7 @@ int	main(int argc, char *argv[])
 	if (argc < 5 || argc > 6)
 		return (print_usage(argv), 1);
 	memset(&table, 0, sizeof(t_table));
-	if (check_args(argc, argv, &table))
+	if (process_arguments(argc, argv, &table))
 		return (print_usage(argv), 1);
 	if (init_mutexes(&table) || init_philos(&table))
 		return (1);
