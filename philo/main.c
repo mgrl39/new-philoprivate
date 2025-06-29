@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:39:38 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:16:52 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	main(int argc, char *argv[])
 	memset(&table, 0, sizeof(t_table));
 	if (check_args(argc, argv, &table))
 		return (print_usage(argv), 1);
-	if (init_table(&table))
+	if (init_mutexes(&table) || init_philos(&table))
 		return (1);
 	if (start_simulation(&table))
 		return (clean_table(&table), 1);

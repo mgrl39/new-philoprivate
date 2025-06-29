@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:51:11 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:16:27 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,22 +82,5 @@ int	init_philos(t_table *table)
 			table->philos[i].forks[RIGHT] = NULL;
 		i++;
 	}
-	return (SUCCESS);
-}
-
-/**
- * @brief Initializes the shared table structure and all related resources.
- *
- * Sets all memory to zero, then initializes mutexes and philosophers.
- *
- * @param table Pointer to the shared table structure
- * return 0 on succes, 1 on failure.
- */
-int	init_table(t_table *table)
-{
-	if (init_mutexes(table))
-		return (FAILURE);
-	if (init_philos(table))
-		return (FAILURE);
 	return (SUCCESS);
 }
