@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 09:03:07 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 10:18:03 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	init_mutexes(t_table *table)
 		return (ft_error(MSG_MALLOC_ERR));
 	if (pthread_mutex_init(&table->death_lock, NULL))
 		return (ft_error(MSG_MALLOC_ERR));
-	return (0);
+	return (SUCCESS);
 }
 
 /**
@@ -78,7 +78,7 @@ int	init_philos(t_table *table)
 			table->philos[i].forks[RIGHT] = NULL;
 		i++;
 	}
-	return (0);
+	return (SUCCESS);
 }
 
 /**
@@ -92,8 +92,8 @@ int	init_philos(t_table *table)
 int	init_table(t_table *table)
 {
 	if (init_mutexes(table))
-		return (1);
+		return (FAILURE);
 	if (init_philos(table))
-		return (1);
-	return (0);
+		return (FAILURE);
+	return (SUCCESS);
 }
