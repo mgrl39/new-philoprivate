@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:23:51 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 17:47:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:16:52 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,34 +96,21 @@ int	start_simulation(t_table	*table)
 	int	i;
 
 	i = 0;
-	dp("Iniciando start_simulation");
 	table->start_time = get_time();
 	while (i < table->num_philos)
 		table->philos[i++].last_meal_time = table->start_time;
 	i = 0;
 	while (i < table->num_philos)
 	{
-		dp("creando hilo para filosofo %d", i + 1);
 		if (pthread_create(&table->philos[i].thread, NULL, \
 				philo_loop, &table->philos[i]))
-		{
-			dp("Error al crear hilo para filosofo %d", i + 1);
 			return (ft_error(MSG_THREAD_ERR));
-		}
-		dp("hilo para filosofo %d creado con exito", i + 1);
 		i++;
 	}
-	dp("Todos los hilos creados, iniciando monitoreo");
 	monitor_simulation(table);
-	dp("Monitoreo terminado, esperando a que terminen los hilos");
 	i = 0;
 	while (i < table->num_philos)
-	{
-		dp("Esperando a que termine el hilo del filosofo %d", i + 1);
 		pthread_join(table->philos[i++].thread, NULL);
-		dp("Hilo del filosofo %d terminado", i + 1);
-	}
-	dp("Todos los hilos terminados");
 	return (0);
 }
 
@@ -134,15 +121,11 @@ int	main(int argc, char *argv[])
 	if (argc < 5 || argc > 6)
 		return (print_usage(argv), 1);
 	memset(&table, 0, sizeof(t_table));
-	dp("Validando argumentos");
 	if (check_args(argc, argv, &table))
 		return (print_usage(argv), 1);
-	dp("Inicializando datos");
-	if (init_table(&table))
+	if (init_mutexes(&table) || init_philos(&table))
 		return (1);
-	dp("Inicializando simulacion");
 	if (start_simulation(&table))
 		return (clean_table(&table), 1);
-	dp("Simulacion terminada");
 	return (clean_table(&table), 0);
 }

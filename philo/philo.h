@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/28 17:44:09 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:17:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,12 @@ long	get_time(void);
 void	print_status(t_philo *philo, char *msg);
 void	*philo_loop(void *arg);
 void	monitor_simulation(t_table *table);
-int		check_death_flag(t_table *table);
-int		init_table(t_table *table);
+int		is_simulation_terminated(t_table *table);
 int		ft_error(char *msg);
 int		ft_philo_atoi(const char *str, int *result);
 int		ft_strcmp(char *s1, char *s2);
+int		init_philos(t_table *table);
+int		init_mutexes(t_table *table);
 
 /* Error Messages */
 # define MSG_USAGE "Usage: ./philo n_philos t_die t_eat t_sleep [n_meals]"
@@ -122,6 +123,7 @@ is %d."
 
 void	print_argument_error(int error, const char *arg, const char *param);
 void	print_usage(char *argv[]);
+void	ft_putstr_fd(char *s, int fd);
 
 /*
  * memset, printf, malloc, free, write,
@@ -138,18 +140,7 @@ void	print_usage(char *argv[]);
 # define BLUE	"\033[38;5;75m"
 # define PURPLE	"\033[38;5;147m"
 
-/**
- * ================================
- * DEBUG MODE DEBUG MODE DEBUG MODE 
- * ================================
- */
-# define DEBUG 0
+# define SUCCESS 0
+# define FAILURE 1
 
-/* Debug function */
-/* Debug Print = dp */
-void	dp(const char *format, ...);
-
-/**
- * ================================
- */
 #endif
