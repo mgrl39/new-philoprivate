@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 11:17:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:40:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ void	ft_putstr_fd(char *s, int fd);
 # define GREEN	"\033[38;5;120m"
 # define BLUE	"\033[38;5;75m"
 # define PURPLE	"\033[38;5;147m"
+# define BOLD	"\033[1m"
 
 # define SUCCESS 0
 # define FAILURE 1
