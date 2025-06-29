@@ -6,15 +6,12 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:17:21 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:40:42 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <limits.h>
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include <sys/time.h>
 
 static int	ft_isdigit(int c)

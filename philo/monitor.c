@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:54:58 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:40:05 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
  * Sets the death flag in a thread-safe manner
  */
-void	set_death_flag(t_table *table)
+static void	set_death_flag(t_table *table)
 {
 	pthread_mutex_lock(&table->death_lock);
 	table->someone_died = 1;
@@ -46,7 +46,7 @@ int	is_simulation_terminated(t_table *table)
  * @param philo Pointer to the Philosopher sstructure
  * @return 1 iif the philosopherr has died of starvation, 0 otherwise.
  */
-int	check_philo_death(t_philo *philo)
+static int	check_philo_death(t_philo *philo)
 {
 	long	current_time;
 	long	time_since_meal;
