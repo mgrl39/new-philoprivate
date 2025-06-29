@@ -3,6 +3,7 @@ var philo_8h =
     [ "s_table", "structs__table.html", "structs__table" ],
     [ "s_philo", "structs__philo.html", "structs__philo" ],
     [ "BLUE", "philo_8h.html#a79d10e672abb49ad63eeaa8aaef57c38", null ],
+    [ "BOLD", "philo_8h.html#a26cdbb1a00213c810caccf21cd33a631", null ],
     [ "ERR_NEGATIVE", "philo_8h.html#a61447833b6ec764d8fbc5a3dbdfa3bc3", null ],
     [ "ERR_NOT_DIGIT", "philo_8h.html#afd432e412b21fd895f140adb3da53021", null ],
     [ "ERR_OVERFLOW", "philo_8h.html#ad10b7a726bfcfbac7f7c30586e8802d0", null ],

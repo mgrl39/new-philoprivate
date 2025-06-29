@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('monitor_8c_source.html',''); initResiz
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*   By: meghribe &lt;meghribe@student.42barcelona.co  +#+  +:+       +#+        */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*                                                +#+#+#+#+#+   +#+           */</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2025/06/29 10:54:58 by meghribe         ###   ########.fr       */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2025/06/29 12:19:41 by meghribe         ###   ########.fr       */</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*                                                                            */</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/* ************************************************************************** */</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
@@ -123,117 +123,119 @@ $(document).ready(function(){initNavTree('monitor_8c_source.html',''); initResiz
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"></span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * Sets the death flag in a thread-safe manner</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42">   19</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42">set_death_flag</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    pthread_mutex_lock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#ad1adcb87dcec1eaf41a6c658069e8d9b">someone_died</a> = 1;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    pthread_mutex_unlock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * TODO: Cambiar el nombre o algo, antes era set_death_flag pero</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * sigo cambiando el table-&gt;someone_died</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="monitor_8c.html#aec3c78c7e64fad03871ef65bb94924eb">   21</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="monitor_8c.html#aec3c78c7e64fad03871ef65bb94924eb">set_end_flag</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    pthread_mutex_lock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#ad1adcb87dcec1eaf41a6c658069e8d9b">someone_died</a> = 1;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    pthread_mutex_unlock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
 </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * Checks if someone has died (thread-safe)</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">   29</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">int</span> result;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    pthread_mutex_lock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    result = table-&gt;<a class="code hl_variable" href="structs__table.html#ad1adcb87dcec1eaf41a6c658069e8d9b">someone_died</a>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    pthread_mutex_unlock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> (result);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * Checks if someone has died (thread-safe)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">   31</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">int</span> result;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    pthread_mutex_lock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    result = table-&gt;<a class="code hl_variable" href="structs__table.html#ad1adcb87dcec1eaf41a6c658069e8d9b">someone_died</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    pthread_mutex_unlock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> (result);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * Checks if a pilosopher has starved to death.</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * Calculates the time elapsed since the philosopher&#39;s last meal. If this</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * time exceeds the `time_to_die` threshold, the philosopher is masked as dead,</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * and the simulation is terminated.</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @param philo Pointer to the Philosopher sstructure</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * @return 1 iif the philosopherr has died of starvation, 0 otherwise.</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="monitor_8c.html#a4c96295eceb79a76c5960e374dc5351b">   49</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="monitor_8c.html#a4c96295eceb79a76c5960e374dc5351b">check_philo_death</a>(<a class="code hl_struct" href="structs__philo.html">t_philo</a> *philo)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">long</span>    current_time;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">long</span>    time_since_meal;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    pthread_mutex_lock(&amp;philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    current_time = <a class="code hl_function" href="philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27">get_time</a>();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    time_since_meal = current_time - philo-&gt;<a class="code hl_variable" href="structs__philo.html#a75f0ec517278bb0776f894882183c9f2">last_meal_time</a>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    pthread_mutex_unlock(&amp;philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (time_since_meal &gt;= philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a>)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_function" href="philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5">print_status</a>(philo, <a class="code hl_define" href="philo_8h.html#a49e3dcd8846177e61a535665ff89b96e">MSG_DIED</a>);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42">set_death_flag</a>(philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> (1);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"></span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * Checks if a pilosopher has starved to death.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * Calculates the time elapsed since the philosopher&#39;s last meal. If this</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * time exceeds the `time_to_die` threshold, the philosopher is masked as dead,</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * and the simulation is terminated.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @param philo Pointer to the Philosopher sstructure</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * @return 1 iif the philosopherr has died of starvation, 0 otherwise.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="monitor_8c.html#a91597855a4c04d4aacd04fccd9ad7cf5">   51</a></span><span class="keyword">static</span> <span class="keywordtype">int</span>  <a class="code hl_function" href="monitor_8c.html#a91597855a4c04d4aacd04fccd9ad7cf5">check_philo_death</a>(<a class="code hl_struct" href="structs__philo.html">t_philo</a> *philo)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">long</span>    current_time;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">long</span>    time_since_meal;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    pthread_mutex_lock(&amp;philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    current_time = <a class="code hl_function" href="philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27">get_time</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    time_since_meal = current_time - philo-&gt;<a class="code hl_variable" href="structs__philo.html#a75f0ec517278bb0776f894882183c9f2">last_meal_time</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    pthread_mutex_unlock(&amp;philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (time_since_meal &gt;= philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a>)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5">print_status</a>(philo, <a class="code hl_define" href="philo_8h.html#a49e3dcd8846177e61a535665ff89b96e">MSG_DIED</a>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_function" href="monitor_8c.html#aec3c78c7e64fad03871ef65bb94924eb">set_end_flag</a>(philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> (1);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"></span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * Checks if all philosophers have aeten enough meals</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * Si no hay limite de comidas, devuelve 0</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="monitor_8c.html#a247aa842c19135b51fec47157f973e62">   71</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="monitor_8c.html#a247aa842c19135b51fec47157f973e62">check_all_ate</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">int</span> finished_eating;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> == -1)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    finished_eating = 0;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    pthread_mutex_lock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    i = 0;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i].<a class="code hl_variable" href="structs__philo.html#aaec02dd4e9600f851662e7555a785991">meals_eaten</a> &gt;= table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a>)</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            finished_eating++;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        i++;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    pthread_mutex_unlock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordflow">if</span> (finished_eating == table-&gt;<a class="code hl_variable" href="structs__table.html#aca1d276c5167a2501038a879b5e44a37">num_philos</a>)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42">set_death_flag</a>(table), 1);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * Checks if all philosophers have aeten enough meals</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * Si no hay limite de comidas, devuelve 0</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="monitor_8c.html#a6028879d311305d535a4b6c24f39a230">   73</a></span><span class="keyword">static</span> <span class="keywordtype">int</span>  <a class="code hl_function" href="monitor_8c.html#a6028879d311305d535a4b6c24f39a230">check_all_ate</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">int</span> finished_eating;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> == -1)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    finished_eating = 0;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    pthread_mutex_lock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    i = 0;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i].<a class="code hl_variable" href="structs__philo.html#aaec02dd4e9600f851662e7555a785991">meals_eaten</a> &gt;= table-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a>)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            finished_eating++;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        i++;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    pthread_mutex_unlock(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a441280c897f6b6530454ec61a32febb7">meal_lock</a>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (finished_eating == table-&gt;<a class="code hl_variable" href="structs__table.html#aca1d276c5167a2501038a879b5e44a37">num_philos</a>)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="monitor_8c.html#aec3c78c7e64fad03871ef65bb94924eb">set_end_flag</a>(table), 1);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
 </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">   93</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    usleep(500);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">while</span> (!<a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(table))</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        i = 0;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos &amp;&amp; !<a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(table))</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="monitor_8c.html#a4c96295eceb79a76c5960e374dc5351b">check_philo_death</a>(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i]))</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                return ;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            i++;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="monitor_8c.html#a247aa842c19135b51fec47157f973e62">check_all_ate</a>(table))</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            return ;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        usleep(1000);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">   95</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    usleep(500);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">while</span> (!<a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(table))</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        i = 0;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">while</span> (i &lt; table-&gt;num_philos &amp;&amp; !<a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(table))</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="monitor_8c.html#a91597855a4c04d4aacd04fccd9ad7cf5">check_philo_death</a>(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a>[i]))</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                return ;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            i++;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="monitor_8c.html#a6028879d311305d535a4b6c24f39a230">check_all_ate</a>(table))</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            return ;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        usleep(1000);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
 </div>
-<div class="ttc" id="amonitor_8c_html_a247aa842c19135b51fec47157f973e62"><div class="ttname"><a href="monitor_8c.html#a247aa842c19135b51fec47157f973e62">check_all_ate</a></div><div class="ttdeci">int check_all_ate(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00071">monitor.c:71</a></div></div>
-<div class="ttc" id="amonitor_8c_html_a4c96295eceb79a76c5960e374dc5351b"><div class="ttname"><a href="monitor_8c.html#a4c96295eceb79a76c5960e374dc5351b">check_philo_death</a></div><div class="ttdeci">int check_philo_death(t_philo *philo)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00049">monitor.c:49</a></div></div>
-<div class="ttc" id="amonitor_8c_html_a619d6413dfafa5ea8cc18edb9e5a8097"><div class="ttname"><a href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a></div><div class="ttdeci">void monitor_simulation(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00093">monitor.c:93</a></div></div>
-<div class="ttc" id="amonitor_8c_html_aafbad0b5e98479d396a64aa6c9ba70fe"><div class="ttname"><a href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a></div><div class="ttdeci">int is_simulation_terminated(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00029">monitor.c:29</a></div></div>
-<div class="ttc" id="amonitor_8c_html_ad6ba2cfa75b3ad364596e9a1cf0f7f42"><div class="ttname"><a href="monitor_8c.html#ad6ba2cfa75b3ad364596e9a1cf0f7f42">set_death_flag</a></div><div class="ttdeci">void set_death_flag(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00019">monitor.c:19</a></div></div>
+<div class="ttc" id="amonitor_8c_html_a6028879d311305d535a4b6c24f39a230"><div class="ttname"><a href="monitor_8c.html#a6028879d311305d535a4b6c24f39a230">check_all_ate</a></div><div class="ttdeci">static int check_all_ate(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00073">monitor.c:73</a></div></div>
+<div class="ttc" id="amonitor_8c_html_a619d6413dfafa5ea8cc18edb9e5a8097"><div class="ttname"><a href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a></div><div class="ttdeci">void monitor_simulation(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00095">monitor.c:95</a></div></div>
+<div class="ttc" id="amonitor_8c_html_a91597855a4c04d4aacd04fccd9ad7cf5"><div class="ttname"><a href="monitor_8c.html#a91597855a4c04d4aacd04fccd9ad7cf5">check_philo_death</a></div><div class="ttdeci">static int check_philo_death(t_philo *philo)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00051">monitor.c:51</a></div></div>
+<div class="ttc" id="amonitor_8c_html_aafbad0b5e98479d396a64aa6c9ba70fe"><div class="ttname"><a href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a></div><div class="ttdeci">int is_simulation_terminated(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00031">monitor.c:31</a></div></div>
+<div class="ttc" id="amonitor_8c_html_aec3c78c7e64fad03871ef65bb94924eb"><div class="ttname"><a href="monitor_8c.html#aec3c78c7e64fad03871ef65bb94924eb">set_end_flag</a></div><div class="ttdeci">static void set_end_flag(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00021">monitor.c:21</a></div></div>
 <div class="ttc" id="aphilo_8h_html"><div class="ttname"><a href="philo_8h.html">philo.h</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a40dac01cf9140968dccc6a4edfb08e27"><div class="ttname"><a href="philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27">get_time</a></div><div class="ttdeci">long get_time(void)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a40dac01cf9140968dccc6a4edfb08e27"><div class="ttname"><a href="philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27">get_time</a></div><div class="ttdeci">long get_time(void)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00060">utils.c:60</a></div></div>
 <div class="ttc" id="aphilo_8h_html_a49e3dcd8846177e61a535665ff89b96e"><div class="ttname"><a href="philo_8h.html#a49e3dcd8846177e61a535665ff89b96e">MSG_DIED</a></div><div class="ttdeci">#define MSG_DIED</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00098">philo.h:98</a></div></div>
 <div class="ttc" id="aphilo_8h_html_a6c89cfc95d1a9a058e7b91d490de61d5"><div class="ttname"><a href="philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5">print_status</a></div><div class="ttdeci">void print_status(t_philo *philo, char *msg)</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00035">print.c:35</a></div></div>
 <div class="ttc" id="astructs__philo_html"><div class="ttname"><a href="structs__philo.html">s_philo</a></div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00060">philo.h:61</a></div></div>
