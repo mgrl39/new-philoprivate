@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:18:03 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 10:51:11 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ int	init_mutexes(t_table *table)
 	while (i < table->num_philos)
 	{
 		if (pthread_mutex_init(&table->forks[i], NULL))
-			return (ft_error(MSG_MALLOC_ERR));
+			return (free(table->forks), ft_error(MSG_MALLOC_ERR));
 		i++;
 	}
+	// TODO SI FALLAN DEBO HACER FREES ARRIBA...
 	if (pthread_mutex_init(&table->write_lock, NULL))
 		return (ft_error(MSG_MALLOC_ERR));
 	if (pthread_mutex_init(&table->meal_lock, NULL))
@@ -56,13 +57,16 @@ int	init_mutexes(t_table *table)
  * @param table Pointer to the shared table structure.
  * @return 0 on succes, 1 on failure
  */
+// TODO: cambiar a una nueva funcion de clean 
+// SI EL MALLOC DE table->philos = NULL; 
+// falla, se generan leaks porque el de mutexes ya esta puesto
 int	init_philos(t_table *table)
 {
 	int	i;
 
 	table->philos = malloc(sizeof(t_philo) * table->num_philos);
 	if (!table->philos)
-		return (ft_error(MSG_MALLOC_ERR));
+		return (free(table->forks), ft_error(MSG_MALLOC_ERR));
 	i = 0;
 	memset(table->philos, 0, sizeof(t_philo) * table->num_philos);
 	while (i < table->num_philos)

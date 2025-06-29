@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 01:24:08 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:16:47 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 10:52:41 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ long	get_time(void);
 void	print_status(t_philo *philo, char *msg);
 void	*philo_loop(void *arg);
 void	monitor_simulation(t_table *table);
-int		check_death_flag(t_table *table);
+int		is_simulation_terminated(t_table *table);
 int		init_table(t_table *table);
 int		ft_error(char *msg);
 int		ft_philo_atoi(const char *str, int *result);

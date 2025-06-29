@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 09:02:04 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 10:54:58 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	set_death_flag(t_table *table)
 /*
  * Checks if someone has died (thread-safe)
  */
-int	check_death_flag(t_table *table)
+int	is_simulation_terminated(t_table *table)
 {
 	int	result;
 
@@ -37,7 +37,14 @@ int	check_death_flag(t_table *table)
 }
 
 /**
- * Checks if a pilosopher has died of starvation
+ * Checks if a pilosopher has starved to death.
+ *
+ * Calculates the time elapsed since the philosopher's last meal. If this
+ * time exceeds the `time_to_die` threshold, the philosopher is masked as dead,
+ * and the simulation is terminated.
+ *
+ * @param philo Pointer to the Philosopher sstructure
+ * @return 1 iif the philosopherr has died of starvation, 0 otherwise.
  */
 int	check_philo_death(t_philo *philo)
 {
@@ -88,10 +95,10 @@ void	monitor_simulation(t_table *table)
 	int	i;
 
 	usleep(500);
-	while (!check_death_flag(table))
+	while (!is_simulation_terminated(table))
 	{
 		i = 0;
-		while (i < table->num_philos && !check_death_flag(table))
+		while (i < table->num_philos && !is_simulation_terminated(table))
 		{
 			if (check_philo_death(&table->philos[i]))
 				return ;

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:22:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 09:11:01 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 10:52:15 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	print_status(t_philo *philo, char *msg)
 	if (!philo || !msg || !philo->table)
 		return ;
 	pthread_mutex_lock(&philo->table->write_lock);
-	if (!check_death_flag(philo->table))
+	if (!is_simulation_terminated(philo->table))
 	{
 		timestamp = get_time();
 		if (timestamp != -1)

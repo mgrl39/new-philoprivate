@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 06:53:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 09:11:37 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 10:56:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	*philo_loop(void *arg)
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
 		usleep(1000);
-	while (!check_death_flag(philo->table) && (philo->table->num_meals == -1 \
+	while (!is_simulation_terminated(philo->table) && (philo->table->num_meals == -1 \
 				|| philo->meals_eaten < philo->table->num_meals))
 	{
 		take_forks(philo);
@@ -129,7 +129,7 @@ void	*philo_loop(void *arg)
 			sleep_and_think(philo);
 		else
 		{
-			while (!check_death_flag(philo->table))
+			while (!is_simulation_terminated(philo->table))
 				usleep(1000);
 			pthread_mutex_unlock(philo->forks[LEFT]);
 			break ;
