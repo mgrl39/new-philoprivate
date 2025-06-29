@@ -1,7 +1,6 @@
 var dir_1334dbce90460f198b5d33d651f8d39f =
 [
     [ "docs", "dir_8e9b82b0a66562a9f419420db369b984.html", null ],
-    [ "debug.c", "debug_8c.html", "debug_8c" ],
     [ "init.c", "init_8c.html", "init_8c" ],
     [ "main.c", "main_8c.html", "main_8c" ],
     [ "Makefile", "Makefile.html", null ],

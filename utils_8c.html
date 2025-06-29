@@ -144,8 +144,73 @@ Functions</h2></td></tr>
 <tr class="separator:a40dac01cf9140968dccc6a4edfb08e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd118f33a5a0fe00b6cbbfb0eeae25a5" id="r_abd118f33a5a0fe00b6cbbfb0eeae25a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5">ft_strcmp</a> (char *s1, char *s2)</td></tr>
 <tr class="separator:abd118f33a5a0fe00b6cbbfb0eeae25a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae546bf4dce28969af541ca3dfe06fc4d" id="r_ae546bf4dce28969af541ca3dfe06fc4d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8c.html#ae546bf4dce28969af541ca3dfe06fc4d">ft_error</a> (char *msg)</td></tr>
+<tr class="separator:ae546bf4dce28969af541ca3dfe06fc4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ae546bf4dce28969af541ca3dfe06fc4d" name="ae546bf4dce28969af541ca3dfe06fc4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae546bf4dce28969af541ca3dfe06fc4d">&#9670;&#160;</a></span>ft_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ft_error </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00082">82</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="philo_8h.html#acefce9ac519f8f8b7d3fde33dbafe469">ft_putstr_fd</a>(<a class="code hl_define" href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>, 2);</div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_function" href="philo_8h.html#acefce9ac519f8f8b7d3fde33dbafe469">ft_putstr_fd</a>(msg, 2);</div>
+<div class="line"><span class="lineno">   86</span>    <a class="code hl_function" href="philo_8h.html#acefce9ac519f8f8b7d3fde33dbafe469">ft_putstr_fd</a>(<a class="code hl_define" href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>, 2);</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#acefce9ac519f8f8b7d3fde33dbafe469">ft_putstr_fd</a>(<span class="stringliteral">&quot;\n&quot;</span>, 2), <a class="code hl_define" href="philo_8h.html#a6d58f9ac447476b4e084d7ca383f5183">FAILURE</a>);</div>
+<div class="line"><span class="lineno">   88</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a6d58f9ac447476b4e084d7ca383f5183"><div class="ttname"><a href="philo_8h.html#a6d58f9ac447476b4e084d7ca383f5183">FAILURE</a></div><div class="ttdeci">#define FAILURE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00144">philo.h:144</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a8d23feea868a983c8c2b661e1e16972f"><div class="ttname"><a href="philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></div><div class="ttdeci">#define RED</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00137">philo.h:137</a></div></div>
+<div class="ttc" id="aphilo_8h_html_ab702106cf3b3e96750b6845ded4e0299"><div class="ttname"><a href="philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a></div><div class="ttdeci">#define RESET</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00136">philo.h:136</a></div></div>
+<div class="ttc" id="aphilo_8h_html_acefce9ac519f8f8b7d3fde33dbafe469"><div class="ttname"><a href="philo_8h.html#acefce9ac519f8f8b7d3fde33dbafe469">ft_putstr_fd</a></div><div class="ttdeci">void ft_putstr_fd(char *s, int fd)</div><div class="ttdoc">Prints a message in the fd.</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00061">print.c:61</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8c_ae546bf4dce28969af541ca3dfe06fc4d_cgraph.png" border="0" usemap="#autils_8c_ae546bf4dce28969af541ca3dfe06fc4d_cgraph" alt=""/></div>
+<map name="autils_8c_ae546bf4dce28969af541ca3dfe06fc4d_cgraph" id="autils_8c_ae546bf4dce28969af541ca3dfe06fc4d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,75,31"/>
+<area shape="rect" href="print_8c.html#acefce9ac519f8f8b7d3fde33dbafe469" title="Prints a message in the fd." alt="" coords="123,5,219,31"/>
+<area shape="poly" title=" " alt="" coords="75,15,109,15,109,21,75,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8c_ae546bf4dce28969af541ca3dfe06fc4d_icgraph.png" border="0" usemap="#autils_8c_ae546bf4dce28969af541ca3dfe06fc4d_icgraph" alt=""/></div>
+<map name="autils_8c_ae546bf4dce28969af541ca3dfe06fc4d_icgraph" id="autils_8c_ae546bf4dce28969af541ca3dfe06fc4d_icgraph">
+<area shape="rect" title=" " alt="" coords="439,81,508,107"/>
+<area shape="rect" href="init_8c.html#a803da164314e505c37bb43299d8ed14a" title=" " alt="" coords="108,5,215,31"/>
+<area shape="poly" title=" " alt="" coords="428,79,390,66,297,44,214,28,215,23,299,38,391,61,430,74"/>
+<area shape="rect" href="init_8c.html#ad0c577bbe9ae96b5220d6fb28201119b" title=" " alt="" coords="117,55,206,80"/>
+<area shape="poly" title=" " alt="" coords="425,93,206,74,206,68,425,87"/>
+<area shape="rect" href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf" title=" " alt="" coords="263,107,391,132"/>
+<area shape="poly" title=" " alt="" coords="426,105,392,111,391,106,425,100"/>
+<area shape="rect" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985" title=" " alt="" coords="275,156,378,181"/>
+<area shape="poly" title=" " alt="" coords="444,116,392,147,366,158,364,153,389,142,441,112"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,60,105"/>
+<area shape="poly" title=" " alt="" coords="119,39,109,44,53,82,50,78,107,40,116,34"/>
+<area shape="poly" title=" " alt="" coords="104,81,61,90,60,85,103,76"/>
+<area shape="poly" title=" " alt="" coords="249,115,60,98,60,92,249,110"/>
+<area shape="rect" href="main_8c.html#a3bf0fe5b820226183436cca19d19d5dc" title=" " alt="" coords="114,156,209,181"/>
+<area shape="poly" title=" " alt="" coords="261,171,209,171,209,166,261,166"/>
+<area shape="poly" title=" " alt="" coords="125,151,54,108,56,103,128,146"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a942dd0d78727d6a8f2e27903a21e2430" name="a942dd0d78727d6a8f2e27903a21e2430"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a942dd0d78727d6a8f2e27903a21e2430">&#9670;&#160;</a></span>ft_isdigit()</h2>
 
@@ -255,10 +320,10 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   58</span>    *result = (int)num;</div>
 <div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> (1);</div>
 <div class="line"><span class="lineno">   60</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a61447833b6ec764d8fbc5a3dbdfa3bc3"><div class="ttname"><a href="philo_8h.html#a61447833b6ec764d8fbc5a3dbdfa3bc3">ERR_NEGATIVE</a></div><div class="ttdeci">#define ERR_NEGATIVE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00105">philo.h:105</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a6ce08348b8e4db71d2c55ff3ac8f25da"><div class="ttname"><a href="philo_8h.html#a6ce08348b8e4db71d2c55ff3ac8f25da">ERR_ZERO_VALUE</a></div><div class="ttdeci">#define ERR_ZERO_VALUE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00107">philo.h:107</a></div></div>
-<div class="ttc" id="aphilo_8h_html_ad10b7a726bfcfbac7f7c30586e8802d0"><div class="ttname"><a href="philo_8h.html#ad10b7a726bfcfbac7f7c30586e8802d0">ERR_OVERFLOW</a></div><div class="ttdeci">#define ERR_OVERFLOW</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00106">philo.h:106</a></div></div>
-<div class="ttc" id="aphilo_8h_html_afd432e412b21fd895f140adb3da53021"><div class="ttname"><a href="philo_8h.html#afd432e412b21fd895f140adb3da53021">ERR_NOT_DIGIT</a></div><div class="ttdeci">#define ERR_NOT_DIGIT</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00104">philo.h:104</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a61447833b6ec764d8fbc5a3dbdfa3bc3"><div class="ttname"><a href="philo_8h.html#a61447833b6ec764d8fbc5a3dbdfa3bc3">ERR_NEGATIVE</a></div><div class="ttdeci">#define ERR_NEGATIVE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00106">philo.h:106</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a6ce08348b8e4db71d2c55ff3ac8f25da"><div class="ttname"><a href="philo_8h.html#a6ce08348b8e4db71d2c55ff3ac8f25da">ERR_ZERO_VALUE</a></div><div class="ttdeci">#define ERR_ZERO_VALUE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00108">philo.h:108</a></div></div>
+<div class="ttc" id="aphilo_8h_html_ad10b7a726bfcfbac7f7c30586e8802d0"><div class="ttname"><a href="philo_8h.html#ad10b7a726bfcfbac7f7c30586e8802d0">ERR_OVERFLOW</a></div><div class="ttdeci">#define ERR_OVERFLOW</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00107">philo.h:107</a></div></div>
+<div class="ttc" id="aphilo_8h_html_afd432e412b21fd895f140adb3da53021"><div class="ttname"><a href="philo_8h.html#afd432e412b21fd895f140adb3da53021">ERR_NOT_DIGIT</a></div><div class="ttdeci">#define ERR_NOT_DIGIT</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00105">philo.h:105</a></div></div>
 <div class="ttc" id="autils_8c_html_a942dd0d78727d6a8f2e27903a21e2430"><div class="ttname"><a href="utils_8c.html#a942dd0d78727d6a8f2e27903a21e2430">ft_isdigit</a></div><div class="ttdeci">static int ft_isdigit(int c)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00020">utils.c:20</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -327,19 +392,21 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_abd118f33a5a0fe00b6cbbfb0eeae25a5_icgraph.png" border="0" usemap="#autils_8c_abd118f33a5a0fe00b6cbbfb0eeae25a5_icgraph" alt=""/></div>
 <map name="autils_8c_abd118f33a5a0fe00b6cbbfb0eeae25a5_icgraph" id="autils_8c_abd118f33a5a0fe00b6cbbfb0eeae25a5_icgraph">
-<area shape="rect" title=" " alt="" coords="823,155,905,180"/>
-<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="674,104,773,129"/>
-<area shape="poly" title=" " alt="" coords="814,152,759,132,760,127,816,147"/>
-<area shape="rect" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985" title=" " alt="" coords="672,179,775,204"/>
-<area shape="poly" title=" " alt="" coords="810,179,776,185,775,180,809,174"/>
+<area shape="rect" title=" " alt="" coords="1021,155,1104,180"/>
+<area shape="rect" href="print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="819,117,973,143"/>
+<area shape="poly" title=" " alt="" coords="1008,158,953,145,954,140,1009,153"/>
+<area shape="rect" href="main_8c.html#ac72ff019fa362d766a1ec4124d786985" title=" " alt="" coords="845,179,947,204"/>
+<area shape="poly" title=" " alt="" coords="1008,178,948,187,947,181,1007,173"/>
+<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="672,104,771,129"/>
+<area shape="poly" title=" " alt="" coords="805,126,771,123,771,118,805,120"/>
 <area shape="rect" href="monitor_8c.html#a4c96295eceb79a76c5960e374dc5351b" title=" " alt="" coords="481,5,624,31"/>
-<area shape="poly" title=" " alt="" coords="697,97,663,70,623,44,597,33,599,28,625,40,666,66,700,93"/>
+<area shape="poly" title=" " alt="" coords="695,97,662,70,623,44,597,33,599,28,625,40,665,65,698,93"/>
 <area shape="rect" href="routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551" title=" " alt="" coords="531,55,574,80"/>
-<area shape="poly" title=" " alt="" coords="665,103,573,76,575,71,666,98"/>
+<area shape="poly" title=" " alt="" coords="664,103,574,76,575,71,665,98"/>
 <area shape="rect" href="routine_8c.html#a609ab24efca0e9444e3221f78a0b7185" title=" " alt="" coords="489,104,617,129"/>
-<area shape="poly" title=" " alt="" coords="660,119,617,119,617,114,660,114"/>
+<area shape="poly" title=" " alt="" coords="658,119,617,119,617,114,658,114"/>
 <area shape="rect" href="routine_8c.html#a9d4b235c43ff8416b674a311403e7c88" title=" " alt="" coords="507,153,598,179"/>
-<area shape="poly" title=" " alt="" coords="666,136,598,156,597,151,665,131"/>
+<area shape="poly" title=" " alt="" coords="665,136,598,156,596,151,663,131"/>
 <area shape="rect" href="monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097" title=" " alt="" coords="284,31,433,56"/>
 <area shape="poly" title=" " alt="" coords="468,32,434,36,433,31,467,26"/>
 <area shape="rect" href="main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf" title=" " alt="" coords="108,104,236,129"/>
@@ -352,7 +419,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="475,119,404,119,404,114,475,114"/>
 <area shape="poly" title=" " alt="" coords="493,154,403,130,404,125,494,149"/>
 <area shape="rect" href="main_8c.html#a3bf0fe5b820226183436cca19d19d5dc" title=" " alt="" coords="125,179,219,204"/>
-<area shape="poly" title=" " alt="" coords="659,194,220,194,220,189,659,189"/>
+<area shape="poly" title=" " alt="" coords="831,194,219,194,219,189,831,189"/>
 <area shape="poly" title=" " alt="" coords="111,183,60,175,61,169,112,178"/>
 </map>
 </div>

@@ -1,9 +1,7 @@
 <map id="init_mutexes" name="init_mutexes">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,112,56"/>
-<area shape="rect" id="Node000002" href="$debug_8c.html#aedc0b0d900adb99366a050adc302e5e7" title="Prints debug messages if DEBUG is enabled." alt="" coords="175,5,214,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,31,161,21,162,27,113,36"/>
-<area shape="rect" id="Node000003" href="$print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="160,55,229,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,50,147,56,146,62,112,55"/>
-<area shape="rect" id="Node000004" href="$print_8c.html#ab0d14669421e64af28e31e9dbd97ec09" title="Prints a message in the fd." alt="" coords="277,55,373,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="230,65,264,65,264,70,230,70"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,112,31"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title=" " alt="" coords="160,5,229,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,15,147,15,147,21,112,21"/>
+<area shape="rect" id="Node000003" href="$print_8c.html#acefce9ac519f8f8b7d3fde33dbafe469" title="Prints a message in the fd." alt="" coords="277,5,373,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="230,15,264,15,264,21,230,21"/>
 </map>

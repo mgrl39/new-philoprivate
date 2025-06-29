@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dp_0',['dp',['../debug_8c.html#aedc0b0d900adb99366a050adc302e5e7',1,'dp(const char *format,...):&#160;debug.c'],['../philo_8h.html#aedc0b0d900adb99366a050adc302e5e7',1,'dp(const char *format,...):&#160;debug.c']]]
+  ['eat_0',['eat',['../routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551',1,'routine.c']]]
 ];

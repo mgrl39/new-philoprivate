@@ -12,15 +12,11 @@ var searchData=
   ['de_20recursos_9',['Gestion Eficiente de Recursos',['../md_philo_2docs_2conceptos.html#autotoc_md5',1,'']]],
   ['deadlock_10',['Anti-Deadlock',['../md_philo_2docs_2conceptos.html#autotoc_md4',1,'']]],
   ['death_5flock_11',['death_lock',['../structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850',1,'s_table']]],
-  ['debug_12',['DEBUG',['../philo_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'philo.h']]],
-  ['debug_20mode_20debug_20mode_20debug_20mode_13',['DEBUG MODE DEBUG MODE DEBUG MODE',['../philo_8h.html#autotoc_md33',1,'']]],
-  ['debug_2ec_14',['debug.c',['../debug_8c.html',1,'']]],
-  ['del_20proyecto_15',['Patrones del proyecto',['../md_philo_2docs_2conceptos.html#autotoc_md6',1,'']]],
-  ['del_20proyecto_20phiossopheerrs_16',['Explicacion del proyecto Phiossopheerrs',['../md_philo_2docs_2explained.html',1,'']]],
-  ['demasiado_20grandes_17',['Caso 4: Valores demasiado grandes',['../md_philo_2docs_2parsing.html#autotoc_md22',1,'']]],
-  ['descripcion_20general_18',['Descripcion general',['../md_philo_2docs_2description.html',1,'']]],
-  ['description_2emd_19',['description.md',['../description_8md.html',1,'']]],
-  ['detalles_20de_20la_20implementacion_3a_20',['Detalles de la implementacion:',['../md_philo_2docs_2explained.html#autotoc_md16',1,'']]],
-  ['dormir_20igual_20a_20cero_21',['Caso 8: Tiempo para dormir igual a cero',['../md_philo_2docs_2parsing.html#autotoc_md26',1,'']]],
-  ['dp_22',['dp',['../philo_8h.html#aedc0b0d900adb99366a050adc302e5e7',1,'dp(const char *format,...):&#160;debug.c'],['../debug_8c.html#aedc0b0d900adb99366a050adc302e5e7',1,'dp(const char *format,...):&#160;debug.c']]]
+  ['del_20proyecto_12',['Patrones del proyecto',['../md_philo_2docs_2conceptos.html#autotoc_md6',1,'']]],
+  ['del_20proyecto_20phiossopheerrs_13',['Explicacion del proyecto Phiossopheerrs',['../md_philo_2docs_2explained.html',1,'']]],
+  ['demasiado_20grandes_14',['Caso 4: Valores demasiado grandes',['../md_philo_2docs_2parsing.html#autotoc_md22',1,'']]],
+  ['descripcion_20general_15',['Descripcion general',['../md_philo_2docs_2description.html',1,'']]],
+  ['description_2emd_16',['description.md',['../description_8md.html',1,'']]],
+  ['detalles_20de_20la_20implementacion_3a_17',['Detalles de la implementacion:',['../md_philo_2docs_2explained.html#autotoc_md16',1,'']]],
+  ['dormir_20igual_20a_20cero_18',['Caso 8: Tiempo para dormir igual a cero',['../md_philo_2docs_2parsing.html#autotoc_md26',1,'']]]
 ];

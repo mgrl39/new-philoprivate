@@ -1,9 +1,7 @@
 <map id="init_philos" name="init_philos">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,95,56"/>
-<area shape="rect" id="Node000002" href="$debug_8c.html#aedc0b0d900adb99366a050adc302e5e7" title="Prints debug messages if DEBUG is enabled." alt="" coords="158,5,197,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,32,144,22,145,27,95,37"/>
-<area shape="rect" id="Node000003" href="$print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title="Prints an error message and returns 1." alt="" coords="143,55,212,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,49,130,56,129,61,94,54"/>
-<area shape="rect" id="Node000004" href="$print_8c.html#ab0d14669421e64af28e31e9dbd97ec09" title="Prints a message in the fd." alt="" coords="260,55,356,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="212,65,246,65,246,70,212,70"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,95,31"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title=" " alt="" coords="143,5,212,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,15,129,15,129,21,95,21"/>
+<area shape="rect" id="Node000003" href="$print_8c.html#acefce9ac519f8f8b7d3fde33dbafe469" title="Prints a message in the fd." alt="" coords="260,5,356,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,15,246,15,246,21,212,21"/>
 </map>

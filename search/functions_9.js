@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['take_5fforks_0',['take_forks',['../routine_8c.html#a9d4b235c43ff8416b674a311403e7c88',1,'routine.c']]]
+  ['validate_5farg_0',['validate_arg',['../main_8c.html#ac72ff019fa362d766a1ec4124d786985',1,'main.c']]]
 ];

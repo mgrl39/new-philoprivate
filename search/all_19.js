@@ -9,5 +9,6 @@ var searchData=
   ['solucion_20funciona_6',['Por Que esta solucion Funciona',['../md_philo_2docs_2conceptos.html#autotoc_md3',1,'']]],
   ['someone_5fdied_7',['someone_died',['../structs__table.html#ad1adcb87dcec1eaf41a6c658069e8d9b',1,'s_table']]],
   ['start_5fsimulation_8',['start_simulation',['../main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf',1,'main.c']]],
-  ['start_5ftime_9',['start_time',['../structs__table.html#aff9418e31ca6f838df64409598dd950f',1,'s_table']]]
+  ['start_5ftime_9',['start_time',['../structs__table.html#aff9418e31ca6f838df64409598dd950f',1,'s_table']]],
+  ['success_10',['SUCCESS',['../philo_8h.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'philo.h']]]
 ];
