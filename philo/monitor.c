@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 08:21:29 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:54:58 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:19:41 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 /**
  * Sets the death flag in a thread-safe manner
+ * TODO: Cambiar el nombre o algo, antes era set_death_flag pero
+ * sigo cambiando el table->someone_died
  */
-void	set_death_flag(t_table *table)
+static void	set_end_flag(t_table *table)
 {
 	pthread_mutex_lock(&table->death_lock);
 	table->someone_died = 1;
@@ -46,7 +48,7 @@ int	is_simulation_terminated(t_table *table)
  * @param philo Pointer to the Philosopher sstructure
  * @return 1 iif the philosopherr has died of starvation, 0 otherwise.
  */
-int	check_philo_death(t_philo *philo)
+static int	check_philo_death(t_philo *philo)
 {
 	long	current_time;
 	long	time_since_meal;
@@ -58,7 +60,7 @@ int	check_philo_death(t_philo *philo)
 	if (time_since_meal >= philo->table->time_to_die)
 	{
 		print_status(philo, MSG_DIED);
-		set_death_flag(philo->table);
+		set_end_flag(philo->table);
 		return (1);
 	}
 	return (0);
@@ -68,7 +70,7 @@ int	check_philo_death(t_philo *philo)
  * Checks if all philosophers have aeten enough meals
  * Si no hay limite de comidas, devuelve 0
  */
-int	check_all_ate(t_table *table)
+static int	check_all_ate(t_table *table)
 {
 	int	i;
 	int	finished_eating;
@@ -86,7 +88,7 @@ int	check_all_ate(t_table *table)
 	}
 	pthread_mutex_unlock(&table->meal_lock);
 	if (finished_eating == table->num_philos)
-		return (set_death_flag(table), 1);
+		return (set_end_flag(table), 1);
 	return (0);
 }
 

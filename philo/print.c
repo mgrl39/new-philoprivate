@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 11:22:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 10:52:15 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:41:41 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static void	print_colored_status(long new_time, t_philo *philo, char *msg)
 {
-	printf("%06ld %d ", new_time, philo->id);
+	printf("%06ld " BOLD "%d " RESET, new_time, philo->id);
 	if (ft_strcmp(msg, MSG_FORK) == 0)
 		printf(GOLD "%s" RESET "\n", msg);
 	else if (ft_strcmp(msg, MSG_EAT) == 0)
@@ -27,7 +27,7 @@ static void	print_colored_status(long new_time, t_philo *philo, char *msg)
 	else if (ft_strcmp(msg, MSG_THINK) == 0)
 		printf(PURPLE "%s" RESET "\n", msg);
 	else if (ft_strcmp(msg, MSG_DIED) == 0)
-		printf(RED "%s" RESET "\n", msg);
+		printf(RED BOLD "%s" RESET "\n", msg);
 	else
 		printf("%s\n", msg);
 }
