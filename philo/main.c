@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/30 19:43:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/06/30 21:16:17 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	t_table	table;
 	if (5 == ac || 6 == ac)
 	{
-		// Correct input
+		parse_input(&table);
 	}
 	else
 	{
