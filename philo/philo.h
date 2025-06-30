@@ -1,0 +1,103 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
+/*   Updated: 2025/06/30 19:42:46 by meghribe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PHILO_H
+# define PHILO_H
+#include <stdio.h> // printf
+#include <stdlib.h> // malloc free
+#include <unistd.h> // write, usleep (usleep is not so precise...)
+#include <stdbool.h>
+// contains all the functions
+// all the functions containing mutexes and threads.
+#include <pthread.h>  // mutex: init destroy lock unlock
+		      // threads: create join detach
+#include <sys/time.h> // gettimeofday (useful to get exactlly the time)
+#include <limits.h> // INT_MAX
+
+//*** structures ***
+
+/**
+ * code more readable
+ */
+typedef pthread_mutex_t	t_mtx;
+
+typedef	struct	s_table	t_table;
+/*
+ * FORK
+ */
+typedef struct	s_fork
+{
+	t_mtx	fork;
+	int	fork_id; // This is very useful for debugging.Because i know exactly  which fork
+			 // the philosopher is taking
+			 //
+
+}	t_fork;
+
+/*
+ * PHILO
+ *
+ *./philo 5 800 200 200 [5]
+ */
+typedef struct	s_philo
+{
+	int	id;
+	long	meals_counter; // We will count the meals in this variable
+	bool	full; // flag if the philosopher has eaten the maximum number of meals
+	long	last_meal_time; // time passed from last meal. Is very important to check if the
+				// philosopher has died. We will gonna have time to die
+	t_fork	*left_fork;
+	t_fork	*right_fork; // A pointer to the left fork and a pointer to the right fork
+	pthread_t	thread_id; // A PHILO IS A THREAD. (this will be send to thread_create)
+	t_table	*table;
+}	t_philo;
+
+/*
+ * TABLE
+ * ./philo 5 800 200 200 [5]
+ */
+typedef	struct	s_table
+{
+	long	philo_nbr; // amount of philosophers of the first value (argv[1])
+	long	time_to_die; // which is the argv[2]
+	long	time_to_eat; // argv[3]
+	long	time_to_sleep; // argv[4]
+	long	nbr_limit_meals;
+	/**
+	 * nbr_limit_meals will be act like the number or like a flag.
+	 * If its -1 we do not have the input.
+	 */
+	long	start_simulation; 
+	/*
+	 * This is basically the time when the simulation is starting.
+	 * This is important because I need time stamps	from the start of simulation
+	 * For the philosophers will  have timestamps starting from this value.
+	 */
+	bool	end_simulation;
+	/*
+	 * bool end_simulation is very important which is triggered when a philo dies
+	 * or all philos are full. So this flag is turned on in these two scenarios.
+	 */
+	t_fork	*forks; // this is the array of all the forks. FORK FORK FORK FORK FORK
+	t_philo *philos; // the array of all the philos. PHILO PHILO PHILO PHILO PHILO
+}	t_table;
+
+void	error_exit(const char *error);
+
+# define RESET	"\033[0m"
+# define RED	"\033[38;5;203m"
+# define GOLD	"\033[38;5;220m"
+# define GREEN	"\033[38;5;120m"
+# define BLUE	"\033[38;5;75m"
+# define PURPLE	"\033[38;5;147m"
+# define BOLD	"\033[1m"
+#endif
