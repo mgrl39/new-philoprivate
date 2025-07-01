@@ -6,11 +6,27 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 22:26:44 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/01 23:27:31 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+/**
+ * MOST IMPORTANT THING FOR A PHILOSOPHER
+ * eat routine
+ * 1) grab the forks: here first and second fork is handy
+ * 	i dont worry aboutt left irght
+ * 2) eat: write eat, update last meal, update meals counter.
+ * 	eventyally bool full
+ * 3) release the forks
+ */
+static void	eat(t_philo *philo)
+{
+	// 1)
+	safe_mutex_handle
+}
+
 
 // here is goonna be the actual simulation of the dinner
 /*
@@ -36,7 +52,9 @@ void	*dinner_simulation(void *data)
 		// 2) EAT
 		eat(philo);
 		// 3) SLEEP -> write the actual status (write_status) & precise usleep
-		sleep(philo);
+		write_status(SLEEPING, philo, DEBUG_MODE);
+		precise_usleep(philo->table->time_to_sleep, philo->table);
+		// sleep(philo);
 		// 4) THINK
 		thinking(philo);
 

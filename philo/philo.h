@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 22:47:27 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/01 23:23:03 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@
 #include <sys/time.h> // gettimeofday (useful to get exactlly the time)
 #include <limits.h> // INT_MAX
 #include <errno.h>
+
+/**
+ * PHILO STATES
+ */
+typedef enum e_status
+{
+	EATING,
+	SLEEPING,
+	THINKING,
+	TAKE_FIRST_FORK,
+	TAKE_SECOND_FORK,
+	DIED,
+}	t_philo_status;
 
 /*
  * Operation code fofr mutex or thread functions
@@ -103,6 +116,7 @@ typedef	struct	s_table
 	 */
 	bool	all_threads_ready; // to syncro philosophers 
 	t_mtx	table_mutex; // avoid races while reading from table
+	t_mtx	write_mutex;
 	t_fork	*forks; // this is the array of all the forks. FORK FORK FORK FORK FORK
 	t_philo *philos; // the array of all the philos. PHILO PHILO PHILO PHILO PHILO
 }	t_table;
@@ -143,4 +157,7 @@ typedef enum e_time_code
 
 long	gettime(t_time_code	time_code);
 void	precise_usleep(long usec, t_table *table);
+
+# define DEBUG_MODE 0
+void	write_status(t_philo_status status, t_philo *philo, bool debug);
 #endif
