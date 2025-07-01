@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/30 21:15:41 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/01 21:06:27 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,21 @@
 		      // threads: create join detach
 #include <sys/time.h> // gettimeofday (useful to get exactlly the time)
 #include <limits.h> // INT_MAX
+#include <errno.h>
 
+/*
+ * Operation code fofr mutex or thread functions
+ */
+typedef enum e_opcode
+{
+	LOCK,
+	UNLOCK,
+	INIT,
+	DESTROY,
+	CREATE,
+	JOIN,
+	DETACH,
+}	t_opcode;
 //*** structures ***
 
 /**
@@ -55,8 +69,8 @@ typedef struct	s_philo
 	bool	full; // flag if the philosopher has eaten the maximum number of meals
 	long	last_meal_time; // time passed from last meal. Is very important to check if the
 				// philosopher has died. We will gonna have time to die
-	t_fork	*left_fork;
-	t_fork	*right_fork; // A pointer to the left fork and a pointer to the right fork
+	t_fork	*first_fork;
+	t_fork	*second_fork; // A pointer to the left fork and a pointer to the right fork
 	pthread_t	thread_id; // A PHILO IS A THREAD. (this will be send to thread_create)
 	t_table	*table;
 }	t_philo;
@@ -101,4 +115,7 @@ void	parse_input(t_table *table, char **av);
 # define BLUE	"\033[38;5;75m"
 # define PURPLE	"\033[38;5;147m"
 # define BOLD	"\033[1m"
+
+void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode);
+void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 #endif
