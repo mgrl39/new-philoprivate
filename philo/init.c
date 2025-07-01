@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 21:13:19 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/01 21:46:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
  * a pointer to philosopher.
  * A pointer to the actual forks
  * Relative position in the table.
+ * EVEN odd fork assigment
  */
 static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 {
@@ -79,7 +80,9 @@ void	data_init(t_table *table)
 
 	i = -1;
 	table->end_simulation = false;
+	table->all_threads_ready = false;
 	table->philos = safe_malloc(sizeof(t_philo) * table->philo_nbr);
+	safe_mutex_handle(table->table_mutex, INIT);
 	table->forks = safe_malloc(sizeof(t_fork) * table->philo_nbr);
 	while (++i < table->philo_nbr)
 	{

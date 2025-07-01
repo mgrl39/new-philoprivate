@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 21:06:27 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/01 22:47:27 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ typedef	struct	s_table
 	 * bool end_simulation is very important which is triggered when a philo dies
 	 * or all philos are full. So this flag is turned on in these two scenarios.
 	 */
+	bool	all_threads_ready; // to syncro philosophers 
+	t_mtx	table_mutex; // avoid races while reading from table
 	t_fork	*forks; // this is the array of all the forks. FORK FORK FORK FORK FORK
 	t_philo *philos; // the array of all the philos. PHILO PHILO PHILO PHILO PHILO
 }	t_table;
@@ -118,4 +120,27 @@ void	parse_input(t_table *table, char **av);
 
 void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
+void	data_init(t_table *table);
+
+
+void	set_long(t_mtx *mutex, long *dest, long value);
+long	get_long(t_mtx *mutex, long *value);
+bool	get_bool(t_mtx *mutex, bool *value);
+void	set_bool(t_mtx *mutex, bool *dest, bool value);
+bool	simulation_finished(t_table *table);
+
+void	wait_all_threads(t_table	*table);
+
+/*
+ * CODES for gettime
+ */
+typedef enum e_time_code
+{
+	SECOND,
+	MILLISECOND,
+	MICROSECOND
+}	t_time_code;
+
+long	gettime(t_time_code	time_code);
+void	precise_usleep(long usec, t_table *table);
 #endif
