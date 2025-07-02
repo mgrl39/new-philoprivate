@@ -3,84 +3,95 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 07:01:23 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 11:41:02 by meghribe         ###   ########.fr       */
+/*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
+/*   Updated: 2025/07/02 17:50:56 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <string.h>
-#include <stdlib.h>
 
 /**
- * Initializes the mutexes required for the simulation
- *
- * Allocates and initializes one mutex per fork, as well as separate mutexes for
- * writing output, meal tracking, and death detection.
- *
- * @param table Pointer to the shared table structure
- * @return 0 on succes, 1 on failure
+ * Takes:
+ * a pointer to philosopher.
+ * A pointer to the actual forks
+ * Relative position in the table.
+ * EVEN odd fork assigment
  */
-int	init_mutexes(t_table *table)
+static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 {
-	int	i;
+	// We have our philos, we have this array of structs and mutexes.
+	// When it comes to fork assigmnet.
+	// philo_id != relative position in the array  (we start by 0 and the first philo is id 1)
+	// Right fork -> Position of the fork
+	// Left fork is more treaky:
+	// 	- We are going focus in philo number 5: LEFT FORK OF PhilO number 5 is 0
+	// 	- left_fork = (philo_pos + 1) % philo_nbr;
+	// 		(4 + 1) % 5 => 0 (left fork is 0)
+	//
+	// Indeed, every philo needs 2 forks to eat, that's what we need.
+	int	philo_nbr;
 
-	table->forks = malloc(sizeof(pthread_mutex_t) * table->num_philos);
-	if (!table->forks)
-		return (ft_error(MSG_MALLOC_ERR));
-	i = 0;
-	while (i < table->num_philos)
+	philo_nbr = philo->table->philo_nbr;
+
+	// == to position
+	// to prevent deadlock if its even its one way its is odd is another way
+	philo->first_fork = &forks[(philo_position + 1 % philo_nbr)];
+	philo->second_fork = &forks[philo_position]; 
+	if (philo->id % 2 == 0)
 	{
-		if (pthread_mutex_init(&table->forks[i], NULL))
-			return (free(table->forks), ft_error(MSG_MALLOC_ERR));
-		i++;
+		philo->first_fork = &forks[philo_position];
+		philo->second_fork = &forks[(philo_position + 1 % philo_nbr)];
 	}
-	// TODO SI FALLAN DEBO HACER FREES ARRIBA...
-	if (pthread_mutex_init(&table->write_lock, NULL))
-		return (ft_error(MSG_MALLOC_ERR));
-	if (pthread_mutex_init(&table->meal_lock, NULL))
-		return (ft_error(MSG_MALLOC_ERR));
-	if (pthread_mutex_init(&table->death_lock, NULL))
-		return (ft_error(MSG_MALLOC_ERR));
-	return (SUCCESS);
+	// Deadhlock happends when we have multiple threads to be stuck.
+	// We have a thread waiting.
+	// if you are the odd philosopher first you will ttake the left
+	// if you take the even takes the right
 }
 
 /**
- * Initializes the philosohers structures
- *
- * Allocates memory for each philosopher and sets their IDs, 
- * pointer to the shared table
- * and assigns the correspondign left and right forks (mutex pointers).
- *
- * @param table Pointer to the shared table structure.
- * @return 0 on succes, 1 on failure
+ * We need to  initialize all the data of philo
  */
-// TODO: cambiar a una nueva funcion de clean 
-// SI EL MALLOC DE table->philos = NULL; 
-// falla, se generan leaks porque el de mutexes ya esta puesto
-int	init_philos(t_table *table)
+static void	philo_init(t_table *table)
+{
+	int	i;
+	t_philo	*philo;
+
+	i = -1;
+	while (++i < table->philo_nbr)
+	{
+		philo = table->philos + i;
+		philo->id = i + 1;
+		philo->full = false;
+		philo->meals_counter = 0;
+		philo->table = table;
+		safe_mutex_handle(&philo->philo_mutex, INIT);
+
+		// super important function assign_forks
+		// "i" es basically the position in the table
+		assign_forks(philo, table->forks, i);
+	}
+
+}
+
+void	data_init(t_table *table)
 {
 	int	i;
 
-	table->philos = malloc(sizeof(t_philo) * table->num_philos);
-	if (!table->philos)
-		return (free(table->forks), ft_error(MSG_MALLOC_ERR));
-	i = 0;
-	memset(table->philos, 0, sizeof(t_philo) * table->num_philos);
-	while (i < table->num_philos)
+	i = -1;
+	table->end_simulation = false;
+	table->all_threads_ready = false;
+	table->threads_running_nbr = 0;
+	table->philos = safe_malloc(sizeof(t_philo) * table->philo_nbr);
+	safe_mutex_handle(&table->table_mutex, INIT);
+	safe_mutex_handle(&table->write_mutex, INIT);
+	table->forks = safe_malloc(sizeof(t_fork) * table->philo_nbr);
+	while (++i < table->philo_nbr)
 	{
-		table->philos[i].id = i + 1;
-		table->philos[i].table = table;
-		table->philos[i].meals_eaten = 0;
-		table->philos[i].last_meal_time = table->start_time;
-		table->philos[i].forks[LEFT] = &table->forks[i];
-		table->philos[i].forks[RIGHT] = \
-			&table->forks[(i + 1) % table->num_philos];
-		if (table->num_philos == 1)
-			table->philos[i].forks[RIGHT] = NULL;
-		i++;
+		// We want to init this mutex
+		safe_mutex_handle(&table->forks[i].fork, INIT);
+		table->forks[i].fork_id = i; // super useful for debug
 	}
-	return (SUCCESS);
+	philo_init(table);
 }

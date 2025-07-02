@@ -3,83 +3,101 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meghribe <meghribe@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 03:26:15 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/29 11:40:42 by meghribe         ###   ########.fr       */
+/*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
+/*   Updated: 2025/07/02 18:49:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <limits.h>
-#include <sys/time.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-static int	ft_isdigit(int c)
+/*
+ * We are gonna exploit gettimeofday
+ *
+ * time_code -> SECONDS MILLISECONDS MICROSECONDS
+ */
+long	gettime(t_time_code	time_code)
 {
-	return (c >= '0' && c <= '9');
+	struct	timeval	tv;
+
+	/*
+	 * Is gonna set the seconds and the microseconds
+	 */
+	if (gettimeofday(&tv, NULL))
+		error_exit("Gettimeofday failed!");
+	if (SECOND == time_code)
+		return (tv.tv_sec + (tv.tv_usec / 1e6));
+	else if (MILLISECOND == time_code)
+		return ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);
+	else if (MICROSECOND == time_code)
+		return ((tv.tv_sec * 1e6) + tv.tv_usec);
+	else
+		error_exit("Wrong input to gettime!");
+	return (1337);
 }
 
-int	ft_philo_atoi(const char *str, int *result)
+/**
+ * precise usleep, the real one suck.
+ * Indeed, the usleep is gonna give us at least the time we ask
+ * but very often is going to give us more because opearting system lagging
+ * things peculairrities.
+ *
+ * Every time we check if the simulation finished.
+ *
+ * 1) USLEEP THE MAJORITY OF TIME, NOT CPU INTENSIVE
+ * 2) REFINE LAST MICROSECONDS WITH SPINLOCK
+ *
+ * This will give us more precise than the actual system function usleep
+ * which is veey often not precise.
+ */
+void	precise_usleep(long usec, t_table *table)
 {
-	size_t			i;
-	long long		num;
-	int				sign;
+	long	start;
+	long	elapsed;
+	long	remaining;
 
-	i = 0;
-	num = 0;
-	sign = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	start = gettime(MICROSECOND);
+	while (gettime(MICROSECOND) - start < usec)
 	{
-		sign = -1;
-		i++;
+		if (simulation_finished(table))
+			break ;
+		elapsed = gettime(MICROSECOND) - start;
+		remaining = usec - elapsed;
+		if (remaining > 1e3)
+			usleep(remaining / 2);
+		else
+		{
+			// SPINLOCK
+			while (gettime(MICROSECOND) - start < usec)
+				;
+		}
 	}
-	if (!ft_isdigit(str[i]))
-		return (ERR_NOT_DIGIT);
-	while (str[i] && ft_isdigit(str[i]))
-	{
-		num = num * 10 + (str[i] - '0');
-		if (num > INT_MAX)
-			return (ERR_OVERFLOW);
-		i++;
-	}
-	if (str[i] != '\0')
-		return (ERR_NOT_DIGIT);
-	if (sign == -1)
-		return (ERR_NEGATIVE);
-	if (num == 0)
-		return (ERR_ZERO_VALUE);
-	*result = (int)num;
-	return (1);
 }
 
-// TODO: CHECK WHAT WILL HAPPEN WITH THE -1
-long	get_time(void)
-{
-	struct timeval	tv;
 
-	if (gettimeofday(&tv, NULL) == -1)
-		return (-1);
-	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+void	error_exit(const char *error)
+{
+	printf(RED "%s\n" RESET, error);
+	exit(EXIT_FAILURE);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+
+void	clean(t_table *table)
 {
+	t_philo	*philo;
 	int	i;
 
-	i = 0;
-	while (s1[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-int	ft_error(char *msg)
-{
-	ft_putstr_fd(RED, 2);
-	ft_putstr_fd(msg, 2);
-	ft_putstr_fd(RESET, 2);
-	return (ft_putstr_fd("\n", 2), FAILURE);
+	i = -1;
+	while (++i < table->philo_nbr)
+	{
+		philo = table->philos + i;
+		safe_mutex_handle(&philo->philo_mutex, DESTROY);
+	}
+	safe_mutex_handle(&table->write_mutex, DESTROY);
+	safe_mutex_handle(&table->table_mutex, DESTROY);
+	free(table->forks);
+	free(table->philos);
 }
