@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 21:55:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:59:29 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	main(int argc, char *argv[])
 		return (print_usage(argv), 1);
 	if (5 == argc || 6 == argc)
 	{
-		parse_input(&table, argv);
+		process_arguments(&table, argv);
 		data_init(&table);
 		dinner_start(&table);
 		clean(&table);
 	}
 	else
 		// TODO CHANGE THIS
-		error_exit("Wrong input:\n"BLUE"Correct is ./philo 5 800 200 200 [5]"RESET);
+		return (print_usage(argv), 1);
 	return (0);
 }

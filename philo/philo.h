@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 21:43:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:00:01 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ typedef	struct	s_table
 }	t_table;
 
 void	error_exit(const char *error);
-void	parse_input(t_table *table, char **av);
+void	process_arguments(t_table *table, char *argv[]);
 
 # define RESET	"\033[0m"
 # define RED	"\033[38;5;203m"

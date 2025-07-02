@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:49:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 17:33:37 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:00:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,27 +77,27 @@ static long	ft_atol(const char *str)
 
 /**
  * ./philo 5 800 200 200 [5]
- * 	  av[1] av[2] av[3] av[4] av[5]
+ * 	  argv[1] argv[2] argv[3] argv[4] argv[5]
  * 	  We need to convert this strings in actual integers, values.
  * 	  Doing that, i want to control:
  * 	  	- If the strings are actual numbers.
  * 	  	- Not major than INT_MAX
  * 	  	- timestamps > 60ms
  */
-void	parse_input(t_table *table, char **av)
+void	process_arguments(t_table *table, char *argv[])
 {
-	table->philo_nbr = ft_atol(av[1]);
-	table->time_to_die = ft_atol(av[2]) * 1e3;
-	table->time_to_eat = ft_atol(av[3]) * 1e3;
-	table->time_to_sleep = ft_atol(av[4]) * 1e3;
+	table->philo_nbr = ft_atol(argv[1]);
+	table->time_to_die = ft_atol(argv[2]) * 1e3;
+	table->time_to_eat = ft_atol(argv[3]) * 1e3;
+	table->time_to_sleep = ft_atol(argv[4]) * 1e3;
 	// Now check the timestamp > 60ms
 	if (table->time_to_die < 6e4 
 		|| table->time_to_eat < 6e4
 		|| table->time_to_sleep < 6e4)
 		error_exit("Use timestamps major than 60ms");
-	// Now we have to check av[5]
-	if (av[5])
-		table->nbr_limit_meals = ft_atol(av[5]);
+	// Now we have to check argv[5]
+	if (argv[5])
+		table->nbr_limit_meals = ft_atol(argv[5]);
 	else
 		table->nbr_limit_meals = -1; // As a flag
 }
