@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 19:24:01 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:08:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,16 @@ void	wait_all_threads(t_table	*table)
 /**
  * Monitor busy waits until all theads are not running
  */ // all threads ARE RUNNING
-bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr) 
+bool	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 {
-	bool	ret;
+	bool	all_running;
 
-	ret = false;
-
-	safe_mutex_handle(mutex, LOCK);
-	if (*threads == philo_nbr)
-		ret = true;
-	safe_mutex_handle(mutex, UNLOCK);
-	return (ret);
+	if (!mtx || !threads_count)
+		return (false);
+	safe_mutex_handle(mtx, LOCK);
+	all_running = (*threads_count == total_threads);
+	safe_mutex_handle(mtx, UNLOCK);
+	return (all_running);
 }
 
 /**
