@@ -6,12 +6,38 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 17:19:59 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:42:16 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/**
+ * same algo but..
+ *
+ * 1) fake to lock the fork
+ * 2) slepe until the monitor will bust it
+ */
+void	*lone_philo(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	wait_all_threads(philo->table);
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	increase_long(&philo->table->table_mutex, &philo->table->threads_running_nbr);
+	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
+	while (!simulation_finished(philo->table))
+		usleep(200);
+	return (NULL);
+}
+
+/**
+ * then we will change some values:
+ * Thinking is the only value that we can really module
+ * Time to die, time to sleep and time to eat are fixed.
+ * Time to think is the only one to make the system more fair (equitativo, justo)
+ */
 static void	thinking(t_philo *philo)
 {
 	write_status(THINKING, philo, DEBUG_MODE);
@@ -64,6 +90,16 @@ void	*dinner_simulation(void *data)
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
+
+	// set time last meal
+
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	/**
+	 * syncro with monitor
+	 * increase a table variable cunter, with al threads running
+	 */
+	increase_long(&philo->table->table_mutex, &philo->table->threads_running_nbr);
+
 	/*
 	 * until the dinner is not finished
 	 */
@@ -106,7 +142,7 @@ void	dinner_start(t_table *table)
 	if (0 == table->nbr_limit_meals)
 		return ; // back to main, clean
 	else if (1 == table->philo_nbr)
-		; // todo
+		safe_thread_handle(&table->philos[0].thread_id, lone_philo, &table->philos[0], CREATE);
 	else
 	{
 		while (++i < table->philo_nbr)
@@ -117,6 +153,10 @@ void	dinner_start(t_table *table)
 		// Every time this funciton is called immediately the thread starts running this dinner simulation function that we still have to do. 
 		// So we need a synhronization thing to make all the philosophers start at the same time.
 	
+
+	// monitor
+	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
+
 	// start of simulation
 	table->start_simulation = gettime(MILLISECOND);
 	/*
@@ -131,4 +171,6 @@ void	dinner_start(t_table *table)
 	while (++i < table->philo_nbr)
 		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
 	// If we manage to reach this line all philos are FULL.
+	set_bool(&table->table_mutex, &table->end_simulation, true);
+	safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
 }

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:49:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/06/30 21:13:47 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:33:37 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static inline bool	is_digit(char c)
  */
 static inline bool is_space(char c)
 {
-	return (c == 32 || (c >= 9 && c <= 13))
+	return (c == 32 || (c >= 9 && c <= 13));
 }
 
 /**

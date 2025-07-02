@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 17:13:36 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:42:43 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,11 @@ typedef	struct	s_table
 	 * or all philos are full. So this flag is turned on in these two scenarios.
 	 */
 	bool	all_threads_ready; // to syncro philosophers 
+	/*
+	 * Is going to be the actual monitor thread, searching for death.
+	 */
+	long	threads_running_nbr;
+	pthread_t	monitor; 
 	t_mtx	table_mutex; // avoid races while reading from table
 	t_mtx	write_mutex;
 	t_fork	*forks; // this is the array of all the forks. FORK FORK FORK FORK FORK
@@ -161,4 +166,10 @@ void	precise_usleep(long usec, t_table *table);
 
 # define DEBUG_MODE 0
 void	write_status(t_philo_status status, t_philo *philo, bool debug);
+void	*safe_malloc(size_t	bytes);
+void	increase_long(t_mtx *mutex, long *value);
+bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
+void	*monitor_dinner(void *data);
+void	clean(t_table *table);
+void	dinner_start(t_table *table);
 #endif
