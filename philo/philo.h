@@ -6,23 +6,24 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 19:25:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:00:01 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-#include <stdio.h> // printf
-#include <stdlib.h> // malloc free
-#include <unistd.h> // write, usleep (usleep is not so precise...)
-#include <stdbool.h>
+# include <stdio.h> // printf
+# include <stdlib.h> // malloc free
+# include <unistd.h> // write, usleep (usleep is not so precise...)
+# include <stdbool.h>
 // contains all the functions
 // all the functions containing mutexes and threads.
-#include <pthread.h>  // mutex: init destroy lock unlock
-		      // threads: create join detach
-#include <sys/time.h> // gettimeofday (useful to get exactlly the time)
-#include <limits.h> // INT_MAX
-#include <errno.h>
+# include <pthread.h>
+// mutex: init destroy lock unlock
+// threads: create join detach
+# include <sys/time.h> // gettimeofday (useful to get exactlly the time)
+# include <limits.h> // INT_MAX
+# include <errno.h>
 
 /**
  * PHILO STATES
@@ -50,24 +51,23 @@ typedef enum e_opcode
 	JOIN,
 	DETACH,
 }	t_opcode;
+
 //*** structures ***
 
 /**
  * code more readable
  */
 typedef pthread_mutex_t	t_mtx;
+typedef struct s_table	t_table;
 
-typedef	struct	s_table	t_table;
 /*
  * FORK
  */
-typedef struct	s_fork
+typedef struct s_fork
 {
 	t_mtx	fork;
-	int	fork_id; // This is very useful for debugging.Because i know exactly  which fork
-			 // the philosopher is taking
-			 //
-
+	int		fork_id; // This is very useful for debugging.Because i know exactly  which fork
+// the philosopher is taking
 }	t_fork;
 
 /*
@@ -128,7 +128,7 @@ typedef	struct	s_table
 }	t_table;
 
 void	error_exit(const char *error);
-void	parse_input(t_table *table, char **av);
+void	process_arguments(t_table *table, char *argv[]);
 
 # define RESET	"\033[0m"
 # define RED	"\033[38;5;203m"
@@ -174,4 +174,6 @@ void	clean(t_table *table);
 void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, bool pre_simulation);
 void	de_synchronize_philos(t_philo *philo);
+
+void	print_usage(char *argv[]);
 #endif
