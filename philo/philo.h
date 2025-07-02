@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 18:42:43 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 19:25:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,4 +172,6 @@ bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 void	*monitor_dinner(void *data);
 void	clean(t_table *table);
 void	dinner_start(t_table *table);
+void	thinking(t_philo *philo, bool pre_simulation);
+void	de_synchronize_philos(t_philo *philo);
 #endif

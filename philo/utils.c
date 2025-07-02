@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 18:40:39 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:49:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	precise_usleep(long usec, t_table *table)
 		elapsed = gettime(MICROSECOND) - start;
 		remaining = usec - elapsed;
 		if (remaining > 1e3)
-			usleep(usec / 2);
+			usleep(remaining / 2);
 		else
 		{
 			// SPINLOCK

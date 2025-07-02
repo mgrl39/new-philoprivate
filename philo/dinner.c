@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 18:42:16 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 19:24:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,25 @@ void	*lone_philo(void *arg)
  * Time to die, time to sleep and time to eat are fixed.
  * Time to think is the only one to make the system more fair (equitativo, justo)
  */
-static void	thinking(t_philo *philo)
+void	thinking(t_philo *philo, bool pre_simulation)
 {
-	write_status(THINKING, philo, DEBUG_MODE);
+	long	t_eat;
+	long	t_sleep;
+	long	t_think;
+
+	if (!pre_simulation)
+		write_status(THINKING, philo, DEBUG_MODE);
+	// if the system is even we dont care, system already fair.
+	if (philo->table->philo_nbr % 2 == 0)
+		return ;
+	// ODD, not always fair.
+	t_eat = philo->table->time_to_eat;
+	t_sleep = philo->table->time_to_sleep;
+	t_think = t_eat * 2 - t_sleep; // availbale time to think
+	if (t_think < 0)
+		t_think = 0;
+	// precise control i wanna make on philo
+	precise_usleep(t_think * 0.42, philo->table);
 }
 /**
  * MOST IMPORTANT THING FOR A PHILOSOPHER
@@ -100,6 +116,9 @@ void	*dinner_simulation(void *data)
 	 */
 	increase_long(&philo->table->table_mutex, &philo->table->threads_running_nbr);
 
+	// desynchronizing philos
+	de_synchronize_philos(philo);
+
 	/*
 	 * until the dinner is not finished
 	 */
@@ -116,7 +135,7 @@ void	*dinner_simulation(void *data)
 		precise_usleep(philo->table->time_to_sleep, philo->table);
 		// sleep(philo);
 		// 4) THINK
-		thinking(philo);
+		thinking(philo, false);
 
 	}
 	return (NULL);
