@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['forks_0',['forks',['../structs__table.html#a2c3129b4b451031b04ada0c16e397b76',1,'s_table::forks'],['../structs__philo.html#a57dcb66a7b077d55a57e1dbecc2be635',1,'s_philo::forks']]]
+  ['end_5fsimulation_0',['end_simulation',['../structs__table.html#a45e3ee8761710de1f3cffd280ff1c36a',1,'s_table']]]
 ];

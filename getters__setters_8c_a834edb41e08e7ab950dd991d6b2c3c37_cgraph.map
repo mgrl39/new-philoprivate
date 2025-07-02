@@ -1,0 +1,10 @@
+<map id="get_bool" name="get_bool">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,84,31"/>
+<area shape="rect" id="Node000002" href="$safe__functions_8c.html#a6454f0a0acf648a82505d646132dbef2" title=" " alt="" coords="132,5,283,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,15,118,15,118,21,84,21"/>
+<area shape="rect" id="Node000003" href="$philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="532,5,617,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="283,15,518,15,518,21,283,21"/>
+<area shape="rect" id="Node000004" href="$safe__functions_8c.html#a7bad0b0b2e5868b626b338dc6f15593e" title=" " alt="" coords="331,31,484,56"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="283,25,317,29,317,35,282,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="484,29,518,24,519,29,485,34"/>
+</map>

@@ -1,6 +1,6 @@
-<map id="philo/print.c" name="philo/print.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="135,5,234,31"/>
-<area shape="rect" id="Node000002" href="$philo_8h.html" title=" " alt="" coords="14,79,81,104"/>
+<map id="old/print.c" name="old/print.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="141,5,228,31"/>
+<area shape="rect" id="Node000002" href="$old_2philo_8h.html" title=" " alt="" coords="14,79,81,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,33,83,75,81,70,161,28"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="105,79,171,104"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,32,155,69,151,66,175,30"/>

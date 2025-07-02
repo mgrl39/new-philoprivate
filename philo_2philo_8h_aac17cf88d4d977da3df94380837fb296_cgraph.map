@@ -1,0 +1,8 @@
+<map id="safe_thread_handle" name="safe_thread_handle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,156,31"/>
+<area shape="rect" id="Node000002" href="$philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="405,5,491,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,15,391,15,391,21,156,21"/>
+<area shape="rect" id="Node000003" href="$safe__functions_8c.html#a6e76245b930b6416a9e9208c303585af" title=" " alt="" coords="204,31,357,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,25,191,29,190,35,156,30"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="357,29,391,24,392,29,358,34"/>
+</map>

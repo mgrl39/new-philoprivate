@@ -1,0 +1,12 @@
+<map id="simulation_finished" name="simulation_finished">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,155,31"/>
+<area shape="rect" id="Node000002" href="$getters__setters_8c.html#a834edb41e08e7ab950dd991d6b2c3c37" title=" " alt="" coords="203,5,281,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,15,189,15,189,21,155,21"/>
+<area shape="rect" id="Node000003" href="$safe__functions_8c.html#a6454f0a0acf648a82505d646132dbef2" title=" " alt="" coords="329,5,480,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="282,15,316,15,316,21,282,21"/>
+<area shape="rect" id="Node000004" href="$philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="729,5,815,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="480,15,715,15,715,21,480,21"/>
+<area shape="rect" id="Node000005" href="$safe__functions_8c.html#a7bad0b0b2e5868b626b338dc6f15593e" title=" " alt="" coords="528,31,681,56"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="480,25,515,29,514,35,480,30"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="681,29,715,24,716,29,682,34"/>
+</map>

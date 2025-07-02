@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['take_5fforks_0',['take_forks',['../routine_8c.html#a9d4b235c43ff8416b674a311403e7c88',1,'routine.c']]]
+  ['lone_5fphilo_0',['lone_philo',['../dinner_8c.html#af29f9843df3ccfe5899082b4b3194eb9',1,'dinner.c']]]
 ];

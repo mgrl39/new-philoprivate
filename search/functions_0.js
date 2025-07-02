@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['check_5fall_5fate_0',['check_all_ate',['../monitor_8c.html#a6028879d311305d535a4b6c24f39a230',1,'monitor.c']]],
-  ['check_5fphilo_5fdeath_1',['check_philo_death',['../monitor_8c.html#a91597855a4c04d4aacd04fccd9ad7cf5',1,'monitor.c']]],
-  ['clean_5ftable_2',['clean_table',['../main_8c.html#a48e1a47db9db1a87075c996c9a37f75d',1,'main.c']]]
+  ['all_5fthreads_5frunning_0',['all_threads_running',['../philo_2philo_8h.html#ae45ed358cc4f739c227ea53a35b5b5da',1,'all_threads_running(t_mtx *mutex, long *threads, long philo_nbr):&#160;synchro_utils.c'],['../synchro__utils_8c.html#ae45ed358cc4f739c227ea53a35b5b5da',1,'all_threads_running(t_mtx *mutex, long *threads, long philo_nbr):&#160;synchro_utils.c']]],
+  ['assign_5fforks_1',['assign_forks',['../philo_2init_8c.html#a4e64b7e17cf086dcb34e52b35b7cd1e8',1,'init.c']]]
 ];

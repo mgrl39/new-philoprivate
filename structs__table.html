@@ -104,16 +104,19 @@ $(document).ready(function(){initNavTree('structs__table.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="philo_8h_source.html">philo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="old_2philo_8h_source.html">philo.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for s_table:</div>
 <div class="dyncontent">
 <div class="center"><img src="structs__table__coll__graph.png" border="0" usemap="#as__table_coll__map" alt="Collaboration graph"/></div>
 <map name="as__table_coll__map" id="as__table_coll__map">
-<area shape="rect" title=" " alt="" coords="8,5,132,291"/>
-<area shape="rect" href="structs__philo.html" title=" " alt="" coords="5,353,135,499"/>
-<area shape="poly" title=" " alt="" coords="26,290,29,329,31,337,25,338,23,330,20,291"/>
-<area shape="poly" title=" " alt="" coords="76,353,78,329,79,307,84,307,83,329,82,353"/>
+<area shape="rect" title=" " alt="" coords="5,153,129,419"/>
+<area shape="rect" href="structs__philo.html" title=" " alt="" coords="39,481,168,707"/>
+<area shape="poly" title=" " alt="" coords="32,419,35,457,38,465,32,467,30,458,26,419"/>
+<area shape="rect" href="structs__fork.html" title=" " alt="" coords="87,5,160,91"/>
+<area shape="poly" title=" " alt="" coords="116,91,105,138,100,137,111,90"/>
+<area shape="poly" title=" " alt="" coords="153,90,162,114,162,129,165,294,162,366,150,458,148,466,143,465,145,457,157,366,159,294,157,129,157,115,148,92"/>
+<area shape="poly" title=" " alt="" coords="88,481,82,435,87,435,93,481"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -143,13 +146,39 @@ Data Fields</h2></td></tr>
 <tr class="separator:a441280c897f6b6530454ec61a32febb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1f5e8de9d846afee89b1335ea3b4850" id="r_ab1f5e8de9d846afee89b1335ea3b4850"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850">death_lock</a></td></tr>
 <tr class="separator:ab1f5e8de9d846afee89b1335ea3b4850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab17844cffbf227b620291893dcde186c" id="r_ab17844cffbf227b620291893dcde186c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="philo_8h.html#a7b20ce4f97b6f0dc2e44a50c149be74d">t_philo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#ab17844cffbf227b620291893dcde186c">philos</a></td></tr>
-<tr class="separator:ab17844cffbf227b620291893dcde186c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cb8b5fb3ea8abb5ed140b36c9c0b7a4" id="r_a0cb8b5fb3ea8abb5ed140b36c9c0b7a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="philo_2philo_8h.html#a7b20ce4f97b6f0dc2e44a50c149be74d">t_philo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4">philos</a></td></tr>
+<tr class="separator:a0cb8b5fb3ea8abb5ed140b36c9c0b7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fea957f58894156b9aab0e1716dab6" id="r_a99fea957f58894156b9aab0e1716dab6"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">philo_nbr</a></td></tr>
+<tr class="separator:a99fea957f58894156b9aab0e1716dab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d98d4031415de7d06b62e2c8025ea09" id="r_a0d98d4031415de7d06b62e2c8025ea09"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a0d98d4031415de7d06b62e2c8025ea09">time_to_die</a></td></tr>
+<tr class="separator:a0d98d4031415de7d06b62e2c8025ea09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1631ff706d7de8cb4e4c3ec4357e0360" id="r_a1631ff706d7de8cb4e4c3ec4357e0360"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a1631ff706d7de8cb4e4c3ec4357e0360">time_to_eat</a></td></tr>
+<tr class="separator:a1631ff706d7de8cb4e4c3ec4357e0360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4275dba063980d9095b4a83ed300a386" id="r_a4275dba063980d9095b4a83ed300a386"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a4275dba063980d9095b4a83ed300a386">time_to_sleep</a></td></tr>
+<tr class="separator:a4275dba063980d9095b4a83ed300a386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1de5af6faf9b86970b029ebd3015c291" id="r_a1de5af6faf9b86970b029ebd3015c291"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a></td></tr>
+<tr class="separator:a1de5af6faf9b86970b029ebd3015c291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb93142c6b1137acb1a8de06cdbc5ce5" id="r_afb93142c6b1137acb1a8de06cdbc5ce5"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#afb93142c6b1137acb1a8de06cdbc5ce5">start_simulation</a></td></tr>
+<tr class="separator:afb93142c6b1137acb1a8de06cdbc5ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e3ee8761710de1f3cffd280ff1c36a" id="r_a45e3ee8761710de1f3cffd280ff1c36a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a45e3ee8761710de1f3cffd280ff1c36a">end_simulation</a></td></tr>
+<tr class="separator:a45e3ee8761710de1f3cffd280ff1c36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad071a23d28d0d0676097eb945bf5a183" id="r_ad071a23d28d0d0676097eb945bf5a183"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#ad071a23d28d0d0676097eb945bf5a183">all_threads_ready</a></td></tr>
+<tr class="separator:ad071a23d28d0d0676097eb945bf5a183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4acb79ce99a305ae8490e311e85e26" id="r_a8a4acb79ce99a305ae8490e311e85e26"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a8a4acb79ce99a305ae8490e311e85e26">threads_running_nbr</a></td></tr>
+<tr class="separator:a8a4acb79ce99a305ae8490e311e85e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab93903f70bce30c7eb7ab1170153c377" id="r_ab93903f70bce30c7eb7ab1170153c377"><td class="memItemLeft" align="right" valign="top">pthread_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#ab93903f70bce30c7eb7ab1170153c377">monitor</a></td></tr>
+<tr class="separator:ab93903f70bce30c7eb7ab1170153c377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39084529fdb8f766cff366a50435790d" id="r_a39084529fdb8f766cff366a50435790d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="philo_2philo_8h.html#aea7fc7c99322f930e2dbfa4dcb8a2736">t_mtx</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a39084529fdb8f766cff366a50435790d">table_mutex</a></td></tr>
+<tr class="separator:a39084529fdb8f766cff366a50435790d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe82d0552304cc40c5e89635dabe113" id="r_a7fe82d0552304cc40c5e89635dabe113"><td class="memItemLeft" align="right" valign="top"><a class="el" href="philo_2philo_8h.html#aea7fc7c99322f930e2dbfa4dcb8a2736">t_mtx</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#a7fe82d0552304cc40c5e89635dabe113">write_mutex</a></td></tr>
+<tr class="separator:a7fe82d0552304cc40c5e89635dabe113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab856710a66de9eddfe51843074cc390c" id="r_ab856710a66de9eddfe51843074cc390c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="philo_2philo_8h.html#ad10cd6a99f0065adf55fc39466bc911a">t_fork</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__table.html#ab856710a66de9eddfe51843074cc390c">forks</a></td></tr>
+<tr class="separator:ab856710a66de9eddfe51843074cc390c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Numerro de filosofos Tiempo amxximo sin comer (ms) Tempo comiendo (ms) Tiempo durmiendo (ms) Comidas requeridas (-1 = infinito) Bandera de muerte Tiempo de inicio Mutex para tenedores Mutex para salida Mutex para acceso a comidas Mutex para acceso a muerte Array de filosofos </p>
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00035">35</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00035">35</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a0abaea46994563549daa89d9593bd871" name="a0abaea46994563549daa89d9593bd871"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0abaea46994563549daa89d9593bd871">&#9670;&#160;</a></span>all_ate</h2>
@@ -163,7 +192,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00042">42</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00042">42</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="ad071a23d28d0d0676097eb945bf5a183" name="ad071a23d28d0d0676097eb945bf5a183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad071a23d28d0d0676097eb945bf5a183">&#9670;&#160;</a></span>all_threads_ready</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool s_table::all_threads_ready</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00118">118</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
@@ -179,12 +224,28 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00048">48</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00048">48</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a45e3ee8761710de1f3cffd280ff1c36a" name="a45e3ee8761710de1f3cffd280ff1c36a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45e3ee8761710de1f3cffd280ff1c36a">&#9670;&#160;</a></span>end_simulation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool s_table::end_simulation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00113">113</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
 <a id="a2c3129b4b451031b04ada0c16e397b76" name="a2c3129b4b451031b04ada0c16e397b76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c3129b4b451031b04ada0c16e397b76">&#9670;&#160;</a></span>forks</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c3129b4b451031b04ada0c16e397b76">&#9670;&#160;</a></span>forks <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +256,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00045">45</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00045">45</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="ab856710a66de9eddfe51843074cc390c" name="ab856710a66de9eddfe51843074cc390c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab856710a66de9eddfe51843074cc390c">&#9670;&#160;</a></span>forks <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="philo_2philo_8h.html#ad10cd6a99f0065adf55fc39466bc911a">t_fork</a>* s_table::forks</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00126">126</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
@@ -211,7 +288,39 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00047">47</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00047">47</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="ab93903f70bce30c7eb7ab1170153c377" name="ab93903f70bce30c7eb7ab1170153c377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab93903f70bce30c7eb7ab1170153c377">&#9670;&#160;</a></span>monitor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_t s_table::monitor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00123">123</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a1de5af6faf9b86970b029ebd3015c291" name="a1de5af6faf9b86970b029ebd3015c291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1de5af6faf9b86970b029ebd3015c291">&#9670;&#160;</a></span>nbr_limit_meals</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long s_table::nbr_limit_meals</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00102">102</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
@@ -227,7 +336,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00041">41</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00041">41</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
@@ -243,23 +352,39 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00037">37</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00037">37</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
-<a id="ab17844cffbf227b620291893dcde186c" name="ab17844cffbf227b620291893dcde186c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab17844cffbf227b620291893dcde186c">&#9670;&#160;</a></span>philos</h2>
+<a id="a99fea957f58894156b9aab0e1716dab6" name="a99fea957f58894156b9aab0e1716dab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99fea957f58894156b9aab0e1716dab6">&#9670;&#160;</a></span>philo_nbr</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="philo_8h.html#a7b20ce4f97b6f0dc2e44a50c149be74d">t_philo</a>* s_table::philos</td>
+          <td class="memname">long s_table::philo_nbr</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00049">49</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00098">98</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a0cb8b5fb3ea8abb5ed140b36c9c0b7a4" name="a0cb8b5fb3ea8abb5ed140b36c9c0b7a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4">&#9670;&#160;</a></span>philos</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="philo_2philo_8h.html#a7b20ce4f97b6f0dc2e44a50c149be74d">t_philo</a> * s_table::philos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00049">49</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
@@ -275,7 +400,24 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00043">43</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00043">43</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="afb93142c6b1137acb1a8de06cdbc5ce5" name="afb93142c6b1137acb1a8de06cdbc5ce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb93142c6b1137acb1a8de06cdbc5ce5">&#9670;&#160;</a></span>start_simulation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long s_table::start_simulation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>nbr_limit_meals will be act like the number or like a flag. If its -1 we do not have the input. </p>
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00107">107</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
@@ -291,12 +433,44 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00044">44</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00044">44</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a39084529fdb8f766cff366a50435790d" name="a39084529fdb8f766cff366a50435790d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39084529fdb8f766cff366a50435790d">&#9670;&#160;</a></span>table_mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="philo_2philo_8h.html#aea7fc7c99322f930e2dbfa4dcb8a2736">t_mtx</a> s_table::table_mutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00124">124</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a8a4acb79ce99a305ae8490e311e85e26" name="a8a4acb79ce99a305ae8490e311e85e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a4acb79ce99a305ae8490e311e85e26">&#9670;&#160;</a></span>threads_running_nbr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long s_table::threads_running_nbr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00122">122</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
 <a id="a2a3839a6429ef1c8663fc3509799bb42" name="a2a3839a6429ef1c8663fc3509799bb42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a3839a6429ef1c8663fc3509799bb42">&#9670;&#160;</a></span>time_to_die</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a3839a6429ef1c8663fc3509799bb42">&#9670;&#160;</a></span>time_to_die <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,12 +481,28 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00038">38</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00038">38</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a0d98d4031415de7d06b62e2c8025ea09" name="a0d98d4031415de7d06b62e2c8025ea09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d98d4031415de7d06b62e2c8025ea09">&#9670;&#160;</a></span>time_to_die <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long s_table::time_to_die</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00099">99</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
 <a id="a5d86694ff3f0df52e8dafec9719f5176" name="a5d86694ff3f0df52e8dafec9719f5176"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d86694ff3f0df52e8dafec9719f5176">&#9670;&#160;</a></span>time_to_eat</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d86694ff3f0df52e8dafec9719f5176">&#9670;&#160;</a></span>time_to_eat <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,12 +513,28 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00039">39</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00039">39</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a1631ff706d7de8cb4e4c3ec4357e0360" name="a1631ff706d7de8cb4e4c3ec4357e0360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1631ff706d7de8cb4e4c3ec4357e0360">&#9670;&#160;</a></span>time_to_eat <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long s_table::time_to_eat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00100">100</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
 <a id="afa0c16a063b0a8cf6eb240cb19765b78" name="afa0c16a063b0a8cf6eb240cb19765b78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa0c16a063b0a8cf6eb240cb19765b78">&#9670;&#160;</a></span>time_to_sleep</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afa0c16a063b0a8cf6eb240cb19765b78">&#9670;&#160;</a></span>time_to_sleep <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,7 +545,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00040">40</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00040">40</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<a id="a4275dba063980d9095b4a83ed300a386" name="a4275dba063980d9095b4a83ed300a386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4275dba063980d9095b4a83ed300a386">&#9670;&#160;</a></span>time_to_sleep <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long s_table::time_to_sleep</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00101">101</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
@@ -355,12 +577,29 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="philo_8h_source.html#l00046">46</a> of file <a class="el" href="philo_8h_source.html">philo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="old_2philo_8h_source.html#l00046">46</a> of file <a class="el" href="old_2philo_8h_source.html">philo.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>philo/<a class="el" href="philo_8h_source.html">philo.h</a></li>
+<a id="a7fe82d0552304cc40c5e89635dabe113" name="a7fe82d0552304cc40c5e89635dabe113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe82d0552304cc40c5e89635dabe113">&#9670;&#160;</a></span>write_mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="philo_2philo_8h.html#aea7fc7c99322f930e2dbfa4dcb8a2736">t_mtx</a> s_table::write_mutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="philo_2philo_8h_source.html#l00125">125</a> of file <a class="el" href="philo_2philo_8h_source.html">philo.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li>old/<a class="el" href="old_2philo_8h_source.html">philo.h</a></li>
+<li>philo/<a class="el" href="philo_2philo_8h_source.html">philo.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

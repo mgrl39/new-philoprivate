@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_5ftime_0',['get_time',['../philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27',1,'get_time(void):&#160;utils.c'],['../utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27',1,'get_time(void):&#160;utils.c']]]
+  ['eat_0',['eat',['../routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551',1,'eat(t_philo *philo):&#160;routine.c'],['../dinner_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551',1,'eat(t_philo *philo):&#160;dinner.c']]],
+  ['error_5fexit_1',['error_exit',['../philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14',1,'error_exit(const char *error):&#160;utils.c'],['../philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14',1,'error_exit(const char *error):&#160;utils.c']]]
 ];

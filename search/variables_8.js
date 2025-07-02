@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['someone_5fdied_0',['someone_died',['../structs__table.html#ad1adcb87dcec1eaf41a6c658069e8d9b',1,'s_table']]],
-  ['start_5ftime_1',['start_time',['../structs__table.html#aff9418e31ca6f838df64409598dd950f',1,'s_table']]]
+  ['philo_5fmutex_0',['philo_mutex',['../structs__philo.html#ac2bac7ae442cae69b14ed51f5b343c8e',1,'s_philo']]],
+  ['philo_5fnbr_1',['philo_nbr',['../structs__table.html#a99fea957f58894156b9aab0e1716dab6',1,'s_table']]],
+  ['philos_2',['philos',['../structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4',1,'s_table']]]
 ];

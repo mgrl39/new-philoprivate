@@ -1,0 +1,21 @@
+<map id="philo/parsing.c" name="philo/parsing.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="327,5,444,31"/>
+<area shape="rect" id="Node000002" href="$philo_2philo_8h.html" title=" " alt="" coords="352,79,419,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="388,31,388,65,383,65,383,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,72,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="352,101,86,154,85,149,351,96"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="97,152,167,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="352,105,182,152,180,147,351,99"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="192,152,267,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="361,106,268,149,266,144,359,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="291,152,373,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="379,106,351,143,347,140,374,103"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="398,152,482,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="396,103,425,140,421,143,392,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="507,152,597,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="413,102,513,144,511,149,411,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="622,152,693,177"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="419,99,609,148,608,153,418,104"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="717,152,785,177"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="420,96,541,117,704,149,703,154,540,122,419,101"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="thinking" name="thinking">
+<area shape="rect" id="Node000001" title=" " alt="" coords="660,31,735,56"/>
+<area shape="rect" id="Node000002" href="$synchro__utils_8c.html#aa3b5415c25b3704dbfd3adbabf20919b" title=" " alt="" coords="443,5,612,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="646,38,612,33,613,28,647,33"/>
+<area shape="rect" id="Node000003" href="$dinner_8c.html#af3db4f49728131a53563eef43e2c9954" title=" " alt="" coords="256,31,395,56"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="646,46,395,46,395,41,646,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="430,33,396,37,395,32,429,28"/>
+<area shape="rect" id="Node000004" href="$dinner_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6" title=" " alt="" coords="108,31,208,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="242,46,208,46,208,41,242,41"/>
+<area shape="rect" id="Node000005" href="$philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,46,60,46,60,41,94,41"/>
+</map>

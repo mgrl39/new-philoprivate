@@ -1,6 +1,6 @@
-<map id="philo/monitor.c" name="philo/monitor.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="35,5,153,31"/>
-<area shape="rect" id="Node000002" href="$philo_8h.html" title=" " alt="" coords="14,79,81,104"/>
+<map id="old/monitor.c" name="old/monitor.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="41,5,147,31"/>
+<area shape="rect" id="Node000002" href="$old_2philo_8h.html" title=" " alt="" coords="14,79,81,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,32,65,69,60,66,84,30"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="105,79,179,104"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="104,30,129,66,124,69,100,33"/>

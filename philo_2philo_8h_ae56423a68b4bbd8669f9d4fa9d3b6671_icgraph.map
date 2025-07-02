@@ -1,0 +1,15 @@
+<map id="set_long" name="set_long">
+<area shape="rect" id="Node000001" title=" " alt="" coords="533,20,611,45"/>
+<area shape="rect" id="Node000002" href="$dinner_8c.html#af3db4f49728131a53563eef43e2c9954" title=" " alt="" coords="256,20,395,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="523,19,485,10,454,8,422,11,366,23,365,17,421,5,454,3,486,5,524,13"/>
+<area shape="rect" id="Node000005" href="$dinner_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551" title=" " alt="" coords="443,20,485,45"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="520,35,486,35,486,30,520,30"/>
+<area shape="rect" id="Node000006" href="$dinner_8c.html#af29f9843df3ccfe5899082b4b3194eb9" title=" " alt="" coords="281,69,370,95"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="521,51,486,59,370,79,370,74,485,54,519,45"/>
+<area shape="rect" id="Node000003" href="$dinner_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6" title=" " alt="" coords="108,45,208,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,48,209,53,208,48,242,43"/>
+<area shape="rect" id="Node000004" href="$philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,45,60,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,61,60,61,60,55,94,55"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="429,35,395,35,395,30,429,30"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="266,76,208,68,209,63,267,71"/>
+</map>
