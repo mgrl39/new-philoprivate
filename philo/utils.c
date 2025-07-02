@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 18:49:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 20:41:34 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@
  * We are gonna exploit gettimeofday
  *
  * time_code -> SECONDS MILLISECONDS MICROSECONDS
+ *
+ * Is gonna set the seconds and the microseconds
  */
 long	gettime(t_time_code	time_code)
 {
-	struct	timeval	tv;
+	struct timeval	tv;
 
-	/*
-	 * Is gonna set the seconds and the microseconds
-	 */
 	if (gettimeofday(&tv, NULL))
 		error_exit("Gettimeofday failed!");
 	if (SECOND == time_code)
@@ -53,6 +52,7 @@ long	gettime(t_time_code	time_code)
  * This will give us more precise than the actual system function usleep
  * which is veey often not precise.
  */
+// SPINLOCK
 void	precise_usleep(long usec, t_table *table)
 {
 	long	start;
@@ -70,13 +70,11 @@ void	precise_usleep(long usec, t_table *table)
 			usleep(remaining / 2);
 		else
 		{
-			// SPINLOCK
 			while (gettime(MICROSECOND) - start < usec)
 				;
 		}
 	}
 }
-
 
 void	error_exit(const char *error)
 {
@@ -84,11 +82,10 @@ void	error_exit(const char *error)
 	exit(EXIT_FAILURE);
 }
 
-
 void	clean(t_table *table)
 {
 	t_philo	*philo;
-	int	i;
+	int		i;
 
 	i = -1;
 	while (++i < table->philo_nbr)

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 19:42:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:42:30 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@
  * ./philo 5 800 200 200 [5]
  * ./philo philosophers time_to_die time_to_eat time_to_sleep potencially_number_or_meals
  */
-int	main(int ac, char **av)
+int	main(int argc, char *argv[])
 {
 	t_table	table;
 
-	if (5 == ac || 6 == ac)
+	if (argc < 5 || argc > 6)
+		return (print_usage(argv), 1);
+	if (5 == argc || 6 == argc)
 	{
-		parse_input(&table, av);
+		parse_input(&table, argv);
 		data_init(&table);
 		dinner_start(&table);
 		clean(&table);

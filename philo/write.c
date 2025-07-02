@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 22:54:00 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 23:23:47 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:44:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,23 @@ void	write_status(t_philo_status status, t_philo *philo, bool debug)
 			printf(BOLD"%-6ld %d died\n"RESET, elapsed - philo->table->start_simulation, philo->id);
 	}
 	safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
+}
+
+void	print_usage(char *argv[])
+{
+	printf(RED "\n=== PHILOSOPHERS USAGE GUIDE ===\n" RESET);
+	printf("\nSyntax: " GOLD
+		"%s num_philos time_to_die time_to_eat time_to_sleep [num_meals]"
+		RESET "\n\n", argv[0]);
+	printf("Parameters:\n");
+	printf(" " PURPLE "num_philos	" RESET
+		": Number of philosophers at the table\n");
+	printf(" " PURPLE "time_to_die	" RESET
+		": Time in ms until a philosopher dies from Starvation\n");
+	printf(" " PURPLE "time_to_eat	" RESET
+		": Time in ms it takes for a philosopher to eat\n");
+	printf(" " PURPLE "time_to_sleep 	" RESET
+		": Time in ms it takes for a philosopher to sleep\n");
+	printf(" " PURPLE "num_meals	" RESET
+		": [Optional] Number of times each must eat \n\n");
 }
