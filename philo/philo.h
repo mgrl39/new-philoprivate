@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 23:23:03 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:13:36 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct	s_philo
 	t_fork	*first_fork;
 	t_fork	*second_fork; // A pointer to the left fork and a pointer to the right fork
 	pthread_t	thread_id; // A PHILO IS A THREAD. (this will be send to thread_create)
+	t_mtx	philo_mutex; // useful for races with the monitor
 	t_table	*table;
 }	t_philo;
 

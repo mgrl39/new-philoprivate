@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 22:55:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:14:05 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	philo_init(t_table *table)
 		philo->full = false;
 		philo->meals_counter = 0;
 		philo->table = table;
+		safe_mutex_handle(&philo->philo_mutex, INIT);
 
 		// super important function assign_forks
 		// "i" es basically the position in the table
@@ -82,8 +83,8 @@ void	data_init(t_table *table)
 	table->end_simulation = false;
 	table->all_threads_ready = false;
 	table->philos = safe_malloc(sizeof(t_philo) * table->philo_nbr);
-	safe_mutex_handle(table->table_mutex, INIT);
-	safe_mutex_handle(table->write_mutex, INIT);
+	safe_mutex_handle(&table->table_mutex, INIT);
+	safe_mutex_handle(&table->write_mutex, INIT);
 	table->forks = safe_malloc(sizeof(t_fork) * table->philo_nbr);
 	while (++i < table->philo_nbr)
 	{

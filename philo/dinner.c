@@ -6,12 +6,16 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 23:27:31 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:19:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+static void	thinking(t_philo *philo)
+{
+	write_status(THINKING, philo, DEBUG_MODE);
+}
 /**
  * MOST IMPORTANT THING FOR A PHILOSOPHER
  * eat routine
@@ -24,7 +28,27 @@
 static void	eat(t_philo *philo)
 {
 	// 1)
-	safe_mutex_handle
+	safe_mutex_handle(&philo->first_fork->fork, LOCK);
+	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
+	safe_mutex_handle(&philo->second_fork->fork, LOCK);
+	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
+
+	// 2) Set the last meal time:
+	// Actual eating. Now we have to set the last meal time and we
+	// are gonna do it immediately.
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	philo->meals_counter++;
+	write_status(EATING, philo, DEBUG_MODE);
+	// sleep the time requested.
+	precise_usleep(philo->table->time_to_eat, philo->table);
+
+	// if is true the philo is full
+	if (philo->table->nbr_limit_meals > 0 && philo->meals_counter == philo->table->nbr_limit_meals)
+		set_bool(&philo->philo_mutex, &philo->full, true);
+	// 3) UNLOCK
+	safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
+	safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
+
 }
 
 
