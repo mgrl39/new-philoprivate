@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 20:04:20 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:13:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,29 +99,24 @@ static void	eat(t_philo *philo)
  * 0) Wait all philos, synchro start
  * 1) endless loop philo
  */
-
+// set time last meal
+/**
+ * syncro with monitor
+ * increase a table variable cunter, with al threads running
+ */
+// desynchronizing philos
+/*
+ * until the dinner is not finished
+ */
 void	*dinner_simulation(void *data)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
-
-	// set time last meal
-
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
-	/**
-	 * syncro with monitor
-	 * increase a table variable cunter, with al threads running
-	 */
 	increase_long(&philo->table->table_mutex, &philo->table->threads_running_nbr);
-
-	// desynchronizing philos
 	de_synchronize_philos(philo);
-
-	/*
-	 * until the dinner is not finished
-	 */
 	while (!simulation_finished(philo->table))
 	{
 		// 1) the philosopher has to check: I am full?
@@ -166,6 +161,7 @@ void	*dinner_simulation(void *data)
 // now all threads are ready!
 // we are going to join (wait for everyone)
 // If we manage to reach this line all philos are FULL.
+
 void	dinner_start(t_table *table)
 {
 	int	i;
@@ -181,10 +177,8 @@ void	dinner_start(t_table *table)
 			safe_thread_handle(&table->philos[i].thread_id, dinner_simulation, &table->philos[i], CREATE);
 	}
 	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
-
 	table->start_simulation = gettime(MILLISECOND);
 	set_bool(&table->table_mutex, &table->all_threads_ready, true);
-
 	i = -1;
 	while (++i < table->philo_nbr)
 		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
