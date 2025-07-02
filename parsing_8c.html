@@ -143,8 +143,8 @@ Functions</h2></td></tr>
 <tr class="separator:a9af66249f304962ef84e194c2286bbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abef2289c621d447f10287b101594288d" id="r_abef2289c621d447f10287b101594288d"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a> (const char *str)</td></tr>
 <tr class="separator:abef2289c621d447f10287b101594288d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8583dc8f39ada03ca07f0d1616720c74" id="r_a8583dc8f39ada03ca07f0d1616720c74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8c.html#a8583dc8f39ada03ca07f0d1616720c74">parse_input</a> (<a class="el" href="old_2philo_8h.html#a3a1d8e4332315885da833b46801b67fb">t_table</a> *table, char **av)</td></tr>
-<tr class="separator:a8583dc8f39ada03ca07f0d1616720c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5f188b5e218d15638e06be0a441747d" id="r_ab5f188b5e218d15638e06be0a441747d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parsing_8c.html#ab5f188b5e218d15638e06be0a441747d">process_arguments</a> (<a class="el" href="old_2philo_8h.html#a3a1d8e4332315885da833b46801b67fb">t_table</a> *table, char *argv[])</td></tr>
+<tr class="separator:ab5f188b5e218d15638e06be0a441747d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="abef2289c621d447f10287b101594288d" name="abef2289c621d447f10287b101594288d"></a>
@@ -191,7 +191,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   76</span>}</div>
 <div class="ttc" id="aparsing_8c_html_a75d5ab968c772d5ad3d4269a514b9d80"><div class="ttname"><a href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a></div><div class="ttdeci">static bool is_digit(char c)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00015">parsing.c:15</a></div></div>
 <div class="ttc" id="aparsing_8c_html_a9af66249f304962ef84e194c2286bbcd"><div class="ttname"><a href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd">valid_input</a></div><div class="ttdeci">static const char * valid_input(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00038">parsing.c:38</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00081">utils.c:81</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00079">utils.c:79</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -215,11 +215,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="parsing_8c_abef2289c621d447f10287b101594288d_icgraph.png" border="0" usemap="#aparsing_8c_abef2289c621d447f10287b101594288d_icgraph" alt=""/></div>
 <map name="aparsing_8c_abef2289c621d447f10287b101594288d_icgraph" id="aparsing_8c_abef2289c621d447f10287b101594288d_icgraph">
-<area shape="rect" title=" " alt="" coords="255,5,317,31"/>
-<area shape="rect" href="parsing_8c.html#a8583dc8f39ada03ca07f0d1616720c74" title=" " alt="" coords="108,5,207,31"/>
-<area shape="poly" title=" " alt="" coords="241,21,207,21,207,15,241,15"/>
-<area shape="rect" href="philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" title=" " alt="" coords="203,5,265,31"/>
+<area shape="rect" href="parsing_8c.html#ab5f188b5e218d15638e06be0a441747d" title=" " alt="" coords="5,5,155,31"/>
+<area shape="poly" title=" " alt="" coords="189,21,155,21,155,15,189,15"/>
 </map>
 </div>
 
@@ -258,16 +256,14 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="parsing_8c_a75d5ab968c772d5ad3d4269a514b9d80_icgraph.png" border="0" usemap="#aparsing_8c_a75d5ab968c772d5ad3d4269a514b9d80_icgraph" alt=""/></div>
 <map name="aparsing_8c_a75d5ab968c772d5ad3d4269a514b9d80_icgraph" id="aparsing_8c_a75d5ab968c772d5ad3d4269a514b9d80_icgraph">
-<area shape="rect" title=" " alt="" coords="508,5,577,31"/>
-<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="255,5,317,31"/>
-<area shape="poly" title=" " alt="" coords="494,21,318,21,318,15,494,15"/>
-<area shape="rect" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="365,31,460,56"/>
-<area shape="poly" title=" " alt="" coords="495,30,461,37,460,32,494,25"/>
-<area shape="rect" href="parsing_8c.html#a8583dc8f39ada03ca07f0d1616720c74" title=" " alt="" coords="108,5,207,31"/>
-<area shape="poly" title=" " alt="" coords="241,21,207,21,207,15,241,15"/>
-<area shape="rect" href="philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
-<area shape="poly" title=" " alt="" coords="351,34,317,27,318,22,352,29"/>
+<area shape="rect" title=" " alt="" coords="456,5,525,31"/>
+<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="203,5,265,31"/>
+<area shape="poly" title=" " alt="" coords="442,21,266,21,266,15,442,15"/>
+<area shape="rect" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="313,31,408,56"/>
+<area shape="poly" title=" " alt="" coords="443,30,409,37,408,32,442,25"/>
+<area shape="rect" href="parsing_8c.html#ab5f188b5e218d15638e06be0a441747d" title=" " alt="" coords="5,5,155,31"/>
+<area shape="poly" title=" " alt="" coords="189,21,155,21,155,15,189,15"/>
+<area shape="poly" title=" " alt="" coords="299,34,265,27,266,22,300,29"/>
 </map>
 </div>
 
@@ -307,28 +303,26 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="parsing_8c_a7d56680f22d75fbdfcfc8f08b3d0907d_icgraph.png" border="0" usemap="#aparsing_8c_a7d56680f22d75fbdfcfc8f08b3d0907d_icgraph" alt=""/></div>
 <map name="aparsing_8c_a7d56680f22d75fbdfcfc8f08b3d0907d_icgraph" id="aparsing_8c_a7d56680f22d75fbdfcfc8f08b3d0907d_icgraph">
-<area shape="rect" title=" " alt="" coords="508,5,587,31"/>
-<area shape="rect" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="365,5,460,31"/>
-<area shape="poly" title=" " alt="" coords="494,21,460,21,460,15,494,15"/>
-<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="255,5,317,31"/>
-<area shape="poly" title=" " alt="" coords="352,21,317,21,317,15,352,15"/>
-<area shape="rect" href="parsing_8c.html#a8583dc8f39ada03ca07f0d1616720c74" title=" " alt="" coords="108,5,207,31"/>
-<area shape="poly" title=" " alt="" coords="241,21,207,21,207,15,241,15"/>
-<area shape="rect" href="philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" title=" " alt="" coords="456,5,535,31"/>
+<area shape="rect" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="313,5,408,31"/>
+<area shape="poly" title=" " alt="" coords="442,21,408,21,408,15,442,15"/>
+<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="203,5,265,31"/>
+<area shape="poly" title=" " alt="" coords="300,21,265,21,265,15,300,15"/>
+<area shape="rect" href="parsing_8c.html#ab5f188b5e218d15638e06be0a441747d" title=" " alt="" coords="5,5,155,31"/>
+<area shape="poly" title=" " alt="" coords="189,21,155,21,155,15,189,15"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a8583dc8f39ada03ca07f0d1616720c74" name="a8583dc8f39ada03ca07f0d1616720c74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8583dc8f39ada03ca07f0d1616720c74">&#9670;&#160;</a></span>parse_input()</h2>
+<a id="ab5f188b5e218d15638e06be0a441747d" name="ab5f188b5e218d15638e06be0a441747d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5f188b5e218d15638e06be0a441747d">&#9670;&#160;</a></span>process_arguments()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void parse_input </td>
+          <td class="memname">void process_arguments </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="old_2philo_8h.html#a3a1d8e4332315885da833b46801b67fb">t_table</a> *&#160;</td>
           <td class="paramname"><em>table</em>, </td>
@@ -336,8 +330,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>av</em>&#160;</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -346,7 +340,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>./philo 5 800 200 200 [5] av[1] av[2] av[3] av[4] av[5] We need to convert this strings in actual integers, values. Doing that, i want to control:</p><ul>
+<p>./philo 5 800 200 200 [5] argv[1] argv[2] argv[3] argv[4] argv[5] We need to convert this strings in actual integers, values. Doing that, i want to control:</p><ul>
 <li>If the strings are actual numbers.</li>
 <li>Not major than INT_MAX</li>
 <li>timestamps &gt; 60ms </li>
@@ -354,18 +348,18 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00087">87</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   88</span>{</div>
-<div class="line"><span class="lineno">   89</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">philo_nbr</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(av[1]);</div>
-<div class="line"><span class="lineno">   90</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(av[2]) * 1e3;</div>
-<div class="line"><span class="lineno">   91</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(av[3]) * 1e3;</div>
-<div class="line"><span class="lineno">   92</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(av[4]) * 1e3;</div>
+<div class="line"><span class="lineno">   89</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">philo_nbr</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[1]);</div>
+<div class="line"><span class="lineno">   90</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[2]) * 1e3;</div>
+<div class="line"><span class="lineno">   91</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[3]) * 1e3;</div>
+<div class="line"><span class="lineno">   92</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[4]) * 1e3;</div>
 <div class="line"><span class="lineno">   93</span>    <span class="comment">// Now check the timestamp &gt; 60ms</span></div>
 <div class="line"><span class="lineno">   94</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a> &lt; 6e4 </div>
 <div class="line"><span class="lineno">   95</span>        || table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a> &lt; 6e4</div>
 <div class="line"><span class="lineno">   96</span>        || table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a> &lt; 6e4)</div>
 <div class="line"><span class="lineno">   97</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Use timestamps major than 60ms&quot;</span>);</div>
-<div class="line"><span class="lineno">   98</span>    <span class="comment">// Now we have to check av[5]</span></div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">if</span> (av[5])</div>
-<div class="line"><span class="lineno">  100</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(av[5]);</div>
+<div class="line"><span class="lineno">   98</span>    <span class="comment">// Now we have to check argv[5]</span></div>
+<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">if</span> (argv[5])</div>
+<div class="line"><span class="lineno">  100</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[5]);</div>
 <div class="line"><span class="lineno">  101</span>    <span class="keywordflow">else</span></div>
 <div class="line"><span class="lineno">  102</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a> = -1; <span class="comment">// As a flag</span></div>
 <div class="line"><span class="lineno">  103</span>}</div>
@@ -378,32 +372,22 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="parsing_8c_a8583dc8f39ada03ca07f0d1616720c74_cgraph.png" border="0" usemap="#aparsing_8c_a8583dc8f39ada03ca07f0d1616720c74_cgraph" alt=""/></div>
-<map name="aparsing_8c_a8583dc8f39ada03ca07f0d1616720c74_cgraph" id="aparsing_8c_a8583dc8f39ada03ca07f0d1616720c74_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,104,31"/>
-<area shape="rect" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="405,5,491,31"/>
-<area shape="poly" title=" " alt="" coords="104,13,219,10,357,10,392,12,392,17,357,15,219,15,104,18"/>
-<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="152,31,215,56"/>
-<area shape="poly" title=" " alt="" coords="105,25,139,32,138,37,104,30"/>
-<area shape="poly" title=" " alt="" coords="214,38,391,21,392,26,215,43"/>
-<area shape="rect" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80" title=" " alt="" coords="413,105,483,131"/>
-<area shape="poly" title=" " alt="" coords="202,54,230,73,264,90,334,108,400,114,399,120,333,113,262,95,227,78,199,58"/>
-<area shape="rect" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="263,56,357,81"/>
-<area shape="poly" title=" " alt="" coords="215,47,250,54,249,59,214,52"/>
-<area shape="poly" title=" " alt="" coords="345,53,399,33,401,38,346,58"/>
-<area shape="poly" title=" " alt="" coords="347,79,401,99,399,104,345,84"/>
-<area shape="rect" href="parsing_8c.html#a7d56680f22d75fbdfcfc8f08b3d0907d" title=" " alt="" coords="409,56,487,81"/>
-<area shape="poly" title=" " alt="" coords="358,66,395,66,395,71,358,71"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="parsing_8c_a8583dc8f39ada03ca07f0d1616720c74_icgraph.png" border="0" usemap="#aparsing_8c_a8583dc8f39ada03ca07f0d1616720c74_icgraph" alt=""/></div>
-<map name="aparsing_8c_a8583dc8f39ada03ca07f0d1616720c74_icgraph" id="aparsing_8c_a8583dc8f39ada03ca07f0d1616720c74_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,207,31"/>
-<area shape="rect" href="philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<div class="center"><img src="parsing_8c_ab5f188b5e218d15638e06be0a441747d_cgraph.png" border="0" usemap="#aparsing_8c_ab5f188b5e218d15638e06be0a441747d_cgraph" alt=""/></div>
+<map name="aparsing_8c_ab5f188b5e218d15638e06be0a441747d_cgraph" id="aparsing_8c_ab5f188b5e218d15638e06be0a441747d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,155,31"/>
+<area shape="rect" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="456,5,541,31"/>
+<area shape="poly" title=" " alt="" coords="155,12,274,9,408,10,443,12,442,17,408,15,274,15,155,18"/>
+<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="203,31,265,56"/>
+<area shape="poly" title=" " alt="" coords="155,28,189,33,189,39,154,33"/>
+<area shape="poly" title=" " alt="" coords="265,38,442,21,442,26,266,43"/>
+<area shape="rect" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80" title=" " alt="" coords="464,105,533,131"/>
+<area shape="poly" title=" " alt="" coords="253,54,280,73,314,90,385,108,450,114,450,120,384,113,312,95,278,78,249,58"/>
+<area shape="rect" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="313,56,408,81"/>
+<area shape="poly" title=" " alt="" coords="266,47,300,54,299,59,265,52"/>
+<area shape="poly" title=" " alt="" coords="395,53,450,33,452,38,397,58"/>
+<area shape="poly" title=" " alt="" coords="398,79,452,99,450,104,396,84"/>
+<area shape="rect" href="parsing_8c.html#a7d56680f22d75fbdfcfc8f08b3d0907d" title=" " alt="" coords="459,56,538,81"/>
+<area shape="poly" title=" " alt="" coords="408,66,446,66,446,71,408,71"/>
 </map>
 </div>
 
@@ -477,13 +461,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="parsing_8c_a9af66249f304962ef84e194c2286bbcd_icgraph.png" border="0" usemap="#aparsing_8c_a9af66249f304962ef84e194c2286bbcd_icgraph" alt=""/></div>
 <map name="aparsing_8c_a9af66249f304962ef84e194c2286bbcd_icgraph" id="aparsing_8c_a9af66249f304962ef84e194c2286bbcd_icgraph">
-<area shape="rect" title=" " alt="" coords="365,5,460,31"/>
-<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="255,5,317,31"/>
-<area shape="poly" title=" " alt="" coords="352,21,317,21,317,15,352,15"/>
-<area shape="rect" href="parsing_8c.html#a8583dc8f39ada03ca07f0d1616720c74" title=" " alt="" coords="108,5,207,31"/>
-<area shape="poly" title=" " alt="" coords="241,21,207,21,207,15,241,15"/>
-<area shape="rect" href="philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" title=" " alt="" coords="313,5,408,31"/>
+<area shape="rect" href="parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="203,5,265,31"/>
+<area shape="poly" title=" " alt="" coords="300,21,265,21,265,15,300,15"/>
+<area shape="rect" href="parsing_8c.html#ab5f188b5e218d15638e06be0a441747d" title=" " alt="" coords="5,5,155,31"/>
+<area shape="poly" title=" " alt="" coords="189,21,155,21,155,15,189,15"/>
 </map>
 </div>
 

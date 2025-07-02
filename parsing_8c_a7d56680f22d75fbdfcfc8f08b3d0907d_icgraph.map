@@ -1,11 +1,9 @@
 <map id="is_space" name="is_space">
-<area shape="rect" id="Node000001" title=" " alt="" coords="508,5,587,31"/>
-<area shape="rect" id="Node000002" href="$parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="365,5,460,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,21,460,21,460,15,494,15"/>
-<area shape="rect" id="Node000003" href="$parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="255,5,317,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="352,21,317,21,317,15,352,15"/>
-<area shape="rect" id="Node000004" href="$parsing_8c.html#a8583dc8f39ada03ca07f0d1616720c74" title=" " alt="" coords="108,5,207,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="241,21,207,21,207,15,241,15"/>
-<area shape="rect" id="Node000005" href="$philo_2main_8c.html#a0c99d968a34e803d378692bde2e3f18f" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="456,5,535,31"/>
+<area shape="rect" id="Node000002" href="$parsing_8c.html#a9af66249f304962ef84e194c2286bbcd" title=" " alt="" coords="313,5,408,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,21,408,21,408,15,442,15"/>
+<area shape="rect" id="Node000003" href="$parsing_8c.html#abef2289c621d447f10287b101594288d" title=" " alt="" coords="203,5,265,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="300,21,265,21,265,15,300,15"/>
+<area shape="rect" id="Node000004" href="$parsing_8c.html#ab5f188b5e218d15638e06be0a441747d" title=" " alt="" coords="5,5,155,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="189,21,155,21,155,15,189,15"/>
 </map>
