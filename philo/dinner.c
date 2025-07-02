@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 19:24:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/02 20:04:20 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,14 +152,27 @@ void	*dinner_simulation(void *data)
  * 	I want every philo start simultaneously. We need synchronization thing to make
  * 	all the philos start at the same time.
  * 4) JOIN everyone
+ */ 
+// back to main, clean
+// This is a while loop that is gonna be create all the threads, all the philosophers.
+// Every time this funciton is called immediately the thread starts running this dinner simulation function that we still have to do. 
+// So we need a synhronization thing to make all the philosophers start at the same time.
+// monitor
+// start of simulation
+/*
+ * we need a chronometer, we need a function that is able to give us back the 
+ * actual time. 
  */
+// now all threads are ready!
+// we are going to join (wait for everyone)
+// If we manage to reach this line all philos are FULL.
 void	dinner_start(t_table *table)
 {
 	int	i;
 
 	i = -1;
 	if (0 == table->nbr_limit_meals)
-		return ; // back to main, clean
+		return ;
 	else if (1 == table->philo_nbr)
 		safe_thread_handle(&table->philos[0].thread_id, lone_philo, &table->philos[0], CREATE);
 	else
@@ -167,29 +180,14 @@ void	dinner_start(t_table *table)
 		while (++i < table->philo_nbr)
 			safe_thread_handle(&table->philos[i].thread_id, dinner_simulation, &table->philos[i], CREATE);
 	}
-
-		// This is a while loop that is gonna be create all the threads, all the philosophers.
-		// Every time this funciton is called immediately the thread starts running this dinner simulation function that we still have to do. 
-		// So we need a synhronization thing to make all the philosophers start at the same time.
-	
-
-	// monitor
 	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
 
-	// start of simulation
 	table->start_simulation = gettime(MILLISECOND);
-	/*
-	 * we need a chronometer, we need a function that is able to give us back the 
-	 * actual time. 
-	 */
-	// now all threads are ready!
 	set_bool(&table->table_mutex, &table->all_threads_ready, true);
 
-	// we are going to join (wait for everyone)
 	i = -1;
 	while (++i < table->philo_nbr)
 		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
-	// If we manage to reach this line all philos are FULL.
 	set_bool(&table->table_mutex, &table->end_simulation, true);
 	safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
 }
