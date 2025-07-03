@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 13:48:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 13:58:54 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,17 @@
  * thread safe
  * write_mutex
  */
-
 static void	write_status_debug(t_philo_status status, t_philo *philo,
 			long elapsed)
 {
 	if (TAKE_FIRST_FORK == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET
 			BLUE" %d has taken the 1 fork\t\t\tn [ %d ]\n"RESET,
-		       	elapsed, philo->id, philo->second_fork->fork_id);
+			elapsed, philo->id, philo->second_fork->fork_id);
 	else if (TAKE_SECOND_FORK == status && !simulation_finished(philo->table))
-		printf(BOLD"%6ld"RESET
-			RED" %d has taken the 2 fork\n\t\t\tn [ %d ]\n"RESET,
-		       	elapsed, philo->id, philo->second_fork->fork_id);
+		printf(BOLD"%6ld"RESET RED
+		" %d has taken the 2 fork\n\t\t\tn [ %d ]\n"RESET,
+		elapsed, philo->id, philo->second_fork->fork_id);
 	else if (EATING == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET" %d is eating\t\t\tn [ %ld ]\n"RESET,
 			elapsed, philo->id, philo->meals_counter);
@@ -48,7 +47,7 @@ void	write_status(t_philo_status status, t_philo *philo, bool debug)
 
 	elapsed = gettime(MILLISECOND);
 	elapsed -= philo->table->start_simulation;
-	if (philo->full) // TODO Do it safe.
+	if (get_bool(&philo->philo_mutex, &philo->full))
 		return ;
 	safe_mutex_handle(&philo->table->write_mutex, LOCK);
 	if (debug)
@@ -65,7 +64,7 @@ void	write_status(t_philo_status status, t_philo *philo, bool debug)
 		else if (THINKING == status && !simulation_finished(philo->table))
 			printf(BOLD"%-6ld"RESET"%d is thinking\n", elapsed, philo->id);
 		else if (DIED == status)
-			printf(RED"%-6ld""%d died\n"RESET, elapsed, philo->id);
+			printf(BOLD RED"%-6ld""%d died\n"RESET, elapsed, philo->id);
 	}
 	safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
 }

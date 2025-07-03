@@ -6,13 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 13:51:34 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 13:56:06 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static bool philo_died(t_philo *philo)
+static bool	philo_died(t_philo *philo)
 {
 	long	elapsed;
 	long	t_to_die;
@@ -25,21 +25,20 @@ static bool philo_died(t_philo *philo)
 	if (elapsed > t_to_die)
 		return (true);
 	return (false);
-
 }
 
+// make sure all philos running
+// spinlock till all thread run
+// constantly check time to die
 void	*monitor_dinner(void *data)
 {
-	int	i;
+	int		i;
 	t_table	*table;
 
 	table = (t_table *)data;
-	// make sure all philos running
-	// spinlock till all thread run
 	while (!all_threads_running(&table->table_mutex, &table->threads_running_nbr,
 			table->philo_nbr))
 		;
-	// constantly check time to die
 	while (!simulation_finished(table))
 	{
 		i = -1;
