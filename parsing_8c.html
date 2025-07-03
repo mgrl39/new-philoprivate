@@ -104,30 +104,21 @@ $(document).ready(function(){initNavTree('parsing_8c.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="philo_2philo_8h_source.html">philo.h</a>&quot;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for parsing.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="parsing_8c__incl.png" border="0" usemap="#aphilo_2parsing_8c" alt=""/></div>
 <map name="aphilo_2parsing_8c" id="aphilo_2parsing_8c">
-<area shape="rect" title=" " alt="" coords="327,5,444,31"/>
-<area shape="rect" href="philo_2philo_8h.html" title=" " alt="" coords="352,79,419,104"/>
-<area shape="poly" title=" " alt="" coords="388,31,388,65,383,65,383,31"/>
-<area shape="rect" title=" " alt="" coords="5,152,72,177"/>
-<area shape="poly" title=" " alt="" coords="352,101,86,154,85,149,351,96"/>
-<area shape="rect" title=" " alt="" coords="97,152,167,177"/>
-<area shape="poly" title=" " alt="" coords="352,105,182,152,180,147,351,99"/>
-<area shape="rect" title=" " alt="" coords="192,152,267,177"/>
-<area shape="poly" title=" " alt="" coords="361,106,268,149,266,144,359,102"/>
-<area shape="rect" title=" " alt="" coords="291,152,373,177"/>
-<area shape="poly" title=" " alt="" coords="379,106,351,143,347,140,374,103"/>
-<area shape="rect" title=" " alt="" coords="398,152,482,177"/>
-<area shape="poly" title=" " alt="" coords="396,103,425,140,421,143,392,106"/>
-<area shape="rect" title=" " alt="" coords="507,152,597,177"/>
-<area shape="poly" title=" " alt="" coords="413,102,513,144,511,149,411,106"/>
-<area shape="rect" title=" " alt="" coords="622,152,693,177"/>
-<area shape="poly" title=" " alt="" coords="419,99,609,148,608,153,418,104"/>
-<area shape="rect" title=" " alt="" coords="717,152,785,177"/>
-<area shape="poly" title=" " alt="" coords="420,96,541,117,704,149,703,154,540,122,419,101"/>
+<area shape="rect" title=" " alt="" coords="88,5,205,31"/>
+<area shape="rect" href="philo_2philo_8h.html" title=" " alt="" coords="67,79,133,104"/>
+<area shape="poly" title=" " alt="" coords="141,32,117,69,113,66,137,30"/>
+<area shape="rect" title=" " alt="" coords="158,79,229,104"/>
+<area shape="poly" title=" " alt="" coords="157,30,180,66,176,69,152,32"/>
+<area shape="rect" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" title=" " alt="" coords="93,106,66,143,61,140,89,103"/>
+<area shape="rect" title=" " alt="" coords="113,152,197,177"/>
+<area shape="poly" title=" " alt="" coords="111,103,140,140,135,143,107,106"/>
 </map>
 </div>
 </div>
@@ -170,28 +161,23 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The big work has been done by valid_input. This is correct because in valid_input we are checking the len</p>
+<p>The big work has been done by valid_input. This is correct because in valid_input we are checking the len </p>
 
-<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00060">60</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>{</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordtype">long</span>    num;</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>    num = 0; <span class="comment">// always initialize</span></div>
-<div class="line"><span class="lineno">   65</span>    str = <a class="code hl_function" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd">valid_input</a>(str);</div>
-<div class="line"><span class="lineno">   66</span>    <span class="comment">// 12313aa --&gt; 12313</span></div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a>(*str))</div>
-<div class="line"><span class="lineno">   68</span>        num = (num * 10) + (*str++ - <span class="charliteral">&#39;0&#39;</span>);<span class="comment"></span></div>
-<div class="line"><span class="lineno">   69</span><span class="comment">    /**</span></div>
-<div class="line"><span class="lineno">   70</span><span class="comment">     * The big work has been done by valid_input.</span></div>
-<div class="line"><span class="lineno">   71</span><span class="comment">     * This is correct because in valid_input we are checking the len</span></div>
-<div class="line"><span class="lineno">   72</span><span class="comment">     */</span></div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">if</span> (num &gt; INT_MAX)</div>
-<div class="line"><span class="lineno">   74</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value is too big, INT_MAX is the limit&quot;</span>);</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">return</span> (num);</div>
-<div class="line"><span class="lineno">   76</span>}</div>
-<div class="ttc" id="aparsing_8c_html_a75d5ab968c772d5ad3d4269a514b9d80"><div class="ttname"><a href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a></div><div class="ttdeci">static bool is_digit(char c)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00015">parsing.c:15</a></div></div>
-<div class="ttc" id="aparsing_8c_html_a9af66249f304962ef84e194c2286bbcd"><div class="ttname"><a href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd">valid_input</a></div><div class="ttdeci">static const char * valid_input(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00038">parsing.c:38</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00079">utils.c:79</a></div></div>
+<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00074">74</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>{</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordtype">long</span>    num;</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    num = 0;</div>
+<div class="line"><span class="lineno">   79</span>    str = <a class="code hl_function" href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd">valid_input</a>(str);</div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a>(*str))</div>
+<div class="line"><span class="lineno">   81</span>        num = (num * 10) + (*str++ - <span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">if</span> (num &gt; INT_MAX)</div>
+<div class="line"><span class="lineno">   83</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value is too big, INT_MAX is the limit&quot;</span>);</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span> (num);</div>
+<div class="line"><span class="lineno">   85</span>}</div>
+<div class="ttc" id="aparsing_8c_html_a75d5ab968c772d5ad3d4269a514b9d80"><div class="ttname"><a href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a></div><div class="ttdeci">static bool is_digit(char c)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00016">parsing.c:16</a></div></div>
+<div class="ttc" id="aparsing_8c_html_a9af66249f304962ef84e194c2286bbcd"><div class="ttname"><a href="parsing_8c.html#a9af66249f304962ef84e194c2286bbcd">valid_input</a></div><div class="ttdeci">static const char * valid_input(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00046">parsing.c:46</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00081">utils.c:81</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -247,10 +233,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00015">15</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>{</div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> (c &gt;= <span class="charliteral">&#39;0&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;9&#39;</span>);</div>
-<div class="line"><span class="lineno">   18</span>}</div>
+<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00016">16</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>{</div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">return</span> (c &gt;= <span class="charliteral">&#39;0&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;9&#39;</span>);</div>
+<div class="line"><span class="lineno">   19</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -294,10 +280,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>An inline function is a function that is expanded at the point of the function call rather than being executed as a seprarte functionc all. this is done to reduce the function call overhead and improve performance. </p>
 
-<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00024">24</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">return</span> (c == 32 || (c &gt;= 9 &amp;&amp; c &lt;= 13));</div>
-<div class="line"><span class="lineno">   27</span>}</div>
+<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00027">27</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>{</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> (c == 32 || (c &gt;= 9 &amp;&amp; c &lt;= 13));</div>
+<div class="line"><span class="lineno">   30</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -346,28 +332,26 @@ Here is the caller graph for this function:</div>
 <li>timestamps &gt; 60ms </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00087">87</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>{</div>
-<div class="line"><span class="lineno">   89</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">philo_nbr</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[1]);</div>
-<div class="line"><span class="lineno">   90</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[2]) * 1e3;</div>
-<div class="line"><span class="lineno">   91</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[3]) * 1e3;</div>
-<div class="line"><span class="lineno">   92</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[4]) * 1e3;</div>
-<div class="line"><span class="lineno">   93</span>    <span class="comment">// Now check the timestamp &gt; 60ms</span></div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a> &lt; 6e4 </div>
-<div class="line"><span class="lineno">   95</span>        || table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a> &lt; 6e4</div>
-<div class="line"><span class="lineno">   96</span>        || table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a> &lt; 6e4)</div>
-<div class="line"><span class="lineno">   97</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Use timestamps major than 60ms&quot;</span>);</div>
-<div class="line"><span class="lineno">   98</span>    <span class="comment">// Now we have to check argv[5]</span></div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">if</span> (argv[5])</div>
-<div class="line"><span class="lineno">  100</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[5]);</div>
-<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  102</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a> = -1; <span class="comment">// As a flag</span></div>
-<div class="line"><span class="lineno">  103</span>}</div>
-<div class="ttc" id="aparsing_8c_html_abef2289c621d447f10287b101594288d"><div class="ttname"><a href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a></div><div class="ttdeci">static long ft_atol(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00060">parsing.c:60</a></div></div>
-<div class="ttc" id="astructs__table_html_a1de5af6faf9b86970b029ebd3015c291"><div class="ttname"><a href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">s_table::nbr_limit_meals</a></div><div class="ttdeci">long nbr_limit_meals</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00102">philo.h:102</a></div></div>
+<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00099">99</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>{</div>
+<div class="line"><span class="lineno">  101</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">philo_nbr</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[1]);</div>
+<div class="line"><span class="lineno">  102</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[2]) * 1e3;</div>
+<div class="line"><span class="lineno">  103</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[3]) * 1e3;</div>
+<div class="line"><span class="lineno">  104</span>    table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[4]) * 1e3;</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">if</span> (table-&gt;<a class="code hl_variable" href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">time_to_die</a> &lt; 6e4</div>
+<div class="line"><span class="lineno">  106</span>        || table-&gt;<a class="code hl_variable" href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">time_to_eat</a> &lt; 6e4</div>
+<div class="line"><span class="lineno">  107</span>        || table-&gt;<a class="code hl_variable" href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">time_to_sleep</a> &lt; 6e4)</div>
+<div class="line"><span class="lineno">  108</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Use timestamps major than 60ms&quot;</span>);</div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">if</span> (argv[5])</div>
+<div class="line"><span class="lineno">  110</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a> = <a class="code hl_function" href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a>(argv[5]);</div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  112</span>        table-&gt;<a class="code hl_variable" href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">nbr_limit_meals</a> = -1;</div>
+<div class="line"><span class="lineno">  113</span>}</div>
+<div class="ttc" id="aparsing_8c_html_abef2289c621d447f10287b101594288d"><div class="ttname"><a href="parsing_8c.html#abef2289c621d447f10287b101594288d">ft_atol</a></div><div class="ttdeci">static long ft_atol(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00074">parsing.c:74</a></div></div>
+<div class="ttc" id="astructs__table_html_a1de5af6faf9b86970b029ebd3015c291"><div class="ttname"><a href="structs__table.html#a1de5af6faf9b86970b029ebd3015c291">s_table::nbr_limit_meals</a></div><div class="ttdeci">long nbr_limit_meals</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00125">philo.h:125</a></div></div>
 <div class="ttc" id="astructs__table_html_a2a3839a6429ef1c8663fc3509799bb42"><div class="ttname"><a href="structs__table.html#a2a3839a6429ef1c8663fc3509799bb42">s_table::time_to_die</a></div><div class="ttdeci">int time_to_die</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00038">philo.h:38</a></div></div>
 <div class="ttc" id="astructs__table_html_a5d86694ff3f0df52e8dafec9719f5176"><div class="ttname"><a href="structs__table.html#a5d86694ff3f0df52e8dafec9719f5176">s_table::time_to_eat</a></div><div class="ttdeci">int time_to_eat</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00039">philo.h:39</a></div></div>
-<div class="ttc" id="astructs__table_html_a99fea957f58894156b9aab0e1716dab6"><div class="ttname"><a href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">s_table::philo_nbr</a></div><div class="ttdeci">long philo_nbr</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00098">philo.h:98</a></div></div>
+<div class="ttc" id="astructs__table_html_a99fea957f58894156b9aab0e1716dab6"><div class="ttname"><a href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">s_table::philo_nbr</a></div><div class="ttdeci">long philo_nbr</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00121">philo.h:121</a></div></div>
 <div class="ttc" id="astructs__table_html_afa0c16a063b0a8cf6eb240cb19765b78"><div class="ttname"><a href="structs__table.html#afa0c16a063b0a8cf6eb240cb19765b78">s_table::time_to_sleep</a></div><div class="ttdeci">int time_to_sleep</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00040">philo.h:40</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -417,31 +401,30 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <p>1) Check for negatives --&gt; if is there negative numbers -&gt; this does'nt make any sense so the input is wrong. 2) Check if the number is legit (i can have spaces, i can have a +, i can have numebers and later bullshit o 3) Check for INT_MAX --&gt; I will check for len first, 2147483647 if len &gt; 10, sure &gt; INT_MAX still check the number...</p>
-<p>Why return ptr? The function is going to return the numberr in string </p>
+<p>Why return ptr? The function is going to return the numberr in string // len of str 1) skip spaces. </p>
 
-<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00038">38</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   38</span>                                                      {</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span> len; <span class="comment">// len of str</span></div>
-<div class="line"><span class="lineno">   40</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>  *number;</div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>    len = 0;</div>
-<div class="line"><span class="lineno">   43</span>    <span class="comment">// 1) skip spaces.</span></div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="parsing_8c.html#a7d56680f22d75fbdfcfc8f08b3d0907d">is_space</a>(*str))</div>
-<div class="line"><span class="lineno">   45</span>        ++str;</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> (*str == <span class="charliteral">&#39;+&#39;</span>)</div>
-<div class="line"><span class="lineno">   47</span>        ++str;</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (*str == <span class="charliteral">&#39;-&#39;</span>)</div>
-<div class="line"><span class="lineno">   49</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Feed me only positive values u suck!&quot;</span>);</div>
-<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a>(*str))</div>
-<div class="line"><span class="lineno">   51</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The input is not a correct digit&quot;</span>);</div>
-<div class="line"><span class="lineno">   52</span>    number = str;</div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a>(*str++))</div>
-<div class="line"><span class="lineno">   54</span>        ++len;</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">if</span> (len &gt; 10)</div>
-<div class="line"><span class="lineno">   56</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value is too big. INT_MAX is the limit&quot;</span>);</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> (number);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
-<div class="ttc" id="aparsing_8c_html_a7d56680f22d75fbdfcfc8f08b3d0907d"><div class="ttname"><a href="parsing_8c.html#a7d56680f22d75fbdfcfc8f08b3d0907d">is_space</a></div><div class="ttdeci">static bool is_space(char c)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00024">parsing.c:24</a></div></div>
+<p class="definition">Definition at line <a class="el" href="parsing_8c_source.html#l00046">46</a> of file <a class="el" href="parsing_8c_source.html">parsing.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>{</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordtype">int</span>         len;</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>  *number;</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    len = 0;</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="parsing_8c.html#a7d56680f22d75fbdfcfc8f08b3d0907d">is_space</a>(*str))</div>
+<div class="line"><span class="lineno">   53</span>        ++str;</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span> (*str == <span class="charliteral">&#39;+&#39;</span>)</div>
+<div class="line"><span class="lineno">   55</span>        ++str;</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (*str == <span class="charliteral">&#39;-&#39;</span>)</div>
+<div class="line"><span class="lineno">   57</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Feed me only positive values u suck!&quot;</span>);</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a>(*str))</div>
+<div class="line"><span class="lineno">   59</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The input is not a correct digit&quot;</span>);</div>
+<div class="line"><span class="lineno">   60</span>    number = str;</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80">is_digit</a>(*str++))</div>
+<div class="line"><span class="lineno">   62</span>        ++len;</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">if</span> (len &gt; 10)</div>
+<div class="line"><span class="lineno">   64</span>        <a class="code hl_function" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value is too big. INT_MAX is the limit&quot;</span>);</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> (number);</div>
+<div class="line"><span class="lineno">   66</span>}</div>
+<div class="ttc" id="aparsing_8c_html_a7d56680f22d75fbdfcfc8f08b3d0907d"><div class="ttname"><a href="parsing_8c.html#a7d56680f22d75fbdfcfc8f08b3d0907d">is_space</a></div><div class="ttdeci">static bool is_space(char c)</div><div class="ttdef"><b>Definition</b> <a href="parsing_8c_source.html#l00027">parsing.c:27</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

@@ -114,127 +114,129 @@ $(document).ready(function(){initNavTree('philo_2utils_8c_source.html',''); init
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*   By: meghribe &lt;meghribe@student.42barcelon      +#+  +:+       +#+        */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*                                                +#+#+#+#+#+   +#+           */</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2025/07/02 20:41:34 by meghribe         ###   ########.fr       */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2025/07/03 11:48:16 by meghribe         ###   ########.fr       */</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*                                                                            */</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/* ************************************************************************** */</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="philo_2philo_8h.html">philo.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * We are gonna exploit gettimeofday</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * time_code -&gt; SECONDS MILLISECONDS MICROSECONDS</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;sys/time.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * We are gonna exploit gettimeofday</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * Is gonna set the seconds and the microseconds</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#abd85dc197341d03847c33008c616dbb3">   24</a></span><span class="keywordtype">long</span>    <a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_typedef" href="philo_2philo_8h.html#a979a97b7e43cf661d7284d1fa8fb79e3">t_time_code</a> time_code)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">struct </span>timeval  tv;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">if</span> (gettimeofday(&amp;tv, NULL))</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_function" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Gettimeofday failed!&quot;</span>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a7cb36ff0a80f238d5b987d9250d369e3">SECOND</a> == time_code)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> (tv.tv_sec + (tv.tv_usec / 1e6));</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88">MILLISECOND</a> == time_code)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a> == time_code)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e6) + tv.tv_usec);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_function" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Wrong input to gettime!&quot;</span>);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> (1337);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * time_code -&gt; SECONDS MILLISECONDS MICROSECONDS</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * Is gonna set the seconds and the microseconds</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#abd85dc197341d03847c33008c616dbb3">   26</a></span><span class="keywordtype">long</span>    <a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_typedef" href="philo_2philo_8h.html#a979a97b7e43cf661d7284d1fa8fb79e3">t_time_code</a> time_code)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">struct </span>timeval  tv;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">if</span> (gettimeofday(&amp;tv, NULL))</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_function" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Gettimeofday failed!&quot;</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a7cb36ff0a80f238d5b987d9250d369e3">SECOND</a> == time_code)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> (tv.tv_sec + (tv.tv_usec / 1e6));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88">MILLISECOND</a> == time_code)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a> == time_code)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e6) + tv.tv_usec);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_function" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Wrong input to gettime!&quot;</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> (1337);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"></span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * precise usleep, the real one suck.</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * Indeed, the usleep is gonna give us at least the time we ask</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * but very often is going to give us more because opearting system lagging</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * things peculairrities.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * Every time we check if the simulation finished.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * precise usleep, the real one suck.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * Indeed, the usleep is gonna give us at least the time we ask</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * but very often is going to give us more because opearting system lagging</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * things peculairrities.</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * 1) USLEEP THE MAJORITY OF TIME, NOT CPU INTENSIVE</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * 2) REFINE LAST MICROSECONDS WITH SPINLOCK</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * This will give us more precise than the actual system function usleep</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * which is veey often not precise.</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">// SPINLOCK</span></div>
-<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#a9378c26262a9761809207ec96e047a53">   56</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="philo_2utils_8c.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a>(<span class="keywordtype">long</span> usec, <a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">long</span>    start;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">long</span>    elapsed;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">long</span>    remaining;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    start = <a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>) - start &lt; usec)</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="getters__setters_8c.html#ae8a21fe757b3dc9bdf72f5f2aa289a40">simulation_finished</a>(table))</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            break ;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        elapsed = <a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>) - start;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        remaining = usec - elapsed;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">if</span> (remaining &gt; 1e3)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            usleep(remaining / 2);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">while</span> (<a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>) - start &lt; usec)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                ;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * Every time we check if the simulation finished.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * 1) USLEEP THE MAJORITY OF TIME, NOT CPU INTENSIVE</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * 2) REFINE LAST MICROSECONDS WITH SPINLOCK</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> * This will give us more precise than the actual system function usleep</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * which is veey often not precise.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// SPINLOCK</span></div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#a9378c26262a9761809207ec96e047a53">   58</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="philo_2utils_8c.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a>(<span class="keywordtype">long</span> usec, <a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">long</span>    start;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">long</span>    elapsed;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">long</span>    remaining;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    start = <a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>) - start &lt; usec)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="getters__setters_8c.html#ae8a21fe757b3dc9bdf72f5f2aa289a40">simulation_finished</a>(table))</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            break ;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        elapsed = <a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>) - start;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        remaining = usec - elapsed;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (remaining &gt; 1e3)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            usleep(remaining / 2);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">while</span> (<a class="code hl_function" href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a>) - start &lt; usec)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                ;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
 </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">   79</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *error)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>{</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    printf(<a class="code hl_define" href="old_2philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a> <span class="stringliteral">&quot;%s\n&quot;</span> <a class="code hl_define" href="old_2philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>, error);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    exit(EXIT_FAILURE);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">   81</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *error)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>{</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    printf(<a class="code hl_define" href="old_2philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a> <span class="stringliteral">&quot;%s\n&quot;</span> <a class="code hl_define" href="old_2philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a>, error);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    exit(EXIT_FAILURE);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#a84c2f8f008892149ef391b612ee75699">   85</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="philo_2utils_8c.html#a84c2f8f008892149ef391b612ee75699">clean</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>{</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_struct" href="structs__philo.html">t_philo</a> *philo;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">int</span>     i;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    i = -1;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordflow">while</span> (++i &lt; table-&gt;philo_nbr)</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        philo = table-&gt;<a class="code hl_variable" href="structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4">philos</a> + i;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_function" href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a>(&amp;philo-&gt;<a class="code hl_variable" href="structs__philo.html#ac2bac7ae442cae69b14ed51f5b343c8e">philo_mutex</a>, <a class="code hl_enumvalue" href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a>);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_function" href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a>(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a7fe82d0552304cc40c5e89635dabe113">write_mutex</a>, <a class="code hl_enumvalue" href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a>);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a>(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a39084529fdb8f766cff366a50435790d">table_mutex</a>, <a class="code hl_enumvalue" href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a>);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    free(table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    free(table-&gt;<a class="code hl_variable" href="structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4">philos</a>);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="philo_2philo_8h.html#a84c2f8f008892149ef391b612ee75699">   87</a></span><span class="keywordtype">void</span>    <a class="code hl_function" href="philo_2utils_8c.html#a84c2f8f008892149ef391b612ee75699">clean</a>(<a class="code hl_struct" href="structs__table.html">t_table</a> *table)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_struct" href="structs__philo.html">t_philo</a> *philo;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span>     i;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    i = -1;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">while</span> (++i &lt; table-&gt;philo_nbr)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        philo = table-&gt;<a class="code hl_variable" href="structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4">philos</a> + i;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_function" href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a>(&amp;philo-&gt;<a class="code hl_variable" href="structs__philo.html#ac2bac7ae442cae69b14ed51f5b343c8e">philo_mutex</a>, <a class="code hl_enumvalue" href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_function" href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a>(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a7fe82d0552304cc40c5e89635dabe113">write_mutex</a>, <a class="code hl_enumvalue" href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a>(&amp;table-&gt;<a class="code hl_variable" href="structs__table.html#a39084529fdb8f766cff366a50435790d">table_mutex</a>, <a class="code hl_enumvalue" href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    free(table-&gt;<a class="code hl_variable" href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">forks</a>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    free(table-&gt;<a class="code hl_variable" href="structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4">philos</a>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
 </div>
 <div class="ttc" id="agetters__setters_8c_html_ae8a21fe757b3dc9bdf72f5f2aa289a40"><div class="ttname"><a href="getters__setters_8c.html#ae8a21fe757b3dc9bdf72f5f2aa289a40">simulation_finished</a></div><div class="ttdeci">bool simulation_finished(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="getters__setters_8c_source.html#l00062">getters_setters.c:62</a></div></div>
 <div class="ttc" id="aold_2philo_8h_html_a8d23feea868a983c8c2b661e1e16972f"><div class="ttname"><a href="old_2philo_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></div><div class="ttdeci">#define RED</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00137">philo.h:137</a></div></div>
 <div class="ttc" id="aold_2philo_8h_html_ab702106cf3b3e96750b6845ded4e0299"><div class="ttname"><a href="old_2philo_8h.html#ab702106cf3b3e96750b6845ded4e0299">RESET</a></div><div class="ttdeci">#define RESET</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00136">philo.h:136</a></div></div>
 <div class="ttc" id="aphilo_2philo_8h_html"><div class="ttname"><a href="philo_2philo_8h.html">philo.h</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4"><div class="ttname"><a href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a></div><div class="ttdeci">@ DESTROY</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00049">philo.h:49</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88"><div class="ttname"><a href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88">MILLISECOND</a></div><div class="ttdeci">@ MILLISECOND</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00160">philo.h:160</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a5c635789974cd7c0c6b41f540113ba40a7cb36ff0a80f238d5b987d9250d369e3"><div class="ttname"><a href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a7cb36ff0a80f238d5b987d9250d369e3">SECOND</a></div><div class="ttdeci">@ SECOND</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00159">philo.h:159</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c"><div class="ttname"><a href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a></div><div class="ttdeci">@ MICROSECOND</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00162">philo.h:161</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a6454f0a0acf648a82505d646132dbef2"><div class="ttname"><a href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a></div><div class="ttdeci">void safe_mutex_handle(t_mtx *mutex, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="safe__functions_8c_source.html#l00059">safe_functions.c:59</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4"><div class="ttname"><a href="philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a></div><div class="ttdeci">@ DESTROY</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00043">philo.h:43</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88"><div class="ttname"><a href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88">MILLISECOND</a></div><div class="ttdeci">@ MILLISECOND</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00180">philo.h:180</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_a5c635789974cd7c0c6b41f540113ba40a7cb36ff0a80f238d5b987d9250d369e3"><div class="ttname"><a href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a7cb36ff0a80f238d5b987d9250d369e3">SECOND</a></div><div class="ttdeci">@ SECOND</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00179">philo.h:179</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c"><div class="ttname"><a href="philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c">MICROSECOND</a></div><div class="ttdeci">@ MICROSECOND</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00182">philo.h:181</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_a6454f0a0acf648a82505d646132dbef2"><div class="ttname"><a href="philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a></div><div class="ttdeci">void safe_mutex_handle(t_mtx *mutex, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="safe__functions_8c_source.html#l00063">safe_functions.c:63</a></div></div>
 <div class="ttc" id="aphilo_2philo_8h_html_a979a97b7e43cf661d7284d1fa8fb79e3"><div class="ttname"><a href="philo_2philo_8h.html#a979a97b7e43cf661d7284d1fa8fb79e3">t_time_code</a></div><div class="ttdeci">enum e_time_code t_time_code</div></div>
-<div class="ttc" id="aphilo_2utils_8c_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00079">utils.c:79</a></div></div>
-<div class="ttc" id="aphilo_2utils_8c_html_a84c2f8f008892149ef391b612ee75699"><div class="ttname"><a href="philo_2utils_8c.html#a84c2f8f008892149ef391b612ee75699">clean</a></div><div class="ttdeci">void clean(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00085">utils.c:85</a></div></div>
-<div class="ttc" id="aphilo_2utils_8c_html_a9378c26262a9761809207ec96e047a53"><div class="ttname"><a href="philo_2utils_8c.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a></div><div class="ttdeci">void precise_usleep(long usec, t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00056">utils.c:56</a></div></div>
-<div class="ttc" id="aphilo_2utils_8c_html_abd85dc197341d03847c33008c616dbb3"><div class="ttname"><a href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a></div><div class="ttdeci">long gettime(t_time_code time_code)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00024">utils.c:24</a></div></div>
+<div class="ttc" id="aphilo_2utils_8c_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00081">utils.c:81</a></div></div>
+<div class="ttc" id="aphilo_2utils_8c_html_a84c2f8f008892149ef391b612ee75699"><div class="ttname"><a href="philo_2utils_8c.html#a84c2f8f008892149ef391b612ee75699">clean</a></div><div class="ttdeci">void clean(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00087">utils.c:87</a></div></div>
+<div class="ttc" id="aphilo_2utils_8c_html_a9378c26262a9761809207ec96e047a53"><div class="ttname"><a href="philo_2utils_8c.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a></div><div class="ttdeci">void precise_usleep(long usec, t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00058">utils.c:58</a></div></div>
+<div class="ttc" id="aphilo_2utils_8c_html_abd85dc197341d03847c33008c616dbb3"><div class="ttname"><a href="philo_2utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a></div><div class="ttdeci">long gettime(t_time_code time_code)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00026">utils.c:26</a></div></div>
 <div class="ttc" id="astructs__philo_html"><div class="ttname"><a href="structs__philo.html">s_philo</a></div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00060">philo.h:61</a></div></div>
-<div class="ttc" id="astructs__philo_html_ac2bac7ae442cae69b14ed51f5b343c8e"><div class="ttname"><a href="structs__philo.html#ac2bac7ae442cae69b14ed51f5b343c8e">s_philo::philo_mutex</a></div><div class="ttdeci">t_mtx philo_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00088">philo.h:88</a></div></div>
+<div class="ttc" id="astructs__philo_html_ac2bac7ae442cae69b14ed51f5b343c8e"><div class="ttname"><a href="structs__philo.html#ac2bac7ae442cae69b14ed51f5b343c8e">s_philo::philo_mutex</a></div><div class="ttdeci">t_mtx philo_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00087">philo.h:87</a></div></div>
 <div class="ttc" id="astructs__table_html"><div class="ttname"><a href="structs__table.html">s_table</a></div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00035">philo.h:36</a></div></div>
 <div class="ttc" id="astructs__table_html_a0cb8b5fb3ea8abb5ed140b36c9c0b7a4"><div class="ttname"><a href="structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4">s_table::philos</a></div><div class="ttdeci">t_philo * philos</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00049">philo.h:49</a></div></div>
 <div class="ttc" id="astructs__table_html_a2c3129b4b451031b04ada0c16e397b76"><div class="ttname"><a href="structs__table.html#a2c3129b4b451031b04ada0c16e397b76">s_table::forks</a></div><div class="ttdeci">pthread_mutex_t * forks</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00045">philo.h:45</a></div></div>
-<div class="ttc" id="astructs__table_html_a39084529fdb8f766cff366a50435790d"><div class="ttname"><a href="structs__table.html#a39084529fdb8f766cff366a50435790d">s_table::table_mutex</a></div><div class="ttdeci">t_mtx table_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00124">philo.h:124</a></div></div>
-<div class="ttc" id="astructs__table_html_a7fe82d0552304cc40c5e89635dabe113"><div class="ttname"><a href="structs__table.html#a7fe82d0552304cc40c5e89635dabe113">s_table::write_mutex</a></div><div class="ttdeci">t_mtx write_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00125">philo.h:125</a></div></div>
+<div class="ttc" id="astructs__table_html_a39084529fdb8f766cff366a50435790d"><div class="ttname"><a href="structs__table.html#a39084529fdb8f766cff366a50435790d">s_table::table_mutex</a></div><div class="ttdeci">t_mtx table_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00131">philo.h:131</a></div></div>
+<div class="ttc" id="astructs__table_html_a7fe82d0552304cc40c5e89635dabe113"><div class="ttname"><a href="structs__table.html#a7fe82d0552304cc40c5e89635dabe113">s_table::write_mutex</a></div><div class="ttdeci">t_mtx write_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_2philo_8h_source.html#l00132">philo.h:132</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
