@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:48:16 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:14:47 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
  * time_code -> SECONDS MILLISECONDS MICROSECONDS
  *
  * Is gonna set the seconds and the microseconds
+ * TODO: IF I USE time_code that is not there the compiler will complain
  */
 long	gettime(t_time_code	time_code)
 {
