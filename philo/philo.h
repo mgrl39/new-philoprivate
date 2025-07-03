@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 15:15:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:14:52 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,5 +168,11 @@ long	get_long(t_mtx *mutex, long *value);
 bool	get_bool(t_mtx *mutex, bool *value);
 bool	simulation_finished(t_table *table);
 bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
+
+# define MSG_FORK "%d has taken a fork\n"
+# define MSG_EAT "%d is eating\n"
+# define MSG_SLEEP "%d is sleeping\n"
+# define MSG_THINK "%d is thinking\n"
+# define MSG_DIED "%d died\n"
 
 #endif

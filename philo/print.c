@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 14:36:58 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:12:28 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,52 +20,52 @@
  * write_mutex
  */
 static void	write_status_debug(t_philo_status status, t_philo *philo,
-			long elapsed)
+			long time)
 {
 	if (TAKE_FIRST_FORK == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET
 			BLUE" %d has taken the 1 fork\t\t\tn [ %d ]\n"RESET,
-			elapsed, philo->id, philo->second_fork->fork_id);
+			time, philo->id, philo->second_fork->fork_id);
 	else if (TAKE_SECOND_FORK == status
 		&& !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET RED
 			" %d has taken the 2 fork\n\t\t\tn [ %d ]\n"RESET,
-			elapsed, philo->id, philo->second_fork->fork_id);
+			time, philo->id, philo->second_fork->fork_id);
 	else if (EATING == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET" %d is eating\t\t\tn [ %ld ]\n"RESET,
-			elapsed, philo->id, philo->meals_counter);
+			time, philo->id, philo->meals_counter);
 	else if (SLEEPING == status && !simulation_finished(philo->table))
-		printf(BOLD"%6ld"RESET" %d is sleeping\n", elapsed, philo->id);
+		printf(BOLD"%6ld"RESET" %d is sleeping\n", time, philo->id);
 	else if (THINKING == status && !simulation_finished(philo->table))
-		printf(BOLD"%6ld"RESET" %d is thinking\n", elapsed, philo->id);
+		printf(BOLD"%6ld"RESET" %d is thinking\n", time, philo->id);
 	else if (DIED == status)
-		printf(RED"\t\t %6ld %d died \n"RESET, elapsed, philo->id);
+		printf(RED"\t\t %6ld %d died \n"RESET, time, philo->id);
 }
 
 void	write_status(t_philo_status status, t_philo *philo, bool debug)
 {
-	long	elapsed;
+	long	time;
 
-	elapsed = gettime(MILLISECOND);
-	elapsed -= philo->table->start_simulation;
+	time = gettime(MILLISECOND);
+	time -= philo->table->start_simulation;
 	if (get_bool(&philo->philo_mutex, &philo->full))
 		return ;
 	safe_mutex_handle(&philo->table->write_mutex, LOCK);
 	if (debug)
-		write_status_debug(status, philo, elapsed);
+		write_status_debug(status, philo, time);
 	else
 	{
 		if ((TAKE_FIRST_FORK == status || TAKE_SECOND_FORK == status)
 			&& !simulation_finished(philo->table))
-			printf(BOLD"%-6ld"RESET"%d has taken a fork\n", elapsed, philo->id);
+			printf(GOLD BOLD"%-6ld"RESET GOLD MSG_FORK, time, philo->id);
 		else if (EATING == status && !simulation_finished(philo->table))
-			printf(BOLD"%-6ld"RESET"%d is eating\n", elapsed, philo->id);
+			printf(BOLD GREEN "%-6ld"RESET GREEN MSG_EAT, time, philo->id);
 		else if (SLEEPING == status && !simulation_finished(philo->table))
-			printf(BOLD"%-6ld"RESET"%d is sleeping\n", elapsed, philo->id);
+			printf(BLUE BOLD"%-6ld"RESET BLUE MSG_SLEEP, time, philo->id);
 		else if (THINKING == status && !simulation_finished(philo->table))
-			printf(BOLD"%-6ld"RESET"%d is thinking\n", elapsed, philo->id);
+			printf(PURPLE BOLD"%-6ld"RESET PURPLE MSG_THINK, time, philo->id);
 		else if (DIED == status)
-			printf(BOLD RED"%-6ld""%d died\n"RESET, elapsed, philo->id);
+			printf(BOLD RED"%-6ld" MSG_DIED RESET, time, philo->id);
 	}
 	safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
 }
