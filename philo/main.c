@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 10:59:08 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:35:22 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 	t_table	table;
 
 	if (argc < 5 || argc > 6)
-		return (print_usage(argv), 1);
+		return (print_usage(*argv), 1);
 	process_arguments(&table, argv);
 	data_init(&table);
 	dinner_start(&table);

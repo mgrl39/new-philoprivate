@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:48:38 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 12:16:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,14 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 	else if (EINVAL == status && INIT == opcode)
 		error_exit("The value specified by attr is invalid.");
 	else if (EDEADLK == status)
-		error_exit("A deadlock would occur if the thread blocked waiting for mutex.");
+		error_exit(
+			"A deadlock would occur if the thread blocked waiting for mutex.");
 	else if (EPERM == status)
 		error_exit("The current thread does not hold a lock on muttex.");
 	else if (ENOMEM == status)
-		error_exit("The process cannot allocate enogh memory to create antoher mutex.");
+		error_exit(
+			"The process cannot allocate enogh memory to create antoher mutex."
+			);
 	else if (EBUSY == status)
 		error_exit("Mutex is locked");
 }
@@ -88,7 +91,7 @@ static void	handle_thread_error(int status, t_opcode opcode)
 		error_exit("The caller does not have appropiate permission\n");
 	else if (EINVAL == status && CREATE == opcode)
 		error_exit("The value specified by attr is invalid.");
-	else if (EINVAL == status && (JOIN == opcode || DETACH == opcode))
+	else if (EINVAL == status && JOIN == opcode)
 		error_exit("The value specified by thread is not joinable\n");
 	else if (ESRCH == status)
 		error_exit("No thread could be fould corresponding to that \
@@ -105,8 +108,6 @@ void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *),
 		handle_thread_error(pthread_create(thread, NULL, foo, data), opcode);
 	else if (JOIN == opcode)
 		handle_thread_error(pthread_join(*thread, NULL), opcode);
-	else if (DETACH == opcode)
-		handle_thread_error(pthread_detach(*thread), opcode);
 	else
 		error_exit("Wrong opcode for thread_handle");
 }
