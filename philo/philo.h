@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 15:14:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:15:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define BOLD		"\033[1m"
 
 # define DEBUG_MODE 0
+
 /* Philosopher states */
 typedef enum e_status
 {

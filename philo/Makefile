@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 19:43:07 by meghribe          #+#    #+#              #
-#    Updated: 2025/07/02 21:52:47 by meghribe         ###   ########.fr        #
+#    Updated: 2025/07/03 15:16:31 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ RM = rm -rf
 MKDIR = mkdir -p
 
 SRC_DIR = .
-OBJ_DIR = obj
 INC_DIR = .
+OBJ_DIR = obj
 
 SRCS = dinner.c getters_setters.c init.c main.c monitor.c parsing.c \
 	safe_functions.c synchro_utils.c utils.c print.c
