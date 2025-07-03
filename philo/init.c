@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:33:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 17:18:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 	if (philo->id % 2 == 0)
 	{
 		philo->first_fork = &forks[philo_position];
-		philo->second_fork = &forks[(philo_position + 1 % philo_nbr)];
+		philo->second_fork = &forks[(philo_position + 1) % philo_nbr];
 	}
 }
 
