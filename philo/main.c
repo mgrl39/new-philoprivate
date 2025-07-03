@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 	memset(&table, 0, sizeof(t_table));
 	process_arguments(&table, argv);
 	data_init(&table);
-	start_simulation(&table);
+	dinner_start(&table);
 	clean_table(&table);
 	return (0);
 }
