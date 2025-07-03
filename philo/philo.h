@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:06:31 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:20:30 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,30 +62,35 @@ typedef struct s_table	t_table;
 
 /*
  * FORK
+ * fork_id -> is very useful for debugging.Because i know exactly which fork
+ * 		the philosopher is taking.
  */
 typedef struct s_fork
 {
 	t_mtx	fork;
-	int		fork_id; // This is very useful for debugging.Because i know exactly  which fork
-// the philosopher is taking
+	int		fork_id;
 }	t_fork;
 
 /*
  * PHILO
- *
  *./philo 5 800 200 200 [5]
+ * meals_counter -> We will count the meals in this variable
+ * full -> flag if the philosopher has eaten the maximum number of meals
+ * last_meal_time -> time passed from last meal. Is very important to check if
+ * 			philosopher has died. We will gonna have time to die
+ * thread_id -> a philo is a thread (this will be send to thread_create)
+ * philo_mutex -> useful for races with the monitor
  */
 typedef struct s_philo
 {
 	int			id;
-	long		meals_counter; // We will count the meals in this variable
-	bool		full; // flag if the philosopher has eaten the maximum number of meals
-	long		last_meal_time; // time passed from last meal. Is very important to check if the
-				// philosopher has died. We will gonna have time to die
+	long		meals_counter;
+	bool		full;
+	long		last_meal_time;
 	t_fork		*first_fork;
-	t_fork		*second_fork; // A pointer to the left fork and a pointer to the right fork
-	pthread_t	thread_id; // A PHILO IS A THREAD. (this will be send to thread_create)
-	t_mtx		philo_mutex; // useful for races with the monitor
+	t_fork		*second_fork;
+	pthread_t	thread_id;
+	t_mtx		philo_mutex;
 	t_table		*table;
 }	t_philo;
 
@@ -147,7 +152,11 @@ void	process_arguments(t_table *table, char *argv[]);
 # define PURPLE		"\033[38;5;147m"
 # define BOLD		"\033[1m"
 
-void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode);
+void	safe_thread_handle(
+			pthread_t *thread,
+			void *(*foo)(void *),
+			void *data,
+			t_opcode opcode);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 void	data_init(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);

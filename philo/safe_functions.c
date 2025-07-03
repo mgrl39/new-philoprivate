@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 10:11:46 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:13:45 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	*safe_malloc(size_t	bytes)
 
 /*
  * Embed controls on return status
- * pthread_mutex_init pthread_mutex_unlock pthread_mutex_lock and pthread_mutex_init()
+ * pthread_mutex_init pthread_mutex_unlock pthread_mutex_lock 
+ * and pthread_mutex_init()
  * This functions returns 0 if successful, otherwise we will get an error value.
  * We will recreate the perror function
  */
@@ -38,7 +39,7 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 	if (0 == status)
 		return ;
 	else if (EINVAL == status && (LOCK == opcode || UNLOCK == opcode))
-		error_exit("The value  specified by mutex is invalid.");
+		error_exit("The value specified by mutex is invalid.");
 	else if (EINVAL == status && INIT == opcode)
 		error_exit("The value specified by attr is invalid.");
 	else if (EDEADLK == status)
