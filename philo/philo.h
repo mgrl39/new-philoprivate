@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:48:46 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 12:08:16 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // all the functions containing mutexes and threads.
 # include <pthread.h>
 // mutex: init destroy lock unlock
-// threads: create join detach
+// threads: create join 
 
 /**
  * PHILO STATES
@@ -43,7 +43,6 @@ typedef enum e_opcode
 	DESTROY,
 	CREATE,
 	JOIN,
-	DETACH,
 }	t_opcode;
 
 //*** structures ***
