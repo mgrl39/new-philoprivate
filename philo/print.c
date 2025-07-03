@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 13:58:54 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:07:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ static void	write_status_debug(t_philo_status status, t_philo *philo,
 		printf(BOLD"%6ld"RESET
 			BLUE" %d has taken the 1 fork\t\t\tn [ %d ]\n"RESET,
 			elapsed, philo->id, philo->second_fork->fork_id);
-	else if (TAKE_SECOND_FORK == status && !simulation_finished(philo->table))
+	else if (TAKE_SECOND_FORK == status
+		&& !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET RED
-		" %d has taken the 2 fork\n\t\t\tn [ %d ]\n"RESET,
-		elapsed, philo->id, philo->second_fork->fork_id);
+			" %d has taken the 2 fork\n\t\t\tn [ %d ]\n"RESET,
+			elapsed, philo->id, philo->second_fork->fork_id);
 	else if (EATING == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET" %d is eating\t\t\tn [ %ld ]\n"RESET,
 			elapsed, philo->id, philo->meals_counter);
@@ -55,7 +56,7 @@ void	write_status(t_philo_status status, t_philo *philo, bool debug)
 	else
 	{
 		if ((TAKE_FIRST_FORK == status || TAKE_SECOND_FORK == status)
-				&& !simulation_finished(philo->table))
+			&& !simulation_finished(philo->table))
 			printf(BOLD"%-6ld"RESET"%d has taken a fork\n", elapsed, philo->id);
 		else if (EATING == status && !simulation_finished(philo->table))
 			printf(BOLD"%-6ld"RESET"%d is eating\n", elapsed, philo->id);
