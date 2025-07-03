@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 10:43:50 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:47:21 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	thinking(t_philo *philo, bool pre_simulation)
 		return ;
 	t_eat = philo->table->time_to_eat;
 	t_sleep = philo->table->time_to_sleep;
-	t_think = t_eat * 2 - t_sleep; 
+	t_think = t_eat * 2 - t_sleep;
 	if (t_think < 0)
 		t_think = 0;
 	precise_usleep(t_think * 0.42, philo->table);
@@ -89,9 +89,7 @@ static void	eat(t_philo *philo)
 		set_bool(&philo->philo_mutex, &philo->full, true);
 	safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
-
 }
-
 
 // here is goonna be the actual simulation of the dinner
 /*
@@ -109,6 +107,11 @@ static void	eat(t_philo *philo)
  */
 // 1) the philosopher has to check: I am full?
 // in that case i exit.
+//
+// 2) EAT
+// sleep(philo);
+// 3) SLEEP -> write the actual status (write_status) & precise usleep
+// 4) THINK
 void	*dinner_simulation(void *data)
 {
 	t_philo	*philo;
@@ -122,15 +125,10 @@ void	*dinner_simulation(void *data)
 	{
 		if (get_bool(&philo->philo_mutex, &philo->full))
 			break ;
-		// 2) EAT
 		eat(philo);
-		// 3) SLEEP -> write the actual status (write_status) & precise usleep
 		write_status(SLEEPING, philo, DEBUG_MODE);
 		precise_usleep(philo->table->time_to_sleep, philo->table);
-		// sleep(philo);
-		// 4) THINK
 		thinking(philo, false);
-
 	}
 	return (NULL);
 }
@@ -146,7 +144,7 @@ void	*dinner_simulation(void *data)
  * 	I want every philo start simultaneously. We need synchronization thing to make
  * 	all the philos start at the same time.
  * 4) JOIN everyone
- */ 
+ */
 // back to main, clean
 // This is a while loop that is gonna be create all the threads, all the philosophers.
 // Every time this funciton is called immediately the thread starts running this dinner simulation function that we still have to do. 

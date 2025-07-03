@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 10:27:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:47:32 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 // "i" es basically the position in the table
 static void	philo_init(t_table *table)
 {
-	int	i;
 	t_philo	*philo;
+	int		i;
 
 	i = -1;
 	while (++i < table->philo_nbr)
@@ -73,7 +73,6 @@ static void	philo_init(t_table *table)
 		safe_mutex_handle(&philo->philo_mutex, INIT);
 		assign_forks(philo, table->forks, i);
 	}
-
 }
 
 // We want to init this mutex
