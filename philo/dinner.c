@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 22:13:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:43:50 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ void	*lone_philo(void *arg)
  * Time to die, time to sleep and time to eat are fixed.
  * Time to think is the only one to make the system more fair (equitativo, justo)
  */
+// if the system is even we dont care, system already fair.
+// ODD, not always fair.
+// availbale time to think
+// precise control i wanna make on philo
 void	thinking(t_philo *philo, bool pre_simulation)
 {
 	long	t_eat;
@@ -46,18 +50,16 @@ void	thinking(t_philo *philo, bool pre_simulation)
 
 	if (!pre_simulation)
 		write_status(THINKING, philo, DEBUG_MODE);
-	// if the system is even we dont care, system already fair.
 	if (philo->table->philo_nbr % 2 == 0)
 		return ;
-	// ODD, not always fair.
 	t_eat = philo->table->time_to_eat;
 	t_sleep = philo->table->time_to_sleep;
-	t_think = t_eat * 2 - t_sleep; // availbale time to think
+	t_think = t_eat * 2 - t_sleep; 
 	if (t_think < 0)
 		t_think = 0;
-	// precise control i wanna make on philo
 	precise_usleep(t_think * 0.42, philo->table);
 }
+
 /**
  * MOST IMPORTANT THING FOR A PHILOSOPHER
  * eat routine
@@ -67,27 +69,24 @@ void	thinking(t_philo *philo, bool pre_simulation)
  * 	eventyally bool full
  * 3) release the forks
  */
+// 2) Set the last meal time:
+// Actual eating. Now we have to set the last meal time and we
+// are gonna do it immediately.
+// sleep the time requested.
+// if is true the philo is full
+// 3) UNLOCK
 static void	eat(t_philo *philo)
 {
-	// 1)
 	safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
 	safe_mutex_handle(&philo->second_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
-
-	// 2) Set the last meal time:
-	// Actual eating. Now we have to set the last meal time and we
-	// are gonna do it immediately.
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	philo->meals_counter++;
 	write_status(EATING, philo, DEBUG_MODE);
-	// sleep the time requested.
 	precise_usleep(philo->table->time_to_eat, philo->table);
-
-	// if is true the philo is full
 	if (philo->table->nbr_limit_meals > 0 && philo->meals_counter == philo->table->nbr_limit_meals)
 		set_bool(&philo->philo_mutex, &philo->full, true);
-	// 3) UNLOCK
 	safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
 
@@ -108,6 +107,8 @@ static void	eat(t_philo *philo)
 /*
  * until the dinner is not finished
  */
+// 1) the philosopher has to check: I am full?
+// in that case i exit.
 void	*dinner_simulation(void *data)
 {
 	t_philo	*philo;
@@ -119,9 +120,7 @@ void	*dinner_simulation(void *data)
 	de_synchronize_philos(philo);
 	while (!simulation_finished(philo->table))
 	{
-		// 1) the philosopher has to check: I am full?
-		// in that case i exit.
-		if (philo->full) // TODO: THREAD SAFE
+		if (get_bool(&philo->philo_mutex, &philo->full))
 			break ;
 		// 2) EAT
 		eat(philo);
