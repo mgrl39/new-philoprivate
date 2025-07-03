@@ -44,7 +44,7 @@ void	*lone_philo(void *arg)
 // ODD, not always fair.
 // availbale time to think
 // precise control i wanna make on philo
-void	thinking(t_philo *philo, bool pre_simulation)
+void	thinking(t_philo *philo, int pre_simulation)
 {
 	long	t_eat;
 	long	t_sleep;
@@ -68,7 +68,7 @@ void	thinking(t_philo *philo, bool pre_simulation)
  * 1) grab the forks: here first and second fork is handy
  * 	i dont worry aboutt left irght
  * 2) eat: write eat, update last meal, update meals counter.
- * 	eventyally bool full
+ * 	eventyally int full
  * 3) release the forks
  */
 // 2) Set the last meal time:
@@ -89,7 +89,7 @@ static void	eat(t_philo *philo)
 	precise_usleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->nbr_limit_meals > 0
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
-		set_bool(&philo->philo_mutex, &philo->full, true);
+		set_int(&philo->philo_mutex, &philo->full, 1);
 	safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
 }
@@ -127,12 +127,12 @@ void	*dinner_simulation(void *data)
 	de_synchronize_philos(philo);
 	while (!simulation_finished(philo->table))
 	{
-		if (get_bool(&philo->philo_mutex, &philo->full))
+		if (get_int(&philo->philo_mutex, &philo->full))
 			break ;
 		eat(philo);
 		write_status(SLEEPING, philo, DEBUG_MODE);
 		precise_usleep(philo->table->time_to_sleep, philo->table);
-		thinking(philo, false);
+		thinking(philo, 0);
 	}
 	return (NULL);
 }
@@ -187,10 +187,10 @@ void	dinner_start(t_table *table)
 	}
 	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
 	table->start_simulation = gettime(MILLISECOND);
-	set_bool(&table->table_mutex, &table->all_threads_ready, true);
+	set_int(&table->table_mutex, &table->all_threads_ready, 1);
 	i = -1;
 	while (++i < table->philo_nbr)
 		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
-	set_bool(&table->table_mutex, &table->end_simulation, true);
+	set_int(&table->table_mutex, &table->end_simulation, 1);
 	safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
 }

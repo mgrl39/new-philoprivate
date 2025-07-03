@@ -19,7 +19,7 @@
  */
 
 // BOOL
-void	set_bool(t_mtx *mutex, bool *dest, bool value)
+void	set_int(t_mtx *mutex, int *dest, int value)
 {
 	safe_mutex_handle(mutex, LOCK);
 	*dest = value;
@@ -27,9 +27,9 @@ void	set_bool(t_mtx *mutex, bool *dest, bool value)
 }
 
 // READING thread safe
-bool	get_bool(t_mtx *mutex, bool *value)
+int	get_int(t_mtx *mutex, int *value)
 {
-	bool	ret;
+	int	ret;
 
 	safe_mutex_handle(mutex, LOCK);
 	ret = *value;
@@ -59,7 +59,7 @@ void	set_long(t_mtx *mutex, long *dest, long value)
  * REDUDANT? Nah..
  */
 
-bool	simulation_finished(t_table *table)
+int	simulation_finished(t_table *table)
 {
-	return (get_bool(&table->table_mutex, &table->end_simulation));
+	return (get_int(&table->table_mutex, &table->end_simulation));
 }
