@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 12:08:36 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 12:16:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,14 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 	else if (EINVAL == status && INIT == opcode)
 		error_exit("The value specified by attr is invalid.");
 	else if (EDEADLK == status)
-		error_exit("A deadlock would occur if the thread blocked waiting for mutex.");
+		error_exit(
+			"A deadlock would occur if the thread blocked waiting for mutex.");
 	else if (EPERM == status)
 		error_exit("The current thread does not hold a lock on muttex.");
 	else if (ENOMEM == status)
-		error_exit("The process cannot allocate enogh memory to create antoher mutex.");
+		error_exit(
+			"The process cannot allocate enogh memory to create antoher mutex."
+			);
 	else if (EBUSY == status)
 		error_exit("Mutex is locked");
 }
