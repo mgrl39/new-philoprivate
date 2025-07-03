@@ -6,22 +6,26 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 14:35:08 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:14:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-# include <stdbool.h>
-// contains all the functions
-// all the functions containing mutexes and threads.
-# include <pthread.h>
-// mutex: init destroy lock unlock
-// threads: create join 
 
-/**
- * PHILO STATES
- */
+# include <stdbool.h>
+# include <pthread.h>
+
+# define RESET		"\033[0m"
+# define RED		"\033[38;5;203m"
+# define GOLD		"\033[38;5;220m"
+# define GREEN		"\033[38;5;120m"
+# define BLUE		"\033[38;5;75m"
+# define PURPLE		"\033[38;5;147m"
+# define BOLD		"\033[1m"
+
+# define DEBUG_MODE 0
+/* Philosopher states */
 typedef enum e_status
 {
 	EATING,
@@ -32,9 +36,7 @@ typedef enum e_status
 	DIED,
 }	t_philo_status;
 
-/*
- * Operation code fofr mutex or thread functions
- */
+/* Operation code for mutex or thread functions */
 typedef enum e_opcode
 {
 	LOCK,
@@ -45,18 +47,20 @@ typedef enum e_opcode
 	JOIN,
 }	t_opcode;
 
-//*** structures ***
+/* Codes for time units used in gettime() */
+typedef enum e_time_code
+{
+	SECOND,
+	MILLISECOND,
+	MICROSECOND
+}	t_time_code;
 
-/**
- * code more readable
- */
+/* Typedefs */
 typedef pthread_mutex_t	t_mtx;
 typedef struct s_table	t_table;
 
 /*
- * FORK
- * fork_id -> is very useful for debugging.Because i know exactly which fork
- * 		the philosopher is taking.
+ * Fork structure holds mute an ID useful for debugging
  */
 typedef struct s_fork
 {
@@ -133,53 +137,35 @@ typedef struct s_table
 	t_philo		*philos;
 }	t_table;
 
-void	error_exit(const char *error);
-void	process_arguments(t_table *table, char *argv[]);
-
-# define DEBUG_MODE 0
-# define RESET		"\033[0m"
-# define RED		"\033[38;5;203m"
-# define GOLD		"\033[38;5;220m"
-# define GREEN		"\033[38;5;120m"
-# define BLUE		"\033[38;5;75m"
-# define PURPLE		"\033[38;5;147m"
-# define BOLD		"\033[1m"
-
+/* Prototypes */
 void	safe_thread_handle(
 			pthread_t *thread,
 			void *(*foo)(void *),
 			void *data,
 			t_opcode opcode);
+void	*safe_malloc(size_t	bytes);
+void	*monitor_dinner(void *data);
+void	error_exit(const char *error);
+void	process_arguments(t_table *table, char *argv[]);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 void	data_init(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
-long	get_long(t_mtx *mutex, long *value);
-bool	get_bool(t_mtx *mutex, bool *value);
 void	set_bool(t_mtx *mutex, bool *dest, bool value);
-bool	simulation_finished(t_table *table);
 void	wait_all_threads(t_table	*table);
-
 void	write_status(t_philo_status status, t_philo *philo, bool debug);
-void	*safe_malloc(size_t	bytes);
 void	increase_long(t_mtx *mutex, long *value);
-bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
-void	*monitor_dinner(void *data);
 void	clean(t_table *table);
 void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, bool pre_simulation);
 void	de_synchronize_philos(t_philo *philo);
 void	print_usage(char *program_name);
-
-/*
- * CODES for gettime
- */
-typedef enum e_time_code
-{
-	SECOND,
-	MILLISECOND,
-	MICROSECOND
-}	t_time_code;
+void	precise_usleep(long usec, t_table *table);
 
 long	gettime(t_time_code	time_code);
-void	precise_usleep(long usec, t_table *table);
+long	get_long(t_mtx *mutex, long *value);
+
+bool	get_bool(t_mtx *mutex, bool *value);
+bool	simulation_finished(t_table *table);
+bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
+
 #endif
