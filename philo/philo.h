@@ -6,23 +6,18 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:23:28 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:48:46 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-# include <stdio.h> // printf
-# include <stdlib.h> // malloc free
-# include <unistd.h> // write, usleep (usleep is not so precise...)
 # include <stdbool.h>
 // contains all the functions
 // all the functions containing mutexes and threads.
 # include <pthread.h>
 // mutex: init destroy lock unlock
 // threads: create join detach
-# include <sys/time.h> // gettimeofday (useful to get exactlly the time)
-# include <errno.h>
 
 /**
  * PHILO STATES

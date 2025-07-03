@@ -6,11 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:35:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:48:38 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdlib.h>
+#include <errno.h>
 
 /**
  * Module containing wrapper funtions
