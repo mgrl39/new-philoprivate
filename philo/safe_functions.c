@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 20:34:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:11:46 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	*safe_malloc(size_t	bytes)
 		error_exit("Error with the malloc");
 	return (ret);
 }
+
 /*
  * Embed controls on return status
  * pthread_mutex_init pthread_mutex_unlock pthread_mutex_lock and pthread_mutex_init()
@@ -40,7 +41,7 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 		error_exit("The value  specified by mutex is invalid.");
 	else if (EINVAL == status && INIT == opcode)
 		error_exit("The value specified by attr is invalid.");
-	else if (EDEADLK  == status)
+	else if (EDEADLK == status)
 		error_exit("A deadlock would occur if the thread blocked waiting for mutex.");
 	else if (EPERM == status)
 		error_exit("The current thread does not hold a lock on muttex.");
@@ -92,7 +93,6 @@ static void	handle_thread_error(int status, t_opcode opcode)
 	else if (EDEADLK == status)
 		error_exit("A deadlock was detected or the value of thread specifies \
 			the calling thread.");
-
 }
 
 void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode)

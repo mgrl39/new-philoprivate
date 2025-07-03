@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:47:01 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 21:54:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:08:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	set_bool(t_mtx *mutex, bool *dest, bool value)
 	safe_mutex_handle(mutex, UNLOCK);
 }
 
+// READING thread safe
 bool	get_bool(t_mtx *mutex, bool *value)
 {
 	bool	ret;
 
 	safe_mutex_handle(mutex, LOCK);
-	// READING thread safe
 	ret = *value;
 	safe_mutex_handle(mutex, UNLOCK);
 	return (ret);
