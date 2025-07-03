@@ -21,11 +21,10 @@ var searchData=
   ['descripcion_20general_18',['Descripcion general',['../md_old_2docs_2description.html',1,'']]],
   ['description_2emd_19',['description.md',['../description_8md.html',1,'']]],
   ['destroy_20',['DESTROY',['../philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4',1,'philo.h']]],
-  ['detach_21',['DETACH',['../philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9cacd20b2b09f15ac87ad95cc7b21ae2a25',1,'philo.h']]],
-  ['detalles_20de_20la_20implementacion_3a_22',['Detalles de la implementacion:',['../md_old_2docs_2explained.html#autotoc_md16',1,'']]],
-  ['died_23',['DIED',['../philo_2philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda77cfb3f8b737b27529fe9d616dc0720a',1,'philo.h']]],
-  ['dinner_2ec_24',['dinner.c',['../dinner_8c.html',1,'']]],
-  ['dinner_5fsimulation_25',['dinner_simulation',['../dinner_8c.html#af3db4f49728131a53563eef43e2c9954',1,'dinner.c']]],
-  ['dinner_5fstart_26',['dinner_start',['../philo_2philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;dinner.c'],['../dinner_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;dinner.c']]],
-  ['dormir_20igual_20a_20cero_27',['Caso 8: Tiempo para dormir igual a cero',['../md_old_2docs_2parsing.html#autotoc_md26',1,'']]]
+  ['detalles_20de_20la_20implementacion_3a_21',['Detalles de la implementacion:',['../md_old_2docs_2explained.html#autotoc_md16',1,'']]],
+  ['died_22',['DIED',['../philo_2philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda77cfb3f8b737b27529fe9d616dc0720a',1,'philo.h']]],
+  ['dinner_2ec_23',['dinner.c',['../dinner_8c.html',1,'']]],
+  ['dinner_5fsimulation_24',['dinner_simulation',['../dinner_8c.html#af3db4f49728131a53563eef43e2c9954',1,'dinner.c']]],
+  ['dinner_5fstart_25',['dinner_start',['../philo_2philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;dinner.c'],['../dinner_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;dinner.c']]],
+  ['dormir_20igual_20a_20cero_26',['Caso 8: Tiempo para dormir igual a cero',['../md_old_2docs_2parsing.html#autotoc_md26',1,'']]]
 ];

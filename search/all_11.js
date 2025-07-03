@@ -11,7 +11,5 @@ var searchData=
   ['init_5fmutexes_8',['init_mutexes',['../old_2philo_8h.html#a803da164314e505c37bb43299d8ed14a',1,'init_mutexes(t_table *table):&#160;init.c'],['../old_2init_8c.html#a803da164314e505c37bb43299d8ed14a',1,'init_mutexes(t_table *table):&#160;init.c']]],
   ['init_5fphilos_9',['init_philos',['../old_2philo_8h.html#ad0c577bbe9ae96b5220d6fb28201119b',1,'init_philos(t_table *table):&#160;init.c'],['../old_2init_8c.html#ad0c577bbe9ae96b5220d6fb28201119b',1,'init_philos(t_table *table):&#160;init.c']]],
   ['instrucciones_20generales_10',['Instrucciones generales',['../md_old_2docs_2description.html#autotoc_md11',1,'']]],
-  ['is_5fdigit_11',['is_digit',['../parsing_8c.html#a75d5ab968c772d5ad3d4269a514b9d80',1,'parsing.c']]],
-  ['is_5fsimulation_5fterminated_12',['is_simulation_terminated',['../old_2philo_8h.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c'],['../monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c']]],
-  ['is_5fspace_13',['is_space',['../parsing_8c.html#a7d56680f22d75fbdfcfc8f08b3d0907d',1,'parsing.c']]]
+  ['is_5fsimulation_5fterminated_11',['is_simulation_terminated',['../old_2philo_8h.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c'],['../old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c']]]
 ];

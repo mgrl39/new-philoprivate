@@ -1,0 +1,14 @@
+<map id="write_status_debug" name="write_status_debug">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,155,31"/>
+<area shape="rect" id="Node000002" href="$getters__setters_8c.html#ae8a21fe757b3dc9bdf72f5f2aa289a40" title=" " alt="" coords="203,5,352,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,15,189,15,189,21,155,21"/>
+<area shape="rect" id="Node000003" href="$getters__setters_8c.html#a834edb41e08e7ab950dd991d6b2c3c37" title=" " alt="" coords="400,5,479,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="352,15,387,15,387,21,352,21"/>
+<area shape="rect" id="Node000004" href="$safe__functions_8c.html#a6454f0a0acf648a82505d646132dbef2" title=" " alt="" coords="527,5,677,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="479,15,513,15,513,21,479,21"/>
+<area shape="rect" id="Node000005" href="$philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="927,5,1012,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="678,15,913,15,913,21,678,21"/>
+<area shape="rect" id="Node000006" href="$safe__functions_8c.html#a7bad0b0b2e5868b626b338dc6f15593e" title=" " alt="" coords="725,31,879,56"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="678,25,712,29,711,35,677,30"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="879,29,913,24,914,29,879,34"/>
+</map>

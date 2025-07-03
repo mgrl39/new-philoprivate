@@ -24,8 +24,7 @@ var philo_2philo_8h =
       [ "INIT", "philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36", null ],
       [ "DESTROY", "philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4", null ],
       [ "CREATE", "philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4", null ],
-      [ "JOIN", "philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7", null ],
-      [ "DETACH", "philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9cacd20b2b09f15ac87ad95cc7b21ae2a25", null ]
+      [ "JOIN", "philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7", null ]
     ] ],
     [ "e_status", "philo_2philo_8h.html#a36ed09b104fd43451893a3170c3fd9bd", [
       [ "EATING", "philo_2philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda7dea639cac54c049540bc4c3074749fa", null ],
@@ -52,7 +51,7 @@ var philo_2philo_8h =
     [ "increase_long", "philo_2philo_8h.html#adeb7eff368d99a32f65613f30a3766ef", null ],
     [ "monitor_dinner", "philo_2philo_8h.html#a93f8221563272d48894afcf53b8f076e", null ],
     [ "precise_usleep", "philo_2philo_8h.html#a9378c26262a9761809207ec96e047a53", null ],
-    [ "print_usage", "philo_2philo_8h.html#a84365b0f701e1f4a7424d21046ae2d24", null ],
+    [ "print_usage", "philo_2philo_8h.html#a767128a69bdfad046920286832102a40", null ],
     [ "process_arguments", "philo_2philo_8h.html#ab5f188b5e218d15638e06be0a441747d", null ],
     [ "safe_malloc", "philo_2philo_8h.html#a083343af0972bffcaa946c757b45d6a5", null ],
     [ "safe_mutex_handle", "philo_2philo_8h.html#a6454f0a0acf648a82505d646132dbef2", null ],

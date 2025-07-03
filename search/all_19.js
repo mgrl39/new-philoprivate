@@ -11,7 +11,7 @@ var searchData=
   ['second_8',['SECOND',['../philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a7cb36ff0a80f238d5b987d9250d369e3',1,'philo.h']]],
   ['second_5ffork_9',['second_fork',['../structs__philo.html#a5ab025ff5119090cd1f1bba4ca30b1e4',1,'s_philo']]],
   ['set_5fbool_10',['set_bool',['../getters__setters_8c.html#ad5034ac784b8b6e283f2cd78f22d2f40',1,'set_bool(t_mtx *mutex, bool *dest, bool value):&#160;getters_setters.c'],['../philo_2philo_8h.html#ad5034ac784b8b6e283f2cd78f22d2f40',1,'set_bool(t_mtx *mutex, bool *dest, bool value):&#160;getters_setters.c']]],
-  ['set_5fend_5fflag_11',['set_end_flag',['../monitor_8c.html#aec3c78c7e64fad03871ef65bb94924eb',1,'monitor.c']]],
+  ['set_5fend_5fflag_11',['set_end_flag',['../old_2monitor_8c.html#aec3c78c7e64fad03871ef65bb94924eb',1,'monitor.c']]],
   ['set_5flong_12',['set_long',['../getters__setters_8c.html#ae56423a68b4bbd8669f9d4fa9d3b6671',1,'set_long(t_mtx *mutex, long *dest, long value):&#160;getters_setters.c'],['../philo_2philo_8h.html#ae56423a68b4bbd8669f9d4fa9d3b6671',1,'set_long(t_mtx *mutex, long *dest, long value):&#160;getters_setters.c']]],
   ['simulation_5ffinished_13',['simulation_finished',['../getters__setters_8c.html#ae8a21fe757b3dc9bdf72f5f2aa289a40',1,'simulation_finished(t_table *table):&#160;getters_setters.c'],['../philo_2philo_8h.html#ae8a21fe757b3dc9bdf72f5f2aa289a40',1,'simulation_finished(t_table *table):&#160;getters_setters.c']]],
   ['sincronizacion_20jerarquica_14',['Sincronizacion jerarquica',['../md_old_2docs_2conceptos.html#autotoc_md9',1,'']]],

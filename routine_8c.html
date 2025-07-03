@@ -176,7 +176,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   87</span>}</div>
 <div class="ttc" id="aold_2philo_8h_html_a40dac01cf9140968dccc6a4edfb08e27"><div class="ttname"><a href="old_2philo_8h.html#a40dac01cf9140968dccc6a4edfb08e27">get_time</a></div><div class="ttdeci">long get_time(void)</div><div class="ttdef"><b>Definition</b> <a href="old_2utils_8c_source.html#l00060">utils.c:60</a></div></div>
 <div class="ttc" id="aold_2philo_8h_html_a437ef08681e7210d6678427030446a54"><div class="ttname"><a href="old_2philo_8h.html#a437ef08681e7210d6678427030446a54">LEFT</a></div><div class="ttdeci">#define LEFT</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00101">philo.h:101</a></div></div>
-<div class="ttc" id="aold_2philo_8h_html_a6c89cfc95d1a9a058e7b91d490de61d5"><div class="ttname"><a href="old_2philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5">print_status</a></div><div class="ttdeci">void print_status(t_philo *philo, char *msg)</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00035">print.c:35</a></div></div>
+<div class="ttc" id="aold_2philo_8h_html_a6c89cfc95d1a9a058e7b91d490de61d5"><div class="ttname"><a href="old_2philo_8h.html#a6c89cfc95d1a9a058e7b91d490de61d5">print_status</a></div><div class="ttdeci">void print_status(t_philo *philo, char *msg)</div><div class="ttdef"><b>Definition</b> <a href="old_2print_8c_source.html#l00035">print.c:35</a></div></div>
 <div class="ttc" id="aold_2philo_8h_html_a80fb826a684cf3f0d306b22aa100ddac"><div class="ttname"><a href="old_2philo_8h.html#a80fb826a684cf3f0d306b22aa100ddac">RIGHT</a></div><div class="ttdeci">#define RIGHT</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00102">philo.h:102</a></div></div>
 <div class="ttc" id="aold_2philo_8h_html_aa632dde01d4b5f1b634a45d5aad70a3a"><div class="ttname"><a href="old_2philo_8h.html#aa632dde01d4b5f1b634a45d5aad70a3a">MSG_EAT</a></div><div class="ttdeci">#define MSG_EAT</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00095">philo.h:95</a></div></div>
 <div class="ttc" id="astructs__philo_html_a19cad2ffef44f0282d83ed1bd4c8ef5d"><div class="ttname"><a href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">s_philo::table</a></div><div class="ttdeci">t_table * table</div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00067">philo.h:67</a></div></div>
@@ -193,12 +193,12 @@ Here is the call graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="5,31,48,56"/>
 <area shape="rect" href="old_2utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="297,5,377,31"/>
 <area shape="poly" title=" " alt="" coords="48,39,283,20,283,25,48,44"/>
-<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="96,56,195,81"/>
+<area shape="rect" href="old_2print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="96,56,195,81"/>
 <area shape="poly" title=" " alt="" coords="49,45,83,53,82,58,48,50"/>
 <area shape="poly" title=" " alt="" coords="191,53,242,39,283,29,284,34,243,45,193,58"/>
-<area shape="rect" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="243,55,431,80"/>
+<area shape="rect" href="old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="243,55,431,80"/>
 <area shape="poly" title=" " alt="" coords="195,66,229,65,229,71,195,71"/>
-<area shape="rect" href="print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="259,104,414,129"/>
+<area shape="rect" href="old_2print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="259,104,414,129"/>
 <area shape="poly" title=" " alt="" coords="195,78,273,98,271,103,194,83"/>
 <area shape="rect" href="old_2utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="479,104,561,129"/>
 <area shape="poly" title=" " alt="" coords="414,114,465,114,465,119,414,119"/>
@@ -247,7 +247,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  120</span>    philo = (<a class="code hl_struct" href="structs__philo.html">t_philo</a> *)arg;</div>
 <div class="line"><span class="lineno">  121</span>    <span class="keywordflow">if</span> (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">id</a> % 2 == 0)</div>
 <div class="line"><span class="lineno">  122</span>        usleep(1000);</div>
-<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">while</span> (!<a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(philo-&gt;<a class="code hl_variable" href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">table</a>) &amp;&amp; (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> == -1 \</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">while</span> (!<a class="code hl_function" href="old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(philo-&gt;<a class="code hl_variable" href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">table</a>) &amp;&amp; (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a> == -1 \</div>
 <div class="line"><span class="lineno">  124</span>                || philo-&gt;<a class="code hl_variable" href="structs__philo.html#aaec02dd4e9600f851662e7555a785991">meals_eaten</a> &lt; philo-&gt;<a class="code hl_variable" href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#ad65b76c227316b4b63d2e36fb2ddfa1c">num_meals</a>))</div>
 <div class="line"><span class="lineno">  125</span>    {</div>
 <div class="line"><span class="lineno">  126</span>        <a class="code hl_function" href="routine_8c.html#a9d4b235c43ff8416b674a311403e7c88">take_forks</a>(philo);</div>
@@ -256,7 +256,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  129</span>            <a class="code hl_function" href="routine_8c.html#a609ab24efca0e9444e3221f78a0b7185">sleep_and_think</a>(philo);</div>
 <div class="line"><span class="lineno">  130</span>        <span class="keywordflow">else</span></div>
 <div class="line"><span class="lineno">  131</span>        {</div>
-<div class="line"><span class="lineno">  132</span>            <span class="keywordflow">while</span> (!<a class="code hl_function" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(philo-&gt;<a class="code hl_variable" href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">table</a>))</div>
+<div class="line"><span class="lineno">  132</span>            <span class="keywordflow">while</span> (!<a class="code hl_function" href="old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a>(philo-&gt;<a class="code hl_variable" href="structs__philo.html#a19cad2ffef44f0282d83ed1bd4c8ef5d">table</a>))</div>
 <div class="line"><span class="lineno">  133</span>                usleep(1000);</div>
 <div class="line"><span class="lineno">  134</span>            pthread_mutex_unlock(philo-&gt;<a class="code hl_variable" href="structs__philo.html#a57dcb66a7b077d55a57e1dbecc2be635">forks</a>[<a class="code hl_define" href="old_2philo_8h.html#a437ef08681e7210d6678427030446a54">LEFT</a>]);</div>
 <div class="line"><span class="lineno">  135</span>            break ;</div>
@@ -264,7 +264,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  137</span>    }</div>
 <div class="line"><span class="lineno">  138</span>    <span class="keywordflow">return</span> (NULL);</div>
 <div class="line"><span class="lineno">  139</span>}</div>
-<div class="ttc" id="amonitor_8c_html_aafbad0b5e98479d396a64aa6c9ba70fe"><div class="ttname"><a href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a></div><div class="ttdeci">int is_simulation_terminated(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="monitor_8c_source.html#l00031">monitor.c:31</a></div></div>
+<div class="ttc" id="aold_2monitor_8c_html_aafbad0b5e98479d396a64aa6c9ba70fe"><div class="ttname"><a href="old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe">is_simulation_terminated</a></div><div class="ttdeci">int is_simulation_terminated(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="old_2monitor_8c_source.html#l00031">monitor.c:31</a></div></div>
 <div class="ttc" id="aroutine_8c_html_a0f3ff42ef93a1c7b726ca6c7bbe7f551"><div class="ttname"><a href="routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551">eat</a></div><div class="ttdeci">static void eat(t_philo *philo)</div><div class="ttdef"><b>Definition</b> <a href="routine_8c_source.html#l00073">routine.c:73</a></div></div>
 <div class="ttc" id="aroutine_8c_html_a609ab24efca0e9444e3221f78a0b7185"><div class="ttname"><a href="routine_8c.html#a609ab24efca0e9444e3221f78a0b7185">sleep_and_think</a></div><div class="ttdeci">static void sleep_and_think(t_philo *philo)</div><div class="ttdef"><b>Definition</b> <a href="routine_8c_source.html#l00093">routine.c:93</a></div></div>
 <div class="ttc" id="aroutine_8c_html_a9d4b235c43ff8416b674a311403e7c88"><div class="ttname"><a href="routine_8c.html#a9d4b235c43ff8416b674a311403e7c88">take_forks</a></div><div class="ttdeci">static void take_forks(t_philo *philo)</div><div class="ttdef"><b>Definition</b> <a href="routine_8c_source.html#l00033">routine.c:33</a></div></div>
@@ -279,7 +279,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="5,80,95,105"/>
 <area shape="rect" href="routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551" title=" " alt="" coords="185,5,228,31"/>
 <area shape="poly" title=" " alt="" coords="71,78,142,40,172,27,174,32,144,44,74,82"/>
-<area shape="rect" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="465,129,653,155"/>
+<area shape="rect" href="old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="465,129,653,155"/>
 <area shape="poly" title=" " alt="" coords="70,103,103,123,143,139,223,154,305,159,383,158,453,153,453,159,383,164,305,164,222,159,142,145,101,128,67,108"/>
 <area shape="rect" href="routine_8c.html#a609ab24efca0e9444e3221f78a0b7185" title=" " alt="" coords="143,55,271,80"/>
 <area shape="poly" title=" " alt="" coords="95,83,129,77,130,82,95,88"/>
@@ -287,11 +287,11 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="95,97,148,105,147,110,95,102"/>
 <area shape="rect" href="old_2utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="519,7,599,32"/>
 <area shape="poly" title=" " alt="" coords="228,15,506,16,506,22,228,21"/>
-<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="319,56,417,81"/>
+<area shape="rect" href="old_2print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="319,56,417,81"/>
 <area shape="poly" title=" " alt="" coords="229,22,314,49,313,54,227,27"/>
 <area shape="poly" title=" " alt="" coords="416,53,465,41,506,30,507,35,466,46,418,59"/>
 <area shape="poly" title=" " alt="" coords="403,79,513,122,511,127,401,84"/>
-<area shape="rect" href="print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="482,56,637,81"/>
+<area shape="rect" href="old_2print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="482,56,637,81"/>
 <area shape="poly" title=" " alt="" coords="417,66,468,66,468,71,417,71"/>
 <area shape="rect" href="old_2utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="701,56,784,81"/>
 <area shape="poly" title=" " alt="" coords="637,66,688,66,688,71,637,71"/>
@@ -356,13 +356,13 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="routine_8c_a609ab24efca0e9444e3221f78a0b7185_cgraph.png" border="0" usemap="#aroutine_8c_a609ab24efca0e9444e3221f78a0b7185_cgraph" alt=""/></div>
 <map name="aroutine_8c_a609ab24efca0e9444e3221f78a0b7185_cgraph" id="aroutine_8c_a609ab24efca0e9444e3221f78a0b7185_cgraph">
 <area shape="rect" title=" " alt="" coords="5,55,133,80"/>
-<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="181,55,280,80"/>
+<area shape="rect" href="old_2print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="181,55,280,80"/>
 <area shape="poly" title=" " alt="" coords="133,65,168,65,168,70,133,70"/>
 <area shape="rect" href="old_2utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="382,5,462,31"/>
 <area shape="poly" title=" " alt="" coords="279,52,327,39,368,29,370,34,329,45,281,57"/>
-<area shape="rect" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="328,55,516,80"/>
+<area shape="rect" href="old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="328,55,516,80"/>
 <area shape="poly" title=" " alt="" coords="280,65,314,65,314,70,280,70"/>
-<area shape="rect" href="print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="345,104,499,129"/>
+<area shape="rect" href="old_2print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="345,104,499,129"/>
 <area shape="poly" title=" " alt="" coords="281,77,360,98,358,103,279,82"/>
 <area shape="rect" href="old_2utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="564,104,647,129"/>
 <area shape="poly" title=" " alt="" coords="499,114,550,114,550,119,499,119"/>
@@ -445,13 +445,13 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="routine_8c_a9d4b235c43ff8416b674a311403e7c88_cgraph.png" border="0" usemap="#aroutine_8c_a9d4b235c43ff8416b674a311403e7c88_cgraph" alt=""/></div>
 <map name="aroutine_8c_a9d4b235c43ff8416b674a311403e7c88_cgraph" id="aroutine_8c_a9d4b235c43ff8416b674a311403e7c88_cgraph">
 <area shape="rect" title=" " alt="" coords="5,55,96,80"/>
-<area shape="rect" href="print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="144,55,243,80"/>
+<area shape="rect" href="old_2print_8c.html#a6c89cfc95d1a9a058e7b91d490de61d5" title=" " alt="" coords="144,55,243,80"/>
 <area shape="poly" title=" " alt="" coords="96,65,130,65,130,70,96,70"/>
 <area shape="rect" href="old_2utils_8c.html#a40dac01cf9140968dccc6a4edfb08e27" title=" " alt="" coords="345,5,425,31"/>
 <area shape="poly" title=" " alt="" coords="242,52,290,39,331,29,332,34,291,45,243,57"/>
-<area shape="rect" href="monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="291,55,479,80"/>
+<area shape="rect" href="old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe" title=" " alt="" coords="291,55,479,80"/>
 <area shape="poly" title=" " alt="" coords="243,65,277,65,277,70,243,70"/>
-<area shape="rect" href="print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="307,104,462,129"/>
+<area shape="rect" href="old_2print_8c.html#ad406f62d4205bed3e20170599ded15fe" title=" " alt="" coords="307,104,462,129"/>
 <area shape="poly" title=" " alt="" coords="243,77,322,98,321,103,242,82"/>
 <area shape="rect" href="old_2utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="527,104,609,129"/>
 <area shape="poly" title=" " alt="" coords="462,114,513,114,513,119,462,119"/>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['main_0',['main',['../old_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.c'],['../philo_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.c']]],
-  ['main_2ec_1',['main.c',['../old_2main_8c.html',1,'(Global Namespace)'],['../philo_2main_8c.html',1,'(Global Namespace)']]],
+  ['main_2ec_1',['main.c',['../philo_2main_8c.html',1,'(Global Namespace)'],['../old_2main_8c.html',1,'(Global Namespace)']]],
   ['makefile_2',['makefile',['../old_2Makefile.html',1,'(Global Namespace)'],['../philo_2Makefile.html',1,'(Global Namespace)']]],
   ['meal_5flock_3',['meal_lock',['../structs__table.html#a441280c897f6b6530454ec61a32febb7',1,'s_table']]],
   ['meals_5fcounter_4',['meals_counter',['../structs__philo.html#a08911db7f0fe478eef03e50387752f95',1,'s_philo']]],
@@ -12,9 +12,9 @@ var searchData=
   ['millisecond_9',['MILLISECOND',['../philo_2philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88',1,'philo.h']]],
   ['monitor_10',['monitor',['../structs__table.html#ab93903f70bce30c7eb7ab1170153c377',1,'s_table']]],
   ['monitor_20centralizado_11',['Monitor Centralizado',['../md_old_2docs_2conceptos.html#autotoc_md8',1,'']]],
-  ['monitor_2ec_12',['monitor.c',['../monitor_8c.html',1,'']]],
-  ['monitor_5fdinner_13',['monitor_dinner',['../philo_2philo_8h.html#a93f8221563272d48894afcf53b8f076e',1,'philo.h']]],
-  ['monitor_5fsimulation_14',['monitor_simulation',['../old_2philo_8h.html#a619d6413dfafa5ea8cc18edb9e5a8097',1,'monitor_simulation(t_table *table):&#160;monitor.c'],['../monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097',1,'monitor_simulation(t_table *table):&#160;monitor.c']]],
+  ['monitor_2ec_12',['monitor.c',['../philo_2monitor_8c.html',1,'(Global Namespace)'],['../old_2monitor_8c.html',1,'(Global Namespace)']]],
+  ['monitor_5fdinner_13',['monitor_dinner',['../philo_2monitor_8c.html#a93f8221563272d48894afcf53b8f076e',1,'monitor_dinner(void *data):&#160;monitor.c'],['../philo_2philo_8h.html#a93f8221563272d48894afcf53b8f076e',1,'monitor_dinner(void *data):&#160;monitor.c']]],
+  ['monitor_5fsimulation_14',['monitor_simulation',['../old_2monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097',1,'monitor_simulation(t_table *table):&#160;monitor.c'],['../old_2philo_8h.html#a619d6413dfafa5ea8cc18edb9e5a8097',1,'monitor_simulation(t_table *table):&#160;monitor.c']]],
   ['morir_20igual_20a_20cero_15',['Caso 6: Tiempo para morir igual a cero',['../md_old_2docs_2parsing.html#autotoc_md24',1,'']]],
   ['msg_5farg_5fdie_5ftime_16',['MSG_ARG_DIE_TIME',['../old_2philo_8h.html#a4824f9d3a6fda34a3020a928470d4513',1,'philo.h']]],
   ['msg_5farg_5feat_5ftime_17',['MSG_ARG_EAT_TIME',['../old_2philo_8h.html#acda3a54afb229e2af852ee92d6d157d7',1,'philo.h']]],
