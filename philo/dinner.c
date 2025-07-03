@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 10:47:21 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:33:27 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,21 +138,27 @@ void	*dinner_simulation(void *data)
  * 0) If no meals, return -> [0]
  * 0.1) If only one philo -> we do an function for this situation.
  * 1) Create all threads, all philos
- * 2) Create a monitor thread -> thread that is searching for philsopher which are death.
- * 3) Syncronize the beggining of the simulation -> everytime you call pthread_create
- * 	the philosophers start to run.
- * 	I want every philo start simultaneously. We need synchronization thing to make
- * 	all the philos start at the same time.
+ * 2) Create a monitor thread -> thread that is searching for philsopher
+ *	 which are death.
+ * 3) Syncronize the beggining of the simulation -> everytime you call 
+ * pthread_create the philosophers start to run.
+ * 	I want every philo start simultaneously. We need synchronization 
+ * 	thing to make all the philos start at the same time.
  * 4) JOIN everyone
  */
 // back to main, clean
-// This is a while loop that is gonna be create all the threads, all the philosophers.
-// Every time this funciton is called immediately the thread starts running this dinner simulation function that we still have to do. 
-// So we need a synhronization thing to make all the philosophers start at the same time.
+// This is a while loop that is gonna be create all 
+// the threads, all the philosophers.
+// Every time this funciton is called immediately 
+// the thread starts running this dinner simulation function 
+// that we still have to do. 
+// So we need a synhronization thing to make 
+// all the philosophers start at the same time.
 // monitor
 // start of simulation
 /*
- * we need a chronometer, we need a function that is able to give us back the 
+ * we need a chronometer, we need a function 
+ * that is able to give us back the 
  * actual time. 
  */
 // now all threads are ready!

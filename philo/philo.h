@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:20:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:23:28 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 // mutex: init destroy lock unlock
 // threads: create join detach
 # include <sys/time.h> // gettimeofday (useful to get exactlly the time)
-# include <limits.h> // INT_MAX
 # include <errno.h>
 
 /**

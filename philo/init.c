@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:07:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:33:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@
 
 // We have our philos, we have this array of structs and mutexes.
 // When it comes to fork assigmnet.
-// philo_id != relative position in the array  (we start by 0 and the first philo is id 1)
+// philo_id != relative position in the array 
+// (we start by 0 and the first philo is id 1)
 // Right fork -> Position of the fork
 // Left fork is more treaky:
-// 	- We are going focus in philo number 5: LEFT FORK OF PhilO number 5 is 0
+// 	- We are going focus in philo number 5: LEFT FORK OF 
+// 	PhilO number 5 is 0
 // 	- left_fork = (philo_pos + 1) % philo_nbr;
 // 		(4 + 1) % 5 => 0 (left fork is 0)
 //

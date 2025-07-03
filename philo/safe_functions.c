@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:13:45 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:35:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ static void	handle_thread_error(int status, t_opcode opcode)
 			the calling thread.");
 }
 
-void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode)
+void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *),
+	void *data, t_opcode opcode)
 {
 	if (CREATE == opcode)
 		handle_thread_error(pthread_create(thread, NULL, foo, data), opcode);
