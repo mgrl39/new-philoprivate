@@ -6,11 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/01 20:34:53 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:48:38 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdlib.h>
+#include <errno.h>
 
 /**
  * Module containing wrapper funtions
@@ -26,9 +28,11 @@ void	*safe_malloc(size_t	bytes)
 		error_exit("Error with the malloc");
 	return (ret);
 }
+
 /*
  * Embed controls on return status
- * pthread_mutex_init pthread_mutex_unlock pthread_mutex_lock and pthread_mutex_init()
+ * pthread_mutex_init pthread_mutex_unlock pthread_mutex_lock 
+ * and pthread_mutex_init()
  * This functions returns 0 if successful, otherwise we will get an error value.
  * We will recreate the perror function
  */
@@ -37,10 +41,10 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 	if (0 == status)
 		return ;
 	else if (EINVAL == status && (LOCK == opcode || UNLOCK == opcode))
-		error_exit("The value  specified by mutex is invalid.");
+		error_exit("The value specified by mutex is invalid.");
 	else if (EINVAL == status && INIT == opcode)
 		error_exit("The value specified by attr is invalid.");
-	else if (EDEADLK  == status)
+	else if (EDEADLK == status)
 		error_exit("A deadlock would occur if the thread blocked waiting for mutex.");
 	else if (EPERM == status)
 		error_exit("The current thread does not hold a lock on muttex.");
@@ -92,10 +96,10 @@ static void	handle_thread_error(int status, t_opcode opcode)
 	else if (EDEADLK == status)
 		error_exit("A deadlock was detected or the value of thread specifies \
 			the calling thread.");
-
 }
 
-void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *), void *data, t_opcode opcode)
+void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *),
+	void *data, t_opcode opcode)
 {
 	if (CREATE == opcode)
 		handle_thread_error(pthread_create(thread, NULL, foo, data), opcode);

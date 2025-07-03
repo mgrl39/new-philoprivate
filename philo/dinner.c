@@ -6,11 +6,12 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 22:13:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:48:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <unistd.h>
 
 /**
  * same algo but..
@@ -38,6 +39,10 @@ void	*lone_philo(void *arg)
  * Time to die, time to sleep and time to eat are fixed.
  * Time to think is the only one to make the system more fair (equitativo, justo)
  */
+// if the system is even we dont care, system already fair.
+// ODD, not always fair.
+// availbale time to think
+// precise control i wanna make on philo
 void	thinking(t_philo *philo, bool pre_simulation)
 {
 	long	t_eat;
@@ -46,18 +51,16 @@ void	thinking(t_philo *philo, bool pre_simulation)
 
 	if (!pre_simulation)
 		write_status(THINKING, philo, DEBUG_MODE);
-	// if the system is even we dont care, system already fair.
 	if (philo->table->philo_nbr % 2 == 0)
 		return ;
-	// ODD, not always fair.
 	t_eat = philo->table->time_to_eat;
 	t_sleep = philo->table->time_to_sleep;
-	t_think = t_eat * 2 - t_sleep; // availbale time to think
+	t_think = t_eat * 2 - t_sleep;
 	if (t_think < 0)
 		t_think = 0;
-	// precise control i wanna make on philo
 	precise_usleep(t_think * 0.42, philo->table);
 }
+
 /**
  * MOST IMPORTANT THING FOR A PHILOSOPHER
  * eat routine
@@ -67,32 +70,27 @@ void	thinking(t_philo *philo, bool pre_simulation)
  * 	eventyally bool full
  * 3) release the forks
  */
+// 2) Set the last meal time:
+// Actual eating. Now we have to set the last meal time and we
+// are gonna do it immediately.
+// sleep the time requested.
+// if is true the philo is full
+// 3) UNLOCK
 static void	eat(t_philo *philo)
 {
-	// 1)
 	safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
 	safe_mutex_handle(&philo->second_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
-
-	// 2) Set the last meal time:
-	// Actual eating. Now we have to set the last meal time and we
-	// are gonna do it immediately.
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	philo->meals_counter++;
 	write_status(EATING, philo, DEBUG_MODE);
-	// sleep the time requested.
 	precise_usleep(philo->table->time_to_eat, philo->table);
-
-	// if is true the philo is full
 	if (philo->table->nbr_limit_meals > 0 && philo->meals_counter == philo->table->nbr_limit_meals)
 		set_bool(&philo->philo_mutex, &philo->full, true);
-	// 3) UNLOCK
 	safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
-
 }
-
 
 // here is goonna be the actual simulation of the dinner
 /*
@@ -108,6 +106,13 @@ static void	eat(t_philo *philo)
 /*
  * until the dinner is not finished
  */
+// 1) the philosopher has to check: I am full?
+// in that case i exit.
+//
+// 2) EAT
+// sleep(philo);
+// 3) SLEEP -> write the actual status (write_status) & precise usleep
+// 4) THINK
 void	*dinner_simulation(void *data)
 {
 	t_philo	*philo;
@@ -119,19 +124,12 @@ void	*dinner_simulation(void *data)
 	de_synchronize_philos(philo);
 	while (!simulation_finished(philo->table))
 	{
-		// 1) the philosopher has to check: I am full?
-		// in that case i exit.
-		if (philo->full) // TODO: THREAD SAFE
+		if (get_bool(&philo->philo_mutex, &philo->full))
 			break ;
-		// 2) EAT
 		eat(philo);
-		// 3) SLEEP -> write the actual status (write_status) & precise usleep
 		write_status(SLEEPING, philo, DEBUG_MODE);
 		precise_usleep(philo->table->time_to_sleep, philo->table);
-		// sleep(philo);
-		// 4) THINK
 		thinking(philo, false);
-
 	}
 	return (NULL);
 }
@@ -141,21 +139,27 @@ void	*dinner_simulation(void *data)
  * 0) If no meals, return -> [0]
  * 0.1) If only one philo -> we do an function for this situation.
  * 1) Create all threads, all philos
- * 2) Create a monitor thread -> thread that is searching for philsopher which are death.
- * 3) Syncronize the beggining of the simulation -> everytime you call pthread_create
- * 	the philosophers start to run.
- * 	I want every philo start simultaneously. We need synchronization thing to make
- * 	all the philos start at the same time.
+ * 2) Create a monitor thread -> thread that is searching for philsopher
+ *	 which are death.
+ * 3) Syncronize the beggining of the simulation -> everytime you call 
+ * pthread_create the philosophers start to run.
+ * 	I want every philo start simultaneously. We need synchronization 
+ * 	thing to make all the philos start at the same time.
  * 4) JOIN everyone
- */ 
+ */
 // back to main, clean
-// This is a while loop that is gonna be create all the threads, all the philosophers.
-// Every time this funciton is called immediately the thread starts running this dinner simulation function that we still have to do. 
-// So we need a synhronization thing to make all the philosophers start at the same time.
+// This is a while loop that is gonna be create all 
+// the threads, all the philosophers.
+// Every time this funciton is called immediately 
+// the thread starts running this dinner simulation function 
+// that we still have to do. 
+// So we need a synhronization thing to make 
+// all the philosophers start at the same time.
 // monitor
 // start of simulation
 /*
- * we need a chronometer, we need a function that is able to give us back the 
+ * we need a chronometer, we need a function 
+ * that is able to give us back the 
  * actual time. 
  */
 // now all threads are ready!
