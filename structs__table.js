@@ -1,9 +1,9 @@
 var structs__table =
 [
     [ "all_ate", "structs__table.html#a0abaea46994563549daa89d9593bd871", null ],
-    [ "all_threads_ready", "structs__table.html#ad071a23d28d0d0676097eb945bf5a183", null ],
+    [ "all_threads_ready", "structs__table.html#a06b4490f7467277935dfe7a7854dfa80", null ],
     [ "death_lock", "structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850", null ],
-    [ "end_simulation", "structs__table.html#a45e3ee8761710de1f3cffd280ff1c36a", null ],
+    [ "end_simulation", "structs__table.html#ae81ee0b6ccfa9f1dd973160cc83cb894", null ],
     [ "forks", "structs__table.html#a2c3129b4b451031b04ada0c16e397b76", null ],
     [ "forks", "structs__table.html#ab856710a66de9eddfe51843074cc390c", null ],
     [ "meal_lock", "structs__table.html#a441280c897f6b6530454ec61a32febb7", null ],

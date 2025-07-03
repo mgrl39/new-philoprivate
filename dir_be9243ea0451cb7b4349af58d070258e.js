@@ -7,6 +7,6 @@ var dir_be9243ea0451cb7b4349af58d070258e =
     [ "monitor.c", "old_2monitor_8c.html", "old_2monitor_8c" ],
     [ "philo.h", "old_2philo_8h.html", "old_2philo_8h" ],
     [ "print.c", "old_2print_8c.html", "old_2print_8c" ],
-    [ "routine.c", "routine_8c.html", "routine_8c" ],
+    [ "routine.c", "old_2routine_8c.html", "old_2routine_8c" ],
     [ "utils.c", "old_2utils_8c.html", "old_2utils_8c" ]
 ];

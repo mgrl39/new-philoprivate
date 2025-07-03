@@ -114,44 +114,46 @@ $(document).ready(function(){initNavTree('philo_2main_8c_source.html',''); initR
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*   By: meghribe &lt;meghribe@student.42barcelon      +#+  +:+       +#+        */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*                                                +#+#+#+#+#+   +#+           */</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2025/07/03 14:35:22 by meghribe         ###   ########.fr       */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2025/07/03 18:26:37 by meghribe         ###   ########.fr       */</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*                                                                            */</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/* ************************************************************************** */</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="philo_2philo_8h.html">philo.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * The main is a TL;DR of the program</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * We are gonna check if the input given at the command line is correct</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * we are going to kick in the Machinery </span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * Otherwise we&#39;re going to prompt the user </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * to please feed me with correct prompt.</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * ./philo 5 800 200 200 [5]</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * ./philo philosophers time_to_die time_to_eat time_to_sleep </span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * potencially_number_or_meals</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="philo_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">   26</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="old_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_struct" href="structs__table.html">t_table</a> table;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">if</span> (argc &lt; 5 || argc &gt; 6)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="old_2philo_8h.html#a84365b0f701e1f4a7424d21046ae2d24">print_usage</a>(*argv), 1);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_function" href="old_2main_8c.html#a7890a81472188074daadb0b288c4be40">process_arguments</a>(&amp;table, argv);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="philo_2init_8c.html#a44aad27af2a9ab41140bf97448f62b43">data_init</a>(&amp;table);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_function" href="dinner_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6">dinner_start</a>(&amp;table);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_function" href="philo_2philo_8h.html#a84c2f8f008892149ef391b612ee75699">clean</a>(&amp;table);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * The main is a TL;DR of the program</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * We are gonna check if the input given at the command line is correct</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * we are going to kick in the Machinery </span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * Otherwise we&#39;re going to prompt the user </span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * to please feed me with correct prompt.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * ./philo 5 800 200 200 [5]</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * ./philo philosophers time_to_die time_to_eat time_to_sleep </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * potencially_number_or_meals</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="philo_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">   27</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="old_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_struct" href="structs__table.html">t_table</a> table;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (argc &lt; 5 || argc &gt; 6)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="old_2philo_8h.html#a84365b0f701e1f4a7424d21046ae2d24">print_usage</a>(*argv), 1);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    memset(&amp;table, 0, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structs__table.html">t_table</a>));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_function" href="old_2main_8c.html#a7890a81472188074daadb0b288c4be40">process_arguments</a>(&amp;table, argv);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_function" href="philo_2init_8c.html#a44aad27af2a9ab41140bf97448f62b43">data_init</a>(&amp;table);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="philo_2philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6">dinner_start</a>(&amp;table);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="old_2main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a>(&amp;table);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
 </div>
-<div class="ttc" id="adinner_8c_html_aefcf57cc5e5aba4239be1b514ec03ab6"><div class="ttname"><a href="dinner_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6">dinner_start</a></div><div class="ttdeci">void dinner_start(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="dinner_8c_source.html#l00172">dinner.c:172</a></div></div>
 <div class="ttc" id="aold_2main_8c_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="old_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition</b> <a href="old_2main_8c_source.html#l00119">main.c:119</a></div></div>
+<div class="ttc" id="aold_2main_8c_html_a48e1a47db9db1a87075c996c9a37f75d"><div class="ttname"><a href="old_2main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a></div><div class="ttdeci">void clean_table(t_table *table)</div><div class="ttdoc">cleans up and frees all allocated resources.</div><div class="ttdef"><b>Definition</b> <a href="old_2main_8c_source.html#l00069">main.c:69</a></div></div>
 <div class="ttc" id="aold_2main_8c_html_a7890a81472188074daadb0b288c4be40"><div class="ttname"><a href="old_2main_8c.html#a7890a81472188074daadb0b288c4be40">process_arguments</a></div><div class="ttdeci">static int process_arguments(int ac, char *av[], t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="old_2main_8c_source.html#l00045">main.c:45</a></div></div>
 <div class="ttc" id="aold_2philo_8h_html_a84365b0f701e1f4a7424d21046ae2d24"><div class="ttname"><a href="old_2philo_8h.html#a84365b0f701e1f4a7424d21046ae2d24">print_usage</a></div><div class="ttdeci">void print_usage(char *argv[])</div><div class="ttdef"><b>Definition</b> <a href="old_2print_8c_source.html#l00086">print.c:86</a></div></div>
 <div class="ttc" id="aphilo_2init_8c_html_a44aad27af2a9ab41140bf97448f62b43"><div class="ttname"><a href="philo_2init_8c.html#a44aad27af2a9ab41140bf97448f62b43">data_init</a></div><div class="ttdeci">void data_init(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2init_8c_source.html#l00082">init.c:82</a></div></div>
 <div class="ttc" id="aphilo_2philo_8h_html"><div class="ttname"><a href="philo_2philo_8h.html">philo.h</a></div></div>
-<div class="ttc" id="aphilo_2philo_8h_html_a84c2f8f008892149ef391b612ee75699"><div class="ttname"><a href="philo_2philo_8h.html#a84c2f8f008892149ef391b612ee75699">clean</a></div><div class="ttdeci">void clean(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2utils_8c_source.html#l00088">utils.c:88</a></div></div>
+<div class="ttc" id="aphilo_2philo_8h_html_aefcf57cc5e5aba4239be1b514ec03ab6"><div class="ttname"><a href="philo_2philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6">dinner_start</a></div><div class="ttdeci">void dinner_start(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2routine_8c_source.html#l00172">routine.c:172</a></div></div>
 <div class="ttc" id="astructs__table_html"><div class="ttname"><a href="structs__table.html">s_table</a></div><div class="ttdef"><b>Definition</b> <a href="old_2philo_8h_source.html#l00035">philo.h:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

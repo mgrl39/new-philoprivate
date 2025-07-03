@@ -1,0 +1,14 @@
+<map id="write_status_debug" name="write_status_debug">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,155,31"/>
+<area shape="rect" id="Node000002" href="$state_8c.html#a9cf7f5b32360824fc306e992f8775e58" title=" " alt="" coords="203,5,352,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,15,189,15,189,21,155,21"/>
+<area shape="rect" id="Node000003" href="$state_8c.html#a1cd5a985ffabb5d265950973674a8920" title=" " alt="" coords="400,5,467,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="352,15,386,15,386,21,352,21"/>
+<area shape="rect" id="Node000004" href="$threadsafe_8c.html#a6454f0a0acf648a82505d646132dbef2" title=" " alt="" coords="515,5,665,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="467,15,501,15,501,21,467,21"/>
+<area shape="rect" id="Node000005" href="$philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="915,5,1000,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="666,15,901,15,901,21,666,21"/>
+<area shape="rect" id="Node000006" href="$threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e" title=" " alt="" coords="713,31,867,56"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="666,25,700,29,699,35,665,30"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="867,29,901,24,902,29,867,34"/>
+</map>

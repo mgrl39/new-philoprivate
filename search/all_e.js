@@ -14,7 +14,7 @@ var searchData=
   ['ft_5fphilo_5fatoi_11',['ft_philo_atoi',['../old_2philo_8h.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9',1,'ft_philo_atoi(const char *str, int *result):&#160;utils.c'],['../old_2utils_8c.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9',1,'ft_philo_atoi(const char *str, int *result):&#160;utils.c']]],
   ['ft_5fputstr_5ffd_12',['ft_putstr_fd',['../old_2philo_8h.html#acefce9ac519f8f8b7d3fde33dbafe469',1,'ft_putstr_fd(char *s, int fd):&#160;print.c'],['../old_2print_8c.html#acefce9ac519f8f8b7d3fde33dbafe469',1,'ft_putstr_fd(char *s, int fd):&#160;print.c']]],
   ['ft_5fstrcmp_13',['ft_strcmp',['../old_2philo_8h.html#abd118f33a5a0fe00b6cbbfb0eeae25a5',1,'ft_strcmp(char *s1, char *s2):&#160;utils.c'],['../old_2utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5',1,'ft_strcmp(char *s1, char *s2):&#160;utils.c']]],
-  ['full_14',['full',['../structs__philo.html#a44836383a7047055984df5b9bd5f5dac',1,'s_philo']]],
+  ['full_14',['full',['../structs__philo.html#ad8ce2405d42470c32b3cf19c23f5c14b',1,'s_philo']]],
   ['funciona_15',['funciona',['../md_old_2docs_2conceptos.html#autotoc_md3',1,'Por Que esta solucion Funciona'],['../md_old_2docs_2explained.html#autotoc_md17',1,'Por Que funciona']]],
   ['funcionamiento_20correcto_16',['Funcionamiento correcto',['../md_old_2docs_2parsing.html#autotoc_md31',1,'']]]
 ];

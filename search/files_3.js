@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getters_5fsetters_2ec_0',['getters_setters.c',['../getters__setters_8c.html',1,'']]]
+  ['init_2ec_0',['init.c',['../old_2init_8c.html',1,'(Global Namespace)'],['../philo_2init_8c.html',1,'(Global Namespace)']]]
 ];

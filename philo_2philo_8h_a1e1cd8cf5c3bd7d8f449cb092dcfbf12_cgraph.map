@@ -1,0 +1,10 @@
+<map id="all_threads_running" name="all_threads_running">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,156,31"/>
+<area shape="rect" id="Node000002" href="$threadsafe_8c.html#a6454f0a0acf648a82505d646132dbef2" title=" " alt="" coords="204,5,355,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,15,190,15,190,21,156,21"/>
+<area shape="rect" id="Node000003" href="$philo_2utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="604,5,689,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="355,15,590,15,590,21,355,21"/>
+<area shape="rect" id="Node000004" href="$threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e" title=" " alt="" coords="403,31,556,56"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="355,25,389,29,389,35,354,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="556,29,590,24,591,29,557,34"/>
+</map>

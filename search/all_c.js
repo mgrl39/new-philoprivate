@@ -11,7 +11,7 @@ var searchData=
   ['de_20la_20implementacion_3a_8',['Detalles de la implementacion:',['../md_old_2docs_2explained.html#autotoc_md16',1,'']]],
   ['de_20parseo_20de_20argumentos_9',['Pruebas de parseo de argumentos',['../md_old_2docs_2parsing.html',1,'']]],
   ['de_20recursos_10',['Gestion Eficiente de Recursos',['../md_old_2docs_2conceptos.html#autotoc_md5',1,'']]],
-  ['de_5fsynchronize_5fphilos_11',['de_synchronize_philos',['../synchro__utils_8c.html#aa3b5415c25b3704dbfd3adbabf20919b',1,'de_synchronize_philos(t_philo *philo):&#160;synchro_utils.c'],['../philo_2philo_8h.html#aa3b5415c25b3704dbfd3adbabf20919b',1,'de_synchronize_philos(t_philo *philo):&#160;synchro_utils.c']]],
+  ['de_5fsynchronize_5fphilos_11',['de_synchronize_philos',['../philo_2philo_8h.html#aa3b5415c25b3704dbfd3adbabf20919b',1,'de_synchronize_philos(t_philo *philo):&#160;sync.c'],['../sync_8c.html#aa3b5415c25b3704dbfd3adbabf20919b',1,'de_synchronize_philos(t_philo *philo):&#160;sync.c']]],
   ['deadlock_12',['Anti-Deadlock',['../md_old_2docs_2conceptos.html#autotoc_md4',1,'']]],
   ['death_5flock_13',['death_lock',['../structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850',1,'s_table']]],
   ['debug_5fmode_14',['DEBUG_MODE',['../philo_2philo_8h.html#ac80a3592e72fd96b772ee47a7d8e0d0a',1,'philo.h']]],
@@ -23,8 +23,7 @@ var searchData=
   ['destroy_20',['DESTROY',['../philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4',1,'philo.h']]],
   ['detalles_20de_20la_20implementacion_3a_21',['Detalles de la implementacion:',['../md_old_2docs_2explained.html#autotoc_md16',1,'']]],
   ['died_22',['DIED',['../philo_2philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda77cfb3f8b737b27529fe9d616dc0720a',1,'philo.h']]],
-  ['dinner_2ec_23',['dinner.c',['../dinner_8c.html',1,'']]],
-  ['dinner_5fsimulation_24',['dinner_simulation',['../dinner_8c.html#af3db4f49728131a53563eef43e2c9954',1,'dinner.c']]],
-  ['dinner_5fstart_25',['dinner_start',['../philo_2philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;dinner.c'],['../dinner_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;dinner.c']]],
-  ['dormir_20igual_20a_20cero_26',['Caso 8: Tiempo para dormir igual a cero',['../md_old_2docs_2parsing.html#autotoc_md26',1,'']]]
+  ['dinner_5fsimulation_23',['dinner_simulation',['../philo_2routine_8c.html#af3db4f49728131a53563eef43e2c9954',1,'routine.c']]],
+  ['dinner_5fstart_24',['dinner_start',['../philo_2routine_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;routine.c'],['../philo_2philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;routine.c']]],
+  ['dormir_20igual_20a_20cero_25',['Caso 8: Tiempo para dormir igual a cero',['../md_old_2docs_2parsing.html#autotoc_md26',1,'']]]
 ];

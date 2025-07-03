@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['main_2ec_0',['main.c',['../old_2main_8c.html',1,'(Global Namespace)'],['../philo_2main_8c.html',1,'(Global Namespace)']]],
-  ['makefile_1',['makefile',['../old_2Makefile.html',1,'(Global Namespace)'],['../philo_2Makefile.html',1,'(Global Namespace)']]],
-  ['monitor_2ec_2',['monitor.c',['../old_2monitor_8c.html',1,'(Global Namespace)'],['../philo_2monitor_8c.html',1,'(Global Namespace)']]]
+  ['parsing_2ec_0',['parsing.c',['../parsing_8c.html',1,'']]],
+  ['parsing_2emd_1',['parsing.md',['../parsing_8md.html',1,'']]],
+  ['philo_2eh_2',['philo.h',['../old_2philo_8h.html',1,'(Global Namespace)'],['../philo_2philo_8h.html',1,'(Global Namespace)']]],
+  ['print_2ec_3',['print.c',['../old_2print_8c.html',1,'(Global Namespace)'],['../philo_2print_8c.html',1,'(Global Namespace)']]]
 ];

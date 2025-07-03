@@ -2,7 +2,7 @@ var structs__philo =
 [
     [ "first_fork", "structs__philo.html#adc92f8b24bb26a34e59416b4b6f798af", null ],
     [ "forks", "structs__philo.html#a57dcb66a7b077d55a57e1dbecc2be635", null ],
-    [ "full", "structs__philo.html#a44836383a7047055984df5b9bd5f5dac", null ],
+    [ "full", "structs__philo.html#ad8ce2405d42470c32b3cf19c23f5c14b", null ],
     [ "id", "structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a", null ],
     [ "last_meal_time", "structs__philo.html#a75f0ec517278bb0776f894882183c9f2", null ],
     [ "meals_counter", "structs__philo.html#a08911db7f0fe478eef03e50387752f95", null ],
