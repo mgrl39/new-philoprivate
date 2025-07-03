@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 17:05:34 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:26:37 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 	memset(&table, 0, sizeof(t_table));
 	process_arguments(&table, argv);
 	data_init(&table);
-	dinner_start(&table);
-	clean(&table);
+	start_simulation(&table);
+	clean_table(&table);
 	return (0);
 }
