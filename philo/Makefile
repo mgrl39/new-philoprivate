@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 19:43:07 by meghribe          #+#    #+#              #
-#    Updated: 2025/07/03 17:12:05 by meghribe         ###   ########.fr        #
+#    Updated: 2025/07/03 17:23:44 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC_DIR = .
 INC_DIR = .
 OBJ_DIR = obj
 
-SRCS = routine.c getters_setters.c init.c main.c monitor.c parsing.c \
+SRCS = routine.c shared_state.c init.c main.c monitor.c parsing.c \
 	safe_functions.c synchro_utils.c utils.c print.c
 HEADER = $(INC_DIR)/philo.h
 
