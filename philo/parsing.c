@@ -6,14 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:49:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 11:25:37 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:09:30 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <limits.h>
 
-static inline bool	is_digit(char c)
+static inline int	ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -24,7 +24,7 @@ static inline bool	is_digit(char c)
  * rather than being executed as a seprarte functionc all.
  * this is done to reduce the function call overhead and improve performance.
  */
-static inline bool	is_space(char c)
+static inline int	ft_isspace(char c)
 {
 	return (c == 32 || (c >= 9 && c <= 13));
 }
@@ -49,16 +49,16 @@ static const char	*valid_input(const char *str)
 	const char	*number;
 
 	len = 0;
-	while (is_space(*str))
+	while (ft_isspace(*str))
 		++str;
 	if (*str == '+')
 		++str;
 	else if (*str == '-')
 		error_exit("Feed me only positive values u suck!");
-	if (!is_digit(*str))
+	if (!ft_isdigit(*str))
 		error_exit("The input is not a correct digit");
 	number = str;
-	while (is_digit(*str++))
+	while (ft_isdigit(*str++))
 		++len;
 	if (len > 10)
 		error_exit("The value is too big. INT_MAX is the limit");
@@ -77,7 +77,7 @@ static long	ft_atol(const char *str)
 
 	num = 0;
 	str = valid_input(str);
-	while (is_digit(*str))
+	while (ft_isdigit(*str))
 		num = (num * 10) + (*str++ - '0');
 	if (num > INT_MAX)
 		error_exit("The value is too big, INT_MAX is the limit");
