@@ -69,7 +69,7 @@ static void	philo_init(t_table *table)
 	{
 		philo = table->philos + i;
 		philo->id = i + 1;
-		philo->full = false;
+		philo->full = 0;
 		philo->meals_counter = 0;
 		philo->table = table;
 		safe_mutex_handle(&philo->philo_mutex, INIT);
@@ -84,8 +84,8 @@ void	data_init(t_table *table)
 	int	i;
 
 	i = -1;
-	table->end_simulation = false;
-	table->all_threads_ready = false;
+	table->end_simulation = 0;
+	table->all_threads_ready = 0;
 	table->threads_running_nbr = 0;
 	table->philos = safe_malloc(sizeof(t_philo) * table->philo_nbr);
 	safe_mutex_handle(&table->table_mutex, INIT);

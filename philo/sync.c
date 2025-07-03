@@ -17,19 +17,19 @@
  */
 void	wait_all_threads(t_table	*table)
 {
-	while (!get_bool(&table->table_mutex, &table->all_threads_ready))
+	while (!get_int(&table->table_mutex, &table->all_threads_ready))
 		;
 }
 
 /**
  * Monitor busy waits until all theads are not running
  */ // all threads ARE RUNNING
-bool	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
+int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 {
-	bool	all_running;
+	int	all_running;
 
 	if (!mtx || !threads_count)
-		return (false);
+		return (0);
 	safe_mutex_handle(mtx, LOCK);
 	all_running = (*threads_count == total_threads);
 	safe_mutex_handle(mtx, UNLOCK);
@@ -68,6 +68,6 @@ void	de_synchronize_philos(t_philo *philo)
 	else
 	{
 		if (philo->id % 2)
-			thinking(philo, true);
+			thinking(philo, 1);
 	}
 }

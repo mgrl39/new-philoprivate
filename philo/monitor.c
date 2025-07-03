@@ -12,19 +12,19 @@
 
 #include "philo.h"
 
-static bool	philo_died(t_philo *philo)
+static int	philo_died(t_philo *philo)
 {
 	long	elapsed;
 	long	t_to_die;
 
-	if (get_bool(&philo->philo_mutex, &philo->full))
-		return (false);
+	if (get_int(&philo->philo_mutex, &philo->full))
+		return (0);
 	elapsed = gettime(MILLISECOND);
 	elapsed -= get_long(&philo->philo_mutex, &philo->last_meal_time);
 	t_to_die = philo->table->time_to_die / 1e3;
 	if (elapsed > t_to_die)
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
 // make sure all philos running
@@ -47,7 +47,7 @@ void	*monitor_dinner(void *data)
 		{
 			if (philo_died(table->philos + i))
 			{
-				set_bool(&table->table_mutex, &table->end_simulation, true);
+				set_int(&table->table_mutex, &table->end_simulation, 1);
 				write_status(DIED, table->philos + i, DEBUG_MODE);
 			}
 		}

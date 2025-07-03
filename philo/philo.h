@@ -13,7 +13,6 @@
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <stdbool.h>
 # include <pthread.h>
 
 # define RESET		"\033[0m"
@@ -83,7 +82,7 @@ typedef struct s_philo
 {
 	int			id;
 	long		meals_counter;
-	bool		full;
+	int		full;
 	long		last_meal_time;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
@@ -110,7 +109,7 @@ typedef struct s_philo
  * For the philosophers will  have timestamps starting from this value.
  */
 /*
- * bool end_simulation is very important which is triggered when a philo dies
+ * int end_simulation is very important which is triggered when a philo dies
  * or all philos are full. So this flag is turned on in these two scenarios.
  */
 // all_threads_ready to syncro philosophers
@@ -128,8 +127,8 @@ typedef struct s_table
 	long		time_to_sleep;
 	long		nbr_limit_meals;
 	long		start_simulation;
-	bool		end_simulation;
-	bool		all_threads_ready;
+	int		end_simulation;
+	int		all_threads_ready;
 	long		threads_running_nbr;
 	pthread_t	monitor;
 	t_mtx		table_mutex;
@@ -151,13 +150,13 @@ void	process_arguments(t_table *table, char *argv[]);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 void	data_init(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
-void	set_bool(t_mtx *mutex, bool *dest, bool value);
+void	set_int(t_mtx *mutex, int *dest, int value);
 void	wait_all_threads(t_table	*table);
-void	write_status(t_philo_status status, t_philo *philo, bool debug);
+void	write_status(t_philo_status status, t_philo *philo, int debug);
 void	increase_long(t_mtx *mutex, long *value);
 void	clean_table(t_table *table);
 void	dinner_start(t_table *table);
-void	thinking(t_philo *philo, bool pre_simulation);
+void	thinking(t_philo *philo, int pre_simulation);
 void	de_synchronize_philos(t_philo *philo);
 void	print_usage(char *program_name);
 void	precise_usleep(long usec, t_table *table);
@@ -165,9 +164,9 @@ void	precise_usleep(long usec, t_table *table);
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
-bool	get_bool(t_mtx *mutex, bool *value);
-bool	simulation_finished(t_table *table);
-bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
+int	get_int(t_mtx *mutex, int *value);
+int	simulation_finished(t_table *table);
+int	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 
 # define MSG_FORK "%d has taken a fork\n"
 # define MSG_EAT "%d is eating\n"

@@ -42,13 +42,13 @@ static void	write_status_debug(t_philo_status status, t_philo *philo,
 		printf(RED"\t\t %6ld %d died \n"RESET, time, philo->id);
 }
 
-void	write_status(t_philo_status status, t_philo *philo, bool debug)
+void	write_status(t_philo_status status, t_philo *philo, int debug)
 {
 	long	time;
 
 	time = gettime(MILLISECOND);
 	time -= philo->table->start_simulation;
-	if (get_bool(&philo->philo_mutex, &philo->full))
+	if (get_int(&philo->philo_mutex, &philo->full))
 		return ;
 	safe_mutex_handle(&philo->table->write_mutex, LOCK);
 	if (debug)
