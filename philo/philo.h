@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 18:26:14 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:03:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ typedef struct s_fork
 typedef struct s_philo
 {
 	int			id;
+	int			full;
 	long		meals_counter;
-	int		full;
 	long		last_meal_time;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
@@ -127,8 +127,8 @@ typedef struct s_table
 	long		time_to_sleep;
 	long		nbr_limit_meals;
 	long		start_simulation;
-	int		end_simulation;
-	int		all_threads_ready;
+	int			end_simulation;
+	int			all_threads_ready;
 	long		threads_running_nbr;
 	pthread_t	monitor;
 	t_mtx		table_mutex;
@@ -164,9 +164,9 @@ void	precise_usleep(long usec, t_table *table);
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
-int	get_int(t_mtx *mutex, int *value);
-int	simulation_finished(t_table *table);
-int	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
+int		get_int(t_mtx *mutex, int *value);
+int		simulation_finished(t_table *table);
+int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 
 # define MSG_FORK "%d has taken a fork\n"
 # define MSG_EAT "%d is eating\n"
