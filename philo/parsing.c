@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:49:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 18:28:15 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:36:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	process_arguments(t_table *table, char *av[])
 		return (1);
 	if (parse_and_check(av[4], &table->time_to_sleep, MSG_ARG_SLEEP_TIME, 0))
 		return (1);
-	if (av[5] && 
+	if (av[5] && \
 		parse_and_check(av[5], &table->nbr_limit_meals, MSG_ARG_MEALS, 1))
 		return (1);
 	if (!av[5])
