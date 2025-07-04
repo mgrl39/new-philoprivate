@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 14:05:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:39:42 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,29 @@
 # define PURPLE		"\033[38;5;147m"
 # define BOLD		"\033[1m"
 
-# define MSG_FORK "%d has taken a fork\n"
-# define MSG_EAT "%d is eating\n"
-# define MSG_SLEEP "%d is sleeping\n"
-# define MSG_THINK "%d is thinking\n"
-# define MSG_DIED "%d died\n"
+# define MSG_FORK 	"%d has taken a fork\n"
+# define MSG_EAT 	"%d is eating\n"
+# define MSG_SLEEP 	"%d is sleeping\n"
+# define MSG_THINK 	"%d is thinking\n"
+# define MSG_DIED 	"%d died\n"
 
+/* ************************************************************************** */
+/* ERRORS */
+# define ERR_NOT_DIGIT	-1
+# define ERR_NEGATIVE	-2
+# define ERR_OVERFLOW	-3
+# define ERR_ZERO_VALUE	-4
+# define ERR_TIMESTAMP	-5
+
+# define MSG_ERR_NOT_DIGIT "Error '%s' contains non-numeric characters. \
+Please use only digits."
+# define MSG_ERR_NEGATIVE "Error: '%s' is a negativee number. Please use only \
+positive values."
+# define MSG_ERR_ZERO_PHILO "Error: '%s' is too large. Maximum allowed value \
+is %d."
+# define MSG_ERR_TIMESTAMP "Error: Use timestamps major than 60ms"
+
+/* ************************************************************************** */
 # define DEBUG_MODE 0
 
 /* Philosopher states */
@@ -90,11 +107,11 @@ typedef struct s_philo
 	int			full;
 	long		meals_counter;
 	long		last_meal_time;
+	t_mtx		philo_mutex;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
-	pthread_t	thread_id;
-	t_mtx		philo_mutex;
 	t_table		*table;
+	pthread_t	thread_id;
 }	t_philo;
 
 /*
@@ -136,11 +153,11 @@ typedef struct s_table
 	long		nbr_limit_meals;
 	long		start_simulation;
 	long		threads_running_nbr;
-	pthread_t	monitor;
 	t_mtx		table_mutex;
 	t_mtx		write_mutex;
 	t_fork		*forks;
 	t_philo		*philos;
+	pthread_t	monitor;
 }	t_table;
 
 /* Prototypes */
