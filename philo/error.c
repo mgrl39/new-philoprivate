@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:48:19 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 18:49:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:27:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <limits.h>
 #include <stdio.h>
 
+// TODO: CAMBIAR A FT_PUTSTR_FD o A FT_ERROR O A OTRA COSA...
 void	print_argument_error(int error, const char *arg, const char *param_name)
 {
 	if (error == ERR_NOT_DIGIT)

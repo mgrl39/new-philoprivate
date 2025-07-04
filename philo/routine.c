@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:07:37 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:30:14 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static void	*single_philo(void *arg)
 }
 
 /**
-  if the system is even we dont care, system already fair.
-  ODD, not always fair.
-  */
+ * if the system is even we dont care, system already fair.
+ * ODD, not always fair.
+ */
 void	thinking(t_philo *philo, int pre_simulation)
 {
 	long	t_eat;
@@ -141,18 +141,15 @@ void	*dinner_simulation(void *data)
  * 	I want every philo start simultaneously. We need synchronization 
  * 	thing to make all the philos start at the same time.
  * 4) JOIN everyone
- */
-// back to main, clean
-// This is a while loop that is gonna be create all 
-// the threads, all the philosophers.
-// Every time this funciton is called immediately 
-// the thread starts running this dinner simulation function 
-// that we still have to do. 
-// So we need a synhronization thing to make 
-// all the philosophers start at the same time.
-// monitor
-// start of simulation
-/*
+ * back to main, clean
+ * This is a while loop that is gonna be create all 
+ * the threads, all the philosophers.
+ * Every time this funciton is called immediately 
+ * the thread starts running this dinner simulation function 
+ * that we still have to do. 
+ * So we need a synhronization thing to make 
+ * all the philosophers start at the same time monitor
+ * start of simulation
  * we need a chronometer, we need a function 
  * that is able to give us back the 
  * actual time. 

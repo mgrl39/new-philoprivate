@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:07:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:41:45 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ typedef enum e_opcode
 /* Codes for time units used in gettime() */
 typedef enum e_time_code
 {
-	SECOND,
 	MILLISECOND,
 	MICROSECOND
 }	t_time_code;

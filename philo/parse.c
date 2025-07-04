@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:49:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 20:17:36 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:41:19 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
 	return (0);
 }
 
-//// TODO
 // return 1 failure. Return 0 success
 int	process_arguments(t_table *table, char *av[])
 {
