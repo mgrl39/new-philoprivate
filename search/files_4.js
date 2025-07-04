@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['links_2emd_0',['links.md',['../links_8md.html',1,'']]]
+  ['init_2ec_0',['init.c',['../old_2init_8c.html',1,'(Global Namespace)'],['../philo_2init_8c.html',1,'(Global Namespace)']]]
 ];

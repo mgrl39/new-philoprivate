@@ -2,15 +2,15 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,80,155,105"/>
 <area shape="rect" id="Node000002" href="$old_2main_8c.html#afd8f581b00fda2f0b1bf935609a0ab29" title=" " alt="" coords="203,80,337,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,90,189,90,189,95,155,95"/>
-<area shape="rect" id="Node000003" href="$old_2utils_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title=" " alt="" coords="431,5,500,31"/>
+<area shape="rect" id="Node000003" href="$philo_2print_8c.html#ae546bf4dce28969af541ca3dfe06fc4d" title=" " alt="" coords="431,5,500,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,77,384,40,417,29,418,34,386,44,299,82"/>
 <area shape="rect" id="Node000005" href="$old_2utils_8c.html#a53c86c0e0e0dfe758e12bd6d6fa7f2a9" title=" " alt="" coords="414,55,517,80"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="337,81,400,73,400,78,338,87"/>
 <area shape="rect" id="Node000007" href="$old_2utils_8c.html#abd118f33a5a0fe00b6cbbfb0eeae25a5" title=" " alt="" coords="424,104,507,129"/>
 <area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="338,98,410,107,410,113,337,104"/>
-<area shape="rect" id="Node000008" href="$old_2print_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6" title=" " alt="" coords="385,153,545,179"/>
+<area shape="rect" id="Node000008" href="$error_8c.html#a5ad5b8790c3c97eb4df58707e21f5dc6" title=" " alt="" coords="385,153,545,179"/>
 <area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="301,103,386,138,410,146,408,151,384,143,299,108"/>
-<area shape="rect" id="Node000004" href="$old_2print_8c.html#acefce9ac519f8f8b7d3fde33dbafe469" title="Prints a message in the fd." alt="" coords="593,5,689,31"/>
+<area shape="rect" id="Node000004" href="$philo_2print_8c.html#a1324fe9d27ae67d4c6b05aafcab4d0ed" title="Prints a message in the fd." alt="" coords="593,5,689,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="500,15,579,15,579,21,500,21"/>
 <area shape="rect" id="Node000006" href="$old_2utils_8c.html#a942dd0d78727d6a8f2e27903a21e2430" title=" " alt="" coords="602,55,681,80"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="517,65,588,65,588,70,517,70"/>

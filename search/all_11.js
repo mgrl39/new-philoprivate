@@ -10,6 +10,7 @@ var searchData=
   ['init_2ec_7',['init.c',['../philo_2init_8c.html',1,'(Global Namespace)'],['../old_2init_8c.html',1,'(Global Namespace)']]],
   ['init_5fmutexes_8',['init_mutexes',['../old_2philo_8h.html#a803da164314e505c37bb43299d8ed14a',1,'init_mutexes(t_table *table):&#160;init.c'],['../old_2init_8c.html#a803da164314e505c37bb43299d8ed14a',1,'init_mutexes(t_table *table):&#160;init.c']]],
   ['init_5fphilos_9',['init_philos',['../old_2philo_8h.html#ad0c577bbe9ae96b5220d6fb28201119b',1,'init_philos(t_table *table):&#160;init.c'],['../old_2init_8c.html#ad0c577bbe9ae96b5220d6fb28201119b',1,'init_philos(t_table *table):&#160;init.c']]],
-  ['instrucciones_20generales_10',['Instrucciones generales',['../md_old_2docs_2description.html#autotoc_md11',1,'']]],
-  ['is_5fsimulation_5fterminated_11',['is_simulation_terminated',['../old_2philo_8h.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c'],['../old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c']]]
+  ['init_5ftable_10',['init_table',['../philo_2philo_8h.html#a63e285f3d01dc007f5e154b64473033a',1,'init_table(t_table *table):&#160;init.c'],['../philo_2init_8c.html#a63e285f3d01dc007f5e154b64473033a',1,'init_table(t_table *table):&#160;init.c']]],
+  ['instrucciones_20generales_11',['Instrucciones generales',['../md_old_2docs_2description.html#autotoc_md11',1,'']]],
+  ['is_5fsimulation_5fterminated_12',['is_simulation_terminated',['../old_2monitor_8c.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c'],['../old_2philo_8h.html#aafbad0b5e98479d396a64aa6c9ba70fe',1,'is_simulation_terminated(t_table *table):&#160;monitor.c']]]
 ];

@@ -1,9 +1,9 @@
 <map id="assign_forks" name="assign_forks">
-<area shape="rect" id="Node000001" title=" " alt="" coords="365,5,469,31"/>
-<area shape="rect" id="Node000002" href="$philo_2init_8c.html#a0f0ba0fdb5f6d54626030303a6bb3ef0" title=" " alt="" coords="235,5,317,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="352,21,318,21,318,15,352,15"/>
-<area shape="rect" id="Node000003" href="$philo_2init_8c.html#a44aad27af2a9ab41140bf97448f62b43" title=" " alt="" coords="108,5,187,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,21,187,21,187,15,221,15"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="369,5,473,31"/>
+<area shape="rect" id="Node000002" href="$philo_2init_8c.html#a0f0ba0fdb5f6d54626030303a6bb3ef0" title=" " alt="" coords="239,5,321,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="356,21,322,21,322,15,356,15"/>
+<area shape="rect" id="Node000003" href="$philo_2init_8c.html#a63e285f3d01dc007f5e154b64473033a" title=" " alt="" coords="108,5,191,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="225,21,191,21,191,15,225,15"/>
 <area shape="rect" id="Node000004" href="$philo_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
 </map>

@@ -161,7 +161,7 @@ Flujo principal</h1>
 <li>Simulacion (<code>main.c</code>): <div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="old_2main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    validar_argumentos();</div>
-<div class="line">    init_table(); <span class="comment">// Inicializa la mesa y ls filosofos</span></div>
+<div class="line">    <a class="code hl_function" href="philo_2init_8c.html#a63e285f3d01dc007f5e154b64473033a">init_table</a>(); <span class="comment">// Inicializa la mesa y ls filosofos</span></div>
 <div class="line">    <a class="code hl_function" href="old_2main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf">start_simulation</a>(); <span class="comment">// Lanza hilos</span></div>
 <div class="line">    <a class="code hl_function" href="old_2monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a>(); <span class="comment">// Supervisa estado</span></div>
 <div class="line">    <a class="code hl_function" href="old_2main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a>(); <span class="comment">// Libera recursos</span></div>
@@ -170,6 +170,7 @@ Flujo principal</h1>
 <div class="ttc" id="aold_2main_8c_html_a48e1a47db9db1a87075c996c9a37f75d"><div class="ttname"><a href="old_2main_8c.html#a48e1a47db9db1a87075c996c9a37f75d">clean_table</a></div><div class="ttdeci">void clean_table(t_table *table)</div><div class="ttdoc">cleans up and frees all allocated resources.</div><div class="ttdef"><b>Definition</b> <a href="old_2main_8c_source.html#l00069">main.c:69</a></div></div>
 <div class="ttc" id="aold_2main_8c_html_aa0c41741f9fce76bc9b6e485653e0cdf"><div class="ttname"><a href="old_2main_8c.html#aa0c41741f9fce76bc9b6e485653e0cdf">start_simulation</a></div><div class="ttdeci">int start_simulation(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="old_2main_8c_source.html#l00096">main.c:96</a></div></div>
 <div class="ttc" id="aold_2monitor_8c_html_a619d6413dfafa5ea8cc18edb9e5a8097"><div class="ttname"><a href="old_2monitor_8c.html#a619d6413dfafa5ea8cc18edb9e5a8097">monitor_simulation</a></div><div class="ttdeci">void monitor_simulation(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="old_2monitor_8c_source.html#l00095">monitor.c:95</a></div></div>
+<div class="ttc" id="aphilo_2init_8c_html_a63e285f3d01dc007f5e154b64473033a"><div class="ttname"><a href="philo_2init_8c.html#a63e285f3d01dc007f5e154b64473033a">init_table</a></div><div class="ttdeci">void init_table(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="philo_2init_8c_source.html#l00082">init.c:82</a></div></div>
 </div><!-- fragment --></li>
 <li>Rutina de filosofos (<code>routine.c</code>): <div class="fragment"><div class="line"><span class="keywordtype">void</span>    *<a class="code hl_function" href="old_2philo_8h.html#af59d70ba88dde40771d84ab61f87ea58">philo_loop</a>() {</div>
 <div class="line">    <span class="keywordflow">while</span> (!muerte &amp;&amp; !comidas_completas) {</div>

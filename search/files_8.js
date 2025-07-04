@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['state_2ec_0',['state.c',['../state_8c.html',1,'']]],
-  ['sync_2ec_1',['sync.c',['../sync_8c.html',1,'']]]
+  ['routine_2ec_0',['routine.c',['../old_2routine_8c.html',1,'(Global Namespace)'],['../philo_2routine_8c.html',1,'(Global Namespace)']]]
 ];
