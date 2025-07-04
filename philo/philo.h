@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 14:39:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:21:27 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 # define PURPLE		"\033[38;5;147m"
 # define BOLD		"\033[1m"
 
-# define MSG_FORK 	"%d has taken a fork\n"
-# define MSG_EAT 	"%d is eating\n"
-# define MSG_SLEEP 	"%d is sleeping\n"
-# define MSG_THINK 	"%d is thinking\n"
-# define MSG_DIED 	"%d died\n"
+# define MSG_FORK 	" %d has taken a fork\n"
+# define MSG_EAT 	" %d is eating\n"
+# define MSG_SLEEP 	" %d is sleeping\n"
+# define MSG_THINK 	" %d is thinking\n"
+# define MSG_DIED 	" %d died\n"
 
 /* ************************************************************************** */
 /* ERRORS */
@@ -44,6 +44,7 @@ positive values."
 # define MSG_ERR_ZERO_PHILO "Error: '%s' is too large. Maximum allowed value \
 is %d."
 # define MSG_ERR_TIMESTAMP "Error: Use timestamps major than 60ms"
+# define MSG_ERR_MALLOC "Error: malloc"
 
 /* ************************************************************************** */
 # define DEBUG_MODE 0
@@ -171,7 +172,7 @@ void	*monitor_dinner(void *data);
 void	error_exit(const char *error);
 void	process_arguments(t_table *table, char *argv[]);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
-void	data_init(t_table *table);
+void	init_table(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
 void	set_int(t_mtx *mutex, int *dest, int value);
 void	wait_all_threads(t_table	*table);

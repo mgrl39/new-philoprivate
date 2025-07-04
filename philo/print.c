@@ -6,12 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 18:12:28 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:45:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * [time_ms] [philo_id] [action]
@@ -87,4 +88,34 @@ void	print_usage(char *program_name)
 		": Time in ms it takes for a philosopher to sleep\n");
 	printf(" " PURPLE "num_meals	" RESET
 		": [Optional] Number of times each must eat \n\n");
+}
+/*
+ * TODO: delete? or move to utils bc i will use it in parsing
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}*/
+
+void	ft_putstr_fd(char *msg, int fd)
+{
+	char	*s;
+
+	if (!msg)
+		return ;
+	s = msg;
+	while (*s)
+		write(fd, s++, 1);
+}
+
+int	ft_error(char *msg)
+{
+	ft_putstr_fd(RED, 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd(RESET, 2);
+	return (ft_putstr_fd("\n", 2), 1);
 }

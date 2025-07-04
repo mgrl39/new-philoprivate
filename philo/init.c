@@ -79,7 +79,7 @@ static void	philo_init(t_table *table)
 
 // We want to init this mutex
 // super useful for debug
-void	data_init(t_table *table)
+void	init_table(t_table *table)
 {
 	int	i;
 
