@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 15:33:18 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 16:11:05 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(int argc, char *argv[])
 	if (argc < 5 || argc > 6)
 		return (print_usage(*argv), 1);
 	memset(&table, 0, sizeof(t_table));
-	process_arguments(&table, argv);
+	if (process_arguments(&table, argv))
+		return (print_usage(*argv), 1);
 	init_table(&table);
 	dinner_start(&table);
 	clean_table(&table);

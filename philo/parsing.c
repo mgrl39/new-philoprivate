@@ -6,12 +6,26 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:49:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 15:09:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:28:15 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <limits.h>
+#include <stdio.h>
+
+void	print_argument_error(int error, const char *arg, const char *param_name)
+{
+	if (error == ERR_NOT_DIGIT)
+		printf(RED MSG_ERR_NOT_DIGIT RESET "\n", arg);
+	else if (error == ERR_NEGATIVE)
+		printf(RED MSG_ERR_NEGATIVE RESET "\n", arg);
+	else if (error == ERR_OVERFLOW)
+		printf(RED MSG_ERR_OVERFLOW RESET "\n", arg, INT_MAX);
+	else if (error == ERR_ZERO_VALUE)
+		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", \
+		param_name, arg);
+}
 
 static inline int	ft_isdigit(char c)
 {
@@ -29,85 +43,102 @@ static inline int	ft_isspace(char c)
 	return (c == 32 || (c >= 9 && c <= 13));
 }
 
-/**
- * 1) Check for negatives --> if is there negative numbers -> this does'nt make
- * 		any sense so the input is wrong.
- * 2) Check if the number is legit (i can have spaces, 
- * i can have a +, i can have numebers and later bullshit
- * o
- * 3) Check for INT_MAX --> I will check
- *	 for len first, 2147483647 if len > 10, sure > INT_MAX
- * 	still check the number...
- *
- * Why return ptr? The function is going to return the numberr in string
- * // len of str
-   // 1) skip spaces.
- */
-static const char	*valid_input(const char *str)
+int	ft_philo_atol(const char *str, long *result)
 {
-	int			len;
-	const char	*number;
+	int			sign;
+	size_t		i;
+	long long	num;
 
-	len = 0;
-	while (ft_isspace(*str))
-		++str;
-	if (*str == '+')
-		++str;
-	else if (*str == '-')
-		error_exit("Feed me only positive values u suck!");
-	if (!ft_isdigit(*str))
-		error_exit("The input is not a correct digit");
-	number = str;
-	while (ft_isdigit(*str++))
-		++len;
-	if (len > 10)
-		error_exit("The value is too big. INT_MAX is the limit");
-	return (number);
-}
-
-// always initialize
-// 12313aa --> 12313
-/**
- * The big work has been done by valid_input.
- * This is correct because in valid_input we are checking the len
- */
-static long	ft_atol(const char *str)
-{
-	long	num;
-
+	i = 0;
 	num = 0;
-	str = valid_input(str);
-	while (ft_isdigit(*str))
-		num = (num * 10) + (*str++ - '0');
-	if (num > INT_MAX)
-		error_exit("The value is too big, INT_MAX is the limit");
-	return (num);
+	sign = 1;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	if (!ft_isdigit(str[i]))
+		return (ERR_NOT_DIGIT);
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		num = num * 10 + (str[i] - '0');
+		if (num > INT_MAX)
+			return (ERR_OVERFLOW);
+		i++;
+	}
+	if (str[i] != '\0')
+		return (ERR_NOT_DIGIT);
+	if (sign == -1)
+		return (ERR_NEGATIVE);
+	if (num == 0)
+		return (ERR_ZERO_VALUE);
+	*result = (long)num;
+	return (1);
 }
 
-/**
- * ./philo 5 800 200 200 [5]
- * 	  argv[1] argv[2] argv[3] argv[4] argv[5]
- * 	  We need to convert this strings in actual integers, values.
- * 	  Doing that, i want to control:
- * 	  	- If the strings are actual numbers.
- * 	  	- Not major than INT_MAX
- * 	  	- timestamps > 60ms
- */
-// Now check the timestamp > 60ms
-// Now we have to check argv[5]
-// As a flag
-void	process_arguments(t_table *table, char *argv[])
+// return 1 failure. Return 0 success
+static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
 {
-	table->philo_nbr = ft_atol(argv[1]);
-	table->time_to_die = ft_atol(argv[2]) * 1e3;
-	table->time_to_eat = ft_atol(argv[3]) * 1e3;
-	table->time_to_sleep = ft_atol(argv[4]) * 1e3;
-	if (table->time_to_die < 6e4
-		|| table->time_to_eat < 6e4
-		|| table->time_to_sleep < 6e4)
-		error_exit("Use timestamps major than 60ms");
-	if (argv[5])
-		table->nbr_limit_meals = ft_atol(argv[5]);
-	else
+	int	result;
+
+	result = ft_philo_atol(arg, value);
+	if (result <= 0)
+	{
+		if (result == ERR_ZERO_VALUE && zeroable)
+			return (0);
+		else
+			print_argument_error(result, arg, param);
+		return (1);
+	}
+	return (0);
+}
+
+//// TODO
+// return 1 failure. Return 0 success
+int	process_arguments(t_table *table, char *av[])
+{
+	if (parse_and_check(av[1], &table->philo_nbr, MSG_ARG_PHILOS, 0))
+		return (1);
+	if (parse_and_check(av[2], &table->time_to_die, MSG_ARG_DIE_TIME, 0))
+		return (1);
+	if (parse_and_check(av[3], &table->time_to_eat, MSG_ARG_EAT_TIME, 0))
+		return (1);
+	if (parse_and_check(av[4], &table->time_to_sleep, MSG_ARG_SLEEP_TIME, 0))
+		return (1);
+	if (av[5] && 
+		parse_and_check(av[5], &table->nbr_limit_meals, MSG_ARG_MEALS, 1))
+		return (1);
+	if (!av[5])
 		table->nbr_limit_meals = -1;
+	table->time_to_die *= 1e3;
+	table->time_to_eat *= 1e3;
+	table->time_to_sleep *= 1e3;
+	if (table->time_to_die < MIN_TIMESTAMP
+		|| table->time_to_eat < MIN_TIMESTAMP
+		|| table->time_to_sleep < MIN_TIMESTAMP)
+	{
+		printf(RED MSG_ERR_TIMESTAMP RESET "\n");
+		return (1);
+	}
+	return (0);
+}
+
+// TODO: CAMBIAR A FT_PUTSTR_FD o A FT_ERROR O A OTRA COSA...
+void	print_parsing_error(int error_code, const char *arg)
+{
+	if (error_code == ERR_NOT_DIGIT)
+		printf(RED MSG_ERR_NOT_DIGIT RESET "\n", arg);
+	else if (error_code == ERR_NEGATIVE)
+		printf(RED MSG_ERR_NEGATIVE RESET "\n", arg);
+	else if (error_code == ERR_OVERFLOW)
+		printf(RED "Error: '%s' is too large. maximum \
+			allowed value is %d." RESET "\n", arg, INT_MAX);
+	else if (error_code == ERR_ZERO_VALUE)
+		printf(RED "Error: '%s' cannot be zero." RESET "\n", arg);
+	else if (error_code == ERR_TIMESTAMP)
+		printf(RED MSG_ERR_TIMESTAMP RESET "\n");
 }

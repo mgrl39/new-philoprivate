@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 15:21:27 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:30:05 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,18 @@
 Please use only digits."
 # define MSG_ERR_NEGATIVE "Error: '%s' is a negativee number. Please use only \
 positive values."
-# define MSG_ERR_ZERO_PHILO "Error: '%s' is too large. Maximum allowed value \
+# define MSG_ERR_OVERFLOW "Error: '%s' is too large. Maximum allowed value \
 is %d."
-# define MSG_ERR_TIMESTAMP "Error: Use timestamps major than 60ms"
+# define MSG_ERR_TIMESTAMP "Error: all timings must be at least 60ms"
 # define MSG_ERR_MALLOC "Error: malloc"
+
+# define MSG_ARG_PHILOS 	"number of philosophers"
+# define MSG_ARG_DIE_TIME 	"time to die"
+# define MSG_ARG_EAT_TIME 	"time to eat"
+# define MSG_ARG_SLEEP_TIME "time to sleep"
+# define MSG_ARG_MEALS		"number of meals"
+
+# define MIN_TIMESTAMP	60e3
 
 /* ************************************************************************** */
 # define DEBUG_MODE 0
@@ -170,7 +178,6 @@ void	safe_thread_handle(
 void	*safe_malloc(size_t	bytes);
 void	*monitor_dinner(void *data);
 void	error_exit(const char *error);
-void	process_arguments(t_table *table, char *argv[]);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 void	init_table(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
@@ -189,6 +196,7 @@ long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
 int		get_int(t_mtx *mutex, int *value);
+int		process_arguments(t_table *table, char *argv[]);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 
