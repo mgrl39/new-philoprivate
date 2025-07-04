@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 18:49:13 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 19:56:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,10 @@ void	thinking(t_philo *philo, int pre_simulation);
 void	de_synchronize_philos(t_philo *philo);
 void	print_usage(char *program_name);
 void	precise_usleep(long usec, t_table *table);
-void	print_argument_error(int error, const char *arg, const char *param_name);
+void	print_argument_error(
+			int error,
+			const char *arg,
+			const char *param_name);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
