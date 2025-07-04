@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 15:45:09 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:05:06 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-/**
- * [time_ms] [philo_id] [action]
- *
- * thread safe
- * write_mutex
- */
 static void	write_status_debug(t_philo_status status, t_philo *philo,
 			long time)
 {
@@ -43,7 +37,7 @@ static void	write_status_debug(t_philo_status status, t_philo *philo,
 		printf(RED"\t\t %6ld %d died \n"RESET, time, philo->id);
 }
 
-void	write_status(t_philo_status status, t_philo *philo, int debug)
+void	write_status(t_philo_status status, t_philo *philo)
 {
 	long	time;
 
@@ -52,7 +46,7 @@ void	write_status(t_philo_status status, t_philo *philo, int debug)
 	if (get_int(&philo->philo_mutex, &philo->full))
 		return ;
 	safe_mutex_handle(&philo->table->write_mutex, LOCK);
-	if (debug)
+	if (DEBUG_MODE)
 		write_status_debug(status, philo, time);
 	else
 	{
@@ -89,17 +83,6 @@ void	print_usage(char *program_name)
 	printf(" " PURPLE "num_meals	" RESET
 		": [Optional] Number of times each must eat \n\n");
 }
-/*
- * TODO: delete? or move to utils bc i will use it in parsing
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
-}*/
 
 void	ft_putstr_fd(char *msg, int fd)
 {

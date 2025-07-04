@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:14:10 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 20:17:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:00:41 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ static inline int	ft_isdigit(char c)
 	return (c >= '0' && c <= '9');
 }
 
-/**
- * An inline function is a function that is expanded at 
- * the point of the function call
- * rather than being executed as a seprarte functionc all.
- * this is done to reduce the function call overhead and improve performance.
- */
 static inline int	ft_isspace(char c)
 {
 	return (c == 32 || (c >= 9 && c <= 13));

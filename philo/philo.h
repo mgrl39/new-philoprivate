@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 20:15:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:07:10 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ void	init_table(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
 void	set_int(t_mtx *mutex, int *dest, int value);
 void	wait_all_threads(t_table	*table);
-void	write_status(t_philo_status status, t_philo *philo, int debug);
+void	write_status(t_philo_status status, t_philo *philo);
 void	increase_long(t_mtx *mutex, long *value);
 void	clean_table(t_table *table);
 void	dinner_start(t_table *table);
