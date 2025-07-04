@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:49:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 20:03:20 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:04:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_atol(const char *str, size_t	*i, int	*sign)
 		(*i)++;
 	}
 }
+
 int	ft_philo_atol(const char *str, long *result)
 {
 	int			sign;
