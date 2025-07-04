@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 18:27:11 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:37:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * 1) fake to lock the fork
  * 2) slepe until the monitor will bust it
  */
-void	*lone_philo(void *arg)
+static void	*lone_philo(void *arg)
 {
 	t_philo	*philo;
 
