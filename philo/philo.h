@@ -6,14 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 15:15:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:15:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <stdbool.h>
 # include <pthread.h>
 
 # define RESET		"\033[0m"
@@ -24,6 +23,38 @@
 # define PURPLE		"\033[38;5;147m"
 # define BOLD		"\033[1m"
 
+# define MSG_FORK 	" %d has taken a fork\n"
+# define MSG_EAT 	" %d is eating\n"
+# define MSG_SLEEP 	" %d is sleeping\n"
+# define MSG_THINK 	" %d is thinking\n"
+# define MSG_DIED 	" %d died\n"
+
+/* ************************************************************************** */
+/* ERRORS */
+# define ERR_NOT_DIGIT	-1
+# define ERR_NEGATIVE	-2
+# define ERR_OVERFLOW	-3
+# define ERR_ZERO_VALUE	-4
+# define ERR_TIMESTAMP	-5
+
+# define MSG_ERR_NOT_DIGIT "Error '%s' contains non-numeric characters. \
+Please use only digits."
+# define MSG_ERR_NEGATIVE "Error: '%s' is a negativee number. Please use only \
+positive values."
+# define MSG_ERR_OVERFLOW "Error: '%s' is too large. Maximum allowed value \
+is %d."
+# define MSG_ERR_TIMESTAMP "Error: all timings must be at least 60ms"
+# define MSG_ERR_MALLOC "Error: malloc"
+
+# define MSG_ARG_PHILOS 	"number of philosophers"
+# define MSG_ARG_DIE_TIME 	"time to die"
+# define MSG_ARG_EAT_TIME 	"time to eat"
+# define MSG_ARG_SLEEP_TIME "time to sleep"
+# define MSG_ARG_MEALS		"number of meals"
+
+# define MIN_TIMESTAMP	60e3
+
+/* ************************************************************************** */
 # define DEBUG_MODE 0
 
 /* Philosopher states */
@@ -82,14 +113,14 @@ typedef struct s_fork
 typedef struct s_philo
 {
 	int			id;
+	int			full;
 	long		meals_counter;
-	bool		full;
 	long		last_meal_time;
+	t_mtx		philo_mutex;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
-	pthread_t	thread_id;
-	t_mtx		philo_mutex;
 	t_table		*table;
+	pthread_t	thread_id;
 }	t_philo;
 
 /*
@@ -110,7 +141,7 @@ typedef struct s_philo
  * For the philosophers will  have timestamps starting from this value.
  */
 /*
- * bool end_simulation is very important which is triggered when a philo dies
+ * int end_simulation is very important which is triggered when a philo dies
  * or all philos are full. So this flag is turned on in these two scenarios.
  */
 // all_threads_ready to syncro philosophers
@@ -122,20 +153,20 @@ typedef struct s_philo
 // the array of all the philos. PHILO PHILO PHILO PHILO PHILO
 typedef struct s_table
 {
+	int			end_simulation;
+	int			all_threads_ready;
 	long		philo_nbr;
 	long		time_to_die;
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		nbr_limit_meals;
 	long		start_simulation;
-	bool		end_simulation;
-	bool		all_threads_ready;
 	long		threads_running_nbr;
-	pthread_t	monitor;
 	t_mtx		table_mutex;
 	t_mtx		write_mutex;
 	t_fork		*forks;
 	t_philo		*philos;
+	pthread_t	monitor;
 }	t_table;
 
 /* Prototypes */
@@ -147,26 +178,31 @@ void	safe_thread_handle(
 void	*safe_malloc(size_t	bytes);
 void	*monitor_dinner(void *data);
 void	error_exit(const char *error);
-void	process_arguments(t_table *table, char *argv[]);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
-void	data_init(t_table *table);
+void	init_table(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
-void	set_bool(t_mtx *mutex, bool *dest, bool value);
+void	set_int(t_mtx *mutex, int *dest, int value);
 void	wait_all_threads(t_table	*table);
-void	write_status(t_philo_status status, t_philo *philo, bool debug);
+void	write_status(t_philo_status status, t_philo *philo, int debug);
 void	increase_long(t_mtx *mutex, long *value);
-void	clean(t_table *table);
+void	clean_table(t_table *table);
 void	dinner_start(t_table *table);
-void	thinking(t_philo *philo, bool pre_simulation);
+void	thinking(t_philo *philo, int pre_simulation);
 void	de_synchronize_philos(t_philo *philo);
 void	print_usage(char *program_name);
 void	precise_usleep(long usec, t_table *table);
+void	print_argument_error(
+			int error,
+			const char *arg,
+			const char *param_name);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
-bool	get_bool(t_mtx *mutex, bool *value);
-bool	simulation_finished(t_table *table);
-bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
-
+int		get_int(t_mtx *mutex, int *value);
+int		process_arguments(t_table *table, char *argv[]);
+int		simulation_finished(t_table *table);
+int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
+int		ft_error(char *msg);
+int		ft_philo_atol(const char *str, long *result);
 #endif

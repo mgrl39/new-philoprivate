@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 14:14:47 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:25:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	error_exit(const char *error)
 	exit(EXIT_FAILURE);
 }
 
-void	clean(t_table *table)
+void	clean_table(t_table *table)
 {
 	t_philo	*philo;
 	int		i;

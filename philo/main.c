@@ -6,11 +6,12 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 14:35:22 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 16:11:05 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <string.h>
 
 /*
  * The main is a TL;DR of the program
@@ -29,9 +30,11 @@ int	main(int argc, char *argv[])
 
 	if (argc < 5 || argc > 6)
 		return (print_usage(*argv), 1);
-	process_arguments(&table, argv);
-	data_init(&table);
+	memset(&table, 0, sizeof(t_table));
+	if (process_arguments(&table, argv))
+		return (print_usage(*argv), 1);
+	init_table(&table);
 	dinner_start(&table);
-	clean(&table);
+	clean_table(&table);
 	return (0);
 }
