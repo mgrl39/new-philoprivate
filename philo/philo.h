@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 14:03:10 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:05:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 # define BLUE		"\033[38;5;75m"
 # define PURPLE		"\033[38;5;147m"
 # define BOLD		"\033[1m"
+
+# define MSG_FORK "%d has taken a fork\n"
+# define MSG_EAT "%d is eating\n"
+# define MSG_SLEEP "%d is sleeping\n"
+# define MSG_THINK "%d is thinking\n"
+# define MSG_DIED "%d died\n"
 
 # define DEBUG_MODE 0
 
@@ -121,14 +127,14 @@ typedef struct s_philo
 // the array of all the philos. PHILO PHILO PHILO PHILO PHILO
 typedef struct s_table
 {
+	int			end_simulation;
+	int			all_threads_ready;
 	long		philo_nbr;
 	long		time_to_die;
 	long		time_to_eat;
 	long		time_to_sleep;
 	long		nbr_limit_meals;
 	long		start_simulation;
-	int			end_simulation;
-	int			all_threads_ready;
 	long		threads_running_nbr;
 	pthread_t	monitor;
 	t_mtx		table_mutex;
@@ -167,11 +173,5 @@ long	get_long(t_mtx *mutex, long *value);
 int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
-
-# define MSG_FORK "%d has taken a fork\n"
-# define MSG_EAT "%d is eating\n"
-# define MSG_SLEEP "%d is sleeping\n"
-# define MSG_THINK "%d is thinking\n"
-# define MSG_DIED "%d died\n"
 
 #endif
