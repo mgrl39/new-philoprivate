@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:41:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:54:43 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ long	gettime(t_time_code	time_code)
 		return ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);
 	else if (MICROSECOND == time_code)
 		return ((tv.tv_sec * 1e6) + tv.tv_usec);
-	else
-		error_exit("Wrong input to gettime!");
-	return (1337);
+	return (-1);
 }
 
 /**
@@ -61,16 +59,22 @@ void	precise_usleep(long usec, t_table *table)
 	long	remaining;
 
 	start = gettime(MICROSECOND);
+	if (start == -1)
+		ft_alert(MSG_ERR_GET_TIME, ALERT_ERROR);
+	// TODO CHECK IF GETTIME IS -1
+	// TODO CHECK IF GETTIME IS -1
 	while (gettime(MICROSECOND) - start < usec)
 	{
 		if (simulation_finished(table))
 			break ;
+		// TODO CHECK IF GETTIME IS -1
 		elapsed = gettime(MICROSECOND) - start;
 		remaining = usec - elapsed;
 		if (remaining > 1e3)
 			usleep(remaining / 2);
 		else
 		{
+			// TODO CHECK IF GETTIME IS -1
 			while (gettime(MICROSECOND) - start < usec)
 				;
 		}

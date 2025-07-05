@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 23:54:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:02:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	ft_alert(char *msg, t_alert_type type)
 	return (type == ALERT_ERROR);
 }
 
+// TODO: CHANGE IT TO FT_ALERT
 void	print_argument_error(int error, const char *arg, const char *param_name)
 {
 	if (error == ERR_NOT_DIGIT)

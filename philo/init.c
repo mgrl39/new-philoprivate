@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 23:57:54 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:29:27 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ static void	philo_init(t_table *table)
 // Aux functin to clean mutexes
 static void	cleanup_mutexes(t_table *table, int initialized_forks)
 {
-	int	i;
 	int	status;
+	int	i;
 
 	i = -1;
 	while (++i < initialized_forks)
@@ -99,10 +99,11 @@ static void	cleanup_mutexes(t_table *table, int initialized_forks)
 		ft_alert(MSG_WARN_FAIL_DEST_WRITE_MTX, ALERT_WARNING);
 }
 
-// We want to init this mutex
-// super useful for debug
-// if bad return 1
-//
+/* 
+ * We want to init this mutex
+ * super useful for debug
+ * if bad return 1
+ */
 int	init_table(t_table *table)
 {
 	int	i;

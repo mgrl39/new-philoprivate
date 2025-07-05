@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 23:57:41 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:46:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ is %d."
 # define MSG_WARN_FAIL_DEST_FORK_MTX "Warning: Failed to destroy fork mutex\n"
 # define MSG_WARN_FAIL_DEST_TABLE_MTX "Warning: Failed to destroy table mutex\n"
 # define MSG_WARN_FAIL_DEST_WRITE_MTX "Warning: Failed to destroy write mutex\n"
+
+# define MSG_ERR_GET_TIME "Error: gettimeofday function returned -1\n"
 
 /* ************************************************************************** */
 # define DEBUG_MODE 0
