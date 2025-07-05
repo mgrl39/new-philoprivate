@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 22:48:17 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:58:11 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	process_arguments(t_table *table, char *av[])
 	if (table->time_to_die < MIN_TIMESTAMP
 		|| table->time_to_eat < MIN_TIMESTAMP
 		|| table->time_to_sleep < MIN_TIMESTAMP)
-		return (ft_error(MSG_ERR_TIMESTAMP));
+		return (ft_alert(MSG_ERR_TIMESTAMP, ALERT_ERROR));
 	return (0);
 }
 
