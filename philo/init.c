@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 22:50:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:29:27 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,28 +81,29 @@ static void	philo_init(t_table *table)
 // Aux functin to clean mutexes
 static void	cleanup_mutexes(t_table *table, int initialized_forks)
 {
-	int	i;
 	int	status;
+	int	i;
 
 	i = -1;
 	while (++i < initialized_forks)
 	{
 		status = pthread_mutex_destroy(&table->forks[i].fork);
 		if (status != 0)
-			ft_putstr_fd("Warning: Failed to destroy fork mutex\n", 2);
+			ft_alert(MSG_WARN_FAIL_DEST_FORK_MTX, ALERT_WARNING);
 	}
 	status = pthread_mutex_destroy(&table->table_mutex);
 	if (status != 0)
-		ft_putstr_fd("Warning: Failed to destroy table mutex\n", 2);
+		ft_alert(MSG_WARN_FAIL_DEST_TABLE_MTX, ALERT_WARNING);
 	status = pthread_mutex_destroy(&table->write_mutex);
 	if (status != 0)
-		ft_putstr_fd("Warning: Failed to destroy write mutex\n", 2);
+		ft_alert(MSG_WARN_FAIL_DEST_WRITE_MTX, ALERT_WARNING);
 }
 
-// We want to init this mutex
-// super useful for debug
-// if bad return 1
-//
+/* 
+ * We want to init this mutex
+ * super useful for debug
+ * if bad return 1
+ */
 int	init_table(t_table *table)
 {
 	int	i;
@@ -110,19 +111,19 @@ int	init_table(t_table *table)
 
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
 	if (!table->philos)
-		return (ft_error(MSG_ERR_MALLOC));
+		return (ft_alert(MSG_ERR_MALLOC, ALERT_ERROR));
 	if (pthread_mutex_init(&table->table_mutex, NULL) != 0)
-		return (free(table->philos), ft_error(MSG_ERR_MUTEX));
+		return (free(table->philos), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
 	if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
 	{
 		destroy_status = pthread_mutex_destroy(&table->table_mutex);
 		if (destroy_status != 0)
-			ft_error("Warning: failed to destroy table mutex\n");
-		return (free(table->philos), ft_error(MSG_ERR_MUTEX));
+			ft_alert(MSG_WARN_FAIL_DEST_TABLE_MTX, ALERT_WARNING);
+		return (free(table->philos), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
 	}
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
 	if (!table->forks)
-		return (cleanup_mutexes(table, 0), free(table->philos), ft_error(MSG_ERR_MALLOC));
+		return (cleanup_mutexes(table, 0), free(table->philos), ft_alert(MSG_ERR_MALLOC, ALERT_ERROR));
 	i = -1;
 	while (++i < table->philo_nbr)
 	{
@@ -130,10 +131,9 @@ int	init_table(t_table *table)
 		{
 			cleanup_mutexes(table, i);
 			free(table->philos);
-			return (free(table->forks), ft_error(MSG_ERR_MUTEX));
+			return (free(table->forks), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
 		}
 		table->forks[i].fork_id = i;
 	}
-	philo_init(table);
-	return (0);
+	return (philo_init(table), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 21:55:38 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:46:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ is %d."
 
 # define MIN_TIMESTAMP	60e3
 
+# define MSG_WARN_FAIL_DEST_FORK_MTX "Warning: Failed to destroy fork mutex\n"
+# define MSG_WARN_FAIL_DEST_TABLE_MTX "Warning: Failed to destroy table mutex\n"
+# define MSG_WARN_FAIL_DEST_WRITE_MTX "Warning: Failed to destroy write mutex\n"
+
+# define MSG_ERR_GET_TIME "Error: gettimeofday function returned -1\n"
+
 /* ************************************************************************** */
 # define DEBUG_MODE 0
 
@@ -86,6 +92,12 @@ typedef enum e_time_code
 	MILLISECOND,
 	MICROSECOND
 }	t_time_code;
+
+typedef enum e_alert_type
+{
+	ALERT_ERROR,
+	ALERT_WARNING
+}	t_alert_type;
 
 /* Typedefs */
 typedef pthread_mutex_t	t_mtx;
@@ -175,7 +187,6 @@ void	safe_thread_handle(
 			void *(*foo)(void *),
 			void *data,
 			t_opcode opcode);
-void	*safe_malloc(size_t	bytes);
 void	*monitor_dinner(void *data);
 void	error_exit(const char *error);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
@@ -189,19 +200,19 @@ void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
+void	ft_putstr_fd(char *msg, int fd);
 void	print_argument_error(
 			int error,
 			const char *arg,
 			const char *param_name);
-void	ft_putstr_fd(char *msg, int fd);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
+int		init_table(t_table *table);
+int		ft_alert(char *msg, t_alert_type type);
 int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
-int		ft_error(char *msg);
 int		validate_and_convert_to_long(const char *str, long *result);
-int		init_table(t_table *table);
 #endif

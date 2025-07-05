@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:51:11 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:02:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,19 @@ void	ft_putstr_fd(char *msg, int fd)
 		write(fd, s++, 1);
 }
 
-int	ft_error(char *msg)
+int	ft_alert(char *msg, t_alert_type type)
 {
-	ft_putstr_fd(RED, 2);
+	if (type == ALERT_ERROR)
+		ft_putstr_fd(RED, 2);
+	else
+		ft_putstr_fd(GOLD, 2);
 	ft_putstr_fd(msg, 2);
 	ft_putstr_fd(RESET, 2);
-	return (ft_putstr_fd("\n", 2), 1);
+	ft_putstr_fd("\n", 2);
+	return (type == ALERT_ERROR);
 }
 
+// TODO: CHANGE IT TO FT_ALERT
 void	print_argument_error(int error, const char *arg, const char *param_name)
 {
 	if (error == ERR_NOT_DIGIT)
