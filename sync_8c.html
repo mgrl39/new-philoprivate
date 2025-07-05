@@ -175,9 +175,9 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   34</span>    <a class="code hl_function" href="philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a>(mtx, <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a>);</div>
 <div class="line"><span class="lineno">   35</span>    <span class="keywordflow">return</span> (all_running);</div>
 <div class="line"><span class="lineno">   36</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a></div><div class="ttdeci">@ UNLOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00076">philo.h:76</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a></div><div class="ttdeci">@ LOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00075">philo.h:75</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a6454f0a0acf648a82505d646132dbef2"><div class="ttname"><a href="philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a></div><div class="ttdeci">void safe_mutex_handle(t_mtx *mutex, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="threadsafe_8c_source.html#l00066">threadsafe.c:66</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a></div><div class="ttdeci">@ UNLOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00082">philo.h:82</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a></div><div class="ttdeci">@ LOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00081">philo.h:81</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a6454f0a0acf648a82505d646132dbef2"><div class="ttname"><a href="philo_8h.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a></div><div class="ttdeci">void safe_mutex_handle(t_mtx *mutex, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="threadsafe_8c_source.html#l00051">threadsafe.c:51</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -310,44 +310,48 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   69</span>    }</div>
 <div class="line"><span class="lineno">   70</span>}</div>
 <div class="ttc" id="aphilo_8h_html_a8ed163d7c7f73288311509a08d62a561"><div class="ttname"><a href="philo_8h.html#a8ed163d7c7f73288311509a08d62a561">thinking</a></div><div class="ttdeci">void thinking(t_philo *philo, int pre_simulation)</div><div class="ttdef"><b>Definition</b> <a href="routine_8c_source.html#l00039">routine.c:39</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a9378c26262a9761809207ec96e047a53"><div class="ttname"><a href="philo_8h.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a></div><div class="ttdeci">void precise_usleep(long usec, t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00057">utils.c:57</a></div></div>
-<div class="ttc" id="astructs__philo_html_a27548ffe0896e8ecd9623b89f4a25b6a"><div class="ttname"><a href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">s_philo::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00115">philo.h:115</a></div></div>
-<div class="ttc" id="astructs__philo_html_a6d19ddbf76b310e0be820db11863c0b0"><div class="ttname"><a href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">s_philo::table</a></div><div class="ttdeci">t_table * table</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00122">philo.h:122</a></div></div>
-<div class="ttc" id="astructs__table_html_a99fea957f58894156b9aab0e1716dab6"><div class="ttname"><a href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">s_table::philo_nbr</a></div><div class="ttdeci">long philo_nbr</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00158">philo.h:158</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a9378c26262a9761809207ec96e047a53"><div class="ttname"><a href="philo_8h.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a></div><div class="ttdeci">void precise_usleep(long usec, t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00055">utils.c:55</a></div></div>
+<div class="ttc" id="astructs__philo_html_a27548ffe0896e8ecd9623b89f4a25b6a"><div class="ttname"><a href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">s_philo::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00127">philo.h:127</a></div></div>
+<div class="ttc" id="astructs__philo_html_a6d19ddbf76b310e0be820db11863c0b0"><div class="ttname"><a href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">s_philo::table</a></div><div class="ttdeci">t_table * table</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00134">philo.h:134</a></div></div>
+<div class="ttc" id="astructs__table_html_a99fea957f58894156b9aab0e1716dab6"><div class="ttname"><a href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">s_table::philo_nbr</a></div><div class="ttdeci">long philo_nbr</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00170">philo.h:170</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="sync_8c_a21897b8581f471fff273cf4b0c69bf2f_cgraph.png" border="0" usemap="#async_8c_a21897b8581f471fff273cf4b0c69bf2f_cgraph" alt=""/></div>
 <map name="async_8c_a21897b8581f471fff273cf4b0c69bf2f_cgraph" id="async_8c_a21897b8581f471fff273cf4b0c69bf2f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,51,172,91"/>
-<area shape="rect" href="utils_8c.html#a9378c26262a9761809207ec96e047a53" title=" " alt="" coords="343,33,461,58"/>
-<area shape="poly" title=" " alt="" coords="172,61,329,48,329,54,172,66"/>
-<area shape="rect" href="routine_8c.html#a8ed163d7c7f73288311509a08d62a561" title=" " alt="" coords="220,83,295,109"/>
-<area shape="poly" title=" " alt="" coords="172,80,207,86,206,91,172,86"/>
-<area shape="rect" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3" title=" " alt="" coords="547,33,621,58"/>
-<area shape="poly" title=" " alt="" coords="462,43,533,43,533,48,462,48"/>
-<area shape="rect" href="state_8c.html#a9cf7f5b32360824fc306e992f8775e58" title=" " alt="" coords="707,121,856,146"/>
-<area shape="poly" title=" " alt="" coords="436,30,481,16,538,6,599,4,630,9,660,17,693,35,722,59,765,108,762,111,719,63,690,40,658,22,629,14,599,10,538,11,482,22,437,35"/>
-<area shape="rect" href="utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="1419,133,1504,158"/>
-<area shape="poly" title=" " alt="" coords="621,45,759,52,936,56,1095,56,1186,63,1275,81,1355,104,1417,125,1415,130,1353,109,1274,86,1185,68,1095,61,936,61,759,57,621,50"/>
-<area shape="rect" href="state_8c.html#a1cd5a985ffabb5d265950973674a8920" title=" " alt="" coords="904,183,971,209"/>
-<area shape="poly" title=" " alt="" coords="815,143,893,175,891,180,813,148"/>
-<area shape="rect" href="threadsafe_8c.html#a6454f0a0acf648a82505d646132dbef2" title=" " alt="" coords="1019,183,1169,209"/>
-<area shape="poly" title=" " alt="" coords="971,193,1005,193,1005,199,971,199"/>
-<area shape="poly" title=" " alt="" coords="1154,180,1217,169,1404,147,1405,153,1218,174,1155,186"/>
-<area shape="rect" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e" title=" " alt="" coords="1217,183,1371,209"/>
-<area shape="poly" title=" " alt="" coords="1169,193,1203,193,1203,199,1169,199"/>
-<area shape="poly" title=" " alt="" coords="1336,181,1405,159,1406,164,1338,186"/>
-<area shape="poly" title=" " alt="" coords="294,81,351,60,353,65,295,86"/>
-<area shape="rect" href="print_8c.html#ab2f1976d72ff26789f94368cc5bf52c2" title=" " alt="" coords="351,109,453,134"/>
-<area shape="poly" title=" " alt="" coords="295,100,338,107,337,113,294,105"/>
-<area shape="poly" title=" " alt="" coords="427,106,508,68,533,58,535,63,510,73,429,111"/>
-<area shape="poly" title=" " alt="" coords="453,120,693,128,693,133,453,125"/>
-<area shape="poly" title=" " alt="" coords="454,126,890,187,889,192,453,131"/>
-<area shape="poly" title=" " alt="" coords="433,131,510,159,619,185,705,200,792,210,904,219,937,220,970,219,1029,209,1030,214,971,224,937,226,904,224,792,215,704,206,618,190,509,164,431,136"/>
-<area shape="rect" href="print_8c.html#a9cef8bbd60360f60b0f4f8e811218b9e" title=" " alt="" coords="509,82,659,107"/>
-<area shape="poly" title=" " alt="" coords="453,111,496,105,496,110,454,116"/>
-<area shape="poly" title=" " alt="" coords="650,105,703,115,702,120,649,110"/>
+<area shape="rect" title=" " alt="" coords="5,99,172,139"/>
+<area shape="rect" href="utils_8c.html#a9378c26262a9761809207ec96e047a53" title=" " alt="" coords="343,81,461,107"/>
+<area shape="poly" title=" " alt="" coords="172,110,329,97,329,103,172,115"/>
+<area shape="rect" href="routine_8c.html#a8ed163d7c7f73288311509a08d62a561" title=" " alt="" coords="220,132,295,157"/>
+<area shape="poly" title=" " alt="" coords="172,129,207,134,206,140,172,134"/>
+<area shape="rect" href="print_8c.html#a947bf0aaab32c425b437596100a37e92" title=" " alt="" coords="550,5,618,31"/>
+<area shape="poly" title=" " alt="" coords="432,79,539,34,541,38,434,84"/>
+<area shape="rect" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3" title=" " alt="" coords="547,107,621,132"/>
+<area shape="poly" title=" " alt="" coords="462,100,534,110,534,115,461,105"/>
+<area shape="rect" href="state_8c.html#a9cf7f5b32360824fc306e992f8775e58" title=" " alt="" coords="707,193,856,219"/>
+<area shape="poly" title=" " alt="" coords="462,80,506,75,556,73,609,78,660,92,693,109,722,132,765,180,761,184,718,136,690,114,658,96,608,83,556,78,506,80,462,85"/>
+<area shape="rect" href="print_8c.html#a1324fe9d27ae67d4c6b05aafcab4d0ed" title=" " alt="" coords="733,5,829,31"/>
+<area shape="poly" title=" " alt="" coords="618,15,720,15,720,21,618,21"/>
+<area shape="rect" href="utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="1419,195,1504,220"/>
+<area shape="poly" title=" " alt="" coords="621,121,759,133,936,141,1095,141,1181,146,1266,158,1406,189,1405,194,1265,163,1181,151,1095,146,936,146,759,139,621,126"/>
+<area shape="rect" href="state_8c.html#a1cd5a985ffabb5d265950973674a8920" title=" " alt="" coords="904,245,971,271"/>
+<area shape="poly" title=" " alt="" coords="821,216,892,240,890,245,819,221"/>
+<area shape="rect" href="threadsafe_8c.html#a6454f0a0acf648a82505d646132dbef2" title=" " alt="" coords="1019,245,1169,271"/>
+<area shape="poly" title=" " alt="" coords="971,255,1005,255,1005,261,971,261"/>
+<area shape="poly" title=" " alt="" coords="1169,252,1265,245,1370,230,1408,221,1409,226,1371,235,1266,250,1170,258"/>
+<area shape="rect" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e" title=" " alt="" coords="1217,195,1371,220"/>
+<area shape="poly" title=" " alt="" coords="1144,243,1229,221,1231,226,1146,248"/>
+<area shape="poly" title=" " alt="" coords="1371,205,1405,205,1405,210,1371,210"/>
+<area shape="poly" title=" " alt="" coords="294,129,351,109,353,114,295,134"/>
+<area shape="rect" href="print_8c.html#ab2f1976d72ff26789f94368cc5bf52c2" title=" " alt="" coords="351,183,453,208"/>
+<area shape="poly" title=" " alt="" coords="295,155,353,176,351,181,294,160"/>
+<area shape="poly" title=" " alt="" coords="427,180,508,142,533,133,535,138,510,147,429,185"/>
+<area shape="poly" title=" " alt="" coords="453,194,693,201,693,206,453,199"/>
+<area shape="poly" title=" " alt="" coords="454,199,707,229,891,250,890,255,706,234,453,204"/>
+<area shape="poly" title=" " alt="" coords="438,205,510,227,619,251,705,264,904,281,937,283,970,281,1029,271,1030,276,971,286,937,288,904,286,705,270,618,256,509,233,436,211"/>
+<area shape="rect" href="print_8c.html#a9cef8bbd60360f60b0f4f8e811218b9e" title=" " alt="" coords="509,156,659,181"/>
+<area shape="poly" title=" " alt="" coords="453,185,496,179,496,184,454,190"/>
+<area shape="poly" title=" " alt="" coords="652,179,701,188,700,193,651,184"/>
 </map>
 </div>
 <div class="dynheader">
@@ -389,8 +393,8 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   19</span>        ;</div>
 <div class="line"><span class="lineno">   20</span>}</div>
 <div class="ttc" id="aphilo_8h_html_a1cd5a985ffabb5d265950973674a8920"><div class="ttname"><a href="philo_8h.html#a1cd5a985ffabb5d265950973674a8920">get_int</a></div><div class="ttdeci">int get_int(t_mtx *mutex, int *value)</div><div class="ttdef"><b>Definition</b> <a href="state_8c_source.html#l00030">state.c:30</a></div></div>
-<div class="ttc" id="astructs__table_html_a06b4490f7467277935dfe7a7854dfa80"><div class="ttname"><a href="structs__table.html#a06b4490f7467277935dfe7a7854dfa80">s_table::all_threads_ready</a></div><div class="ttdeci">int all_threads_ready</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00157">philo.h:157</a></div></div>
-<div class="ttc" id="astructs__table_html_a39084529fdb8f766cff366a50435790d"><div class="ttname"><a href="structs__table.html#a39084529fdb8f766cff366a50435790d">s_table::table_mutex</a></div><div class="ttdeci">t_mtx table_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00165">philo.h:165</a></div></div>
+<div class="ttc" id="astructs__table_html_a06b4490f7467277935dfe7a7854dfa80"><div class="ttname"><a href="structs__table.html#a06b4490f7467277935dfe7a7854dfa80">s_table::all_threads_ready</a></div><div class="ttdeci">int all_threads_ready</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00169">philo.h:169</a></div></div>
+<div class="ttc" id="astructs__table_html_a39084529fdb8f766cff366a50435790d"><div class="ttname"><a href="structs__table.html#a39084529fdb8f766cff366a50435790d">s_table::table_mutex</a></div><div class="ttdeci">t_mtx table_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00177">philo.h:177</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

@@ -127,8 +127,6 @@ Include dependency graph for threadsafe.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a083343af0972bffcaa946c757b45d6a5" id="r_a083343af0972bffcaa946c757b45d6a5"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threadsafe_8c.html#a083343af0972bffcaa946c757b45d6a5">safe_malloc</a> (size_t bytes)</td></tr>
-<tr class="separator:a083343af0972bffcaa946c757b45d6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bad0b0b2e5868b626b338dc6f15593e" id="r_a7bad0b0b2e5868b626b338dc6f15593e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a> (int status, <a class="el" href="philo_8h.html#ac11b51d4c47b99ccbf7d208b7a1f8205">t_opcode</a> opcode)</td></tr>
 <tr class="separator:a7bad0b0b2e5868b626b338dc6f15593e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6454f0a0acf648a82505d646132dbef2" id="r_a6454f0a0acf648a82505d646132dbef2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threadsafe_8c.html#a6454f0a0acf648a82505d646132dbef2">safe_mutex_handle</a> (<a class="el" href="philo_8h.html#aea7fc7c99322f930e2dbfa4dcb8a2736">t_mtx</a> *mutex, <a class="el" href="philo_8h.html#ac11b51d4c47b99ccbf7d208b7a1f8205">t_opcode</a> opcode)</td></tr>
@@ -173,30 +171,30 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00039">39</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   40</span>{</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> (0 == status)</div>
-<div class="line"><span class="lineno">   42</span>        return ;</div>
-<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a> == opcode || <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a> == opcode))</div>
-<div class="line"><span class="lineno">   44</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by mutex is invalid.&quot;</span>);</div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36">INIT</a> == opcode)</div>
-<div class="line"><span class="lineno">   46</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by attr is invalid.&quot;</span>);</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EDEADLK == status)</div>
-<div class="line"><span class="lineno">   48</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(</div>
-<div class="line"><span class="lineno">   49</span>            <span class="stringliteral">&quot;A deadlock would occur if the thread blocked waiting for mutex.&quot;</span>);</div>
-<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EPERM == status)</div>
-<div class="line"><span class="lineno">   51</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The current thread does not hold a lock on muttex.&quot;</span>);</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ENOMEM == status)</div>
-<div class="line"><span class="lineno">   53</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(</div>
-<div class="line"><span class="lineno">   54</span>            <span class="stringliteral">&quot;The process cannot allocate enogh memory to create antoher mutex.&quot;</span></div>
-<div class="line"><span class="lineno">   55</span>            );</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EBUSY == status)</div>
-<div class="line"><span class="lineno">   57</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Mutex is locked&quot;</span>);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00080">utils.c:80</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36">INIT</a></div><div class="ttdeci">@ INIT</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00077">philo.h:77</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a></div><div class="ttdeci">@ UNLOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00076">philo.h:76</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a></div><div class="ttdeci">@ LOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00075">philo.h:75</a></div></div>
+<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00024">24</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span> (0 == status)</div>
+<div class="line"><span class="lineno">   27</span>        return ;</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a> == opcode || <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a> == opcode))</div>
+<div class="line"><span class="lineno">   29</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by mutex is invalid.&quot;</span>);</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36">INIT</a> == opcode)</div>
+<div class="line"><span class="lineno">   31</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by attr is invalid.&quot;</span>);</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EDEADLK == status)</div>
+<div class="line"><span class="lineno">   33</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(</div>
+<div class="line"><span class="lineno">   34</span>            <span class="stringliteral">&quot;A deadlock would occur if the thread blocked waiting for mutex.&quot;</span>);</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EPERM == status)</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The current thread does not hold a lock on muttex.&quot;</span>);</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ENOMEM == status)</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(</div>
+<div class="line"><span class="lineno">   39</span>            <span class="stringliteral">&quot;The process cannot allocate enogh memory to create antoher mutex.&quot;</span></div>
+<div class="line"><span class="lineno">   40</span>            );</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EBUSY == status)</div>
+<div class="line"><span class="lineno">   42</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Mutex is locked&quot;</span>);</div>
+<div class="line"><span class="lineno">   43</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a2e431795e57bcd9f63ad72e2239e9c14"><div class="ttname"><a href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a></div><div class="ttdeci">void error_exit(const char *error)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00084">utils.c:84</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36">INIT</a></div><div class="ttdeci">@ INIT</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00083">philo.h:83</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a></div><div class="ttdeci">@ UNLOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00082">philo.h:82</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a></div><div class="ttdeci">@ LOCK</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00081">philo.h:81</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -333,27 +331,27 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>THREADS </p>
 
-<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00084">84</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   85</span>{</div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span> (0 == status)</div>
-<div class="line"><span class="lineno">   87</span>        return ;</div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">if</span> (EAGAIN == status)</div>
-<div class="line"><span class="lineno">   89</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;No resources to create another thread&quot;</span>);</div>
-<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EPERM == status)</div>
-<div class="line"><span class="lineno">   91</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The caller does not have appropiate permission\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4">CREATE</a> == opcode)</div>
-<div class="line"><span class="lineno">   93</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by attr is invalid.&quot;</span>);</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7">JOIN</a> == opcode)</div>
-<div class="line"><span class="lineno">   95</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by thread is not joinable\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ESRCH == status)</div>
-<div class="line"><span class="lineno">   97</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;No thread could be fould corresponding to that \</span></div>
-<div class="line"><span class="lineno">   98</span><span class="stringliteral">            specified by the given thraed ID, thread.&quot;</span>);</div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EDEADLK == status)</div>
-<div class="line"><span class="lineno">  100</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;A deadlock was detected or the value of thread specifies \</span></div>
-<div class="line"><span class="lineno">  101</span><span class="stringliteral">            the calling thread.&quot;</span>);</div>
-<div class="line"><span class="lineno">  102</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4">CREATE</a></div><div class="ttdeci">@ CREATE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00079">philo.h:79</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7">JOIN</a></div><div class="ttdeci">@ JOIN</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00080">philo.h:80</a></div></div>
+<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00069">69</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span> (0 == status)</div>
+<div class="line"><span class="lineno">   72</span>        return ;</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">if</span> (EAGAIN == status)</div>
+<div class="line"><span class="lineno">   74</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;No resources to create another thread&quot;</span>);</div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EPERM == status)</div>
+<div class="line"><span class="lineno">   76</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The caller does not have appropiate permission\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4">CREATE</a> == opcode)</div>
+<div class="line"><span class="lineno">   78</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by attr is invalid.&quot;</span>);</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EINVAL == status &amp;&amp; <a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7">JOIN</a> == opcode)</div>
+<div class="line"><span class="lineno">   80</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;The value specified by thread is not joinable\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ESRCH == status)</div>
+<div class="line"><span class="lineno">   82</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;No thread could be fould corresponding to that \</span></div>
+<div class="line"><span class="lineno">   83</span><span class="stringliteral">            specified by the given thraed ID, thread.&quot;</span>);</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (EDEADLK == status)</div>
+<div class="line"><span class="lineno">   85</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;A deadlock was detected or the value of thread specifies \</span></div>
+<div class="line"><span class="lineno">   86</span><span class="stringliteral">            the calling thread.&quot;</span>);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4">CREATE</a></div><div class="ttdeci">@ CREATE</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00085">philo.h:85</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7">JOIN</a></div><div class="ttdeci">@ JOIN</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00086">philo.h:86</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -376,45 +374,6 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="242,21,208,21,208,15,242,15"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
 <area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a083343af0972bffcaa946c757b45d6a5" name="a083343af0972bffcaa946c757b45d6a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a083343af0972bffcaa946c757b45d6a5">&#9670;&#160;</a></span>safe_malloc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void * safe_malloc </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>bytes</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Module containing wrapper funtions with embedded controls on return </p>
-
-<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00022">22</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>{</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordtype">void</span>    *ret;</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>    ret = malloc(bytes);</div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">if</span> (NULL == ret)</div>
-<div class="line"><span class="lineno">   28</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Error with the malloc&quot;</span>);</div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> (ret);</div>
-<div class="line"><span class="lineno">   30</span>}</div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="threadsafe_8c_a083343af0972bffcaa946c757b45d6a5_cgraph.png" border="0" usemap="#athreadsafe_8c_a083343af0972bffcaa946c757b45d6a5_cgraph" alt=""/></div>
-<map name="athreadsafe_8c_a083343af0972bffcaa946c757b45d6a5_cgraph" id="athreadsafe_8c_a083343af0972bffcaa946c757b45d6a5_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,107,31"/>
-<area shape="rect" href="utils_8c.html#a2e431795e57bcd9f63ad72e2239e9c14" title=" " alt="" coords="155,5,240,31"/>
-<area shape="poly" title=" " alt="" coords="107,15,141,15,141,21,107,21"/>
 </map>
 </div>
 
@@ -446,21 +405,21 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00066">66</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a> == opcode)</div>
-<div class="line"><span class="lineno">   69</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_lock(mutex), opcode);</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a> == opcode)</div>
-<div class="line"><span class="lineno">   71</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_unlock(mutex), opcode);</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36">INIT</a> == opcode)</div>
-<div class="line"><span class="lineno">   73</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_init(mutex, NULL), opcode);</div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a> == opcode)</div>
-<div class="line"><span class="lineno">   75</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_destroy(mutex), opcode);</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   77</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Wrong opcode for mutex handle&quot;</span>);</div>
-<div class="line"><span class="lineno">   78</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a></div><div class="ttdeci">@ DESTROY</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00078">philo.h:78</a></div></div>
-<div class="ttc" id="athreadsafe_8c_html_a7bad0b0b2e5868b626b338dc6f15593e"><div class="ttname"><a href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a></div><div class="ttdeci">static void handle_mutex_error(int status, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="threadsafe_8c_source.html#l00039">threadsafe.c:39</a></div></div>
+<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00051">51</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>{</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48">LOCK</a> == opcode)</div>
+<div class="line"><span class="lineno">   54</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_lock(mutex), opcode);</div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564">UNLOCK</a> == opcode)</div>
+<div class="line"><span class="lineno">   56</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_unlock(mutex), opcode);</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36">INIT</a> == opcode)</div>
+<div class="line"><span class="lineno">   58</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_init(mutex, NULL), opcode);</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a> == opcode)</div>
+<div class="line"><span class="lineno">   60</span>        <a class="code hl_function" href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a>(pthread_mutex_destroy(mutex), opcode);</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   62</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Wrong opcode for mutex handle&quot;</span>);</div>
+<div class="line"><span class="lineno">   63</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4"><div class="ttname"><a href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4">DESTROY</a></div><div class="ttdeci">@ DESTROY</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00084">philo.h:84</a></div></div>
+<div class="ttc" id="athreadsafe_8c_html_a7bad0b0b2e5868b626b338dc6f15593e"><div class="ttname"><a href="threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e">handle_mutex_error</a></div><div class="ttdeci">static void handle_mutex_error(int status, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="threadsafe_8c_source.html#l00024">threadsafe.c:24</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -601,16 +560,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00104">104</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
-<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4">CREATE</a> == opcode)</div>
-<div class="line"><span class="lineno">  108</span>        <a class="code hl_function" href="threadsafe_8c.html#a6e76245b930b6416a9e9208c303585af">handle_thread_error</a>(pthread_create(thread, NULL, foo, data), opcode);</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7">JOIN</a> == opcode)</div>
-<div class="line"><span class="lineno">  110</span>        <a class="code hl_function" href="threadsafe_8c.html#a6e76245b930b6416a9e9208c303585af">handle_thread_error</a>(pthread_join(*thread, NULL), opcode);</div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  112</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Wrong opcode for thread_handle&quot;</span>);</div>
-<div class="line"><span class="lineno">  113</span>}</div>
-<div class="ttc" id="athreadsafe_8c_html_a6e76245b930b6416a9e9208c303585af"><div class="ttname"><a href="threadsafe_8c.html#a6e76245b930b6416a9e9208c303585af">handle_thread_error</a></div><div class="ttdeci">static void handle_thread_error(int status, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="threadsafe_8c_source.html#l00084">threadsafe.c:84</a></div></div>
+<p class="definition">Definition at line <a class="el" href="threadsafe_8c_source.html#l00089">89</a> of file <a class="el" href="threadsafe_8c_source.html">threadsafe.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4">CREATE</a> == opcode)</div>
+<div class="line"><span class="lineno">   93</span>        <a class="code hl_function" href="threadsafe_8c.html#a6e76245b930b6416a9e9208c303585af">handle_thread_error</a>(pthread_create(thread, NULL, foo, data), opcode);</div>
+<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7">JOIN</a> == opcode)</div>
+<div class="line"><span class="lineno">   95</span>        <a class="code hl_function" href="threadsafe_8c.html#a6e76245b930b6416a9e9208c303585af">handle_thread_error</a>(pthread_join(*thread, NULL), opcode);</div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   97</span>        <a class="code hl_function" href="philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14">error_exit</a>(<span class="stringliteral">&quot;Wrong opcode for thread_handle&quot;</span>);</div>
+<div class="line"><span class="lineno">   98</span>}</div>
+<div class="ttc" id="athreadsafe_8c_html_a6e76245b930b6416a9e9208c303585af"><div class="ttname"><a href="threadsafe_8c.html#a6e76245b930b6416a9e9208c303585af">handle_thread_error</a></div><div class="ttdeci">static void handle_thread_error(int status, t_opcode opcode)</div><div class="ttdef"><b>Definition</b> <a href="threadsafe_8c_source.html#l00069">threadsafe.c:69</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
