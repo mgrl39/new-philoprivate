@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 14:06:36 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:06:58 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	*monitor_dinner(void *data)
 			if (philo_died(table->philos + i))
 			{
 				set_int(&table->table_mutex, &table->end_simulation, 1);
-				write_status(DIED, table->philos + i, DEBUG_MODE);
+				write_status(DIED, table->philos + i);
 			}
 		}
 	}

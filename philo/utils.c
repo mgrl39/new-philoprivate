@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 18:25:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/04 21:41:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ long	gettime(t_time_code	time_code)
 
 	if (gettimeofday(&tv, NULL))
 		error_exit("Gettimeofday failed!");
-	if (SECOND == time_code)
-		return (tv.tv_sec + (tv.tv_usec / 1e6));
-	else if (MILLISECOND == time_code)
+	if (MILLISECOND == time_code)
 		return ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);
 	else if (MICROSECOND == time_code)
 		return ((tv.tv_sec * 1e6) + tv.tv_usec);

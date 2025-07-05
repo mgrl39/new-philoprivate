@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:14:10 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 20:17:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:24:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,12 @@ static inline int	ft_isdigit(char c)
 	return (c >= '0' && c <= '9');
 }
 
-/**
- * An inline function is a function that is expanded at 
- * the point of the function call
- * rather than being executed as a seprarte functionc all.
- * this is done to reduce the function call overhead and improve performance.
- */
 static inline int	ft_isspace(char c)
 {
 	return (c == 32 || (c >= 9 && c <= 13));
 }
 
-static void	ft_atol(const char *str, size_t	*i, int	*sign)
+static void	trim_start_and_sign(const char *str, size_t	*i, int	*sign)
 {
 	while (ft_isspace(str[*i]))
 		(*i)++;
@@ -42,7 +36,7 @@ static void	ft_atol(const char *str, size_t	*i, int	*sign)
 	}
 }
 
-int	ft_philo_atol(const char *str, long *result)
+int	validate_and_convert_to_long(const char *str, long *result)
 {
 	int			sign;
 	size_t		i;
@@ -51,7 +45,7 @@ int	ft_philo_atol(const char *str, long *result)
 	i = 0;
 	num = 0;
 	sign = 1;
-	ft_atol(str, &i, &sign);
+	trim_start_and_sign(str, &i, &sign);
 	if (!ft_isdigit(str[i]))
 		return (ERR_NOT_DIGIT);
 	while (str[i] && ft_isdigit(str[i]))

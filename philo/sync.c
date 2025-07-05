@@ -6,15 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/02 22:08:13 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:55:26 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-/*
- * SPINLOCK to Sncronize philos start
- */
+// SPINLOCK to Sncronize philos start
 void	wait_all_threads(t_table	*table)
 {
 	while (!get_int(&table->table_mutex, &table->all_threads_ready))
@@ -23,7 +21,8 @@ void	wait_all_threads(t_table	*table)
 
 /**
  * Monitor busy waits until all theads are not running
- */ // all threads ARE RUNNING
+ * All threads are running
+ */
 int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 {
 	int	all_running;
@@ -55,10 +54,8 @@ void	increase_long(t_mtx *mutex, long *value)
 	safe_mutex_handle(mutex, UNLOCK);
 }
 
-/**
- * This tries to make the system fair
- */
-void	de_synchronize_philos(t_philo *philo)
+/* This tries to make the system fair */
+void	prevent_simultaneous_start(t_philo *philo)
 {
 	if (philo->table->philo_nbr % 2 == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 20:15:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:55:38 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ positive values."
 is %d."
 # define MSG_ERR_TIMESTAMP "Error: all timings must be at least 60ms"
 # define MSG_ERR_MALLOC "Error: malloc"
+# define MSG_ERR_MUTEX "Error: mutex"
 
 # define MSG_ARG_PHILOS 	"number of philosophers"
 # define MSG_ARG_DIE_TIME 	"time to die"
@@ -82,7 +83,6 @@ typedef enum e_opcode
 /* Codes for time units used in gettime() */
 typedef enum e_time_code
 {
-	SECOND,
 	MILLISECOND,
 	MICROSECOND
 }	t_time_code;
@@ -179,30 +179,29 @@ void	*safe_malloc(size_t	bytes);
 void	*monitor_dinner(void *data);
 void	error_exit(const char *error);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
-void	init_table(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
 void	set_int(t_mtx *mutex, int *dest, int value);
 void	wait_all_threads(t_table	*table);
-void	write_status(t_philo_status status, t_philo *philo, int debug);
+void	write_status(t_philo_status status, t_philo *philo);
 void	increase_long(t_mtx *mutex, long *value);
 void	clean_table(t_table *table);
 void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, int pre_simulation);
-void	de_synchronize_philos(t_philo *philo);
-void	print_usage(char *program_name);
+void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
 void	print_argument_error(
 			int error,
 			const char *arg,
 			const char *param_name);
+void	ft_putstr_fd(char *msg, int fd);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
 int		get_int(t_mtx *mutex, int *value);
-int		process_arguments(t_table *table, char *argv[]);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		ft_error(char *msg);
-int		ft_philo_atol(const char *str, long *result);
+int		validate_and_convert_to_long(const char *str, long *result);
+int		init_table(t_table *table);
 #endif

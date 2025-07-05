@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 18:37:39 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:55:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 #include <unistd.h>
 
 /**
- * same algo but..
- *
  * 1) fake to lock the fork
- * 2) slepe until the monitor will bust it
+ * 2) sleep until the monitor will bust it
  */
-static void	*lone_philo(void *arg)
+static void	*single_philo(void *arg)
 {
 	t_philo	*philo;
 
@@ -28,22 +26,16 @@ static void	*lone_philo(void *arg)
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	increase_long(&philo->table->table_mutex,
 		&philo->table->threads_running_nbr);
-	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
+	write_status(TAKE_FIRST_FORK, philo);
 	while (!simulation_finished(philo->table))
 		usleep(200);
 	return (NULL);
 }
 
 /**
- * then we will change some values:
- * Thinking is the only value that we can really module
- * Time to die, time to sleep and time to eat are fixed.
- * Time to think is the only one to make the system more fair (equitativo, justo)
+ * if the system is even we dont care, system already fair.
+ * ODD, not always fair.
  */
-// if the system is even we dont care, system already fair.
-// ODD, not always fair.
-// availbale time to think
-// precise control i wanna make on philo
 void	thinking(t_philo *philo, int pre_simulation)
 {
 	long	t_eat;
@@ -51,7 +43,7 @@ void	thinking(t_philo *philo, int pre_simulation)
 	long	t_think;
 
 	if (!pre_simulation)
-		write_status(THINKING, philo, DEBUG_MODE);
+		write_status(THINKING, philo);
 	if (philo->table->philo_nbr % 2 == 0)
 		return ;
 	t_eat = philo->table->time_to_eat;
@@ -80,12 +72,12 @@ void	thinking(t_philo *philo, int pre_simulation)
 static void	eat(t_philo *philo)
 {
 	safe_mutex_handle(&philo->first_fork->fork, LOCK);
-	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
+	write_status(TAKE_FIRST_FORK, philo);
 	safe_mutex_handle(&philo->second_fork->fork, LOCK);
-	write_status(TAKE_FIRST_FORK, philo, DEBUG_MODE);
+	write_status(TAKE_FIRST_FORK, philo);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	philo->meals_counter++;
-	write_status(EATING, philo, DEBUG_MODE);
+	write_status(EATING, philo);
 	precise_usleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->nbr_limit_meals > 0
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
@@ -124,13 +116,13 @@ void	*dinner_simulation(void *data)
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	increase_long(&philo->table->table_mutex,
 		&philo->table->threads_running_nbr);
-	de_synchronize_philos(philo);
+	prevent_simultaneous_start(philo);
 	while (!simulation_finished(philo->table))
 	{
 		if (get_int(&philo->philo_mutex, &philo->full))
 			break ;
 		eat(philo);
-		write_status(SLEEPING, philo, DEBUG_MODE);
+		write_status(SLEEPING, philo);
 		precise_usleep(philo->table->time_to_sleep, philo->table);
 		thinking(philo, 0);
 	}
@@ -149,18 +141,15 @@ void	*dinner_simulation(void *data)
  * 	I want every philo start simultaneously. We need synchronization 
  * 	thing to make all the philos start at the same time.
  * 4) JOIN everyone
- */
-// back to main, clean
-// This is a while loop that is gonna be create all 
-// the threads, all the philosophers.
-// Every time this funciton is called immediately 
-// the thread starts running this dinner simulation function 
-// that we still have to do. 
-// So we need a synhronization thing to make 
-// all the philosophers start at the same time.
-// monitor
-// start of simulation
-/*
+ * back to main, clean
+ * This is a while loop that is gonna be create all 
+ * the threads, all the philosophers.
+ * Every time this funciton is called immediately 
+ * the thread starts running this dinner simulation function 
+ * that we still have to do. 
+ * So we need a synhronization thing to make 
+ * all the philosophers start at the same time monitor
+ * start of simulation
  * we need a chronometer, we need a function 
  * that is able to give us back the 
  * actual time. 
@@ -178,7 +167,7 @@ void	dinner_start(t_table *table)
 		return ;
 	else if (1 == table->philo_nbr)
 		safe_thread_handle(&table->philos[0].thread_id,
-			lone_philo, &table->philos[0], CREATE);
+			single_philo, &table->philos[0], CREATE);
 	else
 	{
 		while (++i < table->philo_nbr)
