@@ -1,5 +1,20 @@
 var searchData=
 [
-  ['gold_0',['gold',['../old_2philo_8h.html#af468028083c9e52aa2c94ef3b9940450',1,'GOLD:&#160;philo.h'],['../philo_2philo_8h.html#af468028083c9e52aa2c94ef3b9940450',1,'GOLD:&#160;philo.h']]],
-  ['green_1',['green',['../old_2philo_8h.html#acfbc006ea433ad708fdee3e82996e721',1,'GREEN:&#160;philo.h'],['../philo_2philo_8h.html#acfbc006ea433ad708fdee3e82996e721',1,'GREEN:&#160;philo.h']]]
+  ['min_5ftimestamp_0',['MIN_TIMESTAMP',['../philo_8h.html#afe6ba482a5b022850f1edf4427fa5bd0',1,'philo.h']]],
+  ['msg_5farg_5fdie_5ftime_1',['MSG_ARG_DIE_TIME',['../philo_8h.html#a4824f9d3a6fda34a3020a928470d4513',1,'philo.h']]],
+  ['msg_5farg_5feat_5ftime_2',['MSG_ARG_EAT_TIME',['../philo_8h.html#acda3a54afb229e2af852ee92d6d157d7',1,'philo.h']]],
+  ['msg_5farg_5fmeals_3',['MSG_ARG_MEALS',['../philo_8h.html#aad53f6de5f30e2084da1fe99e0b9ba39',1,'philo.h']]],
+  ['msg_5farg_5fphilos_4',['MSG_ARG_PHILOS',['../philo_8h.html#a1dc771dff39a1210c106d0a8f1004536',1,'philo.h']]],
+  ['msg_5farg_5fsleep_5ftime_5',['MSG_ARG_SLEEP_TIME',['../philo_8h.html#a9bdeadd8f8d01d786eac75f5b40c46ea',1,'philo.h']]],
+  ['msg_5fdied_6',['MSG_DIED',['../philo_8h.html#a49e3dcd8846177e61a535665ff89b96e',1,'philo.h']]],
+  ['msg_5feat_7',['MSG_EAT',['../philo_8h.html#aa632dde01d4b5f1b634a45d5aad70a3a',1,'philo.h']]],
+  ['msg_5ferr_5fmalloc_8',['MSG_ERR_MALLOC',['../philo_8h.html#a420bc23ba5510f5b8343b615401e8e82',1,'philo.h']]],
+  ['msg_5ferr_5fmutex_9',['MSG_ERR_MUTEX',['../philo_8h.html#a032192f424e5579212174698a4ff2665',1,'philo.h']]],
+  ['msg_5ferr_5fnegative_10',['MSG_ERR_NEGATIVE',['../philo_8h.html#aa4e88b7761691918b9b597ad123fcec3',1,'philo.h']]],
+  ['msg_5ferr_5fnot_5fdigit_11',['MSG_ERR_NOT_DIGIT',['../philo_8h.html#ae484a8397b8f5aa50d4b6770460e8d50',1,'philo.h']]],
+  ['msg_5ferr_5foverflow_12',['MSG_ERR_OVERFLOW',['../philo_8h.html#ac25ab058389b2529d9651a6c20d95449',1,'philo.h']]],
+  ['msg_5ferr_5ftimestamp_13',['MSG_ERR_TIMESTAMP',['../philo_8h.html#aec3602aa3201006662a9b7bf1a2476fa',1,'philo.h']]],
+  ['msg_5ffork_14',['MSG_FORK',['../philo_8h.html#a7c22682ea139ac648eaa7a2951381640',1,'philo.h']]],
+  ['msg_5fsleep_15',['MSG_SLEEP',['../philo_8h.html#a04d4171c13be166553207bfda405c811',1,'philo.h']]],
+  ['msg_5fthink_16',['MSG_THINK',['../philo_8h.html#a602010673c815569a4aa8ffe6165038a',1,'philo.h']]]
 ];

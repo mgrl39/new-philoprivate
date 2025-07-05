@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['10_3a_20número_20de_20comidas_20negativo_0',['Caso 10: Número de comidas negativo',['../md_old_2docs_2parsing.html#autotoc_md28',1,'']]],
-  ['11_3a_20número_20de_20comidas_20igual_20a_20cero_20válido_20pero_20especial_1',['Caso 11: Número de comidas igual a cero (válido, pero especial)',['../md_old_2docs_2parsing.html#autotoc_md29',1,'']]],
-  ['12_3a_20mezcla_20de_20errores_20se_20muestra_20el_20primer_20error_20encontrado_2',['Caso 12: Mezcla de errores (se muestra el primer error encontrado)',['../md_old_2docs_2parsing.html#autotoc_md30',1,'']]],
-  ['1_3a_20número_20incorrecto_20de_20argumentos_3',['Caso 1: Número incorrecto de argumentos',['../md_old_2docs_2parsing.html#autotoc_md19',1,'']]]
+  ['all_5fthreads_5fready_0',['all_threads_ready',['../structs__table.html#a06b4490f7467277935dfe7a7854dfa80',1,'s_table']]],
+  ['all_5fthreads_5frunning_1',['all_threads_running',['../philo_8h.html#a1e1cd8cf5c3bd7d8f449cb092dcfbf12',1,'all_threads_running(t_mtx *mutex, long *threads, long philo_nbr):&#160;sync.c'],['../sync_8c.html#aa241432f9768e08187d349d5a8d45cea',1,'all_threads_running(t_mtx *mtx, long *threads_count, long total_threads):&#160;sync.c']]],
+  ['assign_5fforks_2',['assign_forks',['../init_8c.html#a4e64b7e17cf086dcb34e52b35b7cd1e8',1,'init.c']]],
+  ['atol_2ec_3',['atol.c',['../atol_8c.html',1,'']]]
 ];

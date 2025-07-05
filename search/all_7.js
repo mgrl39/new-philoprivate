@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['8_3a_20tiempo_20para_20dormir_20igual_20a_20cero_0',['Caso 8: Tiempo para dormir igual a cero',['../md_old_2docs_2parsing.html#autotoc_md26',1,'']]]
+  ['handle_5fmutex_5ferror_0',['handle_mutex_error',['../threadsafe_8c.html#a7bad0b0b2e5868b626b338dc6f15593e',1,'threadsafe.c']]],
+  ['handle_5fthread_5ferror_1',['handle_thread_error',['../threadsafe_8c.html#a6e76245b930b6416a9e9208c303585af',1,'threadsafe.c']]]
 ];

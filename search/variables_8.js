@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['philo_5fmutex_0',['philo_mutex',['../structs__philo.html#ac2bac7ae442cae69b14ed51f5b343c8e',1,'s_philo']]],
-  ['philo_5fnbr_1',['philo_nbr',['../structs__table.html#a99fea957f58894156b9aab0e1716dab6',1,'s_table']]],
-  ['philos_2',['philos',['../structs__table.html#a0cb8b5fb3ea8abb5ed140b36c9c0b7a4',1,'s_table']]]
+  ['second_5ffork_0',['second_fork',['../structs__philo.html#a5ab025ff5119090cd1f1bba4ca30b1e4',1,'s_philo']]],
+  ['start_5fsimulation_1',['start_simulation',['../structs__table.html#afb93142c6b1137acb1a8de06cdbc5ce5',1,'s_table']]]
 ];

@@ -1,9 +1,9 @@
 <map id="s_table" name="s_table">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,153,129,419"/>
-<area shape="rect" id="Node000003" href="$structs__philo.html" title=" " alt="" coords="39,481,168,707"/>
-<area shape="poly" id="edge3_Node000003_Node000001" title=" " alt="" coords="32,419,35,457,38,465,32,467,30,458,26,419"/>
-<area shape="rect" id="Node000002" href="$structs__fork.html" title=" " alt="" coords="87,5,160,91"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,91,105,138,100,137,111,90"/>
-<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="153,90,162,114,162,129,165,294,162,366,150,458,148,466,143,465,145,457,157,366,159,294,157,129,157,115,148,92"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="88,481,82,435,87,435,93,481"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,153,167,439"/>
+<area shape="rect" id="Node000003" href="$structs__philo.html" title=" " alt="" coords="76,501,205,667"/>
+<area shape="poly" id="edge4_Node000003_Node000001" title=" " alt="" coords="60,439,67,477,71,487,66,489,62,478,55,439"/>
+<area shape="rect" id="Node000002" href="$structs__fork.html" title=" " alt="" coords="115,5,188,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,92,131,138,125,136,138,90"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="182,90,191,114,191,129,194,228,198,304,197,381,183,478,182,486,176,485,178,477,192,380,192,304,188,228,186,129,186,115,177,92"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,502,114,455,119,454,128,501"/>
 </map>

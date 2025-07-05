@@ -1,7 +1,8 @@
 var routine_8c =
 [
+    [ "dinner_simulation", "routine_8c.html#af3db4f49728131a53563eef43e2c9954", null ],
+    [ "dinner_start", "routine_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6", null ],
     [ "eat", "routine_8c.html#a0f3ff42ef93a1c7b726ca6c7bbe7f551", null ],
-    [ "philo_loop", "routine_8c.html#af59d70ba88dde40771d84ab61f87ea58", null ],
-    [ "sleep_and_think", "routine_8c.html#a609ab24efca0e9444e3221f78a0b7185", null ],
-    [ "take_forks", "routine_8c.html#a9d4b235c43ff8416b674a311403e7c88", null ]
+    [ "single_philo", "routine_8c.html#abf660848c01a25fb0a91ee56a296ec36", null ],
+    [ "thinking", "routine_8c.html#a8ed163d7c7f73288311509a08d62a561", null ]
 ];

@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['7_3a_20tiempo_20para_20comer_20igual_20a_20cero_0',['Caso 7: Tiempo para comer igual a cero',['../md_old_2docs_2parsing.html#autotoc_md25',1,'']]]
+  ['get_5fint_0',['get_int',['../philo_8h.html#a1cd5a985ffabb5d265950973674a8920',1,'get_int(t_mtx *mutex, int *value):&#160;state.c'],['../state_8c.html#a1cd5a985ffabb5d265950973674a8920',1,'get_int(t_mtx *mutex, int *value):&#160;state.c']]],
+  ['get_5flong_1',['get_long',['../philo_8h.html#aeb4fda86e0f68ab130cdb4c9ffa38bb6',1,'get_long(t_mtx *mutex, long *value):&#160;state.c'],['../state_8c.html#aeb4fda86e0f68ab130cdb4c9ffa38bb6',1,'get_long(t_mtx *mutex, long *value):&#160;state.c']]],
+  ['gettime_2',['gettime',['../philo_8h.html#abd85dc197341d03847c33008c616dbb3',1,'gettime(t_time_code time_code):&#160;utils.c'],['../utils_8c.html#abd85dc197341d03847c33008c616dbb3',1,'gettime(t_time_code time_code):&#160;utils.c']]],
+  ['gold_3',['GOLD',['../philo_8h.html#af468028083c9e52aa2c94ef3b9940450',1,'philo.h']]],
+  ['green_4',['GREEN',['../philo_8h.html#acfbc006ea433ad708fdee3e82996e721',1,'philo.h']]]
 ];

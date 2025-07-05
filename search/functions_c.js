@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['take_5fforks_0',['take_forks',['../old_2routine_8c.html#a9d4b235c43ff8416b674a311403e7c88',1,'routine.c']]],
-  ['thinking_1',['thinking',['../philo_2philo_8h.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c'],['../philo_2routine_8c.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c']]]
+  ['validate_5fand_5fconvert_5fto_5flong_0',['validate_and_convert_to_long',['../atol_8c.html#a422a2527ea0a15657c4d8b6280f5638f',1,'validate_and_convert_to_long(const char *str, long *result):&#160;atol.c'],['../philo_8h.html#a422a2527ea0a15657c4d8b6280f5638f',1,'validate_and_convert_to_long(const char *str, long *result):&#160;atol.c']]]
 ];

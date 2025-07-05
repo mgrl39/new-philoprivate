@@ -1,28 +1,4 @@
 var searchData=
 [
-  ['de_20argumentos_0',['Caso 1: Número incorrecto de argumentos',['../md_old_2docs_2parsing.html#autotoc_md19',1,'']]],
-  ['de_20comidas_20con_20caracteres_20no_20numéricos_1',['Caso 9: Número de comidas con caracteres no numéricos',['../md_old_2docs_2parsing.html#autotoc_md27',1,'']]],
-  ['de_20comidas_20igual_20a_20cero_20válido_20pero_20especial_2',['Caso 11: Número de comidas igual a cero (válido, pero especial)',['../md_old_2docs_2parsing.html#autotoc_md29',1,'']]],
-  ['de_20comidas_20negativo_3',['Caso 10: Número de comidas negativo',['../md_old_2docs_2parsing.html#autotoc_md28',1,'']]],
-  ['de_20concurrencia_4',['Conceptos clave de Concurrencia',['../md_old_2docs_2conceptos.html',1,'']]],
-  ['de_20errores_20se_20muestra_20el_20primer_20error_20encontrado_5',['Caso 12: Mezcla de errores (se muestra el primer error encontrado)',['../md_old_2docs_2parsing.html#autotoc_md30',1,'']]],
-  ['de_20hilos_6',['Pool de hilos',['../md_old_2docs_2conceptos.html#autotoc_md7',1,'']]],
-  ['de_20la_20implementacion_3a_7',['Detalles de la implementacion:',['../md_old_2docs_2explained.html#autotoc_md16',1,'']]],
-  ['de_20parseo_20de_20argumentos_8',['Pruebas de parseo de argumentos',['../md_old_2docs_2parsing.html',1,'']]],
-  ['de_20recursos_9',['Gestion Eficiente de Recursos',['../md_old_2docs_2conceptos.html#autotoc_md5',1,'']]],
-  ['de_5fsynchronize_5fphilos_10',['de_synchronize_philos',['../philo_2philo_8h.html#aa3b5415c25b3704dbfd3adbabf20919b',1,'de_synchronize_philos(t_philo *philo):&#160;sync.c'],['../sync_8c.html#aa3b5415c25b3704dbfd3adbabf20919b',1,'de_synchronize_philos(t_philo *philo):&#160;sync.c']]],
-  ['deadlock_11',['Anti-Deadlock',['../md_old_2docs_2conceptos.html#autotoc_md4',1,'']]],
-  ['death_5flock_12',['death_lock',['../structs__table.html#ab1f5e8de9d846afee89b1335ea3b4850',1,'s_table']]],
-  ['debug_5fmode_13',['DEBUG_MODE',['../philo_2philo_8h.html#ac80a3592e72fd96b772ee47a7d8e0d0a',1,'philo.h']]],
-  ['del_20proyecto_14',['Patrones del proyecto',['../md_old_2docs_2conceptos.html#autotoc_md6',1,'']]],
-  ['del_20proyecto_20phiossopheerrs_15',['Explicacion del proyecto Phiossopheerrs',['../md_old_2docs_2explained.html',1,'']]],
-  ['demasiado_20grandes_16',['Caso 4: Valores demasiado grandes',['../md_old_2docs_2parsing.html#autotoc_md22',1,'']]],
-  ['descripcion_20general_17',['Descripcion general',['../md_old_2docs_2description.html',1,'']]],
-  ['description_2emd_18',['description.md',['../description_8md.html',1,'']]],
-  ['destroy_19',['DESTROY',['../philo_2philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4',1,'philo.h']]],
-  ['detalles_20de_20la_20implementacion_3a_20',['Detalles de la implementacion:',['../md_old_2docs_2explained.html#autotoc_md16',1,'']]],
-  ['died_21',['DIED',['../philo_2philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda77cfb3f8b737b27529fe9d616dc0720a',1,'philo.h']]],
-  ['dinner_5fsimulation_22',['dinner_simulation',['../philo_2routine_8c.html#af3db4f49728131a53563eef43e2c9954',1,'routine.c']]],
-  ['dinner_5fstart_23',['dinner_start',['../philo_2routine_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;routine.c'],['../philo_2philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6',1,'dinner_start(t_table *table):&#160;routine.c']]],
-  ['dormir_20igual_20a_20cero_24',['Caso 8: Tiempo para dormir igual a cero',['../md_old_2docs_2parsing.html#autotoc_md26',1,'']]]
+  ['nbr_5flimit_5fmeals_0',['nbr_limit_meals',['../structs__table.html#a1de5af6faf9b86970b029ebd3015c291',1,'s_table']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['conceptos_2emd_0',['conceptos.md',['../conceptos_8md.html',1,'']]]
+  ['init_2ec_0',['init.c',['../init_8c.html',1,'']]]
 ];
