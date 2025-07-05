@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:39:12 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:40:01 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	process_arguments(t_table *table, char *av[])
 		return (ft_error(MSG_ERR_TIMESTAMP));
 	return (0);
 }
+
 /*
  * The main is a TL;DR of the program
  * We are gonna check if the input given at the command line is correct
