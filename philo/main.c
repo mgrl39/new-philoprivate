@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:48:48 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:17:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
 }
 
 // return 1 failure. Return 0 success
-int	process_arguments(t_table *table, char *av[])
+static int	process_arguments(t_table *table, char *av[])
 {
 	if (parse_and_check(av[1], &table->philo_nbr, MSG_ARG_PHILOS, 0))
 		return (1);
@@ -96,7 +96,8 @@ int	main(int argc, char *argv[])
 	memset(&table, 0, sizeof(t_table));
 	if (process_arguments(&table, argv))
 		return (print_usage(*argv), 1);
-	init_table(&table);
+	if (init_table(&table))
+		return (1);
 	dinner_start(&table);
 	clean_table(&table);
 	return (0);

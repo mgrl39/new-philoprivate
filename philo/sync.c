@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:26:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:55:26 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	increase_long(t_mtx *mutex, long *value)
 }
 
 /* This tries to make the system fair */
-void	de_synchronize_philos(t_philo *philo)
+void	prevent_simultaneous_start(t_philo *philo)
 {
 	if (philo->table->philo_nbr % 2 == 0)
 	{

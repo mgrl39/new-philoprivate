@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:50:17 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:17:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,6 @@ void	*safe_malloc(size_t	bytes);
 void	*monitor_dinner(void *data);
 void	error_exit(const char *error);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
-void	init_table(t_table *table);
 void	set_long(t_mtx *mutex, long *dest, long value);
 void	set_int(t_mtx *mutex, int *dest, int value);
 void	wait_all_threads(t_table	*table);
@@ -187,7 +186,7 @@ void	increase_long(t_mtx *mutex, long *value);
 void	clean_table(t_table *table);
 void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, int pre_simulation);
-void	de_synchronize_philos(t_philo *philo);
+void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
 void	print_argument_error(
 			int error,
@@ -198,9 +197,9 @@ long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
 int		get_int(t_mtx *mutex, int *value);
-int		process_arguments(t_table *table, char *argv[]);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		ft_error(char *msg);
 int		ft_philo_atol(const char *str, long *result);
+int		init_table(t_table *table);
 #endif

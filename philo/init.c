@@ -6,11 +6,12 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 17:18:13 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:13:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdlib.h>
 
 /**
  * Takes:
@@ -79,22 +80,36 @@ static void	philo_init(t_table *table)
 
 // We want to init this mutex
 // super useful for debug
-void	init_table(t_table *table)
+// if bad return 1
+int	init_table(t_table *table)
 {
 	int	i;
 
-	i = -1;
 	table->end_simulation = 0;
 	table->all_threads_ready = 0;
 	table->threads_running_nbr = 0;
-	table->philos = safe_malloc(sizeof(t_philo) * table->philo_nbr);
+	// table->philos = safe_malloc(sizeof(t_philo) * table->philo_nbr);
+	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
+	if (!table->philos)
+		return (ft_error(MSG_ERR_MALLOC));
+	// TODO: CONTROLAR EL INIT ESTE
 	safe_mutex_handle(&table->table_mutex, INIT);
+	// TODO: CONTROLAR EL INIT ESTE
 	safe_mutex_handle(&table->write_mutex, INIT);
-	table->forks = safe_malloc(sizeof(t_fork) * table->philo_nbr);
+	//table->forks = safe_malloc(sizeof(t_fork) * table->philo_nbr);
+	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
+	if (!table->forks)
+	{
+		safe_mutex_handle(&table->table_mutex, DESTROY);
+		safe_mutex_handle(&table->write_mutex, DESTROY);
+		return (free(table->philos), ft_error(MSG_ERR_MALLOC));
+	}
+	i = -1;
 	while (++i < table->philo_nbr)
 	{
 		safe_mutex_handle(&table->forks[i].fork, INIT);
 		table->forks[i].fork_id = i;
 	}
 	philo_init(table);
+	return (0);
 }

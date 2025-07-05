@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:30:14 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:55:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	*dinner_simulation(void *data)
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
 	increase_long(&philo->table->table_mutex,
 		&philo->table->threads_running_nbr);
-	de_synchronize_philos(philo);
+	prevent_simultaneous_start(philo);
 	while (!simulation_finished(philo->table))
 	{
 		if (get_int(&philo->philo_mutex, &philo->full))
