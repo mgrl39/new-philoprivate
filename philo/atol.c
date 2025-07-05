@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:14:10 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:46:54 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:24:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	trim_start_and_sign(const char *str, size_t	*i, int	*sign)
 	}
 }
 
-int	ft_philo_atol(const char *str, long *result)
+int	validate_and_convert_to_long(const char *str, long *result)
 {
 	int			sign;
 	size_t		i;

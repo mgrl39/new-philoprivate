@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 21:17:13 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:27:32 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,6 @@ int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		ft_error(char *msg);
-int		ft_philo_atol(const char *str, long *result);
+int		validate_and_convert_to_long(const char *str, long *result);
 int		init_table(t_table *table);
 #endif

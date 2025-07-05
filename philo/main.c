@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 21:17:08 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:28:47 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,14 @@ static void	print_usage(char *program_name)
 // return 1 failure. Return 0 success
 static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
 {
-	int	result;
+	int	parse_result;
 
-	result = ft_philo_atol(arg, value);
-	if (result <= 0)
-	{
-		if (result == ERR_ZERO_VALUE && zeroable)
-			return (0);
-		else
-			print_argument_error(result, arg, param);
-		return (1);
-	}
-	return (0);
+	parse_result = validate_and_convert_to_long(arg, value);
+	if (parse_result > 0)
+		return (0);
+	if (parse_result == ERR_ZERO_VALUE && zeroable)
+		return (0);
+	return (print_argument_error(parse_result, arg, param), 1);
 }
 
 // return 1 failure. Return 0 success
