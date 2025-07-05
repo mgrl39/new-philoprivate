@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 21:57:06 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 22:50:55 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,17 +108,11 @@ int	init_table(t_table *table)
 	int	i;
 	int	destroy_status;
 
-	table->end_simulation = 0;
-	table->all_threads_ready = 0;
-	table->threads_running_nbr = 0;
-	// table->philos = safe_malloc(sizeof(t_philo) * table->philo_nbr);
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
 	if (!table->philos)
 		return (ft_error(MSG_ERR_MALLOC));
-	// safe_mutex_handle(&table->table_mutex, INIT); TODO
 	if (pthread_mutex_init(&table->table_mutex, NULL) != 0)
 		return (free(table->philos), ft_error(MSG_ERR_MUTEX));
-	// safe_mutex_handle(&table->write_mutex, INIT); TODO
 	if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
 	{
 		destroy_status = pthread_mutex_destroy(&table->table_mutex);
@@ -126,14 +120,12 @@ int	init_table(t_table *table)
 			ft_error("Warning: failed to destroy table mutex\n");
 		return (free(table->philos), ft_error(MSG_ERR_MUTEX));
 	}
-	//table->forks = safe_malloc(sizeof(t_fork) * table->philo_nbr);
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
 	if (!table->forks)
 		return (cleanup_mutexes(table, 0), free(table->philos), ft_error(MSG_ERR_MALLOC));
 	i = -1;
 	while (++i < table->philo_nbr)
 	{
-		// safe_mutex_handle(&table->forks[i].fork, INIT);
 		if (pthread_mutex_init(&table->forks[i].fork, NULL) != 0)
 		{
 			cleanup_mutexes(table, i);
