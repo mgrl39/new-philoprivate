@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 21:13:08 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:57:06 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,35 @@ static void	philo_init(t_table *table)
 	}
 }
 
+// Aux functin to clean mutexes
+static void	cleanup_mutexes(t_table *table, int initialized_forks)
+{
+	int	i;
+	int	status;
+
+	i = -1;
+	while (++i < initialized_forks)
+	{
+		status = pthread_mutex_destroy(&table->forks[i].fork);
+		if (status != 0)
+			ft_putstr_fd("Warning: Failed to destroy fork mutex\n", 2);
+	}
+	status = pthread_mutex_destroy(&table->table_mutex);
+	if (status != 0)
+		ft_putstr_fd("Warning: Failed to destroy table mutex\n", 2);
+	status = pthread_mutex_destroy(&table->write_mutex);
+	if (status != 0)
+		ft_putstr_fd("Warning: Failed to destroy write mutex\n", 2);
+}
+
 // We want to init this mutex
 // super useful for debug
 // if bad return 1
+//
 int	init_table(t_table *table)
 {
 	int	i;
+	int	destroy_status;
 
 	table->end_simulation = 0;
 	table->all_threads_ready = 0;
@@ -92,22 +115,31 @@ int	init_table(t_table *table)
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
 	if (!table->philos)
 		return (ft_error(MSG_ERR_MALLOC));
-	// TODO: CONTROLAR EL INIT ESTE
-	safe_mutex_handle(&table->table_mutex, INIT);
-	// TODO: CONTROLAR EL INIT ESTE
-	safe_mutex_handle(&table->write_mutex, INIT);
+	// safe_mutex_handle(&table->table_mutex, INIT); TODO
+	if (pthread_mutex_init(&table->table_mutex, NULL) != 0)
+		return (free(table->philos), ft_error(MSG_ERR_MUTEX));
+	// safe_mutex_handle(&table->write_mutex, INIT); TODO
+	if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
+	{
+		destroy_status = pthread_mutex_destroy(&table->table_mutex);
+		if (destroy_status != 0)
+			ft_error("Warning: failed to destroy table mutex\n");
+		return (free(table->philos), ft_error(MSG_ERR_MUTEX));
+	}
 	//table->forks = safe_malloc(sizeof(t_fork) * table->philo_nbr);
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
 	if (!table->forks)
-	{
-		safe_mutex_handle(&table->table_mutex, DESTROY);
-		safe_mutex_handle(&table->write_mutex, DESTROY);
-		return (free(table->philos), ft_error(MSG_ERR_MALLOC));
-	}
+		return (cleanup_mutexes(table, 0), free(table->philos), ft_error(MSG_ERR_MALLOC));
 	i = -1;
 	while (++i < table->philo_nbr)
 	{
-		safe_mutex_handle(&table->forks[i].fork, INIT);
+		// safe_mutex_handle(&table->forks[i].fork, INIT);
+		if (pthread_mutex_init(&table->forks[i].fork, NULL) != 0)
+		{
+			cleanup_mutexes(table, i);
+			free(table->philos);
+			return (free(table->forks), ft_error(MSG_ERR_MUTEX));
+		}
 		table->forks[i].fork_id = i;
 	}
 	philo_init(table);

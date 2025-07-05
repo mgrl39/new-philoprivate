@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 21:27:32 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:55:38 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ positive values."
 is %d."
 # define MSG_ERR_TIMESTAMP "Error: all timings must be at least 60ms"
 # define MSG_ERR_MALLOC "Error: malloc"
+# define MSG_ERR_MUTEX "Error: mutex"
 
 # define MSG_ARG_PHILOS 	"number of philosophers"
 # define MSG_ARG_DIE_TIME 	"time to die"
@@ -192,6 +193,7 @@ void	print_argument_error(
 			int error,
 			const char *arg,
 			const char *param_name);
+void	ft_putstr_fd(char *msg, int fd);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
