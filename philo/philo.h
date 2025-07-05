@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 21:55:38 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:44:48 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ is %d."
 # define MSG_ARG_MEALS		"number of meals"
 
 # define MIN_TIMESTAMP	60e3
+
+# define MSG_WARN_FAIL_DEST_FORK_MTX "Warning: Failed to destroy fork mutex\n"
+# define MSG_WARN_FAIL_DEST_TABLE_MTX "Warning: Failed to destroy table mutex\n"
+# define MSG_WARN_FAIL_DEST_WRITE_MTX "Warning: Failed to destroy write mutex\n"
 
 /* ************************************************************************** */
 # define DEBUG_MODE 0
@@ -175,7 +179,6 @@ void	safe_thread_handle(
 			void *(*foo)(void *),
 			void *data,
 			t_opcode opcode);
-void	*safe_malloc(size_t	bytes);
 void	*monitor_dinner(void *data);
 void	error_exit(const char *error);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 22:50:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:42:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,14 @@ static void	cleanup_mutexes(t_table *table, int initialized_forks)
 	{
 		status = pthread_mutex_destroy(&table->forks[i].fork);
 		if (status != 0)
-			ft_putstr_fd("Warning: Failed to destroy fork mutex\n", 2);
+			ft_putstr_fd(MSG_WARN_FAIL_DEST_FORK_MTX, 2);
 	}
 	status = pthread_mutex_destroy(&table->table_mutex);
 	if (status != 0)
-		ft_putstr_fd("Warning: Failed to destroy table mutex\n", 2);
+		ft_putstr_fd(MSG_WARN_FAIL_DEST_TABLE_MTX, 2);
 	status = pthread_mutex_destroy(&table->write_mutex);
 	if (status != 0)
-		ft_putstr_fd("Warning: Failed to destroy write mutex\n", 2);
+		ft_putstr_fd(MSG_WARN_FAIL_DEST_WRITE_MTX, 2);
 }
 
 // We want to init this mutex
@@ -117,7 +117,7 @@ int	init_table(t_table *table)
 	{
 		destroy_status = pthread_mutex_destroy(&table->table_mutex);
 		if (destroy_status != 0)
-			ft_error("Warning: failed to destroy table mutex\n");
+			ft_error(MSG_WARN_FAIL_DEST_TABLE_MTX);
 		return (free(table->philos), ft_error(MSG_ERR_MUTEX));
 	}
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
