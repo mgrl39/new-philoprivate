@@ -6,12 +6,13 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:05:06 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:51:11 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdio.h>
+#include <limits.h>
 #include <unistd.h>
 
 static void	write_status_debug(t_philo_status status, t_philo *philo,
@@ -65,25 +66,6 @@ void	write_status(t_philo_status status, t_philo *philo)
 	safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
 }
 
-void	print_usage(char *program_name)
-{
-	printf(BLUE"\n=== PHILOSOPHERS USAGE GUIDE ===\n" RESET);
-	printf("\nSyntax: " GOLD
-		"%s num_philos time_to_die time_to_eat time_to_sleep [num_meals]"
-		RESET "\n\n", program_name);
-	printf("Parameters:\n");
-	printf(" " PURPLE "num_philos	" RESET
-		": Number of philosophers at the table\n");
-	printf(" " PURPLE "time_to_die	" RESET
-		": Time in ms until a philosopher dies from Starvation\n");
-	printf(" " PURPLE "time_to_eat	" RESET
-		": Time in ms it takes for a philosopher to eat\n");
-	printf(" " PURPLE "time_to_sleep 	" RESET
-		": Time in ms it takes for a philosopher to sleep\n");
-	printf(" " PURPLE "num_meals	" RESET
-		": [Optional] Number of times each must eat \n\n");
-}
-
 void	ft_putstr_fd(char *msg, int fd)
 {
 	char	*s;
@@ -101,4 +83,17 @@ int	ft_error(char *msg)
 	ft_putstr_fd(msg, 2);
 	ft_putstr_fd(RESET, 2);
 	return (ft_putstr_fd("\n", 2), 1);
+}
+
+void	print_argument_error(int error, const char *arg, const char *param_name)
+{
+	if (error == ERR_NOT_DIGIT)
+		printf(RED MSG_ERR_NOT_DIGIT RESET "\n", arg);
+	else if (error == ERR_NEGATIVE)
+		printf(RED MSG_ERR_NEGATIVE RESET "\n", arg);
+	else if (error == ERR_OVERFLOW)
+		printf(RED MSG_ERR_OVERFLOW RESET "\n", arg, INT_MAX);
+	else if (error == ERR_ZERO_VALUE)
+		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", \
+		param_name, arg);
 }

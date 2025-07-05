@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:41:45 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:50:17 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,6 @@ void	clean_table(t_table *table);
 void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, int pre_simulation);
 void	de_synchronize_philos(t_philo *philo);
-void	print_usage(char *program_name);
 void	precise_usleep(long usec, t_table *table);
 void	print_argument_error(
 			int error,

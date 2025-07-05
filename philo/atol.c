@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 20:14:10 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:00:41 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:46:54 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static inline int	ft_isspace(char c)
 	return (c == 32 || (c >= 9 && c <= 13));
 }
 
-static void	ft_atol(const char *str, size_t	*i, int	*sign)
+static void	trim_start_and_sign(const char *str, size_t	*i, int	*sign)
 {
 	while (ft_isspace(str[*i]))
 		(*i)++;
@@ -45,7 +45,7 @@ int	ft_philo_atol(const char *str, long *result)
 	i = 0;
 	num = 0;
 	sign = 1;
-	ft_atol(str, &i, &sign);
+	trim_start_and_sign(str, &i, &sign);
 	if (!ft_isdigit(str[i]))
 		return (ERR_NOT_DIGIT);
 	while (str[i] && ft_isdigit(str[i]))

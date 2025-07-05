@@ -6,12 +6,32 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:40:01 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:48:48 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <string.h>
+#include <stdio.h>
+
+static void	print_usage(char *program_name)
+{
+	printf(BLUE"\n=== PHILOSOPHERS USAGE GUIDE ===\n" RESET);
+	printf("\nSyntax: " GOLD
+		"%s num_philos time_to_die time_to_eat time_to_sleep [num_meals]"
+		RESET "\n\n", program_name);
+	printf("Parameters:\n");
+	printf(" " PURPLE "num_philos	" RESET
+		": Number of philosophers at the table\n");
+	printf(" " PURPLE "time_to_die	" RESET
+		": Time in ms until a philosopher dies from Starvation\n");
+	printf(" " PURPLE "time_to_eat	" RESET
+		": Time in ms it takes for a philosopher to eat\n");
+	printf(" " PURPLE "time_to_sleep 	" RESET
+		": Time in ms it takes for a philosopher to sleep\n");
+	printf(" " PURPLE "num_meals	" RESET
+		": [Optional] Number of times each must eat \n\n");
+}
 
 // return 1 failure. Return 0 success
 static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
