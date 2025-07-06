@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 16:03:39 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 16:26:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,8 @@ typedef struct s_philo
 // the array of all the philos. PHILO PHILO PHILO PHILO PHILO
 typedef struct s_table
 {
-	int			end_simulation;
 	int			all_threads_ready;
+	int			end_simulation;
 	long		philo_nbr;
 	long		time_to_die;
 	long		time_to_eat;
@@ -211,10 +211,10 @@ void	write_status(t_philo_status status, t_philo *philo);
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
+int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		init_table(t_table *table);
 int		ft_alert(char *msg, t_alert_type type);
 int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
-int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		validate_and_convert_to_long(const char *str, long *result);
 #endif
