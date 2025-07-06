@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 15:53:34 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 16:03:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 # define BOLD		"\033[1m"
 
 # define S_FORK 	" %d has taken a fork\n"
-# define S_EAT 	" %d is eating\n"
+# define S_EAT		" %d is eating\n"
 # define S_SLEEP 	" %d is sleeping\n"
 # define S_THINK 	" %d is thinking\n"
 # define S_DIED 	" %d died\n"
 
-# define FAILURE 1
-# define SUCCESS 0
+# define FAILURE 	1
+# define SUCCESS 	0
 
 /* ************************************************************************** */
 /* ERRORS */
@@ -40,16 +40,16 @@
 # define ERR_ZERO_VALUE	-4
 # define ERR_TIMESTAMP	-5
 
-# define ERR_DIT "Error '%s' contains non-numeric characters. \
+# define ERR_DIT	"Error '%s' contains non-numeric characters. \
 Please use only digits."
-# define ERR_NEG "Error: '%s' is a negativee number. Please use only \
+# define ERR_NEG	"Error: '%s' is a negativee number. Please use only \
 positive values."
-# define ERR_LARGE "Error: '%s' is too large. Maximum allowed value \
+# define ERR_LARGE	"Error: '%s' is too large. Maximum allowed value \
 is %d."
-# define ERR_ZERO "Error: '%s' (%s) cannot be zero."
-# define ERR_TIME "Error: all timings must be at least 60ms"
-# define ERR_MALLOC "Error: malloc"
-# define ERR_MUTEX "Error: mutex"
+# define ERR_ZERO	"Error: '%s' (%s) cannot be zero."
+# define ERR_TIME	"Error: all timings must be at least 60ms"
+# define ERR_MALLOC	"Error: malloc"
+# define ERR_MUTEX	"Error: mutex"
 
 # define ARG_PHILOS 	"number of philosophers"
 # define ARG_DIE_TIME 	"time to die"
@@ -191,14 +191,13 @@ void	safe_thread_handle(
 			void *data,
 			t_opcode opcode);
 void	*monitor_dinner(void *data);
+void	dinner_start(t_table *table);
 void	error_exit(const char *error);
+void	free_table(t_table *table, int initialized_forks);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 void	set_long(t_mtx *mutex, long *dest, long value);
 void	set_int(t_mtx *mutex, int *dest, int value);
-void	wait_all_threads(t_table	*table);
-void	write_status(t_philo_status status, t_philo *philo);
 void	increase_long(t_mtx *mutex, long *value);
-void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
@@ -206,7 +205,8 @@ void	print_argument_error(
 			int error,
 			const char *arg,
 			const char *param_name);
-void	free_table(t_table *table, int initialized_forks);
+void	wait_all_threads(t_table	*table);
+void	write_status(t_philo_status status, t_philo *philo);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
