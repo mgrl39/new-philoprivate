@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 13:06:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:47:47 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	eat(t_philo *philo)
 	safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
 	safe_mutex_handle(&philo->second_fork->fork, LOCK);
-	write_status(TAKE_FIRST_FORK, philo);
+	write_status(TAKE_SECOND_FORK, philo);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	philo->meals_counter++;
 	write_status(EATING, philo);
@@ -162,14 +162,14 @@ void	dinner_start(t_table *table)
 {
 	int	i;
 
-	i = -1;
 	if (0 == table->nbr_limit_meals)
 		return ;
-	else if (1 == table->philo_nbr)
+	if (1 == table->philo_nbr)
 		safe_thread_handle(&table->philos[0].thread_id,
 			single_philo, &table->philos[0], CREATE);
 	else
 	{
+		i = -1;
 		while (++i < table->philo_nbr)
 			safe_thread_handle(&table->philos[i].thread_id,
 				dinner_simulation, &table->philos[i], CREATE);
