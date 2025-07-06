@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/04 21:06:58 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:03:51 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ static int	philo_died(t_philo *philo)
 
 	if (get_int(&philo->philo_mutex, &philo->full))
 		return (0);
-	elapsed = gettime(MILLISECOND);
+	elapsed = gettime(MSEC);
 	elapsed -= get_long(&philo->philo_mutex, &philo->last_meal_time);
 	t_to_die = philo->table->time_to_die / 1e3;
-	if (elapsed > t_to_die)
-		return (1);
-	return (0);
+	return (elapsed > t_to_die);
 }
 
 // make sure all philos running

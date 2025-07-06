@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:26:46 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 23:37:44 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:49:06 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 		return ;
 	else if (EINVAL == status && (LOCK == opcode || UNLOCK == opcode))
 		error_exit("The value specified by mutex is invalid.");
-	else if (EINVAL == status && INIT == opcode)
-		error_exit("The value specified by attr is invalid.");
 	else if (EDEADLK == status)
 		error_exit(
 			"A deadlock would occur if the thread blocked waiting for mutex.");
@@ -54,10 +52,6 @@ void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode)
 		handle_mutex_error(pthread_mutex_lock(mutex), opcode);
 	else if (UNLOCK == opcode)
 		handle_mutex_error(pthread_mutex_unlock(mutex), opcode);
-	else if (INIT == opcode)
-		handle_mutex_error(pthread_mutex_init(mutex, NULL), opcode);
-	else if (DESTROY == opcode)
-		handle_mutex_error(pthread_mutex_destroy(mutex), opcode);
 	else
 		error_exit("Wrong opcode for mutex handle");
 }

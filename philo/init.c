@@ -6,12 +6,24 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 00:29:27 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:39:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdlib.h>
+
+static void	cleanup_philo_mutexes(t_table *table, int count)
+{
+	int	i;
+
+	i = -1;
+	while (++i < count)
+	{
+		if (pthread_mutex_destroy(&table->philos[i].philo_mutex) != 0)
+			ft_alert(MSG_W_PHILO, A_WARNING);
+	}
+}
 
 /**
  * Takes:
@@ -60,7 +72,7 @@ static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
  */
 // super important function assign_forks
 // "i" es basically the position in the table
-static void	philo_init(t_table *table)
+static int	philo_init(t_table *table)
 {
 	t_philo	*philo;
 	int		i;
@@ -73,30 +85,41 @@ static void	philo_init(t_table *table)
 		philo->full = 0;
 		philo->meals_counter = 0;
 		philo->table = table;
-		safe_mutex_handle(&philo->philo_mutex, INIT);
+		if (pthread_mutex_init(&philo->philo_mutex, NULL) != 0)
+		{
+			cleanup_philo_mutexes(table, i);
+			return (ft_alert(MSG_ERR_MUTEX, A_ERROR));
+		}
 		assign_forks(philo, table->forks, i);
 	}
+	return (SUCCESS);
 }
 
 // Aux functin to clean mutexes
-static void	cleanup_mutexes(t_table *table, int initialized_forks)
+void	free_table(t_table *table, int initialized_forks)
 {
-	int	status;
 	int	i;
 
 	i = -1;
 	while (++i < initialized_forks)
 	{
-		status = pthread_mutex_destroy(&table->forks[i].fork);
-		if (status != 0)
-			ft_alert(MSG_WARN_FAIL_DEST_FORK_MTX, ALERT_WARNING);
+		if (pthread_mutex_destroy(&table->forks[i].fork) != 0)
+			ft_alert(MSG_W_FORK, A_WARNING);
 	}
-	status = pthread_mutex_destroy(&table->table_mutex);
-	if (status != 0)
-		ft_alert(MSG_WARN_FAIL_DEST_TABLE_MTX, ALERT_WARNING);
-	status = pthread_mutex_destroy(&table->write_mutex);
-	if (status != 0)
-		ft_alert(MSG_WARN_FAIL_DEST_WRITE_MTX, ALERT_WARNING);
+	if (pthread_mutex_destroy(&table->table_mutex) != 0)
+		ft_alert(MSG_W_TABLE, A_WARNING);
+	if (pthread_mutex_destroy(&table->write_mutex) != 0)
+		ft_alert(MSG_W_WRITE, A_WARNING);
+	if (table->philos)
+	{
+		free(table->philos);
+		table->philos = NULL;
+	}
+	if (table->forks)
+	{
+		free(table->forks);
+		table->forks = NULL;
+	}
 }
 
 /* 
@@ -107,33 +130,25 @@ static void	cleanup_mutexes(t_table *table, int initialized_forks)
 int	init_table(t_table *table)
 {
 	int	i;
-	int	destroy_status;
 
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
 	if (!table->philos)
-		return (ft_alert(MSG_ERR_MALLOC, ALERT_ERROR));
+		return (ft_alert(MSG_ERR_MALLOC, A_ERROR));
 	if (pthread_mutex_init(&table->table_mutex, NULL) != 0)
-		return (free(table->philos), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
+		return (free_table(table, 0), ft_alert(MSG_ERR_MUTEX, A_ERROR));
 	if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
-	{
-		destroy_status = pthread_mutex_destroy(&table->table_mutex);
-		if (destroy_status != 0)
-			ft_alert(MSG_WARN_FAIL_DEST_TABLE_MTX, ALERT_WARNING);
-		return (free(table->philos), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
-	}
+		return (free_table(table, 0), ft_alert(MSG_ERR_MUTEX, A_ERROR));
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
 	if (!table->forks)
-		return (cleanup_mutexes(table, 0), free(table->philos), ft_alert(MSG_ERR_MALLOC, ALERT_ERROR));
+		return (free_table(table, 0), ft_alert(MSG_ERR_MALLOC, A_ERROR));
 	i = -1;
 	while (++i < table->philo_nbr)
 	{
 		if (pthread_mutex_init(&table->forks[i].fork, NULL) != 0)
-		{
-			cleanup_mutexes(table, i);
-			free(table->philos);
-			return (free(table->forks), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
-		}
+			return (free_table(table, i), ft_alert(MSG_ERR_MUTEX, A_ERROR));
 		table->forks[i].fork_id = i;
 	}
-	return (philo_init(table), 0);
+	if (philo_init(table) == FAILURE)
+		return (free_table(table, table->philo_nbr), FAILURE);
+	return (SUCCESS);
 }

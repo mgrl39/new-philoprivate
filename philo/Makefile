@@ -6,14 +6,14 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 19:43:07 by meghribe          #+#    #+#              #
-#    Updated: 2025/07/05 23:03:01 by meghribe         ###   ########.fr        #
+#    Updated: 2025/07/06 13:44:14 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-LDFLAGS = -pthread -fsanitize=thread
+LDFLAGS = -pthread -fsanitize=address
 RM = rm -rf
 MKDIR = mkdir -p
 

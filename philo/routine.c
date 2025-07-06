@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:55:35 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:06:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	*single_philo(void *arg)
 
 	philo = (t_philo *)arg;
 	wait_all_threads(philo->table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	increase_long(&philo->table->table_mutex,
 		&philo->table->threads_running_nbr);
 	write_status(TAKE_FIRST_FORK, philo);
@@ -48,7 +48,7 @@ void	thinking(t_philo *philo, int pre_simulation)
 		return ;
 	t_eat = philo->table->time_to_eat;
 	t_sleep = philo->table->time_to_sleep;
-	t_think = t_eat * 2 - t_sleep;
+	t_think = (t_eat * 2) - t_sleep;
 	if (t_think < 0)
 		t_think = 0;
 	precise_usleep(t_think * 0.42, philo->table);
@@ -75,7 +75,7 @@ static void	eat(t_philo *philo)
 	write_status(TAKE_FIRST_FORK, philo);
 	safe_mutex_handle(&philo->second_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	philo->meals_counter++;
 	write_status(EATING, philo);
 	precise_usleep(philo->table->time_to_eat, philo->table);
@@ -113,7 +113,7 @@ void	*dinner_simulation(void *data)
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	increase_long(&philo->table->table_mutex,
 		&philo->table->threads_running_nbr);
 	prevent_simultaneous_start(philo);
@@ -175,7 +175,7 @@ void	dinner_start(t_table *table)
 				dinner_simulation, &table->philos[i], CREATE);
 	}
 	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
-	table->start_simulation = gettime(MILLISECOND);
+	table->start_simulation = gettime(MSEC);
 	set_int(&table->table_mutex, &table->all_threads_ready, 1);
 	i = -1;
 	while (++i < table->philo_nbr)

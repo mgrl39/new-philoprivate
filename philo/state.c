@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getters_setters.c                                  :+:      :+:    :+:   */
+/*   state.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:47:01 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/03 10:08:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 14:00:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
  * Module containning setters_getters
  * to avoid writing LOCK UNLOCK everywhere
  */
-
-// BOOL
 void	set_int(t_mtx *mutex, int *dest, int value)
 {
 	safe_mutex_handle(mutex, LOCK);
@@ -54,10 +52,6 @@ void	set_long(t_mtx *mutex, long *dest, long value)
 	*dest = value;
 	safe_mutex_handle(mutex, UNLOCK);
 }
-
-/*
- * REDUDANT? Nah..
- */
 
 int	simulation_finished(t_table *table)
 {
