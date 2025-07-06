@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 00:02:59 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:53:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,20 @@ void	write_status(t_philo_status status, t_philo *philo)
 	{
 		if ((TAKE_FIRST_FORK == status || TAKE_SECOND_FORK == status)
 			&& !simulation_finished(philo->table))
-			printf(GOLD BOLD"%-6ld"RESET GOLD MSG_FORK, time, philo->id);
+			printf(GOLD BOLD"%-6ld"RESET GOLD S_FORK, time, philo->id);
 		else if (EATING == status && !simulation_finished(philo->table))
-			printf(BOLD GREEN "%-6ld"RESET GREEN MSG_EAT, time, philo->id);
+			printf(BOLD GREEN "%-6ld"RESET GREEN S_EAT, time, philo->id);
 		else if (SLEEPING == status && !simulation_finished(philo->table))
-			printf(BLUE BOLD"%-6ld"RESET BLUE MSG_SLEEP, time, philo->id);
+			printf(BLUE BOLD"%-6ld"RESET BLUE S_SLEEP, time, philo->id);
 		else if (THINKING == status && !simulation_finished(philo->table))
-			printf(PURPLE BOLD"%-6ld"RESET PURPLE MSG_THINK, time, philo->id);
+			printf(PURPLE BOLD"%-6ld"RESET PURPLE S_THINK, time, philo->id);
 		else if (DIED == status)
-			printf(BOLD RED"%-6ld" MSG_DIED RESET, time, philo->id);
+			printf(BOLD RED"%-6ld" S_DIED RESET, time, philo->id);
 	}
 	safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
 }
 
-void	ft_putstr_fd(char *msg, int fd)
+static void	ft_putstr_fd(char *msg, int fd)
 {
 	char	*s;
 
@@ -93,11 +93,11 @@ int	ft_alert(char *msg, t_alert_type type)
 void	print_argument_error(int error, const char *arg, const char *param_name)
 {
 	if (error == ERR_NOT_DIGIT)
-		printf(RED MSG_ERR_NOT_DIGIT RESET "\n", arg);
+		printf(RED ERR_DIT RESET "\n", arg);
 	else if (error == ERR_NEGATIVE)
-		printf(RED MSG_ERR_NEGATIVE RESET "\n", arg);
+		printf(RED ERR_NEG RESET "\n", arg);
 	else if (error == ERR_OVERFLOW)
-		printf(RED MSG_ERR_OVERFLOW RESET "\n", arg, INT_MAX);
+		printf(RED ERR_LARGE RESET "\n", arg, INT_MAX);
 	else if (error == ERR_ZERO_VALUE)
 		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", \
 		param_name, arg);

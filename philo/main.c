@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 13:45:16 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:37:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
 // return 1 failure. Return 0 success
 static int	process_arguments(t_table *table, char *av[])
 {
-	if (parse_and_check(av[1], &table->philo_nbr, MSG_ARG_PHILOS, 0))
+	if (parse_and_check(av[1], &table->philo_nbr, ARG_PHILOS, 0))
 		return (1);
-	if (parse_and_check(av[2], &table->time_to_die, MSG_ARG_DIE_TIME, 0))
+	if (parse_and_check(av[2], &table->time_to_die, ARG_DIE_TIME, 0))
 		return (1);
-	if (parse_and_check(av[3], &table->time_to_eat, MSG_ARG_EAT_TIME, 0))
+	if (parse_and_check(av[3], &table->time_to_eat, ARG_EAT_TIME, 0))
 		return (1);
-	if (parse_and_check(av[4], &table->time_to_sleep, MSG_ARG_SLEEP_TIME, 0))
+	if (parse_and_check(av[4], &table->time_to_sleep, ARG_SLEEP_TIME, 0))
 		return (1);
 	if (av[5] && \
-		parse_and_check(av[5], &table->nbr_limit_meals, MSG_ARG_MEALS, 1))
+		parse_and_check(av[5], &table->nbr_limit_meals, ARG_MEALS, 1))
 		return (1);
 	if (!av[5])
 		table->nbr_limit_meals = -1;
@@ -68,7 +68,7 @@ static int	process_arguments(t_table *table, char *av[])
 	if (table->time_to_die < MIN_TIMESTAMP
 		|| table->time_to_eat < MIN_TIMESTAMP
 		|| table->time_to_sleep < MIN_TIMESTAMP)
-		return (ft_alert(MSG_ERR_TIMESTAMP, A_ERROR));
+		return (ft_alert(ERR_TIME, A_ERROR));
 	return (0);
 }
 

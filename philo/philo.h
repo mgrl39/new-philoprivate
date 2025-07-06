@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 14:16:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 16:26:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
 # define PURPLE		"\033[38;5;147m"
 # define BOLD		"\033[1m"
 
-# define MSG_FORK 	" %d has taken a fork\n"
-# define MSG_EAT 	" %d is eating\n"
-# define MSG_SLEEP 	" %d is sleeping\n"
-# define MSG_THINK 	" %d is thinking\n"
-# define MSG_DIED 	" %d died\n"
+# define S_FORK 	" %d has taken a fork\n"
+# define S_EAT		" %d is eating\n"
+# define S_SLEEP 	" %d is sleeping\n"
+# define S_THINK 	" %d is thinking\n"
+# define S_DIED 	" %d died\n"
 
-# define FAILURE 1
-# define SUCCESS 0
+# define FAILURE 	1
+# define SUCCESS 	0
 
 /* ************************************************************************** */
 /* ERRORS */
@@ -40,21 +40,22 @@
 # define ERR_ZERO_VALUE	-4
 # define ERR_TIMESTAMP	-5
 
-# define MSG_ERR_NOT_DIGIT "Error '%s' contains non-numeric characters. \
+# define ERR_DIT	"Error '%s' contains non-numeric characters. \
 Please use only digits."
-# define MSG_ERR_NEGATIVE "Error: '%s' is a negativee number. Please use only \
+# define ERR_NEG	"Error: '%s' is a negativee number. Please use only \
 positive values."
-# define MSG_ERR_OVERFLOW "Error: '%s' is too large. Maximum allowed value \
+# define ERR_LARGE	"Error: '%s' is too large. Maximum allowed value \
 is %d."
-# define MSG_ERR_TIMESTAMP "Error: all timings must be at least 60ms"
-# define MSG_ERR_MALLOC "Error: malloc"
-# define MSG_ERR_MUTEX "Error: mutex"
+# define ERR_ZERO	"Error: '%s' (%s) cannot be zero."
+# define ERR_TIME	"Error: all timings must be at least 60ms"
+# define ERR_MALLOC	"Error: malloc"
+# define ERR_MUTEX	"Error: mutex"
 
-# define MSG_ARG_PHILOS 	"number of philosophers"
-# define MSG_ARG_DIE_TIME 	"time to die"
-# define MSG_ARG_EAT_TIME 	"time to eat"
-# define MSG_ARG_SLEEP_TIME "time to sleep"
-# define MSG_ARG_MEALS		"number of meals"
+# define ARG_PHILOS 	"number of philosophers"
+# define ARG_DIE_TIME 	"time to die"
+# define ARG_EAT_TIME 	"time to eat"
+# define ARG_SLEEP_TIME "time to sleep"
+# define ARG_MEALS		"number of meals"
 
 # define MIN_TIMESTAMP	60e3
 
@@ -63,7 +64,7 @@ is %d."
 # define MSG_W_WRITE "Warning: Failed to destroy write mutex\n"
 # define MSG_W_PHILO "Warning: Failed to destroy philo mutex\n"
 
-# define MSG_ERR_GET_TIME "Error: gettimeofday function returned -1\n"
+# define ERR_TIME_FN "Error: gettimeofday function returned -1\n"
 
 /* ************************************************************************** */
 # define DEBUG_MODE 0
@@ -167,8 +168,8 @@ typedef struct s_philo
 // the array of all the philos. PHILO PHILO PHILO PHILO PHILO
 typedef struct s_table
 {
-	int			end_simulation;
 	int			all_threads_ready;
+	int			end_simulation;
 	long		philo_nbr;
 	long		time_to_die;
 	long		time_to_eat;
@@ -190,31 +191,30 @@ void	safe_thread_handle(
 			void *data,
 			t_opcode opcode);
 void	*monitor_dinner(void *data);
+void	dinner_start(t_table *table);
 void	error_exit(const char *error);
+void	free_table(t_table *table, int initialized_forks);
 void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 void	set_long(t_mtx *mutex, long *dest, long value);
 void	set_int(t_mtx *mutex, int *dest, int value);
-void	wait_all_threads(t_table	*table);
-void	write_status(t_philo_status status, t_philo *philo);
 void	increase_long(t_mtx *mutex, long *value);
-void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
-void	ft_putstr_fd(char *msg, int fd);
 void	print_argument_error(
 			int error,
 			const char *arg,
 			const char *param_name);
-void	free_table(t_table *table, int initialized_forks);
+void	wait_all_threads(t_table	*table);
+void	write_status(t_philo_status status, t_philo *philo);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
 
+int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		init_table(t_table *table);
 int		ft_alert(char *msg, t_alert_type type);
 int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
-int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		validate_and_convert_to_long(const char *str, long *result);
 #endif
