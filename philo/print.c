@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 00:02:59 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:53:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	write_status(t_philo_status status, t_philo *philo)
 	safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
 }
 
-void	ft_putstr_fd(char *msg, int fd)
+static void	ft_putstr_fd(char *msg, int fd)
 {
 	char	*s;
 
