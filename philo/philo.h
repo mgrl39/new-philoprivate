@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 00:46:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:48:49 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 # define MSG_SLEEP 	" %d is sleeping\n"
 # define MSG_THINK 	" %d is thinking\n"
 # define MSG_DIED 	" %d died\n"
+
+# define FAILURE 1
+# define SUCCESS 0
 
 /* ************************************************************************** */
 /* ERRORS */
@@ -58,6 +61,7 @@ is %d."
 # define MSG_WARN_FAIL_DEST_FORK_MTX "Warning: Failed to destroy fork mutex\n"
 # define MSG_WARN_FAIL_DEST_TABLE_MTX "Warning: Failed to destroy table mutex\n"
 # define MSG_WARN_FAIL_DEST_WRITE_MTX "Warning: Failed to destroy write mutex\n"
+# define MSG_WARN_FAIL_DEST_PHILO_MTX "Warning: Failed to destroy philo mutex\n"
 
 # define MSG_ERR_GET_TIME "Error: gettimeofday function returned -1\n"
 
@@ -80,8 +84,6 @@ typedef enum e_opcode
 {
 	LOCK,
 	UNLOCK,
-	INIT,
-	DESTROY,
 	CREATE,
 	JOIN,
 }	t_opcode;
@@ -195,7 +197,6 @@ void	set_int(t_mtx *mutex, int *dest, int value);
 void	wait_all_threads(t_table	*table);
 void	write_status(t_philo_status status, t_philo *philo);
 void	increase_long(t_mtx *mutex, long *value);
-void	clean_table(t_table *table);
 void	dinner_start(t_table *table);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
@@ -205,6 +206,7 @@ void	print_argument_error(
 			int error,
 			const char *arg,
 			const char *param_name);
+void	free_table(t_table *table, int initialized_forks);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
@@ -215,4 +217,5 @@ int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		validate_and_convert_to_long(const char *str, long *result);
+// TODO: Remove it later void		clean_table(t_table *table);
 #endif

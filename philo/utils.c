@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 00:54:43 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:48:41 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,21 +85,4 @@ void	error_exit(const char *error)
 {
 	printf(RED "%s\n" RESET, error);
 	exit(EXIT_FAILURE);
-}
-
-void	clean_table(t_table *table)
-{
-	t_philo	*philo;
-	int		i;
-
-	i = -1;
-	while (++i < table->philo_nbr)
-	{
-		philo = table->philos + i;
-		safe_mutex_handle(&philo->philo_mutex, DESTROY);
-	}
-	safe_mutex_handle(&table->write_mutex, DESTROY);
-	safe_mutex_handle(&table->table_mutex, DESTROY);
-	free(table->forks);
-	free(table->philos);
 }

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 23:58:11 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:45:16 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
 
 	parse_result = validate_and_convert_to_long(arg, value);
 	if (parse_result > 0)
-		return (0);
+		return (SUCCESS);
 	if (parse_result == ERR_ZERO_VALUE && zeroable)
-		return (0);
-	return (print_argument_error(parse_result, arg, param), 1);
+		return (SUCCESS);
+	return (print_argument_error(parse_result, arg, param), FAILURE);
 }
 
 // return 1 failure. Return 0 success
@@ -91,10 +91,10 @@ int	main(int argc, char *argv[])
 		return (print_usage(*argv), 1);
 	memset(&table, 0, sizeof(t_table));
 	if (process_arguments(&table, argv))
-		return (print_usage(*argv), 1);
+		return (print_usage(*argv), FAILURE);
 	if (init_table(&table))
-		return (1);
+		return (FAILURE);
 	dinner_start(&table);
-	clean_table(&table);
-	return (0);
+	free_table(&table, table.philo_nbr);
+	return (SUCCESS);
 }
