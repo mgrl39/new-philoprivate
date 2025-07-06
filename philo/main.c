@@ -68,7 +68,7 @@ static int	process_arguments(t_table *table, char *av[])
 	if (table->time_to_die < MIN_TIMESTAMP
 		|| table->time_to_eat < MIN_TIMESTAMP
 		|| table->time_to_sleep < MIN_TIMESTAMP)
-		return (ft_alert(MSG_ERR_TIMESTAMP, ALERT_ERROR));
+		return (ft_alert(MSG_ERR_TIMESTAMP, A_ERROR));
 	return (0);
 }
 

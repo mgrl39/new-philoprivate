@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 14:05:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 14:16:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ is %d."
 
 # define MIN_TIMESTAMP	60e3
 
-# define MSG_WARN_FAIL_DEST_FORK_MTX "Warning: Failed to destroy fork mutex\n"
-# define MSG_WARN_FAIL_DEST_TABLE_MTX "Warning: Failed to destroy table mutex\n"
-# define MSG_WARN_FAIL_DEST_WRITE_MTX "Warning: Failed to destroy write mutex\n"
-# define MSG_WARN_FAIL_DEST_PHILO_MTX "Warning: Failed to destroy philo mutex\n"
+# define MSG_W_FORK "Warning: Failed to destroy fork mutex\n"
+# define MSG_W_TABLE "Warning: Failed to destroy table mutex\n"
+# define MSG_W_WRITE "Warning: Failed to destroy write mutex\n"
+# define MSG_W_PHILO "Warning: Failed to destroy philo mutex\n"
 
 # define MSG_ERR_GET_TIME "Error: gettimeofday function returned -1\n"
 
@@ -97,8 +97,8 @@ typedef enum e_time_code
 
 typedef enum e_alert_type
 {
-	ALERT_ERROR,
-	ALERT_WARNING
+	A_ERROR,
+	A_WARNING
 }	t_alert_type;
 
 /* Typedefs */
@@ -217,5 +217,4 @@ int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
 int		all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
 int		validate_and_convert_to_long(const char *str, long *result);
-// TODO: Remove it later void		clean_table(t_table *table);
 #endif

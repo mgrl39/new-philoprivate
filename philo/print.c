@@ -79,14 +79,14 @@ void	ft_putstr_fd(char *msg, int fd)
 
 int	ft_alert(char *msg, t_alert_type type)
 {
-	if (type == ALERT_ERROR)
+	if (type == A_ERROR)
 		ft_putstr_fd(RED, 2);
 	else
 		ft_putstr_fd(GOLD, 2);
 	ft_putstr_fd(msg, 2);
 	ft_putstr_fd(RESET, 2);
 	ft_putstr_fd("\n", 2);
-	return (type == ALERT_ERROR);
+	return (type == A_ERROR);
 }
 
 // TODO: CHANGE IT TO FT_ALERT

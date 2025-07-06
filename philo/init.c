@@ -21,7 +21,7 @@ static void	cleanup_philo_mutexes(t_table *table, int count)
 	while (++i < count)
 	{
 		if (pthread_mutex_destroy(&table->philos[i].philo_mutex) != 0)
-			ft_alert(MSG_WARN_FAIL_DEST_PHILO_MTX, ALERT_WARNING);
+			ft_alert(MSG_W_PHILO, A_WARNING);
 	}
 }
 
@@ -88,7 +88,7 @@ static int	philo_init(t_table *table)
 		if (pthread_mutex_init(&philo->philo_mutex, NULL) != 0)
 		{
 			cleanup_philo_mutexes(table, i);
-			return (ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
+			return (ft_alert(MSG_ERR_MUTEX, A_ERROR));
 		}
 		assign_forks(philo, table->forks, i);
 	}
@@ -104,12 +104,12 @@ void	free_table(t_table *table, int initialized_forks)
 	while (++i < initialized_forks)
 	{
 		if (pthread_mutex_destroy(&table->forks[i].fork) != 0)
-			ft_alert(MSG_WARN_FAIL_DEST_FORK_MTX, ALERT_WARNING);
+			ft_alert(MSG_W_FORK, A_WARNING);
 	}
 	if (pthread_mutex_destroy(&table->table_mutex) != 0)
-		ft_alert(MSG_WARN_FAIL_DEST_TABLE_MTX, ALERT_WARNING);
+		ft_alert(MSG_W_TABLE, A_WARNING);
 	if (pthread_mutex_destroy(&table->write_mutex) != 0)
-		ft_alert(MSG_WARN_FAIL_DEST_WRITE_MTX, ALERT_WARNING);
+		ft_alert(MSG_W_WRITE, A_WARNING);
 	if (table->philos)
 	{
 		free(table->philos);
@@ -133,19 +133,19 @@ int	init_table(t_table *table)
 
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
 	if (!table->philos)
-		return (ft_alert(MSG_ERR_MALLOC, ALERT_ERROR));
+		return (ft_alert(MSG_ERR_MALLOC, A_ERROR));
 	if (pthread_mutex_init(&table->table_mutex, NULL) != 0)
-		return (free_table(table, 0), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
+		return (free_table(table, 0), ft_alert(MSG_ERR_MUTEX, A_ERROR));
 	if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
-		return (free_table(table, 0), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
+		return (free_table(table, 0), ft_alert(MSG_ERR_MUTEX, A_ERROR));
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
 	if (!table->forks)
-		return (free_table(table, 0), ft_alert(MSG_ERR_MALLOC, ALERT_ERROR));
+		return (free_table(table, 0), ft_alert(MSG_ERR_MALLOC, A_ERROR));
 	i = -1;
 	while (++i < table->philo_nbr)
 	{
 		if (pthread_mutex_init(&table->forks[i].fork, NULL) != 0)
-			return (free_table(table, i), ft_alert(MSG_ERR_MUTEX, ALERT_ERROR));
+			return (free_table(table, i), ft_alert(MSG_ERR_MUTEX, A_ERROR));
 		table->forks[i].fork_id = i;
 	}
 	if (philo_init(table) == FAILURE)
