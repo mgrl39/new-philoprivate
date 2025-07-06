@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init_0',['INIT',['../philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36',1,'philo.h']]]
+  ['join_0',['JOIN',['../philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7',1,'philo.h']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['take_5ffirst_5ffork_0',['TAKE_FIRST_FORK',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bdaab6163d27f4ab4de6cfe60fc747c2065',1,'philo.h']]],
-  ['take_5fsecond_5ffork_1',['TAKE_SECOND_FORK',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda0e34d2c7b093db8c6f3a1baf1144e918',1,'philo.h']]],
-  ['thinking_2',['THINKING',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda95fa912d68ac097a4a83d1b1f3527401',1,'philo.h']]]
+  ['unlock_0',['UNLOCK',['../philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564',1,'philo.h']]],
+  ['usec_1',['USEC',['../philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c',1,'philo.h']]]
 ];

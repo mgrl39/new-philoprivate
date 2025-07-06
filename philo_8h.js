@@ -11,6 +11,7 @@ var philo_8h =
     [ "ERR_OVERFLOW", "philo_8h.html#ad10b7a726bfcfbac7f7c30586e8802d0", null ],
     [ "ERR_TIMESTAMP", "philo_8h.html#a091caea45458b22b268f8be3caf5fa40", null ],
     [ "ERR_ZERO_VALUE", "philo_8h.html#a6ce08348b8e4db71d2c55ff3ac8f25da", null ],
+    [ "FAILURE", "philo_8h.html#a6d58f9ac447476b4e084d7ca383f5183", null ],
     [ "GOLD", "philo_8h.html#af468028083c9e52aa2c94ef3b9940450", null ],
     [ "GREEN", "philo_8h.html#acfbc006ea433ad708fdee3e82996e721", null ],
     [ "MIN_TIMESTAMP", "philo_8h.html#afe6ba482a5b022850f1edf4427fa5bd0", null ],
@@ -31,12 +32,14 @@ var philo_8h =
     [ "MSG_FORK", "philo_8h.html#a7c22682ea139ac648eaa7a2951381640", null ],
     [ "MSG_SLEEP", "philo_8h.html#a04d4171c13be166553207bfda405c811", null ],
     [ "MSG_THINK", "philo_8h.html#a602010673c815569a4aa8ffe6165038a", null ],
-    [ "MSG_WARN_FAIL_DEST_FORK_MTX", "philo_8h.html#af1c189db2e92fcdd57aa99d4df04cc73", null ],
-    [ "MSG_WARN_FAIL_DEST_TABLE_MTX", "philo_8h.html#a24f23f991e815960ebc2a769f43d62d6", null ],
-    [ "MSG_WARN_FAIL_DEST_WRITE_MTX", "philo_8h.html#a3d28e5950aa5093971b323b40a2cf306", null ],
+    [ "MSG_W_FORK", "philo_8h.html#a58db081595cbc4e4a7f178b7761136bf", null ],
+    [ "MSG_W_PHILO", "philo_8h.html#ab42f8b8eacf76a822ec0da8858b6bf3b", null ],
+    [ "MSG_W_TABLE", "philo_8h.html#a7a6d342532dcfa01daa78feaa0ee18c4", null ],
+    [ "MSG_W_WRITE", "philo_8h.html#ac96b561cc00e9d1f8a4277ac88806bdb", null ],
     [ "PURPLE", "philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0", null ],
     [ "RED", "philo_8h.html#a8d23feea868a983c8c2b661e1e16972f", null ],
     [ "RESET", "philo_8h.html#ab702106cf3b3e96750b6845ded4e0299", null ],
+    [ "SUCCESS", "philo_8h.html#aa90cac659d18e8ef6294c7ae337f6b58", null ],
     [ "t_alert_type", "philo_8h.html#ac4d675cf946a9531c5c8ff88f3b7bd96", null ],
     [ "t_fork", "philo_8h.html#ad10cd6a99f0065adf55fc39466bc911a", null ],
     [ "t_mtx", "philo_8h.html#aea7fc7c99322f930e2dbfa4dcb8a2736", null ],
@@ -46,14 +49,12 @@ var philo_8h =
     [ "t_table", "philo_8h.html#a3a1d8e4332315885da833b46801b67fb", null ],
     [ "t_time_code", "philo_8h.html#a979a97b7e43cf661d7284d1fa8fb79e3", null ],
     [ "e_alert_type", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12", [
-      [ "ALERT_ERROR", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a9382ee4ee724c1de480080e17b069ea6", null ],
-      [ "ALERT_WARNING", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12ad2cdba508664e4d051ebc9ed5ded8185", null ]
+      [ "A_ERROR", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54", null ],
+      [ "A_WARNING", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a2f3a7c36eec76472647318ff6732f16e", null ]
     ] ],
     [ "e_opcode", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9c", [
       [ "LOCK", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48", null ],
       [ "UNLOCK", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564", null ],
-      [ "INIT", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca0cb1b2c6a7db1f1084886c98909a3f36", null ],
-      [ "DESTROY", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca534df644e3182226cd53827fee0589a4", null ],
       [ "CREATE", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4", null ],
       [ "JOIN", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7", null ]
     ] ],
@@ -66,13 +67,13 @@ var philo_8h =
       [ "DIED", "philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda77cfb3f8b737b27529fe9d616dc0720a", null ]
     ] ],
     [ "e_time_code", "philo_8h.html#a5c635789974cd7c0c6b41f540113ba40", [
-      [ "MILLISECOND", "philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a449692f8f5ec911ed443daf65d574c88", null ],
-      [ "MICROSECOND", "philo_8h.html#a5c635789974cd7c0c6b41f540113ba40ac9ce38506107f19d0aaec5f2a932078c", null ]
+      [ "MSEC", "philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f", null ],
+      [ "USEC", "philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c", null ]
     ] ],
     [ "all_threads_running", "philo_8h.html#a1e1cd8cf5c3bd7d8f449cb092dcfbf12", null ],
-    [ "clean_table", "philo_8h.html#a48e1a47db9db1a87075c996c9a37f75d", null ],
     [ "dinner_start", "philo_8h.html#aefcf57cc5e5aba4239be1b514ec03ab6", null ],
     [ "error_exit", "philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14", null ],
+    [ "free_table", "philo_8h.html#a965a241099d9f27bfc260769801130bb", null ],
     [ "ft_alert", "philo_8h.html#a947bf0aaab32c425b437596100a37e92", null ],
     [ "ft_putstr_fd", "philo_8h.html#a1324fe9d27ae67d4c6b05aafcab4d0ed", null ],
     [ "get_int", "philo_8h.html#a1cd5a985ffabb5d265950973674a8920", null ],

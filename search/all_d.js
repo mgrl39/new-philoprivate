@@ -3,7 +3,7 @@ var searchData=
   ['parse_5fand_5fcheck_0',['parse_and_check',['../main_8c.html#a71cd087121a76b784f9eb642f07d92ba',1,'main.c']]],
   ['philo_2eh_1',['philo.h',['../philo_8h.html',1,'']]],
   ['philo_5fdied_2',['philo_died',['../monitor_8c.html#aa61a8d876c134c06b05c5e479b0a614f',1,'monitor.c']]],
-  ['philo_5finit_3',['philo_init',['../init_8c.html#a0f0ba0fdb5f6d54626030303a6bb3ef0',1,'init.c']]],
+  ['philo_5finit_3',['philo_init',['../init_8c.html#a2c3384e9069e3a04813d1240fc924917',1,'init.c']]],
   ['philo_5fmutex_4',['philo_mutex',['../structs__philo.html#ac2bac7ae442cae69b14ed51f5b343c8e',1,'s_philo']]],
   ['philo_5fnbr_5',['philo_nbr',['../structs__table.html#a99fea957f58894156b9aab0e1716dab6',1,'s_table']]],
   ['philos_6',['philos',['../structs__table.html#ab17844cffbf227b620291893dcde186c',1,'s_table']]],

@@ -12,7 +12,7 @@ var searchData=
   ['table_5fmutex_9',['table_mutex',['../structs__table.html#a39084529fdb8f766cff366a50435790d',1,'s_table']]],
   ['take_5ffirst_5ffork_10',['TAKE_FIRST_FORK',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bdaab6163d27f4ab4de6cfe60fc747c2065',1,'philo.h']]],
   ['take_5fsecond_5ffork_11',['TAKE_SECOND_FORK',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda0e34d2c7b093db8c6f3a1baf1144e918',1,'philo.h']]],
-  ['thinking_12',['thinking',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda95fa912d68ac097a4a83d1b1f3527401',1,'THINKING:&#160;philo.h'],['../philo_8h.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c'],['../routine_8c.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c']]],
+  ['thinking_12',['thinking',['../philo_8h.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c'],['../routine_8c.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c'],['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda95fa912d68ac097a4a83d1b1f3527401',1,'THINKING:&#160;philo.h']]],
   ['thread_5fid_13',['thread_id',['../structs__philo.html#aefe386c1b7ddf88c1620a62b1c4c54da',1,'s_philo']]],
   ['threads_5frunning_5fnbr_14',['threads_running_nbr',['../structs__table.html#a8a4acb79ce99a305ae8490e311e85e26',1,'s_table']]],
   ['threadsafe_2ec_15',['threadsafe.c',['../threadsafe_8c.html',1,'']]],
