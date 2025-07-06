@@ -60,7 +60,7 @@ void	precise_usleep(long usec, t_table *table)
 
 	start = gettime(USEC);
 	if (start == -1)
-		ft_alert(MSG_ERR_GET_TIME, A_ERROR);
+		ft_alert(ERR_TIME_FN, A_ERROR);
 	// TODO CHECK IF GETTIME IS -1
 	// TODO CHECK IF GETTIME IS -1
 	while (gettime(USEC) - start < usec)
