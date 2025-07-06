@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['debug_5fmode_0',['DEBUG_MODE',['../philo_8h.html#ac80a3592e72fd96b772ee47a7d8e0d0a',1,'philo.h']]]
+  ['blue_0',['BLUE',['../philo_8h.html#a79d10e672abb49ad63eeaa8aaef57c38',1,'philo.h']]],
+  ['bold_1',['BOLD',['../philo_8h.html#a26cdbb1a00213c810caccf21cd33a631',1,'philo.h']]]
 ];
