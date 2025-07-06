@@ -42,7 +42,7 @@ void	write_status(t_philo_status status, t_philo *philo)
 {
 	long	time;
 
-	time = gettime(MILLISECOND);
+	time = gettime(MSEC);
 	time -= philo->table->start_simulation;
 	if (get_int(&philo->philo_mutex, &philo->full))
 		return ;

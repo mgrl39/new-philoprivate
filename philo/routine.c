@@ -23,7 +23,7 @@ static void	*single_philo(void *arg)
 
 	philo = (t_philo *)arg;
 	wait_all_threads(philo->table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	increase_long(&philo->table->table_mutex,
 		&philo->table->threads_running_nbr);
 	write_status(TAKE_FIRST_FORK, philo);
@@ -75,7 +75,7 @@ static void	eat(t_philo *philo)
 	write_status(TAKE_FIRST_FORK, philo);
 	safe_mutex_handle(&philo->second_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	philo->meals_counter++;
 	write_status(EATING, philo);
 	precise_usleep(philo->table->time_to_eat, philo->table);
@@ -113,7 +113,7 @@ void	*dinner_simulation(void *data)
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MILLISECOND));
+	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	increase_long(&philo->table->table_mutex,
 		&philo->table->threads_running_nbr);
 	prevent_simultaneous_start(philo);
@@ -175,7 +175,7 @@ void	dinner_start(t_table *table)
 				dinner_simulation, &table->philos[i], CREATE);
 	}
 	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
-	table->start_simulation = gettime(MILLISECOND);
+	table->start_simulation = gettime(MSEC);
 	set_int(&table->table_mutex, &table->all_threads_ready, 1);
 	i = -1;
 	while (++i < table->philo_nbr)
