@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 15:47:47 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/06 16:13:01 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@
 static void	*single_philo(void *arg)
 {
 	t_philo	*philo;
+	t_table	*table;
 
 	philo = (t_philo *)arg;
-	wait_all_threads(philo->table);
+	table = philo->table;
+	wait_all_threads(table);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
-	increase_long(&philo->table->table_mutex,
-		&philo->table->threads_running_nbr);
+	increase_long(&table->table_mutex, &table->threads_running_nbr);
 	write_status(TAKE_FIRST_FORK, philo);
-	while (!simulation_finished(philo->table))
+	while (!simulation_finished(table))
 		usleep(200);
 	return (NULL);
 }
