@@ -194,7 +194,6 @@ void	*monitor_dinner(void *data);
 void	dinner_start(t_table *table);
 void	error_exit(const char *error);
 void	free_table(t_table *table, int initialized_forks);
-void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);

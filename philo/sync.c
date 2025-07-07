@@ -22,6 +22,10 @@ void	wait_all_threads(t_table	*table)
 /**
  * Monitor busy waits until all theads are not running
  * All threads are running
+ * TODO: ADD RETURN -1 IF ERROR WITH MUTEX
+ *
+ * #define FAIL_LOCK_ALL_THREADS   "Mutex lock failed in all_threads_running"
+#define FAIL_UNLOCK_ALL_THREADS "Mutex unlock failed in all_threads_running"
  */
 int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 {
@@ -29,9 +33,13 @@ int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 
 	if (!mtx || !threads_count)
 		return (0);
-	safe_mutex_handle(mtx, LOCK);
+	if (pthread_mutex_lock(mtx) != 0)
+		return (-ft_alert("MUTEX ERROR", A_ERROR));
+	//safe_mutex_handle(mtx, LOCK);
 	all_running = (*threads_count == total_threads);
-	safe_mutex_handle(mtx, UNLOCK);
+	if (pthread_mutex_unlock(mtx) != 0)
+		return (-ft_alert("MUTEX ERROR", A_ERROR));
+	//safe_mutex_handle(mtx, UNLOCK);
 	return (all_running);
 }
 

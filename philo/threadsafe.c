@@ -21,40 +21,6 @@
  * This functions returns 0 if successful, otherwise we will get an error value.
  * We will recreate the perror function
  */
-static void	handle_mutex_error(int status, t_opcode opcode)
-{
-	if (0 == status)
-		return ;
-	else if (EINVAL == status && (LOCK == opcode || UNLOCK == opcode))
-		error_exit("The value specified by mutex is invalid.");
-	else if (EDEADLK == status)
-		error_exit(
-			"A deadlock would occur if the thread blocked waiting for mutex.");
-	else if (EPERM == status)
-		error_exit("The current thread does not hold a lock on muttex.");
-	else if (ENOMEM == status)
-		error_exit(
-			"The process cannot allocate enogh memory to create antoher mutex."
-			);
-	else if (EBUSY == status)
-		error_exit("Mutex is locked");
-}
-
-// ** MUTEX SAFE **
-// init
-// destroy
-// lock
-// unlock
-//
-void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode)
-{
-	if (LOCK == opcode)
-		handle_mutex_error(pthread_mutex_lock(mutex), opcode);
-	else if (UNLOCK == opcode)
-		handle_mutex_error(pthread_mutex_unlock(mutex), opcode);
-	else
-		error_exit("Wrong opcode for mutex handle");
-}
 
 /** THREADS **/
 /*
