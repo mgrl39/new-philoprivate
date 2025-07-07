@@ -13,7 +13,7 @@
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-LDFLAGS = -pthread -fsanitize=address
+LDFLAGS = -pthread
 RM = rm -rf
 MKDIR = mkdir -p
 
