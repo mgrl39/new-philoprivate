@@ -10,6 +10,5 @@ var dir_1334dbce90460f198b5d33d651f8d39f =
     [ "routine.c", "routine_8c.html", "routine_8c" ],
     [ "state.c", "state_8c.html", "state_8c" ],
     [ "sync.c", "sync_8c.html", "sync_8c" ],
-    [ "threadsafe.c", "threadsafe_8c.html", "threadsafe_8c" ],
     [ "utils.c", "utils_8c.html", "utils_8c" ]
 ];

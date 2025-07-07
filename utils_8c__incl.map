@@ -1,15 +1,17 @@
 <map id="philo/utils.c" name="philo/utils.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="204,5,301,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="251,5,348,31"/>
 <area shape="rect" id="Node000002" href="$philo_8h.html" title=" " alt="" coords="14,79,81,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,33,94,77,93,72,219,28"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,33,95,79,93,74,258,28"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="105,79,195,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,33,180,73,177,68,235,28"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="276,33,188,75,186,70,274,28"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="219,79,286,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="255,31,255,65,250,65,250,31"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="294,32,270,69,266,66,289,30"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="311,79,381,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="269,29,322,68,318,72,266,33"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="309,30,333,66,329,69,305,32"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="406,79,481,104"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="284,28,400,71,398,76,282,33"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="324,28,409,70,406,75,321,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="505,79,573,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="339,28,493,73,491,79,337,33"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,152,89,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="50,104,50,138,45,138,45,104"/>
 </map>

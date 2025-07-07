@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sleeping_0',['SLEEPING',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bda488282601451a751e0f0e770b15d4235',1,'philo.h']]]
+  ['sleep_0',['SLEEP',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bdad6137abebe4fdc59e2f0f2c84bdbe3fa',1,'philo.h']]]
 ];
