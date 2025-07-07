@@ -88,5 +88,5 @@ void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *),
 	else if (JOIN == opcode)
 		handle_thread_error(pthread_join(*thread, NULL), opcode);
 	else
-		error_exit("Wrong opcode for thread_handle");
+		error_exit("wrong opcode for thread_handle");
 }

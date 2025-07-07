@@ -27,26 +27,28 @@ static void	write_status_debug(t_philo_status status, t_philo *philo,
 		printf(BOLD"%6ld"RESET RED
 			" %d has taken the 2 fork\n\t\t\tn [ %d ]\n"RESET,
 			time, philo->id, philo->second_fork->fork_id);
-	else if (EATING == status && !simulation_finished(philo->table))
+	else if (EAT == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET" %d is eating\t\t\tn [ %ld ]\n"RESET,
 			time, philo->id, philo->meals_counter);
-	else if (SLEEPING == status && !simulation_finished(philo->table))
+	else if (SLEEP == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET" %d is sleeping\n", time, philo->id);
-	else if (THINKING == status && !simulation_finished(philo->table))
+	else if (THINK == status && !simulation_finished(philo->table))
 		printf(BOLD"%6ld"RESET" %d is thinking\n", time, philo->id);
 	else if (DIED == status)
 		printf(RED"\t\t %6ld %d died \n"RESET, time, philo->id);
 }
 
-void	write_status(t_philo_status status, t_philo *philo)
+int	write_status(t_philo_status status, t_philo *philo)
 {
 	long	time;
 
 	time = gettime(MSEC);
 	time -= philo->table->start_simulation;
 	if (get_int(&philo->philo_mutex, &philo->full))
-		return ;
-	safe_mutex_handle(&philo->table->write_mutex, LOCK);
+		return (0);
+	//safe_mutex_handle(&philo->table->write_mutex, LOCK);
+	if (pthread_mutex_lock(&philo->table->write_mutex) != 0)
+		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	if (DEBUG_MODE)
 		write_status_debug(status, philo, time);
 	else
@@ -54,16 +56,20 @@ void	write_status(t_philo_status status, t_philo *philo)
 		if ((TAKE_FIRST_FORK == status || TAKE_SECOND_FORK == status)
 			&& !simulation_finished(philo->table))
 			printf(GOLD BOLD"%-6ld"RESET GOLD S_FORK, time, philo->id);
-		else if (EATING == status && !simulation_finished(philo->table))
+		else if (EAT == status && !simulation_finished(philo->table))
 			printf(BOLD GREEN "%-6ld"RESET GREEN S_EAT, time, philo->id);
-		else if (SLEEPING == status && !simulation_finished(philo->table))
+		else if (SLEEP == status && !simulation_finished(philo->table))
 			printf(BLUE BOLD"%-6ld"RESET BLUE S_SLEEP, time, philo->id);
-		else if (THINKING == status && !simulation_finished(philo->table))
+		else if (THINK == status && !simulation_finished(philo->table))
 			printf(PURPLE BOLD"%-6ld"RESET PURPLE S_THINK, time, philo->id);
 		else if (DIED == status)
 			printf(BOLD RED"%-6ld" S_DIED RESET, time, philo->id);
 	}
-	safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
+	// safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
+	// TODO: check if this later...
+	if (pthread_mutex_unlock(&philo->table->write_mutex) != 0)
+		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
+	return (0);
 }
 
 static void	ft_putstr_fd(char *msg, int fd)

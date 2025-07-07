@@ -47,11 +47,14 @@ int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
  * if the nmber of threads running is equal to
  * the actual total number of threads.
  */
-void	increase_long(t_mtx *mutex, long *value)
+int	increase_long(t_mtx *mutex, long *value)
 {
-	safe_mutex_handle(mutex, LOCK);
+	if (pthread_mutex_lock(mutex) != 0)
+		return (ft_alert(FAIL_LOCK_INC_LONG, A_ERROR));
 	(*value)++;
-	safe_mutex_handle(mutex, UNLOCK);
+	if (pthread_mutex_unlock(mutex) != 0)
+		return (ft_alert(FAIL_UNLOCK_INC_LONG, A_ERROR));
+	return (SUCCESS);
 }
 
 /* This tries to make the system fair */

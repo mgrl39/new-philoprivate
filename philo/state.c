@@ -13,15 +13,19 @@
 #include "philo.h"
 
 /**
- *
  * Module containning setters_getters
  * to avoid writing LOCK UNLOCK everywhere
+ * These functions now return int for error handling
+ * Return 0 for succes, FAILURE (1) for errors
  */
-void	set_int(t_mtx *mutex, int *dest, int value)
+int	set_int(t_mtx *mutex, int *dest, int value)
 {
-	safe_mutex_handle(mutex, LOCK);
+	if (pthread_mutex_lock(mutex) != 0)
+		return (ft_alert(FAIL_LOCK_SET_INT, A_ERROR));
 	*dest = value;
-	safe_mutex_handle(mutex, UNLOCK);
+	if (pthread_mutex_unlock(mutex) != 0)
+		return (ft_alert(FAIL_UNLOCK_SET_INT, A_ERROR));
+	return (0);
 }
 
 // READING thread safe
@@ -29,9 +33,11 @@ int	get_int(t_mtx *mutex, int *value)
 {
 	int	ret;
 
-	safe_mutex_handle(mutex, LOCK);
+	if (pthread_mutex_lock(mutex) != 0)
+		return (ft_alert(FAIL_LOCK_GET_INT, A_ERROR));
 	ret = *value;
-	safe_mutex_handle(mutex, UNLOCK);
+	if (pthread_mutex_unlock(mutex) != 0)
+		return (ft_alert(FAIL_UNLOCK_GET_INT, A_ERROR));
 	return (ret);
 }
 
@@ -40,17 +46,22 @@ long	get_long(t_mtx *mutex, long *value)
 {
 	long	ret;
 
-	safe_mutex_handle(mutex, LOCK);
+	if (pthread_mutex_lock(mutex) != 0)
+		return (ft_alert(FAIL_LOCK_GET_LONG, A_ERROR));
 	ret = *value;
-	safe_mutex_handle(mutex, UNLOCK);
+	if (pthread_mutex_unlock(mutex) != 0)
+		return (ft_alert(FAIL_UNLOCK_GET_LONG, A_ERROR));
 	return (ret);
 }
 
-void	set_long(t_mtx *mutex, long *dest, long value)
+int	set_long(t_mtx *mutex, long *dest, long value)
 {
-	safe_mutex_handle(mutex, LOCK);
+	if (pthread_mutex_lock(mutex) != 0)
+		return (ft_alert(FAIL_LOCK_SET_LONG, A_ERROR));
 	*dest = value;
-	safe_mutex_handle(mutex, UNLOCK);
+	if (pthread_mutex_unlock(mutex) != 0)
+		return (ft_alert(FAIL_UNLOCK_SET_LONG, A_ERROR));
+	return (0);
 }
 
 int	simulation_finished(t_table *table)
