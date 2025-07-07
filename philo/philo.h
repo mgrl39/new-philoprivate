@@ -47,7 +47,7 @@ positive values."
 # define ERR_LARGE	"Error: '%s' is too large. Maximum allowed value \
 is %d."
 # define ERR_ZERO	"Error: '%s' (%s) cannot be zero."
-# define ERR_TIME	"Error: all timings must be at least 60ms"
+# define ERR_TIME	"Error: all timings must be at least 100ms"
 # define ERR_MALLOC	"Error: malloc"
 # define ERR_MUTEX	"Error: mutex"
 
@@ -57,7 +57,7 @@ is %d."
 # define ARG_SLEEP_TIME "time to sleep"
 # define ARG_MEALS		"number of meals"
 
-# define MIN_TIMESTAMP	60e3
+# define MIN_TIMESTAMP	100e3
 
 # define MSG_W_FORK "Warning: Failed to destroy fork mutex\n"
 # define MSG_W_TABLE "Warning: Failed to destroy table mutex\n"
