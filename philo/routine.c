@@ -44,7 +44,7 @@ void	thinking(t_philo *philo, int pre_simulation)
 	long	t_think;
 
 	if (!pre_simulation)
-		write_status(THINKING, philo);
+		write_status(THINK, philo);
 	if (philo->table->philo_nbr % 2 == 0)
 		return ;
 	t_eat = philo->table->time_to_eat;
@@ -70,21 +70,35 @@ void	thinking(t_philo *philo, int pre_simulation)
 // sleep the time requested.
 // if is true the philo is full
 // 3) UNLOCK
-static void	eat(t_philo *philo)
+static int	eat(t_philo *philo)
 {
-	safe_mutex_handle(&philo->first_fork->fork, LOCK);
+	if (pthread_mutex_lock(&philo->first_fork->fork) != 0)
+		return (ft_alert("Failed to lock first fork", A_ERROR));
+	// safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
-	safe_mutex_handle(&philo->second_fork->fork, LOCK);
+	// safe_mutex_handle(&philo->second_fork->fork, LOCK);
+	if (pthread_mutex_lock(&philo->second_fork->fork) != 0)
+	{
+		if (pthread_mutex_unlock(&philo->first_fork->fork) != 0)
+			ft_alert("Failed to unlock first fork after second fork lock failure", A_ERROR);
+		return (ft_alert("Failed to lock second fork", A_ERROR));
+	}
 	write_status(TAKE_SECOND_FORK, philo);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
 	philo->meals_counter++;
-	write_status(EATING, philo);
+	write_status(EAT, philo);
 	precise_usleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->nbr_limit_meals > 0
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
 		set_int(&philo->philo_mutex, &philo->full, 1);
-	safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
-	safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
+	if (pthread_mutex_unlock(&philo->first_fork->fork) != 0)
+		return (ft_alert("SOME ALERT", A_ERROR));
+	// safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
+	// safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
+	if (pthread_mutex_unlock(&philo->second_fork->fork) != 0)
+		return (ft_alert("SOME ALERT", A_ERROR));
+	// if OK retunr 0
+	return (0);
 }
 
 // here is goonna be the actual simulation of the dinner
@@ -115,15 +129,17 @@ void	*dinner_simulation(void *data)
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
 	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
-	increase_long(&philo->table->table_mutex,
-		&philo->table->threads_running_nbr);
+	increase_long(&philo->table->table_mutex, &philo->table->threads_running_nbr);
 	prevent_simultaneous_start(philo);
 	while (!simulation_finished(philo->table))
 	{
 		if (get_int(&philo->philo_mutex, &philo->full))
 			break ;
-		eat(philo);
-		write_status(SLEEPING, philo);
+		if (eat(philo) == FAILURE)
+		{
+			break ;
+		}
+		write_status(SLEEP, philo);
 		precise_usleep(philo->table->time_to_sleep, philo->table);
 		thinking(philo, 0);
 	}

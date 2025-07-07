@@ -21,8 +21,7 @@ SRC_DIR = .
 INC_DIR = .
 OBJ_DIR = obj
 
-SRCS = routine.c state.c init.c main.c monitor.c threadsafe.c \
-       sync.c utils.c print.c atol.c
+SRCS = routine.c state.c init.c main.c monitor.c sync.c utils.c print.c atol.c
 HEADER = $(INC_DIR)/philo.h
 
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)

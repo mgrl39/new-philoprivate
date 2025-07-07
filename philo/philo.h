@@ -72,9 +72,9 @@ is %d."
 /* Philosopher states */
 typedef enum e_status
 {
-	EATING,
-	SLEEPING,
-	THINKING,
+	EAT,
+	SLEEP,
+	THINK,
 	TAKE_FIRST_FORK,
 	TAKE_SECOND_FORK,
 	DIED,
@@ -194,10 +194,6 @@ void	*monitor_dinner(void *data);
 void	dinner_start(t_table *table);
 void	error_exit(const char *error);
 void	free_table(t_table *table, int initialized_forks);
-void	safe_mutex_handle(t_mtx *mutex, t_opcode opcode);
-void	set_long(t_mtx *mutex, long *dest, long value);
-void	set_int(t_mtx *mutex, int *dest, int value);
-void	increase_long(t_mtx *mutex, long *value);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
@@ -206,7 +202,6 @@ void	print_argument_error(
 			const char *arg,
 			const char *param_name);
 void	wait_all_threads(t_table	*table);
-void	write_status(t_philo_status status, t_philo *philo);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
@@ -217,4 +212,19 @@ int		ft_alert(char *msg, t_alert_type type);
 int		get_int(t_mtx *mutex, int *value);
 int		simulation_finished(t_table *table);
 int		validate_and_convert_to_long(const char *str, long *result);
+int		set_long(t_mtx *mutex, long *dest, long value);
+int		set_int(t_mtx *mutex, int *dest, int value);
+int		increase_long(t_mtx *mutex, long *value);
+int		write_status(t_philo_status status, t_philo *philo);
+
+# define FAIL_LOCK_SET_INT		"Mutex lock failed in set_int"
+# define FAIL_UNLOCK_SET_INT	"Mutex unlock failed in set_int"
+# define FAIL_LOCK_GET_INT		"Mutex lock failed in get_int"
+# define FAIL_UNLOCK_GET_INT	"Mutex unlock failed in get_int"
+# define FAIL_LOCK_GET_LONG		"Mutex lock failed in get_long"
+# define FAIL_UNLOCK_GET_LONG	"Mutex unlock failed in get_long"
+# define FAIL_LOCK_SET_LONG		"Mutex lock failed in set_long"
+# define FAIL_UNLOCK_SET_LONG	"Mutex unlock failed in set_long"
+# define FAIL_LOCK_INC_LONG		"Mutex lock failed in increase_long"
+# define FAIL_UNLOCK_INC_LONG	"Mutex unlock failed in increase_long"
 #endif
