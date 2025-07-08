@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 19:13:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:32:36 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static void	ft_putstr_fd(char *msg, int fd)
 		write(fd, s++, 1);
 }
 
+// TODO: MAYBE MUST LOCK THIS...
 int	ft_alert(char *msg, t_alert_type type)
 {
 	if (type == A_ERROR)

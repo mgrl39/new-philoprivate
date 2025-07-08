@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 17:05:11 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:33:56 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ static int	philo_died(t_philo *philo)
 	return (elapsed > t_to_die);
 }
 
-// make sure all philos running
-// spinlock till all thread run
-// constantly check time to die
+/*
+ * make sure all philos running
+ * spinlock till all thread run
+ * constantly check time to die
+ */
 void	*monitor_dinner(void *data)
 {
 	int		i;
@@ -54,6 +56,7 @@ void	*monitor_dinner(void *data)
 			{
 				set_int(&table->table_mutex, &table->end_simulation, 1);
 				write_status(DIED, table->philos + i);
+				// TODO: AQUI VA UN break ; o no??
 			}
 		}
 		usleep(100);
