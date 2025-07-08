@@ -165,26 +165,27 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Monitor busy waits until all theads are not running All threads are running TODO: ADD RETURN -1 IF ERROR WITH MUTEX</p>
-<p>#define FAIL_LOCK_ALL_THREADS "Mutex lock failed in all_threads_running" #define FAIL_UNLOCK_ALL_THREADS "Mutex unlock failed in all_threads_running" </p>
+<p>Monitor busy waits until all theads are not running All threads are running TODO: CHECK IF I AM RETURNING -1 RETURN -1 IF ERROR WITH MUTEX </p>
 
-<p class="definition">Definition at line <a class="el" href="sync_8c_source.html#l00031">31</a> of file <a class="el" href="sync_8c_source.html">sync.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   32</span>{</div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordtype">int</span> all_running;</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (!mtx || !threads_count)</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">if</span> (pthread_mutex_lock(mtx) != 0)</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> (-<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<span class="stringliteral">&quot;MUTEX ERROR&quot;</span>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
-<div class="line"><span class="lineno">   39</span>    <span class="comment">//safe_mutex_handle(mtx, LOCK);</span></div>
-<div class="line"><span class="lineno">   40</span>    all_running = (*threads_count == total_threads);</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> (pthread_mutex_unlock(mtx) != 0)</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> (-<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<span class="stringliteral">&quot;MUTEX ERROR&quot;</span>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
-<div class="line"><span class="lineno">   43</span>    <span class="comment">//safe_mutex_handle(mtx, UNLOCK);</span></div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">return</span> (all_running);</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sync_8c_source.html#l00028">28</a> of file <a class="el" href="sync_8c_source.html">sync.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordtype">int</span> all_running;</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span> (!mtx || !threads_count)</div>
+<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (pthread_mutex_lock(mtx) != 0)</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">return</span> (-<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a9b8f24def3eb783085c738e184122cfd">FAIL_LOCK_THREAD_RUN</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
+<div class="line"><span class="lineno">   36</span>    <span class="comment">//safe_mutex_handle(mtx, LOCK);</span></div>
+<div class="line"><span class="lineno">   37</span>    all_running = (*threads_count == total_threads);</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">if</span> (pthread_mutex_unlock(mtx) != 0)</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">return</span> (-<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#aec950f9c8814d3951e0af1c5b78e510b">FAIL_UNLOCK_THREAD_RUN</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
+<div class="line"><span class="lineno">   40</span>    <span class="comment">//safe_mutex_handle(mtx, UNLOCK);</span></div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">return</span> (all_running);</div>
+<div class="line"><span class="lineno">   42</span>}</div>
 <div class="ttc" id="aphilo_8h_html_a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54"><div class="ttname"><a href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a></div><div class="ttdeci">@ A_ERROR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00092">philo.h:92</a></div></div>
 <div class="ttc" id="aphilo_8h_html_a947bf0aaab32c425b437596100a37e92"><div class="ttname"><a href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a></div><div class="ttdeci">int ft_alert(char *msg, t_alert_type type)</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00086">print.c:86</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a9b8f24def3eb783085c738e184122cfd"><div class="ttname"><a href="philo_8h.html#a9b8f24def3eb783085c738e184122cfd">FAIL_LOCK_THREAD_RUN</a></div><div class="ttdeci">#define FAIL_LOCK_THREAD_RUN</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00197">philo.h:197</a></div></div>
+<div class="ttc" id="aphilo_8h_html_aec950f9c8814d3951e0af1c5b78e510b"><div class="ttname"><a href="philo_8h.html#aec950f9c8814d3951e0af1c5b78e510b">FAIL_UNLOCK_THREAD_RUN</a></div><div class="ttdeci">#define FAIL_UNLOCK_THREAD_RUN</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00198">philo.h:198</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -205,7 +206,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="425,5,576,31"/>
 <area shape="rect" href="monitor_8c.html#a93f8221563272d48894afcf53b8f076e" title=" " alt="" coords="256,5,377,31"/>
 <area shape="poly" title=" " alt="" coords="412,21,377,21,377,15,412,15"/>
-<area shape="rect" href="routine_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6" title=" " alt="" coords="108,5,208,31"/>
+<area shape="rect" href="routine_8c.html#a92e02f1eaf2c2db4097c328dc088c166" title=" " alt="" coords="108,5,208,31"/>
 <area shape="poly" title=" " alt="" coords="242,21,208,21,208,15,242,15"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
 <area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
@@ -243,17 +244,17 @@ Here is the caller graph for this function:</div>
 <p>increase threads running to synchro with the monitor.</p>
 <p>The monitor will use all_threads_running to indeed fetch this value and make a comparison if the nmber of threads running is equal to the actual total number of threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="sync_8c_source.html#l00059">59</a> of file <a class="el" href="sync_8c_source.html">sync.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>{</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">if</span> (pthread_mutex_lock(mutex) != 0)</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a7de80a1d97b28b32eb0174fb877a3319">FAIL_LOCK_INC_LONG</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
-<div class="line"><span class="lineno">   63</span>    (*value)++;</div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (pthread_mutex_unlock(mutex) != 0)</div>
-<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a855f0a9917cc1129d410a568ceff32d3">FAIL_UNLOCK_INC_LONG</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> (<a class="code hl_define" href="philo_8h.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>);</div>
-<div class="line"><span class="lineno">   67</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a7de80a1d97b28b32eb0174fb877a3319"><div class="ttname"><a href="philo_8h.html#a7de80a1d97b28b32eb0174fb877a3319">FAIL_LOCK_INC_LONG</a></div><div class="ttdeci">#define FAIL_LOCK_INC_LONG</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00218">philo.h:218</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a855f0a9917cc1129d410a568ceff32d3"><div class="ttname"><a href="philo_8h.html#a855f0a9917cc1129d410a568ceff32d3">FAIL_UNLOCK_INC_LONG</a></div><div class="ttdeci">#define FAIL_UNLOCK_INC_LONG</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00219">philo.h:219</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sync_8c_source.html#l00056">56</a> of file <a class="el" href="sync_8c_source.html">sync.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span> (pthread_mutex_lock(mutex) != 0)</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a7de80a1d97b28b32eb0174fb877a3319">FAIL_LOCK_INC_LONG</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
+<div class="line"><span class="lineno">   60</span>    (*value)++;</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">if</span> (pthread_mutex_unlock(mutex) != 0)</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> (<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a855f0a9917cc1129d410a568ceff32d3">FAIL_UNLOCK_INC_LONG</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">return</span> (<a class="code hl_define" href="philo_8h.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>);</div>
+<div class="line"><span class="lineno">   64</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a7de80a1d97b28b32eb0174fb877a3319"><div class="ttname"><a href="philo_8h.html#a7de80a1d97b28b32eb0174fb877a3319">FAIL_LOCK_INC_LONG</a></div><div class="ttdeci">#define FAIL_LOCK_INC_LONG</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00195">philo.h:195</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a855f0a9917cc1129d410a568ceff32d3"><div class="ttname"><a href="philo_8h.html#a855f0a9917cc1129d410a568ceff32d3">FAIL_UNLOCK_INC_LONG</a></div><div class="ttdeci">#define FAIL_UNLOCK_INC_LONG</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00196">philo.h:196</a></div></div>
 <div class="ttc" id="aphilo_8h_html_aa90cac659d18e8ef6294c7ae337f6b58"><div class="ttname"><a href="philo_8h.html#aa90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a></div><div class="ttdeci">#define SUCCESS</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00033">philo.h:33</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -277,7 +278,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="429,36,395,31,396,26,429,31"/>
 <area shape="rect" href="routine_8c.html#a6a167cc3ea01bb85753e218a4d9e98c9" title=" " alt="" coords="275,55,375,80"/>
 <area shape="poly" title=" " alt="" coords="429,56,376,63,375,58,429,50"/>
-<area shape="rect" href="routine_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6" title=" " alt="" coords="108,31,208,56"/>
+<area shape="rect" href="routine_8c.html#a92e02f1eaf2c2db4097c328dc088c166" title=" " alt="" coords="108,31,208,56"/>
 <area shape="poly" title=" " alt="" coords="242,33,209,38,208,33,242,28"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,56"/>
 <area shape="poly" title=" " alt="" coords="94,46,60,46,60,41,94,41"/>
@@ -303,24 +304,24 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sync_8c_source.html#l00070">70</a> of file <a class="el" href="sync_8c_source.html">sync.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">if</span> (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">philo_nbr</a> % 2 == 0)</div>
-<div class="line"><span class="lineno">   73</span>    {</div>
-<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">if</span> (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">id</a> % 2 == 0)</div>
-<div class="line"><span class="lineno">   75</span>            <a class="code hl_function" href="philo_8h.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a>(3e4, philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>);</div>
-<div class="line"><span class="lineno">   76</span>    }</div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   78</span>    {</div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">if</span> (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">id</a> % 2)</div>
-<div class="line"><span class="lineno">   80</span>            <a class="code hl_function" href="philo_8h.html#a8ed163d7c7f73288311509a08d62a561">thinking</a>(philo, 1);</div>
-<div class="line"><span class="lineno">   81</span>    }</div>
-<div class="line"><span class="lineno">   82</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sync_8c_source.html#l00067">67</a> of file <a class="el" href="sync_8c_source.html">sync.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">if</span> (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>-&gt;<a class="code hl_variable" href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">philo_nbr</a> % 2 == 0)</div>
+<div class="line"><span class="lineno">   70</span>    {</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">if</span> (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">id</a> % 2 == 0)</div>
+<div class="line"><span class="lineno">   72</span>            <a class="code hl_function" href="philo_8h.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a>(3e4, philo-&gt;<a class="code hl_variable" href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">table</a>);</div>
+<div class="line"><span class="lineno">   73</span>    }</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   75</span>    {</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">if</span> (philo-&gt;<a class="code hl_variable" href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">id</a> % 2)</div>
+<div class="line"><span class="lineno">   77</span>            <a class="code hl_function" href="philo_8h.html#a8ed163d7c7f73288311509a08d62a561">thinking</a>(philo, 1);</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span>}</div>
 <div class="ttc" id="aphilo_8h_html_a8ed163d7c7f73288311509a08d62a561"><div class="ttname"><a href="philo_8h.html#a8ed163d7c7f73288311509a08d62a561">thinking</a></div><div class="ttdeci">void thinking(t_philo *philo, int pre_simulation)</div><div class="ttdef"><b>Definition</b> <a href="routine_8c_source.html#l00040">routine.c:40</a></div></div>
 <div class="ttc" id="aphilo_8h_html_a9378c26262a9761809207ec96e047a53"><div class="ttname"><a href="philo_8h.html#a9378c26262a9761809207ec96e047a53">precise_usleep</a></div><div class="ttdeci">void precise_usleep(long usec, t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00099">utils.c:99</a></div></div>
-<div class="ttc" id="astructs__philo_html_a27548ffe0896e8ecd9623b89f4a25b6a"><div class="ttname"><a href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">s_philo::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00121">philo.h:121</a></div></div>
-<div class="ttc" id="astructs__philo_html_a6d19ddbf76b310e0be820db11863c0b0"><div class="ttname"><a href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">s_philo::table</a></div><div class="ttdeci">t_table * table</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00128">philo.h:128</a></div></div>
-<div class="ttc" id="astructs__table_html_a99fea957f58894156b9aab0e1716dab6"><div class="ttname"><a href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">s_table::philo_nbr</a></div><div class="ttdeci">long philo_nbr</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00164">philo.h:164</a></div></div>
+<div class="ttc" id="astructs__philo_html_a27548ffe0896e8ecd9623b89f4a25b6a"><div class="ttname"><a href="structs__philo.html#a27548ffe0896e8ecd9623b89f4a25b6a">s_philo::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00119">philo.h:119</a></div></div>
+<div class="ttc" id="astructs__philo_html_a6d19ddbf76b310e0be820db11863c0b0"><div class="ttname"><a href="structs__philo.html#a6d19ddbf76b310e0be820db11863c0b0">s_philo::table</a></div><div class="ttdeci">t_table * table</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00126">philo.h:126</a></div></div>
+<div class="ttc" id="astructs__table_html_a99fea957f58894156b9aab0e1716dab6"><div class="ttname"><a href="structs__table.html#a99fea957f58894156b9aab0e1716dab6">s_table::philo_nbr</a></div><div class="ttdeci">long philo_nbr</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00141">philo.h:141</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -364,7 +365,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="443,5,609,45"/>
 <area shape="rect" href="routine_8c.html#af3db4f49728131a53563eef43e2c9954" title=" " alt="" coords="256,13,395,38"/>
 <area shape="poly" title=" " alt="" coords="429,28,395,28,395,23,429,23"/>
-<area shape="rect" href="routine_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6" title=" " alt="" coords="108,13,208,38"/>
+<area shape="rect" href="routine_8c.html#a92e02f1eaf2c2db4097c328dc088c166" title=" " alt="" coords="108,13,208,38"/>
 <area shape="poly" title=" " alt="" coords="242,28,208,28,208,23,242,23"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,38"/>
 <area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
@@ -395,8 +396,8 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   20</span>        usleep(100);</div>
 <div class="line"><span class="lineno">   21</span>}</div>
 <div class="ttc" id="aphilo_8h_html_a1cd5a985ffabb5d265950973674a8920"><div class="ttname"><a href="philo_8h.html#a1cd5a985ffabb5d265950973674a8920">get_int</a></div><div class="ttdeci">int get_int(t_mtx *mutex, int *value)</div><div class="ttdef"><b>Definition</b> <a href="state_8c_source.html#l00041">state.c:41</a></div></div>
-<div class="ttc" id="astructs__table_html_a06b4490f7467277935dfe7a7854dfa80"><div class="ttname"><a href="structs__table.html#a06b4490f7467277935dfe7a7854dfa80">s_table::all_threads_ready</a></div><div class="ttdeci">int all_threads_ready</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00162">philo.h:162</a></div></div>
-<div class="ttc" id="astructs__table_html_a39084529fdb8f766cff366a50435790d"><div class="ttname"><a href="structs__table.html#a39084529fdb8f766cff366a50435790d">s_table::table_mutex</a></div><div class="ttdeci">t_mtx table_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00171">philo.h:171</a></div></div>
+<div class="ttc" id="astructs__table_html_a06b4490f7467277935dfe7a7854dfa80"><div class="ttname"><a href="structs__table.html#a06b4490f7467277935dfe7a7854dfa80">s_table::all_threads_ready</a></div><div class="ttdeci">int all_threads_ready</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00139">philo.h:139</a></div></div>
+<div class="ttc" id="astructs__table_html_a39084529fdb8f766cff366a50435790d"><div class="ttname"><a href="structs__table.html#a39084529fdb8f766cff366a50435790d">s_table::table_mutex</a></div><div class="ttdeci">t_mtx table_mutex</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00148">philo.h:148</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -421,7 +422,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="428,35,395,30,395,25,429,30"/>
 <area shape="rect" href="routine_8c.html#a6a167cc3ea01bb85753e218a4d9e98c9" title=" " alt="" coords="275,55,375,80"/>
 <area shape="poly" title=" " alt="" coords="429,56,376,63,375,58,428,51"/>
-<area shape="rect" href="routine_8c.html#aefcf57cc5e5aba4239be1b514ec03ab6" title=" " alt="" coords="108,31,208,56"/>
+<area shape="rect" href="routine_8c.html#a92e02f1eaf2c2db4097c328dc088c166" title=" " alt="" coords="108,31,208,56"/>
 <area shape="poly" title=" " alt="" coords="242,33,209,38,208,33,242,28"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,56"/>
 <area shape="poly" title=" " alt="" coords="94,46,60,46,60,41,94,41"/>
