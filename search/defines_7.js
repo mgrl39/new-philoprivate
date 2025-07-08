@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['purple_0',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
+  ['red_0',['RED',['../philo_8h.html#a8d23feea868a983c8c2b661e1e16972f',1,'philo.h']]],
+  ['reset_1',['RESET',['../philo_8h.html#ab702106cf3b3e96750b6845ded4e0299',1,'philo.h']]]
 ];
