@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 21:09:28 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 22:47:38 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,20 @@ void	*dinner_simulation(void *data)
 	}
 	return (NULL);
 }
+
+/*
+static int	create_philos_threads(t_table *table)
+{
+	int	i;
+	t_philo	*philo;
+
+	if (1 == table->philo_nbr)
+	{
+		philos = &table->philos[0];
+		if (pthread_create(philo->thread_id, 0, single_philo, philo) != 0)
+			return (ft_alert("Failed to create thread for single philo, A_ERROR"));
+	}
+}*/
 /**
  * ./philo 5 800 200 200 [5]
  *
