@@ -6,11 +6,12 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 13:03:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:33:56 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <unistd.h>
 
 static int	philo_died(t_philo *philo)
 {
@@ -25,19 +26,27 @@ static int	philo_died(t_philo *philo)
 	return (elapsed > t_to_die);
 }
 
-// make sure all philos running
-// spinlock till all thread run
-// constantly check time to die
+/*
+ * make sure all philos running
+ * spinlock till all thread run
+ * constantly check time to die
+ */
 void	*monitor_dinner(void *data)
 {
 	int		i;
 	t_table	*table;
+	long	check_interval;
 
 	table = (t_table *)data;
+	check_interval = table->time_to_die / 10;
+	if (check_interval > 1000)
+		check_interval = 1000;
+	else if (check_interval < 100)
+		check_interval = 100;
 	while (!all_threads_running(&table->table_mutex,
 			&table->threads_running_nbr,
 			table->philo_nbr))
-		;
+		usleep(check_interval);
 	while (!simulation_finished(table))
 	{
 		i = -1;
@@ -47,8 +56,10 @@ void	*monitor_dinner(void *data)
 			{
 				set_int(&table->table_mutex, &table->end_simulation, 1);
 				write_status(DIED, table->philos + i);
+				// TODO: AQUI VA UN break ; o no??
 			}
 		}
+		usleep(100);
 	}
 	return (NULL);
 }

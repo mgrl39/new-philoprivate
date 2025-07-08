@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 16:13:01 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:54:51 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * 1) fake to lock the fork
  * 2) sleep until the monitor will bust it
  */
-static void	*single_philo(void *arg)
+void	*single_philo(void *arg)
 {
 	t_philo	*philo;
 	t_table	*table;
@@ -182,8 +182,10 @@ void	dinner_start(t_table *table)
 	if (0 == table->nbr_limit_meals)
 		return ;
 	if (1 == table->philo_nbr)
+	{
 		safe_thread_handle(&table->philos[0].thread_id,
 			single_philo, &table->philos[0], CREATE);
+	}
 	else
 	{
 		i = -1;

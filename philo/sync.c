@@ -6,17 +6,18 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/05 20:55:26 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 16:48:49 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <unistd.h>
 
 // SPINLOCK to Sncronize philos start
 void	wait_all_threads(t_table	*table)
 {
 	while (!get_int(&table->table_mutex, &table->all_threads_ready))
-		;
+		usleep(100);
 }
 
 /**

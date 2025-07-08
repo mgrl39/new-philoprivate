@@ -6,13 +6,12 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 15:53:39 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:32:36 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <stdio.h>
-#include <limits.h>
 #include <unistd.h>
 
 static void	write_status_debug(t_philo_status status, t_philo *philo,
@@ -83,6 +82,7 @@ static void	ft_putstr_fd(char *msg, int fd)
 		write(fd, s++, 1);
 }
 
+// TODO: MAYBE MUST LOCK THIS...
 int	ft_alert(char *msg, t_alert_type type)
 {
 	if (type == A_ERROR)
@@ -96,15 +96,14 @@ int	ft_alert(char *msg, t_alert_type type)
 }
 
 // TODO: CHANGE IT TO FT_ALERT
-void	print_argument_error(int error, const char *arg, const char *param_name)
+void	print_argument_error(int error)
 {
 	if (error == ERR_NOT_DIGIT)
-		printf(RED ERR_DIT RESET "\n", arg);
+		ft_alert(ERR_DIT, A_ERROR);
 	else if (error == ERR_NEGATIVE)
-		printf(RED ERR_NEG RESET "\n", arg);
+		ft_alert(ERR_NEG, A_ERROR);
 	else if (error == ERR_OVERFLOW)
-		printf(RED ERR_LARGE RESET "\n", arg, INT_MAX);
+		ft_alert(ERR_LARGE, A_ERROR);
 	else if (error == ERR_ZERO_VALUE)
-		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", \
-		param_name, arg);
+		ft_alert(ERR_ZERO, A_ERROR);
 }
