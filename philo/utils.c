@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 14:05:57 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 17:10:02 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	safe_thread_handle(pthread_t *thread, void *(*foo)(void *),
 	else
 		error_exit("wrong opcode for thread_handle");
 }
+
 /*
  * We are gonna exploit gettimeofday
  *
@@ -115,12 +116,10 @@ void	precise_usleep(long usec, t_table *table)
 		remaining = usec - elapsed;
 		if (remaining > 1e3)
 			usleep(remaining / 2);
+		else if (remaining > 100)
+			usleep(100);
 		else
-		{
-			// TODO CHECK IF GETTIME IS -1
-			while (gettime(USEC) - start < usec)
-				;
-		}
+			usleep(10);
 	}
 }
 
