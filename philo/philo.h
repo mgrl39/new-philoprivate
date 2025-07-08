@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 21:09:08 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 21:38:48 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,7 @@ typedef enum e_alert_type
 typedef pthread_mutex_t	t_mtx;
 typedef struct s_table	t_table;
 
-/*
- * Fork structure holds mute an ID useful for debugging
- */
+// Fork structure holds mutex an ID useful for debugging
 typedef struct s_fork
 {
 	t_mtx	fork;
