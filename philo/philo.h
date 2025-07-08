@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 19:55:28 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:37:22 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,4 +217,6 @@ int		write_status(t_philo_status status, t_philo *philo);
 # define FAIL_UNLOCK_SET_LONG	"Mutex unlock failed in set_long"
 # define FAIL_LOCK_INC_LONG		"Mutex lock failed in increase_long"
 # define FAIL_UNLOCK_INC_LONG	"Mutex unlock failed in increase_long"
+# define FAIL_LOCK_THREAD_RUN	"Mutex lock failed in all_threads_running"
+# define FAIL_UNLOCK_THREAD_RUN	"Mutex unlock failed in all_threads_running"
 #endif

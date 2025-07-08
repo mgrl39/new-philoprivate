@@ -6,14 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 16:48:49 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:40:03 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <unistd.h>
 
-// SPINLOCK to Sncronize philos start
+// To sincronize philos start (now is not spinlock :D )
 void	wait_all_threads(t_table	*table)
 {
 	while (!get_int(&table->table_mutex, &table->all_threads_ready))
@@ -23,10 +23,7 @@ void	wait_all_threads(t_table	*table)
 /**
  * Monitor busy waits until all theads are not running
  * All threads are running
- * TODO: ADD RETURN -1 IF ERROR WITH MUTEX
- *
- * #define FAIL_LOCK_ALL_THREADS   "Mutex lock failed in all_threads_running"
-#define FAIL_UNLOCK_ALL_THREADS "Mutex unlock failed in all_threads_running"
+ * TODO: CHECK IF I AM RETURNING -1 RETURN -1 IF ERROR WITH MUTEX
  */
 int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 {
@@ -35,11 +32,11 @@ int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 	if (!mtx || !threads_count)
 		return (0);
 	if (pthread_mutex_lock(mtx) != 0)
-		return (-ft_alert("MUTEX ERROR", A_ERROR));
+		return (-ft_alert(FAIL_LOCK_THREAD_RUN, A_ERROR));
 	//safe_mutex_handle(mtx, LOCK);
 	all_running = (*threads_count == total_threads);
 	if (pthread_mutex_unlock(mtx) != 0)
-		return (-ft_alert("MUTEX ERROR", A_ERROR));
+		return (-ft_alert(FAIL_UNLOCK_THREAD_RUN, A_ERROR));
 	//safe_mutex_handle(mtx, UNLOCK);
 	return (all_running);
 }
