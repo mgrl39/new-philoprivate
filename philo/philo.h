@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 19:15:16 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:55:28 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,8 +189,9 @@ void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
 void	print_argument_error(
-		int error);
+			int error);
 void	wait_all_threads(t_table	*table);
+void	*single_philo(void *arg);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);

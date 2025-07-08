@@ -6,15 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:47:01 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 14:00:04 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:49:50 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /**
- * Module containning setters_getters
- * to avoid writing LOCK UNLOCK everywhere
+ * Module containing functions to avoid writing LOCK UNLOCK everywhere
  * These functions now return int for error handling
  * Return 0 for succes, FAILURE (1) for errors
  */
@@ -25,7 +24,17 @@ int	set_int(t_mtx *mutex, int *dest, int value)
 	*dest = value;
 	if (pthread_mutex_unlock(mutex) != 0)
 		return (ft_alert(FAIL_UNLOCK_SET_INT, A_ERROR));
-	return (0);
+	return (SUCCESS);
+}
+
+int	set_long(t_mtx *mutex, long *dest, long value)
+{
+	if (pthread_mutex_lock(mutex) != 0)
+		return (ft_alert(FAIL_LOCK_SET_LONG, A_ERROR));
+	*dest = value;
+	if (pthread_mutex_unlock(mutex) != 0)
+		return (ft_alert(FAIL_UNLOCK_SET_LONG, A_ERROR));
+	return (SUCCESS);
 }
 
 // READING thread safe
@@ -52,16 +61,6 @@ long	get_long(t_mtx *mutex, long *value)
 	if (pthread_mutex_unlock(mutex) != 0)
 		return (ft_alert(FAIL_UNLOCK_GET_LONG, A_ERROR));
 	return (ret);
-}
-
-int	set_long(t_mtx *mutex, long *dest, long value)
-{
-	if (pthread_mutex_lock(mutex) != 0)
-		return (ft_alert(FAIL_LOCK_SET_LONG, A_ERROR));
-	*dest = value;
-	if (pthread_mutex_unlock(mutex) != 0)
-		return (ft_alert(FAIL_UNLOCK_SET_LONG, A_ERROR));
-	return (0);
 }
 
 int	simulation_finished(t_table *table)
