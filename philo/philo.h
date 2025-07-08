@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 20:37:22 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 21:09:08 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,33 +130,12 @@ typedef struct s_philo
 }	t_philo;
 
 /*
- * TABLE
- * ./philo 5 800 200 200 [5]
+ * nbr_limit_meals act like the number or like a flag.
+ * philos have timestamps starting from start_simulation
+ * all_threads_ready to syncro philosophers.
+ * end_simulation is triggered when a philo dies or all philos are full.
+ * monitor is ian actual monitor thread, searching for death.
  */
-// amount of philosophers of the first value (argv[1])
-// which is the argv[2]
-// argv[3]
-// argv[4]
-/**
- * nbr_limit_meals will be act like the number or like a flag.
- * If its -1 we do not have the input.
- */
-/*
- * This is basically the time when the simulation is starting.
- * This is important because I need time stamps	from the start of simulation
- * For the philosophers will  have timestamps starting from this value.
- */
-/*
- * int end_simulation is very important which is triggered when a philo dies
- * or all philos are full. So this flag is turned on in these two scenarios.
- */
-// all_threads_ready to syncro philosophers
-/*
- * Is going to be the actual monitor thread, searching for death.
- */
-// avoid races while reading from table
-// this is the array of all the forks. FORK FORK FORK FORK FORK
-// the array of all the philos. PHILO PHILO PHILO PHILO PHILO
 typedef struct s_table
 {
 	int			all_threads_ready;
@@ -181,17 +160,16 @@ void	safe_thread_handle(
 			void *(*foo)(void *),
 			void *data,
 			t_opcode opcode);
-void	*monitor_dinner(void *data);
-void	dinner_start(t_table *table);
 void	error_exit(const char *error);
 void	free_table(t_table *table, int initialized_forks);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
+void	wait_all_threads(t_table	*table);
+void	*monitor_dinner(void *data);
+void	*single_philo(void *arg);
 void	print_argument_error(
 			int error);
-void	wait_all_threads(t_table	*table);
-void	*single_philo(void *arg);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
@@ -206,6 +184,7 @@ int		set_long(t_mtx *mutex, long *dest, long value);
 int		set_int(t_mtx *mutex, int *dest, int value);
 int		increase_long(t_mtx *mutex, long *value);
 int		write_status(t_philo_status status, t_philo *philo);
+int		dinner_start(t_table *table);
 
 # define FAIL_LOCK_SET_INT		"Mutex lock failed in set_int"
 # define FAIL_UNLOCK_SET_INT	"Mutex unlock failed in set_int"

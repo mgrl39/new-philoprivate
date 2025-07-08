@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 19:54:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 21:09:28 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,12 +175,12 @@ void	*dinner_simulation(void *data)
 // we are going to join (wait for everyone)
 // If we manage to reach this line all philos are FULL.
 
-void	dinner_start(t_table *table)
+int	dinner_start(t_table *table)
 {
 	int	i;
 
 	if (0 == table->nbr_limit_meals)
-		return ;
+		return (SUCCESS);
 	if (1 == table->philo_nbr)
 	{
 		safe_thread_handle(&table->philos[0].thread_id,
@@ -201,4 +201,5 @@ void	dinner_start(t_table *table)
 		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
 	set_int(&table->table_mutex, &table->end_simulation, 1);
 	safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
+	return (SUCCESS);
 }

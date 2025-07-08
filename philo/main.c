@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 19:49:21 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 21:12:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,9 @@ int	main(int argc, char *argv[])
 		return (print_usage(*argv), FAILURE);
 	if (init_table(&table))
 		return (FAILURE);
-	dinner_start(&table);
-	free_table(&table, table.philo_nbr);
+	if (dinner_start(&table) != SUCCESS)
+		return (free_table(&table, table.philo_nbr), FAILURE);
+	return (free_table(&table, table.philo_nbr), SUCCESS);
 	// TODO clean philo mutexes
-	return (SUCCESS);
+	//return (SUCCESS);
 }
