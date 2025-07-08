@@ -40,22 +40,16 @@
 # define ERR_ZERO_VALUE	-4
 # define ERR_TIMESTAMP	-5
 
-# define ERR_DIT	"Error '%s' contains non-numeric characters. \
+# define ERR_DIT	"Error: Input contains non-numeric characters. \
 Please use only digits."
-# define ERR_NEG	"Error: '%s' is a negativee number. Please use only \
+# define ERR_NEG	"Error: Negative numbers are not allowed. Please use only \
 positive values."
-# define ERR_LARGE	"Error: '%s' is too large. Maximum allowed value \
+# define ERR_LARGE	"Error: Value is too large. Maximum allowed value \
 is %d."
-# define ERR_ZERO	"Error: '%s' (%s) cannot be zero."
+# define ERR_ZERO	"Error: Value cannot be zero."
 # define ERR_TIME	"Error: all timings must be at least 60ms"
 # define ERR_MALLOC	"Error: malloc"
 # define ERR_MUTEX	"Error: mutex"
-
-# define ARG_PHILOS 	"number of philosophers"
-# define ARG_DIE_TIME 	"time to die"
-# define ARG_EAT_TIME 	"time to eat"
-# define ARG_SLEEP_TIME "time to sleep"
-# define ARG_MEALS		"number of meals"
 
 # define MIN_TIMESTAMP	60e3
 
@@ -199,8 +193,7 @@ void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
 void	print_argument_error(
 			int error,
-			const char *arg,
-			const char *param_name);
+			const char *arg);
 void	wait_all_threads(t_table	*table);
 
 long	gettime(t_time_code	time_code);

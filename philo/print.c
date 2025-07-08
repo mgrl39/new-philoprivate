@@ -96,15 +96,15 @@ int	ft_alert(char *msg, t_alert_type type)
 }
 
 // TODO: CHANGE IT TO FT_ALERT
-void	print_argument_error(int error, const char *arg, const char *param_name)
+void	print_argument_error(int error, const char *arg)
 {
+	(void)arg;
 	if (error == ERR_NOT_DIGIT)
-		printf(RED ERR_DIT RESET "\n", arg);
+		printf(RED ERR_DIT RESET "\n");
 	else if (error == ERR_NEGATIVE)
-		printf(RED ERR_NEG RESET "\n", arg);
+		printf(RED ERR_NEG RESET "\n");
 	else if (error == ERR_OVERFLOW)
-		printf(RED ERR_LARGE RESET "\n", arg, INT_MAX);
+		printf(RED ERR_LARGE RESET "\n", INT_MAX);
 	else if (error == ERR_ZERO_VALUE)
-		printf(RED "Error: %s (%s) cannot be zero." RESET "\n", \
-		param_name, arg);
+		printf(RED ERR_ZERO RESET "\n");
 }

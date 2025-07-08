@@ -34,7 +34,7 @@ static void	print_usage(char *program_name)
 }
 
 // return 1 failure. Return 0 success
-static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
+static int	parse_and_check(char *arg, long *value, int zeroable)
 {
 	int	parse_result;
 
@@ -43,22 +43,22 @@ static int	parse_and_check(char *arg, long *value, char *param, int zeroable)
 		return (SUCCESS);
 	if (parse_result == ERR_ZERO_VALUE && zeroable)
 		return (SUCCESS);
-	return (print_argument_error(parse_result, arg, param), FAILURE);
+	return (print_argument_error(parse_result, arg), FAILURE);
 }
 
 // return 1 failure. Return 0 success
 static int	process_arguments(t_table *table, char *av[])
 {
-	if (parse_and_check(av[1], &table->philo_nbr, ARG_PHILOS, 0))
+	if (parse_and_check(av[1], &table->philo_nbr, 0))
 		return (1);
-	if (parse_and_check(av[2], &table->time_to_die, ARG_DIE_TIME, 0))
+	if (parse_and_check(av[2], &table->time_to_die, 0))
 		return (1);
-	if (parse_and_check(av[3], &table->time_to_eat, ARG_EAT_TIME, 0))
+	if (parse_and_check(av[3], &table->time_to_eat, 0))
 		return (1);
-	if (parse_and_check(av[4], &table->time_to_sleep, ARG_SLEEP_TIME, 0))
+	if (parse_and_check(av[4], &table->time_to_sleep, 0))
 		return (1);
 	if (av[5] && \
-		parse_and_check(av[5], &table->nbr_limit_meals, ARG_MEALS, 1))
+		parse_and_check(av[5], &table->nbr_limit_meals, 1))
 		return (1);
 	if (!av[5])
 		table->nbr_limit_meals = -1;
