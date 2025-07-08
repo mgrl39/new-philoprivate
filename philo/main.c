@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 21:12:09 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 21:29:51 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ static int	parse_and_check(char *arg, long *value, int zeroable)
 static int	process_arguments(t_table *table, char *av[])
 {
 	if (parse_and_check(av[1], &table->philo_nbr, 0))
-		return (1);
+		return (FAILURE);
 	if (parse_and_check(av[2], &table->time_to_die, 0))
-		return (1);
+		return (FAILURE);
 	if (parse_and_check(av[3], &table->time_to_eat, 0))
-		return (1);
+		return (FAILURE);
 	if (parse_and_check(av[4], &table->time_to_sleep, 0))
-		return (1);
+		return (FAILURE);
 	if (av[5] && \
 		parse_and_check(av[5], &table->nbr_limit_meals, 1))
-		return (1);
+		return (FAILURE);
 	if (!av[5])
 		table->nbr_limit_meals = -1;
 	table->time_to_die *= 1e3;
@@ -72,17 +72,6 @@ static int	process_arguments(t_table *table, char *av[])
 	return (0);
 }
 
-/*
- * The main is a TL;DR of the program
- * We are gonna check if the input given at the command line is correct
- * we are going to kick in the Machinery 
- * Otherwise we're going to prompt the user 
- * to please feed me with correct prompt.
- *
- * ./philo 5 800 200 200 [5]
- * ./philo philosophers time_to_die time_to_eat time_to_sleep 
- * potencially_number_or_meals
- */
 int	main(int argc, char *argv[])
 {
 	t_table	table;
