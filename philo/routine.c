@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 19:54:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/08 22:47:38 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,20 @@ void	*dinner_simulation(void *data)
 	}
 	return (NULL);
 }
+
+/*
+static int	create_philos_threads(t_table *table)
+{
+	int	i;
+	t_philo	*philo;
+
+	if (1 == table->philo_nbr)
+	{
+		philos = &table->philos[0];
+		if (pthread_create(philo->thread_id, 0, single_philo, philo) != 0)
+			return (ft_alert("Failed to create thread for single philo, A_ERROR"));
+	}
+}*/
 /**
  * ./philo 5 800 200 200 [5]
  *
@@ -175,12 +189,12 @@ void	*dinner_simulation(void *data)
 // we are going to join (wait for everyone)
 // If we manage to reach this line all philos are FULL.
 
-void	dinner_start(t_table *table)
+int	dinner_start(t_table *table)
 {
 	int	i;
 
 	if (0 == table->nbr_limit_meals)
-		return ;
+		return (SUCCESS);
 	if (1 == table->philo_nbr)
 	{
 		safe_thread_handle(&table->philos[0].thread_id,
@@ -201,4 +215,5 @@ void	dinner_start(t_table *table)
 		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
 	set_int(&table->table_mutex, &table->end_simulation, 1);
 	safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
+	return (SUCCESS);
 }
