@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 22:54:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 23:50:20 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ long	gettime(t_time_code	time_code)
 	struct timeval	tv;
 
 	if (gettimeofday(&tv, NULL))
-		return (-ft_alert("gettiemofday faild", A_ERROR));
+		return (-ft_alert(ERR_TIME_FN, A_ERROR));
 	if (MSEC == time_code)
 		return ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);
 	else if (USEC == time_code)
