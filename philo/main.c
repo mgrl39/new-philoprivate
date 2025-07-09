@@ -6,13 +6,29 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 23:35:06 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 01:09:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <string.h>
 #include <stdio.h>
+
+static void	handle_argument_error(int error)
+{
+	char	*s;
+
+	s = NULL;
+	if (error == ERR_NOT_DIGIT)
+		s = ERR_DIT;
+	else if (error == ERR_NEGATIVE)
+		s = ERR_NEG;
+	else if (error == ERR_OVERFLOW)
+		s = ERR_LARGE;
+	else if (error == ERR_ZERO_VALUE)
+		s = ERR_ZERO;
+	ft_alert(s, A_ERROR);
+}
 
 static void	print_usage(char *program_name)
 {
@@ -43,7 +59,7 @@ static int	parse_and_check(char *arg, long *value, int zeroable)
 		return (SUCCESS);
 	if (parse_result == ERR_ZERO_VALUE && zeroable)
 		return (SUCCESS);
-	return (print_argument_error(parse_result), FAILURE);
+	return (handle_argument_error(parse_result), FAILURE);
 }
 
 // return 1 failure. Return 0 success

@@ -6,7 +6,7 @@
 #    By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 19:43:07 by meghribe          #+#    #+#              #
-#    Updated: 2025/07/09 22:01:45 by meghribe         ###   ########.fr        #
+#    Updated: 2025/07/10 00:33:05 by meghribe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC_DIR = .
 INC_DIR = .
 OBJ_DIR = obj
 
-SRCS = routine.c state.c init.c main.c monitor.c sync.c utils.c print.c atol.c
+SRCS = routine.c state.c init.c main.c monitor.c sync.c utils.c print.c atol.c \
+	thread.c
 HEADER = $(INC_DIR)/philo.h
 
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)

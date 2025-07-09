@@ -16,7 +16,7 @@
 // To sincronize philos start (now is not spinlock :D )
 void	wait_all_threads(t_table	*table)
 {
-	while (!get_int(&table->table_mutex, &table->all_threads_ready))
+	while (!get_int(&table->table_mtx, &table->all_threads_ready))
 		usleep(100);
 }
 

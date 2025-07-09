@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:29:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:25:49 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,27 @@ static int	philo_died(t_philo *philo)
 	long	elapsed;
 	long	t_to_die;
 
-	if (get_int(&philo->philo_mutex, &philo->full))
+	if (get_int(&philo->philo_mtx, &philo->full))
 		return (0);
 	elapsed = gettime(MSEC);
-	elapsed -= get_long(&philo->philo_mutex, &philo->last_meal_time);
+	elapsed -= get_long(&philo->philo_mtx, &philo->last_meal_time);
 	t_to_die = philo->table->time_to_die / 1e3;
 	return (elapsed > t_to_die);
+}
+
+static void	check_philo_status(t_table *table)
+{
+	int	i;
+
+	i = -1;
+	while (++i < table->philo_nbr && !simulation_finished(table))
+	{
+		if (philo_died(table->philos + i))
+		{
+			set_int(&table->table_mtx, &table->end_simulation, 1);
+			write_status(DIED, table->philos + i);
+		}
+	}
 }
 
 /*
@@ -34,7 +49,6 @@ static int	philo_died(t_philo *philo)
  */
 void	*monitor_dinner(void *data)
 {
-	int		i;
 	t_table	*table;
 	long	check_interval;
 
@@ -44,22 +58,13 @@ void	*monitor_dinner(void *data)
 		check_interval = 1000;
 	else if (check_interval < 100)
 		check_interval = 100;
-	while (!all_threads_running(&table->table_mutex,
+	while (!all_threads_running(&table->table_mtx,
 			&table->threads_running_nbr,
 			table->philo_nbr))
 		usleep(check_interval);
 	while (!simulation_finished(table))
 	{
-		i = -1;
-		while (++i < table->philo_nbr && !simulation_finished(table))
-		{
-			if (philo_died(table->philos + i))
-			{
-				set_int(&table->table_mutex, &table->end_simulation, 1);
-				write_status(DIED, table->philos + i);
-				// TODO: AQUI VA UN break ; o no??
-			}
-		}
+		check_philo_status(table);
 		usleep(100);
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:19:14 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 01:09:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	write_status(t_philo_status status, t_philo *philo)
 
 	time = gettime(MSEC);
 	time -= philo->table->start_simulation;
-	if (get_int(&philo->philo_mutex, &philo->full))
+	if (get_int(&philo->philo_mtx, &philo->full))
 		return (0);
-	//safe_mutex_handle(&philo->table->write_mutex, LOCK);
-	if (pthread_mutex_lock(&philo->table->write_mutex))
+	//safe_mutex_handle(&philo->table->write_mtx, LOCK);
+	if (pthread_mutex_lock(&philo->table->write_mtx))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	if (DEBUG_MODE)
 		write_status_debug(status, philo, time);
@@ -64,9 +64,9 @@ int	write_status(t_philo_status status, t_philo *philo)
 		else if (DIED == status)
 			printf(BOLD RED"%-6ld" S_DIED RESET, time, philo->id);
 	}
-	// safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
+	// safe_mutex_handle(&philo->table->write_mtx, UNLOCK);
 	// TODO: check if this later...
-	if (pthread_mutex_unlock(&philo->table->write_mutex))
+	if (pthread_mutex_unlock(&philo->table->write_mtx))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	return (0);
 }
@@ -85,6 +85,8 @@ static void	ft_putstr_fd(char *msg, int fd)
 // TODO: MAYBE MUST LOCK THIS...
 int	ft_alert(char *msg, t_alert_type type)
 {
+	if (!msg)
+		return (type == A_ERROR);
 	if (type == A_ERROR)
 		ft_putstr_fd(RED, 2);
 	else
@@ -93,17 +95,4 @@ int	ft_alert(char *msg, t_alert_type type)
 	ft_putstr_fd(RESET, 2);
 	ft_putstr_fd("\n", 2);
 	return (type == A_ERROR);
-}
-
-// TODO: CHANGE IT TO FT_ALERT
-void	print_argument_error(int error)
-{
-	if (error == ERR_NOT_DIGIT)
-		ft_alert(ERR_DIT, A_ERROR);
-	else if (error == ERR_NEGATIVE)
-		ft_alert(ERR_NEG, A_ERROR);
-	else if (error == ERR_OVERFLOW)
-		ft_alert(ERR_LARGE, A_ERROR);
-	else if (error == ERR_ZERO_VALUE)
-		ft_alert(ERR_ZERO, A_ERROR);
 }

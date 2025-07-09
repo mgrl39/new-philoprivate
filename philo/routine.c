@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:01:31 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:51:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	*single_philo(void *arg)
 	philo = (t_philo *)arg;
 	table = philo->table;
 	wait_all_threads(table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
-	increase_long(&table->table_mutex, &table->threads_running_nbr);
+	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
+	increase_long(&table->table_mtx, &table->threads_running_nbr);
 	write_status(TAKE_FIRST_FORK, philo);
 	while (!simulation_finished(table))
 		usleep(200);
@@ -74,30 +74,30 @@ void	thinking(t_philo *philo, int pre_simulation)
 static int	eat(t_philo *philo)
 {
 	if (pthread_mutex_lock(&philo->first_fork->fork))
-		return (ft_alert("Failed to lock first fork", A_ERROR));
+		return (ft_alert(F_LOCK_1, A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
 	// safe_mutex_handle(&philo->second_fork->fork, LOCK);
 	if (pthread_mutex_lock(&philo->second_fork->fork))
 	{
 		if (pthread_mutex_unlock(&philo->first_fork->fork))
-			ft_alert("Failed to unlock first fork after second fork lock failure", A_ERROR);
-		return (ft_alert("Failed to lock second fork", A_ERROR));
+			ft_alert(F_UN_LOCK_2, A_ERROR);
+		return (ft_alert(F_LOCK_2, A_ERROR));
 	}
 	write_status(TAKE_SECOND_FORK, philo);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
+	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
 	philo->meals_counter++;
 	write_status(EAT, philo);
 	precise_usleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->nbr_limit_meals > 0
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
-		set_int(&philo->philo_mutex, &philo->full, 1);
+		set_int(&philo->philo_mtx, &philo->full, 1);
 	if (pthread_mutex_unlock(&philo->first_fork->fork))
-		return (ft_alert("SOME ALERT", A_ERROR));
+		return (ft_alert(F_UNLOCK_1, A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	// safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
 	if (pthread_mutex_unlock(&philo->second_fork->fork))
-		return (ft_alert("SOME ALERT", A_ERROR));
+		return (ft_alert(F_UNLOCK_2, A_ERROR));
 	return (0);
 }
 
@@ -128,12 +128,12 @@ void	*dinner_simulation(void *data)
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
-	increase_long(&philo->table->table_mutex, &philo->table->threads_running_nbr);
+	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
+	increase_long(&philo->table->table_mtx, &philo->table->threads_running_nbr);
 	prevent_simultaneous_start(philo);
 	while (!simulation_finished(philo->table))
 	{
-		if (get_int(&philo->philo_mutex, &philo->full))
+		if (get_int(&philo->philo_mtx, &philo->full))
 			break ;
 		if (eat(philo) == FAILURE)
 		{
@@ -144,49 +144,6 @@ void	*dinner_simulation(void *data)
 		thinking(philo, 0);
 	}
 	return (NULL);
-}
-
-static void	join_philos(t_table *table, int count)
-{
-	int	i;
-	int	ret;
-
-	i = 0;
-	while (i < count)
-	{
-		ret = pthread_join(table->philos[i++].thread_id, NULL);
-		if (ret)
-			ft_alert(F_JOIN_THREAD, A_WARNING);
-	}
-}
-
-static int	create_philos(t_table *table, int *created)
-{
-	int		i;
-	t_philo	*phil;
-
-	*created = 0;
-	phil = &table->philos[0];
-	if (table->philo_nbr == 1)
-	{
-		if (pthread_create(&phil->thread_id, 0, single_philo, phil))
-			return (ft_alert(F_CREAT_ONE_PHILO, A_ERROR));
-		*created = 1;
-		return (SUCCESS);
-	}
-	i = 0;
-	while (i < table->philo_nbr)
-	{
-		phil = &table->philos[i];
-		if (pthread_create(&phil->thread_id, 0, dinner_simulation, phil))
-		{
-			*created = i;
-			return (ft_alert(F_CREAT_PHILO_THR, A_ERROR));
-		}
-		i++;
-	}
-	*created = i;
-	return (SUCCESS);
 }
 
 /**
@@ -226,21 +183,21 @@ int	dinner_start(t_table *table)
 		return (SUCCESS);
 	if (create_philos(table, &created))
 	{
-		set_int(&table->table_mutex, &table->end_simulation, 1);
-		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		set_int(&table->table_mtx, &table->end_simulation, 1);
+		set_int(&table->table_mtx, &table->all_threads_ready, 1);
 		return (join_philos(table, created), FAILURE);
 	}
 	if (pthread_create(&table->monitor, NULL, monitor_dinner, table))
 	{
 		ft_alert(F_CREAT_MONITOR_TH, A_ERROR);
-		set_int(&table->table_mutex, &table->end_simulation, 1);
-		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		set_int(&table->table_mtx, &table->end_simulation, 1);
+		set_int(&table->table_mtx, &table->all_threads_ready, 1);
 		return (join_philos(table, created), FAILURE);
 	}
 	table->start_simulation = gettime(MSEC);
-	set_int(&table->table_mutex, &table->all_threads_ready, 1);
+	set_int(&table->table_mtx, &table->all_threads_ready, 1);
 	join_philos(table, table->philo_nbr);
-	set_int(&table->table_mutex, &table->end_simulation, 1);
+	set_int(&table->table_mtx, &table->end_simulation, 1);
 	if (pthread_join(table->monitor, NULL))
 		ft_alert(F_JOIN_MONITOR_THR, A_WARNING);
 	return (SUCCESS);

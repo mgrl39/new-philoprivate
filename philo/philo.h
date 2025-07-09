@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 23:31:09 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 01:09:43 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ typedef struct s_fork
  * last_meal_time -> time passed from last meal. Is very important to check if
  * 			philosopher has died. We will gonna have time to die
  * thread_id -> a philo is a thread (this will be send to thread_create)
- * philo_mutex -> useful for races with the monitor
+ * philo_mtx -> useful for races with the monitor
  */
 typedef struct s_philo
 {
@@ -112,7 +112,7 @@ typedef struct s_philo
 	int			full;
 	long		meals_counter;
 	long		last_meal_time;
-	t_mtx		philo_mutex;
+	t_mtx		philo_mtx;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
 	t_table		*table;
@@ -137,8 +137,8 @@ typedef struct s_table
 	long		nbr_limit_meals;
 	long		start_simulation;
 	long		threads_running_nbr;
-	t_mtx		table_mutex;
-	t_mtx		write_mutex;
+	t_mtx		table_mtx;
+	t_mtx		write_mtx;
 	t_fork		*forks;
 	t_philo		*philos;
 	pthread_t	monitor;
@@ -152,8 +152,8 @@ void	precise_usleep(long usec, t_table *table);
 void	wait_all_threads(t_table	*table);
 void	*monitor_dinner(void *data);
 void	*single_philo(void *arg);
-void	print_argument_error(
-			int error);
+void	join_philos(t_table *table, int count);
+void	*dinner_simulation(void *data);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
@@ -169,6 +169,7 @@ int		set_int(t_mtx *mutex, int *dest, int value);
 int		increase_long(t_mtx *mutex, long *value);
 int		write_status(t_philo_status status, t_philo *philo);
 int		dinner_start(t_table *table);
+int		create_philos(t_table *table, int *created);
 
 # define FAIL_LOCK_SET_INT		"Mutex lock failed in set_int"
 # define FAIL_UNLOCK_SET_INT	"Mutex unlock failed in set_int"
@@ -183,9 +184,15 @@ int		dinner_start(t_table *table);
 # define FAIL_LOCK_THREAD_RUN	"Mutex lock failed in all_threads_running"
 # define FAIL_UNLOCK_THREAD_RUN	"Mutex unlock failed in all_threads_running"
 
-# define F_JOIN_THREAD		"Failed to join philosopher thread"
-# define F_CREAT_ONE_PHILO	"Failed to create single philo thread"
-# define F_CREAT_PHILO_THR	"Failed to create philosopher thread"
-# define F_CREAT_MONITOR_TH	"Failed to create monitor thread"
-# define F_JOIN_MONITOR_THR	"Failed to join monitor thread"
+# define F_JOIN_THREAD			"Failed to join philosopher thread"
+# define F_CREAT_ONE_PHILO		"Failed to create single philo thread"
+# define F_CREAT_PHILO_THR		"Failed to create philosopher thread"
+# define F_CREAT_MONITOR_TH		"Failed to create monitor thread"
+# define F_JOIN_MONITOR_THR		"Failed to join monitor thread"
+
+# define F_LOCK_1			"Failed to lock 1st fork"
+# define F_LOCK_2			"Failed to lock 2nd fork"
+# define F_UNLOCK_1			"Failed to unlock 1st fork"
+# define F_UNLOCK_2			"Failed to unlock 2nd fork"
+# define F_UN_LOCK_2		"Failed unlock 1st fork after 2nd fork lock failure"
 #endif
