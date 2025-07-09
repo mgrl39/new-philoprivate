@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:19:02 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:09:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static void	cleanup_philo_mutexes(t_table *table, int count)
  * A pointer to the actual forks
  * Relative position in the table.
  * EVEN odd fork assigment
- */
 
 // We have our philos, we have this array of structs and mutexes.
 // When it comes to fork assigmnet.
@@ -53,6 +52,7 @@ static void	cleanup_philo_mutexes(t_table *table, int count)
 // We have a thread waiting.
 // if you are the odd philosopher first you will ttake the left
 // if you take the even takes the right
+*/
 static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 {
 	int	philo_nbr;

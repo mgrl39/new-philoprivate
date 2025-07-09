@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 23:50:20 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:12:24 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@
 
 /*
  * We are gonna exploit gettimeofday
- *
  * time_code -> SECONDS MSECS USECS
- *
  * Is gonna set the seconds and the microseconds
  * TODO: IF I USE time_code that is not there the compiler will complain
  */

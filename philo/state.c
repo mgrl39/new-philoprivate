@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:47:01 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:12:55 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:15:16 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * Module containing functions to avoid writing LOCK UNLOCK everywhere
  * These functions now return int for error handling
- * Return 0 for succes, FAILURE (1) for errors
+ * Return SUCCESS (0), FAILURE (1) for errors.
  */
 int	set_int(t_mtx *mutex, int *dest, int value)
 {
