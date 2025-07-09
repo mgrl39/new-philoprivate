@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['set_5fint_0',['set_int',['../philo_8h.html#a8eb8e7ea38ebaa4b925ac17f748b3f81',1,'set_int(t_mtx *mutex, int *dest, int value):&#160;state.c'],['../state_8c.html#a8eb8e7ea38ebaa4b925ac17f748b3f81',1,'set_int(t_mtx *mutex, int *dest, int value):&#160;state.c']]],
-  ['set_5flong_1',['set_long',['../philo_8h.html#a98598116b71161d6d299180ad4ea1aab',1,'set_long(t_mtx *mutex, long *dest, long value):&#160;state.c'],['../state_8c.html#a98598116b71161d6d299180ad4ea1aab',1,'set_long(t_mtx *mutex, long *dest, long value):&#160;state.c']]],
-  ['simulation_5ffinished_2',['simulation_finished',['../philo_8h.html#a9cf7f5b32360824fc306e992f8775e58',1,'simulation_finished(t_table *table):&#160;state.c'],['../state_8c.html#a9cf7f5b32360824fc306e992f8775e58',1,'simulation_finished(t_table *table):&#160;state.c']]],
-  ['single_5fphilo_3',['single_philo',['../philo_8h.html#a6a167cc3ea01bb85753e218a4d9e98c9',1,'single_philo(void *arg):&#160;routine.c'],['../routine_8c.html#a6a167cc3ea01bb85753e218a4d9e98c9',1,'single_philo(void *arg):&#160;routine.c']]]
+  ['parse_5fand_5fcheck_0',['parse_and_check',['../main_8c.html#ae8777cda2ed7e84967ea934b3a840ef2',1,'main.c']]],
+  ['philo_5fdied_1',['philo_died',['../monitor_8c.html#aa61a8d876c134c06b05c5e479b0a614f',1,'monitor.c']]],
+  ['philo_5finit_2',['philo_init',['../init_8c.html#a2c3384e9069e3a04813d1240fc924917',1,'init.c']]],
+  ['precise_5fusleep_3',['precise_usleep',['../philo_8h.html#a9378c26262a9761809207ec96e047a53',1,'precise_usleep(long usec, t_table *table):&#160;utils.c'],['../utils_8c.html#a9378c26262a9761809207ec96e047a53',1,'precise_usleep(long usec, t_table *table):&#160;utils.c']]],
+  ['prevent_5fsimultaneous_5fstart_4',['prevent_simultaneous_start',['../philo_8h.html#a21897b8581f471fff273cf4b0c69bf2f',1,'prevent_simultaneous_start(t_philo *philo):&#160;sync.c'],['../sync_8c.html#a21897b8581f471fff273cf4b0c69bf2f',1,'prevent_simultaneous_start(t_philo *philo):&#160;sync.c']]],
+  ['print_5fusage_5',['print_usage',['../main_8c.html#a8d34a3fc4104a1751d32536bfe4acd1d',1,'main.c']]],
+  ['process_5farguments_6',['process_arguments',['../main_8c.html#a69c069289922077c094249e6f0906dd4',1,'main.c']]]
 ];

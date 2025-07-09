@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['thinking_0',['thinking',['../philo_8h.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c'],['../routine_8c.html#a8ed163d7c7f73288311509a08d62a561',1,'thinking(t_philo *philo, int pre_simulation):&#160;routine.c']]],
-  ['trim_5fstart_5fand_5fsign_1',['trim_start_and_sign',['../atol_8c.html#a1949ec2b93f285709e622b126d54a872',1,'atol.c']]]
+  ['set_5fint_0',['set_int',['../philo_8h.html#a8eb8e7ea38ebaa4b925ac17f748b3f81',1,'set_int(t_mtx *mutex, int *dest, int value):&#160;state.c'],['../state_8c.html#a8eb8e7ea38ebaa4b925ac17f748b3f81',1,'set_int(t_mtx *mutex, int *dest, int value):&#160;state.c']]],
+  ['set_5flong_1',['set_long',['../philo_8h.html#a98598116b71161d6d299180ad4ea1aab',1,'set_long(t_mtx *mutex, long *dest, long value):&#160;state.c'],['../state_8c.html#a98598116b71161d6d299180ad4ea1aab',1,'set_long(t_mtx *mutex, long *dest, long value):&#160;state.c']]],
+  ['simulation_5ffinished_2',['simulation_finished',['../philo_8h.html#a9cf7f5b32360824fc306e992f8775e58',1,'simulation_finished(t_table *table):&#160;state.c'],['../state_8c.html#a9cf7f5b32360824fc306e992f8775e58',1,'simulation_finished(t_table *table):&#160;state.c']]],
+  ['single_5fphilo_3',['single_philo',['../philo_8h.html#a6a167cc3ea01bb85753e218a4d9e98c9',1,'single_philo(void *arg):&#160;routine.c'],['../routine_8c.html#a6a167cc3ea01bb85753e218a4d9e98c9',1,'single_philo(void *arg):&#160;routine.c']]]
 ];

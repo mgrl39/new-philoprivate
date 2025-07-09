@@ -1,21 +1,23 @@
 <map id="philo/philo.h" name="philo/philo.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="508,5,611,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="573,5,676,31"/>
 <area shape="rect" id="Node000002" href="$atol_8c.html" title=" " alt="" coords="5,79,100,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,29,322,51,113,81,101,83,100,78,112,76,321,46,494,24"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="560,28,360,49,113,81,101,83,100,78,112,76,359,44,559,23"/>
 <area shape="rect" id="Node000003" href="$init_8c.html" title=" " alt="" coords="125,79,215,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="495,33,228,81,216,84,215,78,227,76,494,28"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="560,31,228,81,216,83,215,78,227,76,559,25"/>
 <area shape="rect" id="Node000004" href="$main_8c.html" title=" " alt="" coords="240,79,343,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="503,37,335,81,334,76,502,32"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="560,36,343,82,342,76,559,30"/>
 <area shape="rect" id="Node000005" href="$monitor_8c.html" title=" " alt="" coords="367,79,485,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="527,39,449,81,447,76,525,35"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="581,38,459,81,458,76,579,33"/>
 <area shape="rect" id="Node000006" href="$print_8c.html" title=" " alt="" coords="510,79,609,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="562,44,562,79,557,79,557,44"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="607,43,572,80,568,77,603,39"/>
 <area shape="rect" id="Node000007" href="$routine_8c.html" title=" " alt="" coords="633,79,747,104"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="594,35,670,76,667,81,591,40"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="647,39,681,77,677,80,643,43"/>
 <area shape="rect" id="Node000008" href="$state_8c.html" title=" " alt="" coords="772,79,875,104"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="616,32,781,76,780,81,614,37"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="670,33,792,76,790,81,669,38"/>
 <area shape="rect" id="Node000009" href="$sync_8c.html" title=" " alt="" coords="899,79,998,104"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="625,28,888,76,900,78,899,83,887,81,624,34"/>
-<area shape="rect" id="Node000010" href="$utils_8c.html" title=" " alt="" coords="1023,79,1120,104"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="625,24,799,46,1010,76,1023,78,1022,83,1010,81,798,51,624,29"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="690,31,900,77,899,82,689,36"/>
+<area shape="rect" id="Node000010" href="$thread_8c.html" title=" " alt="" coords="1023,79,1133,104"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="690,26,1010,76,1023,78,1022,83,1010,81,689,32"/>
+<area shape="rect" id="Node000011" href="$utils_8c.html" title=" " alt="" coords="1157,79,1255,104"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="690,23,894,43,1146,76,1157,78,1157,83,1146,81,893,49,689,28"/>
 </map>

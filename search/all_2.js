@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['cleanup_5fphilo_5fmutexes_0',['cleanup_philo_mutexes',['../init_8c.html#ab8f7eea7d085bdae10eca8c6722ddc72',1,'init.c']]],
-  ['create_5fphilos_1',['create_philos',['../routine_8c.html#a458739ab577cc4391382d756cc643a90',1,'routine.c']]]
+  ['check_5fphilo_5fstatus_0',['check_philo_status',['../monitor_8c.html#ac3faa6e893f9bdbd0a3127938f4c6ced',1,'monitor.c']]],
+  ['cleanup_5fphilo_5fmtxes_1',['cleanup_philo_mtxes',['../init_8c.html#a12d4bf4398d439b42a187476db6a49d6',1,'init.c']]],
+  ['create_5fphilos_2',['create_philos',['../philo_8h.html#aa31d4fc8459c3c8a027faffcf8f9b269',1,'create_philos(t_table *table, int *created):&#160;thread.c'],['../thread_8c.html#aa31d4fc8459c3c8a027faffcf8f9b269',1,'create_philos(t_table *table, int *created):&#160;thread.c']]]
 ];
