@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 22:47:38 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:01:31 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <unistd.h>
 
 /**
- * 1) fake to lock the fork
- * 2) sleep until the monitor will bust it
+ * 1) Fake to lock the fork.
+ * 2) Sleep until the monitor will bust it.
  */
 void	*single_philo(void *arg)
 {
@@ -34,7 +34,8 @@ void	*single_philo(void *arg)
 }
 
 /**
- * if the system is even we dont care, system already fair.
+ * If the system is:
+ * EVEN, system already fair.
  * ODD, not always fair.
  */
 void	thinking(t_philo *philo, int pre_simulation)
@@ -63,23 +64,23 @@ void	thinking(t_philo *philo, int pre_simulation)
  * 2) eat: write eat, update last meal, update meals counter.
  * 	eventyally int full
  * 3) release the forks
+ * 2) Set the last meal time:
+ * Actual eating. Now we have to set the last meal time and we
+ * are gonna do it immediately.
+ * sleep the time requested.
+ * if is true the philo is full
+ 3) UNLOCK
  */
-// 2) Set the last meal time:
-// Actual eating. Now we have to set the last meal time and we
-// are gonna do it immediately.
-// sleep the time requested.
-// if is true the philo is full
-// 3) UNLOCK
 static int	eat(t_philo *philo)
 {
-	if (pthread_mutex_lock(&philo->first_fork->fork) != 0)
+	if (pthread_mutex_lock(&philo->first_fork->fork))
 		return (ft_alert("Failed to lock first fork", A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
 	// safe_mutex_handle(&philo->second_fork->fork, LOCK);
-	if (pthread_mutex_lock(&philo->second_fork->fork) != 0)
+	if (pthread_mutex_lock(&philo->second_fork->fork))
 	{
-		if (pthread_mutex_unlock(&philo->first_fork->fork) != 0)
+		if (pthread_mutex_unlock(&philo->first_fork->fork))
 			ft_alert("Failed to unlock first fork after second fork lock failure", A_ERROR);
 		return (ft_alert("Failed to lock second fork", A_ERROR));
 	}
@@ -91,13 +92,12 @@ static int	eat(t_philo *philo)
 	if (philo->table->nbr_limit_meals > 0
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
 		set_int(&philo->philo_mutex, &philo->full, 1);
-	if (pthread_mutex_unlock(&philo->first_fork->fork) != 0)
+	if (pthread_mutex_unlock(&philo->first_fork->fork))
 		return (ft_alert("SOME ALERT", A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	// safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
-	if (pthread_mutex_unlock(&philo->second_fork->fork) != 0)
+	if (pthread_mutex_unlock(&philo->second_fork->fork))
 		return (ft_alert("SOME ALERT", A_ERROR));
-	// if OK retunr 0
 	return (0);
 }
 
@@ -146,19 +146,49 @@ void	*dinner_simulation(void *data)
 	return (NULL);
 }
 
-/*
-static int	create_philos_threads(t_table *table)
+static void	join_philos(t_table *table, int count)
 {
 	int	i;
-	t_philo	*philo;
+	int	ret;
 
-	if (1 == table->philo_nbr)
+	i = 0;
+	while (i < count)
 	{
-		philos = &table->philos[0];
-		if (pthread_create(philo->thread_id, 0, single_philo, philo) != 0)
-			return (ft_alert("Failed to create thread for single philo, A_ERROR"));
+		ret = pthread_join(table->philos[i++].thread_id, NULL);
+		if (ret)
+			ft_alert(F_JOIN_THREAD, A_WARNING);
 	}
-}*/
+}
+
+static int	create_philos(t_table *table, int *created)
+{
+	int		i;
+	t_philo	*phil;
+
+	*created = 0;
+	phil = &table->philos[0];
+	if (table->philo_nbr == 1)
+	{
+		if (pthread_create(&phil->thread_id, 0, single_philo, phil))
+			return (ft_alert(F_CREAT_ONE_PHILO, A_ERROR));
+		*created = 1;
+		return (SUCCESS);
+	}
+	i = 0;
+	while (i < table->philo_nbr)
+	{
+		phil = &table->philos[i];
+		if (pthread_create(&phil->thread_id, 0, dinner_simulation, phil))
+		{
+			*created = i;
+			return (ft_alert(F_CREAT_PHILO_THR, A_ERROR));
+		}
+		i++;
+	}
+	*created = i;
+	return (SUCCESS);
+}
+
 /**
  * ./philo 5 800 200 200 [5]
  *
@@ -188,32 +218,30 @@ static int	create_philos_threads(t_table *table)
 // now all threads are ready!
 // we are going to join (wait for everyone)
 // If we manage to reach this line all philos are FULL.
-
 int	dinner_start(t_table *table)
 {
-	int	i;
+	int	created;
 
 	if (0 == table->nbr_limit_meals)
 		return (SUCCESS);
-	if (1 == table->philo_nbr)
+	if (create_philos(table, &created))
 	{
-		safe_thread_handle(&table->philos[0].thread_id,
-			single_philo, &table->philos[0], CREATE);
+		set_int(&table->table_mutex, &table->end_simulation, 1);
+		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		return (join_philos(table, created), FAILURE);
 	}
-	else
+	if (pthread_create(&table->monitor, NULL, monitor_dinner, table))
 	{
-		i = -1;
-		while (++i < table->philo_nbr)
-			safe_thread_handle(&table->philos[i].thread_id,
-				dinner_simulation, &table->philos[i], CREATE);
+		ft_alert(F_CREAT_MONITOR_TH, A_ERROR);
+		set_int(&table->table_mutex, &table->end_simulation, 1);
+		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		return (join_philos(table, created), FAILURE);
 	}
-	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
 	table->start_simulation = gettime(MSEC);
 	set_int(&table->table_mutex, &table->all_threads_ready, 1);
-	i = -1;
-	while (++i < table->philo_nbr)
-		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
+	join_philos(table, table->philo_nbr);
 	set_int(&table->table_mutex, &table->end_simulation, 1);
-	safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
+	if (pthread_join(table->monitor, NULL))
+		ft_alert(F_JOIN_MONITOR_THR, A_WARNING);
 	return (SUCCESS);
 }

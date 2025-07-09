@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/06 13:39:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:09:13 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	cleanup_philo_mutexes(t_table *table, int count)
 	i = -1;
 	while (++i < count)
 	{
-		if (pthread_mutex_destroy(&table->philos[i].philo_mutex) != 0)
+		if (pthread_mutex_destroy(&table->philos[i].philo_mutex))
 			ft_alert(MSG_W_PHILO, A_WARNING);
 	}
 }
@@ -31,7 +31,6 @@ static void	cleanup_philo_mutexes(t_table *table, int count)
  * A pointer to the actual forks
  * Relative position in the table.
  * EVEN odd fork assigment
- */
 
 // We have our philos, we have this array of structs and mutexes.
 // When it comes to fork assigmnet.
@@ -53,6 +52,7 @@ static void	cleanup_philo_mutexes(t_table *table, int count)
 // We have a thread waiting.
 // if you are the odd philosopher first you will ttake the left
 // if you take the even takes the right
+*/
 static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 {
 	int	philo_nbr;
@@ -85,7 +85,7 @@ static int	philo_init(t_table *table)
 		philo->full = 0;
 		philo->meals_counter = 0;
 		philo->table = table;
-		if (pthread_mutex_init(&philo->philo_mutex, NULL) != 0)
+		if (pthread_mutex_init(&philo->philo_mutex, NULL))
 		{
 			cleanup_philo_mutexes(table, i);
 			return (ft_alert(ERR_MUTEX, A_ERROR));
@@ -103,12 +103,12 @@ void	free_table(t_table *table, int initialized_forks)
 	i = -1;
 	while (++i < initialized_forks)
 	{
-		if (pthread_mutex_destroy(&table->forks[i].fork) != 0)
+		if (pthread_mutex_destroy(&table->forks[i].fork))
 			ft_alert(MSG_W_FORK, A_WARNING);
 	}
-	if (pthread_mutex_destroy(&table->table_mutex) != 0)
+	if (pthread_mutex_destroy(&table->table_mutex))
 		ft_alert(MSG_W_TABLE, A_WARNING);
-	if (pthread_mutex_destroy(&table->write_mutex) != 0)
+	if (pthread_mutex_destroy(&table->write_mutex))
 		ft_alert(MSG_W_WRITE, A_WARNING);
 	if (table->philos)
 	{
@@ -134,9 +134,9 @@ int	init_table(t_table *table)
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
 	if (!table->philos)
 		return (ft_alert(ERR_MALLOC, A_ERROR));
-	if (pthread_mutex_init(&table->table_mutex, NULL) != 0)
+	if (pthread_mutex_init(&table->table_mutex, NULL))
 		return (free_table(table, 0), ft_alert(ERR_MUTEX, A_ERROR));
-	if (pthread_mutex_init(&table->write_mutex, NULL) != 0)
+	if (pthread_mutex_init(&table->write_mutex, NULL))
 		return (free_table(table, 0), ft_alert(ERR_MUTEX, A_ERROR));
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
 	if (!table->forks)
@@ -144,7 +144,7 @@ int	init_table(t_table *table)
 	i = -1;
 	while (++i < table->philo_nbr)
 	{
-		if (pthread_mutex_init(&table->forks[i].fork, NULL) != 0)
+		if (pthread_mutex_init(&table->forks[i].fork, NULL))
 			return (free_table(table, i), ft_alert(ERR_MUTEX, A_ERROR));
 		table->forks[i].fork_id = i;
 	}

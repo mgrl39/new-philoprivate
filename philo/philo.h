@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 21:38:48 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 23:31:09 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,16 @@
 # define ERR_TIME	"Error: All timings must be at least 60ms."
 # define ERR_MALLOC	"Error: malloc"
 # define ERR_MUTEX	"Error: mutex"
+# define ERR_JOIN	"Error: Failed to join thread."
 
 # define MIN_TIMESTAMP	60e3
 
-# define MSG_W_FORK "Warning: Failed to destroy fork mutex\n"
-# define MSG_W_TABLE "Warning: Failed to destroy table mutex\n"
-# define MSG_W_WRITE "Warning: Failed to destroy write mutex\n"
-# define MSG_W_PHILO "Warning: Failed to destroy philo mutex\n"
+# define MSG_W_FORK		"Warning: Failed to destroy fork mutex\n"
+# define MSG_W_TABLE	"Warning: Failed to destroy table mutex\n"
+# define MSG_W_WRITE	"Warning: Failed to destroy write mutex\n"
+# define MSG_W_PHILO	"Warning: Failed to destroy philo mutex\n"
 
-# define ERR_TIME_FN "Error: gettimeofday function returned -1\n"
+# define ERR_TIME_FN	"Error: gettimeofday function returned -1\n"
 
 /* ************************************************************************** */
 # define DEBUG_MODE 0
@@ -70,15 +71,6 @@ typedef enum e_status
 	TAKE_SECOND_FORK,
 	DIED,
 }	t_philo_status;
-
-/* Operation code for mutex or thread functions */
-typedef enum e_opcode
-{
-	LOCK,
-	UNLOCK,
-	CREATE,
-	JOIN,
-}	t_opcode;
 
 /* Codes for time units used in gettime() */
 typedef enum e_time_code
@@ -153,12 +145,6 @@ typedef struct s_table
 }	t_table;
 
 /* Prototypes */
-void	safe_thread_handle(
-			pthread_t *thread,
-			void *(*foo)(void *),
-			void *data,
-			t_opcode opcode);
-void	error_exit(const char *error);
 void	free_table(t_table *table, int initialized_forks);
 void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
@@ -196,4 +182,10 @@ int		dinner_start(t_table *table);
 # define FAIL_UNLOCK_INC_LONG	"Mutex unlock failed in increase_long"
 # define FAIL_LOCK_THREAD_RUN	"Mutex lock failed in all_threads_running"
 # define FAIL_UNLOCK_THREAD_RUN	"Mutex unlock failed in all_threads_running"
+
+# define F_JOIN_THREAD		"Failed to join philosopher thread"
+# define F_CREAT_ONE_PHILO	"Failed to create single philo thread"
+# define F_CREAT_PHILO_THR	"Failed to create philosopher thread"
+# define F_CREAT_MONITOR_TH	"Failed to create monitor thread"
+# define F_JOIN_MONITOR_THR	"Failed to join monitor thread"
 #endif

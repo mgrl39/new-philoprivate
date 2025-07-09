@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 20:40:03 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:22:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 
 	if (!mtx || !threads_count)
 		return (0);
-	if (pthread_mutex_lock(mtx) != 0)
+	if (pthread_mutex_lock(mtx))
 		return (-ft_alert(FAIL_LOCK_THREAD_RUN, A_ERROR));
 	//safe_mutex_handle(mtx, LOCK);
 	all_running = (*threads_count == total_threads);
-	if (pthread_mutex_unlock(mtx) != 0)
+	if (pthread_mutex_unlock(mtx))
 		return (-ft_alert(FAIL_UNLOCK_THREAD_RUN, A_ERROR));
 	//safe_mutex_handle(mtx, UNLOCK);
 	return (all_running);
@@ -55,25 +55,27 @@ int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
  */
 int	increase_long(t_mtx *mutex, long *value)
 {
-	if (pthread_mutex_lock(mutex) != 0)
+	if (pthread_mutex_lock(mutex))
 		return (ft_alert(FAIL_LOCK_INC_LONG, A_ERROR));
 	(*value)++;
-	if (pthread_mutex_unlock(mutex) != 0)
+	if (pthread_mutex_unlock(mutex))
 		return (ft_alert(FAIL_UNLOCK_INC_LONG, A_ERROR));
 	return (SUCCESS);
 }
 
-/* This tries to make the system fair */
+/* 
+ * Prevent all philos from starting at the same time,
+ * to avoid simultaneous fork contention at the beggining.
+ */
 void	prevent_simultaneous_start(t_philo *philo)
 {
-	if (philo->table->philo_nbr % 2 == 0)
-	{
-		if (philo->id % 2 == 0)
-			precise_usleep(3e4, philo->table);
-	}
-	else
-	{
-		if (philo->id % 2)
-			thinking(philo, 1);
-	}
+	int	id;
+	int	n;
+
+	id = philo->id;
+	n = philo->table->philo_nbr;
+	if (n % 2 == 0 && id % 2 == 0)
+		precise_usleep(3e4, philo->table);
+	else if (n % 2 != 0 && id % 2 != 0)
+		thinking(philo, 1);
 }
