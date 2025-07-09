@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['unlock_0',['UNLOCK',['../philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564',1,'philo.h']]],
-  ['usec_1',['USEC',['../philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c',1,'philo.h']]],
-  ['utils_2ec_2',['utils.c',['../utils_8c.html',1,'']]]
+  ['validate_5fand_5fconvert_5fto_5flong_0',['validate_and_convert_to_long',['../atol_8c.html#a422a2527ea0a15657c4d8b6280f5638f',1,'validate_and_convert_to_long(const char *str, long *result):&#160;atol.c'],['../philo_8h.html#a422a2527ea0a15657c4d8b6280f5638f',1,'validate_and_convert_to_long(const char *str, long *result):&#160;atol.c']]]
 ];

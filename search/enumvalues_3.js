@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eat_0',['EAT',['../philo_8h.html#a36ed09b104fd43451893a3170c3fd9bdaefe8eeb4109392679490cf44df521c57',1,'philo.h']]]
+  ['msec_0',['MSEC',['../philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f',1,'philo.h']]]
 ];

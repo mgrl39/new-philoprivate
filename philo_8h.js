@@ -7,6 +7,7 @@ var philo_8h =
     [ "BOLD", "philo_8h.html#a26cdbb1a00213c810caccf21cd33a631", null ],
     [ "DEBUG_MODE", "philo_8h.html#ac80a3592e72fd96b772ee47a7d8e0d0a", null ],
     [ "ERR_DIT", "philo_8h.html#aa4446ff70fe66e43fff05ca79d19effc", null ],
+    [ "ERR_JOIN", "philo_8h.html#a0c58aa5f32674844fb382adb6268aa32", null ],
     [ "ERR_LARGE", "philo_8h.html#a68b4a89b2e9536e460944e9b3762ff6f", null ],
     [ "ERR_MALLOC", "philo_8h.html#af5644a8648341ffd4c34f7fb77bf1781", null ],
     [ "ERR_MUTEX", "philo_8h.html#acef3c4e4649006b6509a58bfff5fed4c", null ],
@@ -19,6 +20,11 @@ var philo_8h =
     [ "ERR_TIMESTAMP", "philo_8h.html#a091caea45458b22b268f8be3caf5fa40", null ],
     [ "ERR_ZERO", "philo_8h.html#a234f751393e29c1d214495abfafd084d", null ],
     [ "ERR_ZERO_VALUE", "philo_8h.html#a6ce08348b8e4db71d2c55ff3ac8f25da", null ],
+    [ "F_CREAT_MONITOR_TH", "philo_8h.html#a8adc1c92e61f8ba52b1595d20fdbce8e", null ],
+    [ "F_CREAT_ONE_PHILO", "philo_8h.html#ac03a5b1b126567a71337b6fe7efdb1d8", null ],
+    [ "F_CREAT_PHILO_THR", "philo_8h.html#ab4206af9fc9130c660b4bad6dbbb0a6b", null ],
+    [ "F_JOIN_MONITOR_THR", "philo_8h.html#a61aceed379ae31869e8a3b56e5cbeba3", null ],
+    [ "F_JOIN_THREAD", "philo_8h.html#a482cd5bfe443a4050a95d6e17b92dd27", null ],
     [ "FAIL_LOCK_GET_INT", "philo_8h.html#a468658d32a5828c43a5f800f9f1fda10", null ],
     [ "FAIL_LOCK_GET_LONG", "philo_8h.html#a89b07b737e25cfb94896ebcd1fa78548", null ],
     [ "FAIL_LOCK_INC_LONG", "philo_8h.html#a7de80a1d97b28b32eb0174fb877a3319", null ],
@@ -51,7 +57,6 @@ var philo_8h =
     [ "t_alert_type", "philo_8h.html#ac4d675cf946a9531c5c8ff88f3b7bd96", null ],
     [ "t_fork", "philo_8h.html#ad10cd6a99f0065adf55fc39466bc911a", null ],
     [ "t_mtx", "philo_8h.html#aea7fc7c99322f930e2dbfa4dcb8a2736", null ],
-    [ "t_opcode", "philo_8h.html#ac11b51d4c47b99ccbf7d208b7a1f8205", null ],
     [ "t_philo", "philo_8h.html#a7b20ce4f97b6f0dc2e44a50c149be74d", null ],
     [ "t_philo_status", "philo_8h.html#ab98c38ab79f57ea3274549700c0b6cc3", null ],
     [ "t_table", "philo_8h.html#a3a1d8e4332315885da833b46801b67fb", null ],
@@ -59,12 +64,6 @@ var philo_8h =
     [ "e_alert_type", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12", [
       [ "A_ERROR", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54", null ],
       [ "A_WARNING", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a2f3a7c36eec76472647318ff6732f16e", null ]
-    ] ],
-    [ "e_opcode", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9c", [
-      [ "LOCK", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca438b68412f24003b09e0993b62dc7b48", null ],
-      [ "UNLOCK", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca1f14342534859555eda67e260bd9c564", null ],
-      [ "CREATE", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca473b49382a20dcc5b0ee10ddbc6338b4", null ],
-      [ "JOIN", "philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7", null ]
     ] ],
     [ "e_status", "philo_8h.html#a36ed09b104fd43451893a3170c3fd9bd", [
       [ "EAT", "philo_8h.html#a36ed09b104fd43451893a3170c3fd9bdaefe8eeb4109392679490cf44df521c57", null ],
@@ -80,7 +79,6 @@ var philo_8h =
     ] ],
     [ "all_threads_running", "philo_8h.html#a1e1cd8cf5c3bd7d8f449cb092dcfbf12", null ],
     [ "dinner_start", "philo_8h.html#a92e02f1eaf2c2db4097c328dc088c166", null ],
-    [ "error_exit", "philo_8h.html#a2e431795e57bcd9f63ad72e2239e9c14", null ],
     [ "free_table", "philo_8h.html#a965a241099d9f27bfc260769801130bb", null ],
     [ "ft_alert", "philo_8h.html#a947bf0aaab32c425b437596100a37e92", null ],
     [ "get_int", "philo_8h.html#a1cd5a985ffabb5d265950973674a8920", null ],
@@ -92,7 +90,6 @@ var philo_8h =
     [ "precise_usleep", "philo_8h.html#a9378c26262a9761809207ec96e047a53", null ],
     [ "prevent_simultaneous_start", "philo_8h.html#a21897b8581f471fff273cf4b0c69bf2f", null ],
     [ "print_argument_error", "philo_8h.html#a9871a536a739350187f47805366413ef", null ],
-    [ "safe_thread_handle", "philo_8h.html#aac17cf88d4d977da3df94380837fb296", null ],
     [ "set_int", "philo_8h.html#a8eb8e7ea38ebaa4b925ac17f748b3f81", null ],
     [ "set_long", "philo_8h.html#a98598116b71161d6d299180ad4ea1aab", null ],
     [ "simulation_finished", "philo_8h.html#a9cf7f5b32360824fc306e992f8775e58", null ],

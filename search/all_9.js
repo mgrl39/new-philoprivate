@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['join_0',['JOIN',['../philo_8h.html#a2f833c6f10ba7cf7e6e743b6ab918e9ca4925a399dab94b9b58f6d1b5cd246af7',1,'philo.h']]]
+  ['last_5fmeal_5ftime_0',['last_meal_time',['../structs__philo.html#a75f0ec517278bb0776f894882183c9f2',1,'s_philo']]]
 ];

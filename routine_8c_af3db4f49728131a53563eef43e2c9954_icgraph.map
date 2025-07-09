@@ -1,7 +1,9 @@
 <map id="dinner_simulation" name="dinner_simulation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="256,5,395,31"/>
-<area shape="rect" id="Node000002" href="$routine_8c.html#a92e02f1eaf2c2db4097c328dc088c166" title=" " alt="" coords="108,5,208,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,21,208,21,208,15,242,15"/>
-<area shape="rect" id="Node000003" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="413,5,552,31"/>
+<area shape="rect" id="Node000002" href="$routine_8c.html#a458739ab577cc4391382d756cc643a90" title=" " alt="" coords="256,5,365,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,21,366,21,366,15,399,15"/>
+<area shape="rect" id="Node000003" href="$routine_8c.html#a92e02f1eaf2c2db4097c328dc088c166" title=" " alt="" coords="108,5,208,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,21,208,21,208,15,242,15"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
 </map>

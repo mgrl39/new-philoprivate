@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['msec_0',['MSEC',['../philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f',1,'philo.h']]]
+  ['usec_0',['USEC',['../philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c',1,'philo.h']]]
 ];
