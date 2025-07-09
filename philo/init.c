@@ -13,14 +13,14 @@
 #include "philo.h"
 #include <stdlib.h>
 
-static void	cleanup_philo_mutexes(t_table *table, int count)
+static void	cleanup_philo_mtxes(t_table *table, int count)
 {
 	int	i;
 
 	i = -1;
 	while (++i < count)
 	{
-		if (pthread_mutex_destroy(&table->philos[i].philo_mutex))
+		if (pthread_mutex_destroy(&table->philos[i].philo_mtx))
 			ft_alert(MSG_W_PHILO, A_WARNING);
 	}
 }
@@ -85,9 +85,9 @@ static int	philo_init(t_table *table)
 		philo->full = 0;
 		philo->meals_counter = 0;
 		philo->table = table;
-		if (pthread_mutex_init(&philo->philo_mutex, NULL))
+		if (pthread_mutex_init(&philo->philo_mtx, NULL))
 		{
-			cleanup_philo_mutexes(table, i);
+			cleanup_philo_mtxes(table, i);
 			return (ft_alert(ERR_MUTEX, A_ERROR));
 		}
 		assign_forks(philo, table->forks, i);
@@ -106,9 +106,9 @@ void	free_table(t_table *table, int initialized_forks)
 		if (pthread_mutex_destroy(&table->forks[i].fork))
 			ft_alert(MSG_W_FORK, A_WARNING);
 	}
-	if (pthread_mutex_destroy(&table->table_mutex))
+	if (pthread_mutex_destroy(&table->table_mtx))
 		ft_alert(MSG_W_TABLE, A_WARNING);
-	if (pthread_mutex_destroy(&table->write_mutex))
+	if (pthread_mutex_destroy(&table->write_mtx))
 		ft_alert(MSG_W_WRITE, A_WARNING);
 	if (table->philos)
 	{
@@ -134,9 +134,9 @@ int	init_table(t_table *table)
 	table->philos = (t_philo *)malloc(sizeof(t_philo) * table->philo_nbr);
 	if (!table->philos)
 		return (ft_alert(ERR_MALLOC, A_ERROR));
-	if (pthread_mutex_init(&table->table_mutex, NULL))
+	if (pthread_mutex_init(&table->table_mtx, NULL))
 		return (free_table(table, 0), ft_alert(ERR_MUTEX, A_ERROR));
-	if (pthread_mutex_init(&table->write_mutex, NULL))
+	if (pthread_mutex_init(&table->write_mtx, NULL))
 		return (free_table(table, 0), ft_alert(ERR_MUTEX, A_ERROR));
 	table->forks = (t_fork *)malloc(sizeof(t_fork) * table->philo_nbr);
 	if (!table->forks)

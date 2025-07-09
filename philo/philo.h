@@ -104,7 +104,7 @@ typedef struct s_fork
  * last_meal_time -> time passed from last meal. Is very important to check if
  * 			philosopher has died. We will gonna have time to die
  * thread_id -> a philo is a thread (this will be send to thread_create)
- * philo_mutex -> useful for races with the monitor
+ * philo_mtx -> useful for races with the monitor
  */
 typedef struct s_philo
 {
@@ -112,7 +112,7 @@ typedef struct s_philo
 	int			full;
 	long		meals_counter;
 	long		last_meal_time;
-	t_mtx		philo_mutex;
+	t_mtx		philo_mtx;
 	t_fork		*first_fork;
 	t_fork		*second_fork;
 	t_table		*table;
@@ -137,8 +137,8 @@ typedef struct s_table
 	long		nbr_limit_meals;
 	long		start_simulation;
 	long		threads_running_nbr;
-	t_mtx		table_mutex;
-	t_mtx		write_mutex;
+	t_mtx		table_mtx;
+	t_mtx		write_mtx;
 	t_fork		*forks;
 	t_philo		*philos;
 	pthread_t	monitor;

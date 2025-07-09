@@ -25,8 +25,8 @@ void	*single_philo(void *arg)
 	philo = (t_philo *)arg;
 	table = philo->table;
 	wait_all_threads(table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
-	increase_long(&table->table_mutex, &table->threads_running_nbr);
+	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
+	increase_long(&table->table_mtx, &table->threads_running_nbr);
 	write_status(TAKE_FIRST_FORK, philo);
 	while (!simulation_finished(table))
 		usleep(200);
@@ -85,13 +85,13 @@ static int	eat(t_philo *philo)
 		return (ft_alert("Failed to lock second fork", A_ERROR));
 	}
 	write_status(TAKE_SECOND_FORK, philo);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
+	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
 	philo->meals_counter++;
 	write_status(EAT, philo);
 	precise_usleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->nbr_limit_meals > 0
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
-		set_int(&philo->philo_mutex, &philo->full, 1);
+		set_int(&philo->philo_mtx, &philo->full, 1);
 	if (pthread_mutex_unlock(&philo->first_fork->fork))
 		return (ft_alert("SOME ALERT", A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
@@ -128,12 +128,12 @@ void	*dinner_simulation(void *data)
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
-	set_long(&philo->philo_mutex, &philo->last_meal_time, gettime(MSEC));
-	increase_long(&philo->table->table_mutex, &philo->table->threads_running_nbr);
+	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
+	increase_long(&philo->table->table_mtx, &philo->table->threads_running_nbr);
 	prevent_simultaneous_start(philo);
 	while (!simulation_finished(philo->table))
 	{
-		if (get_int(&philo->philo_mutex, &philo->full))
+		if (get_int(&philo->philo_mtx, &philo->full))
 			break ;
 		if (eat(philo) == FAILURE)
 		{
@@ -226,21 +226,21 @@ int	dinner_start(t_table *table)
 		return (SUCCESS);
 	if (create_philos(table, &created))
 	{
-		set_int(&table->table_mutex, &table->end_simulation, 1);
-		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		set_int(&table->table_mtx, &table->end_simulation, 1);
+		set_int(&table->table_mtx, &table->all_threads_ready, 1);
 		return (join_philos(table, created), FAILURE);
 	}
 	if (pthread_create(&table->monitor, NULL, monitor_dinner, table))
 	{
 		ft_alert(F_CREAT_MONITOR_TH, A_ERROR);
-		set_int(&table->table_mutex, &table->end_simulation, 1);
-		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		set_int(&table->table_mtx, &table->end_simulation, 1);
+		set_int(&table->table_mtx, &table->all_threads_ready, 1);
 		return (join_philos(table, created), FAILURE);
 	}
 	table->start_simulation = gettime(MSEC);
-	set_int(&table->table_mutex, &table->all_threads_ready, 1);
+	set_int(&table->table_mtx, &table->all_threads_ready, 1);
 	join_philos(table, table->philo_nbr);
-	set_int(&table->table_mutex, &table->end_simulation, 1);
+	set_int(&table->table_mtx, &table->end_simulation, 1);
 	if (pthread_join(table->monitor, NULL))
 		ft_alert(F_JOIN_MONITOR_THR, A_WARNING);
 	return (SUCCESS);

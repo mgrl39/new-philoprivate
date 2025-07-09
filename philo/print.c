@@ -43,10 +43,10 @@ int	write_status(t_philo_status status, t_philo *philo)
 
 	time = gettime(MSEC);
 	time -= philo->table->start_simulation;
-	if (get_int(&philo->philo_mutex, &philo->full))
+	if (get_int(&philo->philo_mtx, &philo->full))
 		return (0);
-	//safe_mutex_handle(&philo->table->write_mutex, LOCK);
-	if (pthread_mutex_lock(&philo->table->write_mutex))
+	//safe_mutex_handle(&philo->table->write_mtx, LOCK);
+	if (pthread_mutex_lock(&philo->table->write_mtx))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	if (DEBUG_MODE)
 		write_status_debug(status, philo, time);
@@ -64,9 +64,9 @@ int	write_status(t_philo_status status, t_philo *philo)
 		else if (DIED == status)
 			printf(BOLD RED"%-6ld" S_DIED RESET, time, philo->id);
 	}
-	// safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
+	// safe_mutex_handle(&philo->table->write_mtx, UNLOCK);
 	// TODO: check if this later...
-	if (pthread_mutex_unlock(&philo->table->write_mutex))
+	if (pthread_mutex_unlock(&philo->table->write_mtx))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	return (0);
 }

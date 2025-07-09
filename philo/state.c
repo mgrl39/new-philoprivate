@@ -65,5 +65,5 @@ long	get_long(t_mtx *mutex, long *value)
 
 int	simulation_finished(t_table *table)
 {
-	return (get_int(&table->table_mutex, &table->end_simulation));
+	return (get_int(&table->table_mtx, &table->end_simulation));
 }
