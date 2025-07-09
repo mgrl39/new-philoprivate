@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:29:42 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:25:49 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,21 @@ static int	philo_died(t_philo *philo)
 	return (elapsed > t_to_die);
 }
 
+static void	check_philo_status(t_table *table)
+{
+	int	i;
+
+	i = -1;
+	while (++i < table->philo_nbr && !simulation_finished(table))
+	{
+		if (philo_died(table->philos + i))
+		{
+			set_int(&table->table_mtx, &table->end_simulation, 1);
+			write_status(DIED, table->philos + i);
+		}
+	}
+}
+
 /*
  * TODO: Change this comment
  * make sure all philos running
@@ -34,7 +49,6 @@ static int	philo_died(t_philo *philo)
  */
 void	*monitor_dinner(void *data)
 {
-	int		i;
 	t_table	*table;
 	long	check_interval;
 
@@ -50,16 +64,7 @@ void	*monitor_dinner(void *data)
 		usleep(check_interval);
 	while (!simulation_finished(table))
 	{
-		i = -1;
-		while (++i < table->philo_nbr && !simulation_finished(table))
-		{
-			if (philo_died(table->philos + i))
-			{
-				set_int(&table->table_mtx, &table->end_simulation, 1);
-				write_status(DIED, table->philos + i);
-				// TODO: AQUI VA UN break ; o no??
-			}
-		}
+		check_philo_status(table);
 		usleep(100);
 	}
 	return (NULL);
