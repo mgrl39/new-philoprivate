@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:13:14 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:22:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,19 @@ int	increase_long(t_mtx *mutex, long *value)
 	return (SUCCESS);
 }
 
-/* This tries to make the system fair */
+/* 
+ * Prevent all philos from starting at the same time,
+ * to avoid simultaneous fork contention at the beggining.
+ */
 void	prevent_simultaneous_start(t_philo *philo)
 {
-	if (philo->table->philo_nbr % 2 == 0)
-	{
-		if (philo->id % 2 == 0)
-			precise_usleep(3e4, philo->table);
-	}
-	else
-	{
-		if (philo->id % 2)
-			thinking(philo, 1);
-	}
+	int	id;
+	int	n;
+
+	id = philo->id;
+	n = philo->table->philo_nbr;
+	if (n % 2 == 0 && id % 2 == 0)
+		precise_usleep(3e4, philo->table);
+	else if (n % 2 != 0 && id % 2 != 0)
+		thinking(philo, 1);
 }

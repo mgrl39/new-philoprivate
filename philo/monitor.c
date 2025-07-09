@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:33 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 20:33:56 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:29:42 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static int	philo_died(t_philo *philo)
 }
 
 /*
+ * TODO: Change this comment
  * make sure all philos running
  * spinlock till all thread run
  * constantly check time to die

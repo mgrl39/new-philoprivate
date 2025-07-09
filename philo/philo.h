@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 21:38:48 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:47:57 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # define ERR_TIME	"Error: All timings must be at least 60ms."
 # define ERR_MALLOC	"Error: malloc"
 # define ERR_MUTEX	"Error: mutex"
+# define ERR_JOIN	"Error: Failed to join thread."
 
 # define MIN_TIMESTAMP	60e3
 
@@ -74,10 +75,7 @@ typedef enum e_status
 /* Operation code for mutex or thread functions */
 typedef enum e_opcode
 {
-	LOCK,
-	UNLOCK,
 	CREATE,
-	JOIN,
 }	t_opcode;
 
 /* Codes for time units used in gettime() */

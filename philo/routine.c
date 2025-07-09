@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:11:30 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:46:54 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <unistd.h>
 
 /**
- * 1) fake to lock the fork
- * 2) sleep until the monitor will bust it
+ * 1) Fake to lock the fork.
+ * 2) Sleep until the monitor will bust it.
  */
 void	*single_philo(void *arg)
 {
@@ -34,7 +34,8 @@ void	*single_philo(void *arg)
 }
 
 /**
- * if the system is even we dont care, system already fair.
+ * If the system is:
+ * EVEN, system already fair.
  * ODD, not always fair.
  */
 void	thinking(t_philo *philo, int pre_simulation)
@@ -212,8 +213,13 @@ int	dinner_start(t_table *table)
 	set_int(&table->table_mutex, &table->all_threads_ready, 1);
 	i = -1;
 	while (++i < table->philo_nbr)
-		safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
+		// TODO CLEAN QUE BRO XD
+		// safe_thread_handle(&table->philos[i].thread_id, NULL, NULL, JOIN);
+		if (pthread_join(table->philos[i].thread_id, NULL))
+			return (ft_alert(ERR_JOIN, A_ERROR));
 	set_int(&table->table_mutex, &table->end_simulation, 1);
-	safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
+	// safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
+	if (pthread_join(table->monitor, NULL))
+		return (ft_alert("ERROR JOIN", A_ERROR));
 	return (SUCCESS);
 }
