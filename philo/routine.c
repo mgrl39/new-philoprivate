@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 22:47:38 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:11:30 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,14 @@ void	thinking(t_philo *philo, int pre_simulation)
 // 3) UNLOCK
 static int	eat(t_philo *philo)
 {
-	if (pthread_mutex_lock(&philo->first_fork->fork) != 0)
+	if (pthread_mutex_lock(&philo->first_fork->fork))
 		return (ft_alert("Failed to lock first fork", A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
 	// safe_mutex_handle(&philo->second_fork->fork, LOCK);
-	if (pthread_mutex_lock(&philo->second_fork->fork) != 0)
+	if (pthread_mutex_lock(&philo->second_fork->fork))
 	{
-		if (pthread_mutex_unlock(&philo->first_fork->fork) != 0)
+		if (pthread_mutex_unlock(&philo->first_fork->fork))
 			ft_alert("Failed to unlock first fork after second fork lock failure", A_ERROR);
 		return (ft_alert("Failed to lock second fork", A_ERROR));
 	}
@@ -91,11 +91,11 @@ static int	eat(t_philo *philo)
 	if (philo->table->nbr_limit_meals > 0
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
 		set_int(&philo->philo_mutex, &philo->full, 1);
-	if (pthread_mutex_unlock(&philo->first_fork->fork) != 0)
+	if (pthread_mutex_unlock(&philo->first_fork->fork))
 		return (ft_alert("SOME ALERT", A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	// safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
-	if (pthread_mutex_unlock(&philo->second_fork->fork) != 0)
+	if (pthread_mutex_unlock(&philo->second_fork->fork))
 		return (ft_alert("SOME ALERT", A_ERROR));
 	// if OK retunr 0
 	return (0);

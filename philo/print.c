@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/08 20:32:36 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:12:12 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	write_status(t_philo_status status, t_philo *philo)
 	if (get_int(&philo->philo_mutex, &philo->full))
 		return (0);
 	//safe_mutex_handle(&philo->table->write_mutex, LOCK);
-	if (pthread_mutex_lock(&philo->table->write_mutex) != 0)
+	if (pthread_mutex_lock(&philo->table->write_mutex))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	if (DEBUG_MODE)
 		write_status_debug(status, philo, time);
@@ -66,7 +66,7 @@ int	write_status(t_philo_status status, t_philo *philo)
 	}
 	// safe_mutex_handle(&philo->table->write_mutex, UNLOCK);
 	// TODO: check if this later...
-	if (pthread_mutex_unlock(&philo->table->write_mutex) != 0)
+	if (pthread_mutex_unlock(&philo->table->write_mutex))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	return (0);
 }
