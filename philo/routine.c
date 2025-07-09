@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:46:54 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/09 23:38:07 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,19 +147,6 @@ void	*dinner_simulation(void *data)
 	return (NULL);
 }
 
-/*
-static int	create_philos_threads(t_table *table)
-{
-	int	i;
-	t_philo	*philo;
-
-	if (1 == table->philo_nbr)
-	{
-		philos = &table->philos[0];
-		if (pthread_create(philo->thread_id, 0, single_philo, philo) != 0)
-			return (ft_alert("Failed to create thread for single philo, A_ERROR"));
-	}
-}*/
 /**
  * ./philo 5 800 200 200 [5]
  *
@@ -189,26 +176,43 @@ static int	create_philos_threads(t_table *table)
 // now all threads are ready!
 // we are going to join (wait for everyone)
 // If we manage to reach this line all philos are FULL.
-
+/*
 int	dinner_start(t_table *table)
 {
 	int	i;
+	int	j;
 
 	if (0 == table->nbr_limit_meals)
 		return (SUCCESS);
 	if (1 == table->philo_nbr)
 	{
-		safe_thread_handle(&table->philos[0].thread_id,
-			single_philo, &table->philos[0], CREATE);
+		//safe_thread_handle(&table->philos[0].thread_id, single_philo, &table->philos[0], CREATE);
+		if (pthread_create(&table->philos[0].thread_id, NULL, single_philo,&table->philos[0]))
+			return (ft_alert("ERROR CREATE 1 PHILO", A_ERROR));
 	}
 	else
 	{
 		i = -1;
 		while (++i < table->philo_nbr)
-			safe_thread_handle(&table->philos[i].thread_id,
-				dinner_simulation, &table->philos[i], CREATE);
+		{
+//			safe_thread_handle(&table->philos[i].thread_id,	dinner_simulation, &table->philos[i], CREATE);
+			if (pthread_create(&table->philos[i].thread_id, NULL, dinner_simulation, &table->philos[i]))
+			{
+				j = 0;
+				while (j < i)
+					pthread_join(table->philos[j++].thread_id, NULL);
+				return (ft_alert("ERROR CREATING PHILOS", A_ERROR));
+			}
+		}
 	}
-	safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
+	if (pthread_create(&table->monitor, NULL, monitor_dinner, table))
+	{
+		j = 0;
+		while (j < table->philo_nbr)
+			pthread_join(table->philos[j++].thread_id, NULL);
+		return (ft_alert("ERROR CREATE MONITOR", A_ERROR));
+	}
+	//safe_thread_handle(&table->monitor, monitor_dinner, table, CREATE);
 	table->start_simulation = gettime(MSEC);
 	set_int(&table->table_mutex, &table->all_threads_ready, 1);
 	i = -1;
@@ -221,5 +225,73 @@ int	dinner_start(t_table *table)
 	// safe_thread_handle(&table->monitor, NULL, NULL, JOIN);
 	if (pthread_join(table->monitor, NULL))
 		return (ft_alert("ERROR JOIN", A_ERROR));
+	return (SUCCESS);
+}*/
+
+static void	join_philos(t_table *table, int count)
+{
+	int	i;
+	int	ret;
+
+	i = 0;
+	while (i < count)
+	{
+		ret = pthread_join(table->philos[i++].thread_id, NULL);
+		if (ret)
+			ft_alert(F_JOIN_THREAD, A_WARNING);
+	}
+}
+
+static int	create_philos(t_table *table, int *created)
+{
+	int	i;
+
+	*created = 0;
+	if (table->philo_nbr == 1)
+	{
+		if (pthread_create(&table->philos[0].thread_id, NULL, single_philo, &table->philos[0]))
+			return (ft_alert(F_CREAT_ONE_PHILO, A_ERROR));
+		*created = 1;
+		return (SUCCESS);
+	}
+	i = 0;
+	while (i < table->philo_nbr)
+	{
+		if (pthread_create(&table->philos[i].thread_id, NULL, dinner_simulation, &table->philos[i]))
+		{
+			*created = i;
+			return (ft_alert(F_CREAT_PHILO_THR, A_ERROR));
+		}
+		i++;
+	}
+	*created = i;
+	return (SUCCESS);
+}
+
+int	dinner_start(t_table *table)
+{
+	int	created;
+
+	if (0 == table->nbr_limit_meals)
+		return (SUCCESS);
+	if (create_philos(table, &created))
+	{
+		set_int(&table->table_mutex, &table->end_simulation, 1);
+		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		return (join_philos(table, created), FAILURE);
+	}
+	if (pthread_create(&table->monitor, NULL, monitor_dinner, table))
+	{
+		ft_alert(F_CREAT_MONITOR_TH, A_ERROR);
+		set_int(&table->table_mutex, &table->end_simulation, 1);
+		set_int(&table->table_mutex, &table->all_threads_ready, 1);
+		return (join_philos(table, created), FAILURE);
+	}
+	table->start_simulation = gettime(MSEC);
+	set_int(&table->table_mutex, &table->all_threads_ready, 1);
+	join_philos(table, table->philo_nbr);
+	set_int(&table->table_mutex, &table->end_simulation, 1);
+	if (pthread_join(table->monitor, NULL))
+		ft_alert(F_JOIN_MONITOR_THR, A_WARNING);
 	return (SUCCESS);
 }
