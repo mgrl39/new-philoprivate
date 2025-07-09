@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 23:31:09 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:33:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,8 @@ void	precise_usleep(long usec, t_table *table);
 void	wait_all_threads(t_table	*table);
 void	*monitor_dinner(void *data);
 void	*single_philo(void *arg);
+void	join_philos(t_table *table, int count);
+void	*dinner_simulation(void *data);
 void	print_argument_error(
 			int error);
 
@@ -169,6 +171,7 @@ int		set_int(t_mtx *mutex, int *dest, int value);
 int		increase_long(t_mtx *mutex, long *value);
 int		write_status(t_philo_status status, t_philo *philo);
 int		dinner_start(t_table *table);
+int		create_philos(t_table *table, int *created);
 
 # define FAIL_LOCK_SET_INT		"Mutex lock failed in set_int"
 # define FAIL_UNLOCK_SET_INT	"Mutex unlock failed in set_int"
