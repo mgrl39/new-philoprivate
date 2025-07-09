@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:53:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 01:09:43 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,8 +154,6 @@ void	*monitor_dinner(void *data);
 void	*single_philo(void *arg);
 void	join_philos(t_table *table, int count);
 void	*dinner_simulation(void *data);
-void	print_argument_error(
-			int error);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);

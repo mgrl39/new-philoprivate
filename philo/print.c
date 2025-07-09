@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:43:52 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 01:09:35 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,21 +95,4 @@ int	ft_alert(char *msg, t_alert_type type)
 	ft_putstr_fd(RESET, 2);
 	ft_putstr_fd("\n", 2);
 	return (type == A_ERROR);
-}
-
-// TODO: CHANGE IT TO FT_ALERT
-void	print_argument_error(int error)
-{
-	char	*s;
-
-	s = NULL;
-	if (error == ERR_NOT_DIGIT)
-		s = ERR_DIT;
-	else if (error == ERR_NEGATIVE)
-		s = ERR_NEG;
-	else if (error == ERR_OVERFLOW)
-		s = ERR_LARGE;
-	else if (error == ERR_ZERO_VALUE)
-		s = ERR_ZERO;
-	ft_alert(s, A_ERROR);
 }
