@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:34:07 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:51:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ void	thinking(t_philo *philo, int pre_simulation)
 static int	eat(t_philo *philo)
 {
 	if (pthread_mutex_lock(&philo->first_fork->fork))
-		return (ft_alert("Failed to lock first fork", A_ERROR));
+		return (ft_alert(F_LOCK_1, A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
 	// safe_mutex_handle(&philo->second_fork->fork, LOCK);
 	if (pthread_mutex_lock(&philo->second_fork->fork))
 	{
 		if (pthread_mutex_unlock(&philo->first_fork->fork))
-			ft_alert("Failed to unlock first fork after second fork lock failure", A_ERROR);
-		return (ft_alert("Failed to lock second fork", A_ERROR));
+			ft_alert(F_UN_LOCK_2, A_ERROR);
+		return (ft_alert(F_LOCK_2, A_ERROR));
 	}
 	write_status(TAKE_SECOND_FORK, philo);
 	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
@@ -93,11 +93,11 @@ static int	eat(t_philo *philo)
 		&& philo->meals_counter == philo->table->nbr_limit_meals)
 		set_int(&philo->philo_mtx, &philo->full, 1);
 	if (pthread_mutex_unlock(&philo->first_fork->fork))
-		return (ft_alert("SOME ALERT", A_ERROR));
+		return (ft_alert(F_UNLOCK_1, A_ERROR));
 	// safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
 	// safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
 	if (pthread_mutex_unlock(&philo->second_fork->fork))
-		return (ft_alert("SOME ALERT", A_ERROR));
+		return (ft_alert(F_UNLOCK_2, A_ERROR));
 	return (0);
 }
 

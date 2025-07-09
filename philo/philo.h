@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:38:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:53:00 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,4 +191,10 @@ int		create_philos(t_table *table, int *created);
 # define F_CREAT_PHILO_THR		"Failed to create philosopher thread"
 # define F_CREAT_MONITOR_TH		"Failed to create monitor thread"
 # define F_JOIN_MONITOR_THR		"Failed to join monitor thread"
+
+# define F_LOCK_1			"Failed to lock 1st fork"
+# define F_LOCK_2			"Failed to lock 2nd fork"
+# define F_UNLOCK_1			"Failed to unlock 1st fork"
+# define F_UNLOCK_2			"Failed to unlock 2nd fork"
+# define F_UN_LOCK_2		"Failed unlock 1st fork after 2nd fork lock failure"
 #endif
