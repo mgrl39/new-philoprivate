@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:31:51 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:34:07 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,6 @@ void	*dinner_simulation(void *data)
 	}
 	return (NULL);
 }
-
 
 /**
  * ./philo 5 800 200 200 [5]

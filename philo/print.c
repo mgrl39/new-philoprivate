@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:19:14 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:43:52 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ static void	ft_putstr_fd(char *msg, int fd)
 // TODO: MAYBE MUST LOCK THIS...
 int	ft_alert(char *msg, t_alert_type type)
 {
+	if (!msg)
+		return (type == A_ERROR);
 	if (type == A_ERROR)
 		ft_putstr_fd(RED, 2);
 	else
@@ -98,12 +100,16 @@ int	ft_alert(char *msg, t_alert_type type)
 // TODO: CHANGE IT TO FT_ALERT
 void	print_argument_error(int error)
 {
+	char	*s;
+
+	s = NULL;
 	if (error == ERR_NOT_DIGIT)
-		ft_alert(ERR_DIT, A_ERROR);
+		s = ERR_DIT;
 	else if (error == ERR_NEGATIVE)
-		ft_alert(ERR_NEG, A_ERROR);
+		s = ERR_NEG;
 	else if (error == ERR_OVERFLOW)
-		ft_alert(ERR_LARGE, A_ERROR);
+		s = ERR_LARGE;
 	else if (error == ERR_ZERO_VALUE)
-		ft_alert(ERR_ZERO, A_ERROR);
+		s = ERR_ZERO;
+	ft_alert(s, A_ERROR);
 }

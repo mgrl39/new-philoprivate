@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:33:35 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 00:38:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,9 +186,9 @@ int		create_philos(t_table *table, int *created);
 # define FAIL_LOCK_THREAD_RUN	"Mutex lock failed in all_threads_running"
 # define FAIL_UNLOCK_THREAD_RUN	"Mutex unlock failed in all_threads_running"
 
-# define F_JOIN_THREAD		"Failed to join philosopher thread"
-# define F_CREAT_ONE_PHILO	"Failed to create single philo thread"
-# define F_CREAT_PHILO_THR	"Failed to create philosopher thread"
-# define F_CREAT_MONITOR_TH	"Failed to create monitor thread"
-# define F_JOIN_MONITOR_THR	"Failed to join monitor thread"
+# define F_JOIN_THREAD			"Failed to join philosopher thread"
+# define F_CREAT_ONE_PHILO		"Failed to create single philo thread"
+# define F_CREAT_PHILO_THR		"Failed to create philosopher thread"
+# define F_CREAT_MONITOR_TH		"Failed to create monitor thread"
+# define F_JOIN_MONITOR_THR		"Failed to join monitor thread"
 #endif
