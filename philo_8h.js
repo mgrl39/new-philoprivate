@@ -68,7 +68,7 @@ var philo_8h =
     [ "t_time_code", "philo_8h.html#a979a97b7e43cf661d7284d1fa8fb79e3", null ],
     [ "e_alert_type", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12", [
       [ "A_ERROR", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54", null ],
-      [ "A_WARNING", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a2f3a7c36eec76472647318ff6732f16e", null ]
+      [ "A_WARN", "philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a268a3ae8974418001c4a238c9989b8c7", null ]
     ] ],
     [ "e_status", "philo_8h.html#a36ed09b104fd43451893a3170c3fd9bd", [
       [ "EAT", "philo_8h.html#a36ed09b104fd43451893a3170c3fd9bdaefe8eeb4109392679490cf44df521c57", null ],
