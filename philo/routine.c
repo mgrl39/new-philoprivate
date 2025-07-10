@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:51:04 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 02:07:39 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	thinking(t_philo *philo, int pre_simulation)
  * MOST IMPORTANT THING FOR A PHILOSOPHER
  * eat routine
  * 1) grab the forks: here first and second fork is handy
- * 	i dont worry aboutt left irght
+ * 	i dont worry about left right 
  * 2) eat: write eat, update last meal, update meals counter.
  * 	eventyally int full
  * 3) release the forks
  * 2) Set the last meal time:
- * Actual eating. Now we have to set the last meal time and we
+ * Actual eating. is set the last meal time and we
  * are gonna do it immediately.
  * sleep the time requested.
  * if is true the philo is full
