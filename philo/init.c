@@ -21,7 +21,7 @@ static void	cleanup_philo_mtxes(t_table *table, int count)
 	while (++i < count)
 	{
 		if (pthread_mutex_destroy(&table->philos[i].philo_mtx))
-			ft_alert(MSG_W_PHILO, A_WARNING);
+			ft_alert(MSG_W_PHILO, A_WARN);
 	}
 }
 
@@ -104,12 +104,12 @@ void	free_table(t_table *table, int initialized_forks)
 	while (++i < initialized_forks)
 	{
 		if (pthread_mutex_destroy(&table->forks[i].fork))
-			ft_alert(MSG_W_FORK, A_WARNING);
+			ft_alert(MSG_W_FORK, A_WARN);
 	}
 	if (pthread_mutex_destroy(&table->table_mtx))
-		ft_alert(MSG_W_TABLE, A_WARNING);
+		ft_alert(MSG_W_TABLE, A_WARN);
 	if (pthread_mutex_destroy(&table->write_mtx))
-		ft_alert(MSG_W_WRITE, A_WARNING);
+		ft_alert(MSG_W_WRITE, A_WARN);
 	if (table->philos)
 	{
 		free(table->philos);

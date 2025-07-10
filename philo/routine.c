@@ -199,6 +199,6 @@ int	dinner_start(t_table *table)
 	join_philos(table, table->philo_nbr);
 	set_int(&table->table_mtx, &table->end_simulation, 1);
 	if (pthread_join(table->monitor, NULL))
-		ft_alert(F_JOIN_MONITOR_THR, A_WARNING);
+		ft_alert(F_JOIN_MONITOR_THR, A_WARN);
 	return (SUCCESS);
 }
