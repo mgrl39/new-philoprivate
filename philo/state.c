@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:47:01 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:15:16 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 02:15:25 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	get_int(t_mtx *mutex, int *value)
 	int	ret;
 
 	if (pthread_mutex_lock(mutex))
-		return (ft_alert(FAIL_LOCK_GET_INT, A_ERROR));
+		return (-ft_alert(FAIL_LOCK_GET_INT, A_ERROR));
 	ret = *value;
 	if (pthread_mutex_unlock(mutex))
-		return (ft_alert(FAIL_UNLOCK_GET_INT, A_ERROR));
+		return (-ft_alert(FAIL_UNLOCK_GET_INT, A_ERROR));
 	return (ret);
 }
 
@@ -56,10 +56,10 @@ long	get_long(t_mtx *mutex, long *value)
 	long	ret;
 
 	if (pthread_mutex_lock(mutex))
-		return (ft_alert(FAIL_LOCK_GET_LONG, A_ERROR));
+		return (-ft_alert(FAIL_LOCK_GET_LONG, A_ERROR));
 	ret = *value;
 	if (pthread_mutex_unlock(mutex))
-		return (ft_alert(FAIL_UNLOCK_GET_LONG, A_ERROR));
+		return (-ft_alert(FAIL_UNLOCK_GET_LONG, A_ERROR));
 	return (ret);
 }
 

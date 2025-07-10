@@ -22,7 +22,7 @@ void	join_philos(t_table *table, int count)
 	{
 		ret = pthread_join(table->philos[i++].thread_id, NULL);
 		if (ret)
-			ft_alert(F_JOIN_THREAD, A_WARNING);
+			ft_alert(F_JOIN_THREAD, A_WARN);
 	}
 }
 

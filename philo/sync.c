@@ -6,14 +6,14 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/09 21:22:00 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/10 01:38:17 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <unistd.h>
 
-// To sincronize philos start (now is not spinlock :D )
+// To sincronize philos start (now is not spinlock :D)
 void	wait_all_threads(t_table	*table)
 {
 	while (!get_int(&table->table_mtx, &table->all_threads_ready))

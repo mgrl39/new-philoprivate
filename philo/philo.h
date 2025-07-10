@@ -82,7 +82,7 @@ typedef enum e_time_code
 typedef enum e_alert_type
 {
 	A_ERROR,
-	A_WARNING
+	A_WARN
 }	t_alert_type;
 
 /* Typedefs */
