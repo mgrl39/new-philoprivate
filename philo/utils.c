@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 21:09:04 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:09:23 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@
 
 /*
  * We are gonna exploit gettimeofday
- * time_code -> SECONDS MSECS USECS
- * Is gonna set the seconds and the microseconds
+ * time_code -> MSEC USEC
  * TODO: IF I USE time_code that is not there the compiler will complain
  */
 long	gettime(t_time_code	time_code)
@@ -79,5 +78,15 @@ void	precise_usleep(long usec, t_table *table)
 			usleep(100);
 		else
 			usleep(10);
+	}
+}
+
+void	critical_error(t_table *table, char *msg)
+{
+	ft_alert(msg, A_ERROR);
+	if (set_int(&table->table_mtx, &table->end_simulation, 1) != SUCCESS)
+	{
+		table->end_simulation = 1;
+		ft_alert("Fatal: set_end_simulation failed", A_ERROR);
 	}
 }

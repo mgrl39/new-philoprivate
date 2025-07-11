@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 21:24:44 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:06:03 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ typedef struct s_table
 /* Prototypes */
 void	free_table(t_table *table, int initialized_forks);
 void	thinking(t_philo *philo, int pre_simulation);
+void	critical_error(t_table *table, char *msg);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
 void	wait_all_threads(t_table	*table);

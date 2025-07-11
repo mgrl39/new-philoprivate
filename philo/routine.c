@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 21:07:20 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:06:26 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	*dinner_simulation(void *data)
 }
 
 /**
- * If no meals, return -> [0]
+ * If no meals, return
  * If only one philo -> function for this situation
  * Create all threads (all philos)
  * Create a monitor thread -> that is searching for philos which are death.

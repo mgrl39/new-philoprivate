@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:47:01 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 02:15:25 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 22:08:49 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	set_long(t_mtx *mutex, long *dest, long value)
 	return (SUCCESS);
 }
 
-// READING thread safe
+// reading thread safe
 int	get_int(t_mtx *mutex, int *value)
 {
 	int	ret;
@@ -50,7 +50,7 @@ int	get_int(t_mtx *mutex, int *value)
 	return (ret);
 }
 
-// LONG
+// long 
 long	get_long(t_mtx *mutex, long *value)
 {
 	long	ret;
