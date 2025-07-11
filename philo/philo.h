@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 01:09:43 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:11:26 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@
 # define MSG_W_TABLE	"Warning: Failed to destroy table mutex\n"
 # define MSG_W_WRITE	"Warning: Failed to destroy write mutex\n"
 # define MSG_W_PHILO	"Warning: Failed to destroy philo mutex\n"
-
 # define ERR_TIME_FN	"Error: gettimeofday function returned -1\n"
 
 /* ************************************************************************** */

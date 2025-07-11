@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:12:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:09:04 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <unistd.h>
 
 /*
- * Embed controls on return status
  * pthread_mutex_init pthread_mutex_unlock pthread_mutex_lock 
  * and pthread_mutex_init()
  * This functions returns 0 if successful, otherwise we will get an error value.

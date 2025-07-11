@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 21:02:22 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:10:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int	philo_init(t_table *table)
 	return (SUCCESS);
 }
 
-// Aux functin to clean mutexes
+// Function to destroy threads, destroy mutexes, free philos and free forks
 void	free_table(t_table *table, int initialized_forks)
 {
 	int	i;
@@ -111,11 +111,6 @@ void	free_table(t_table *table, int initialized_forks)
 	}
 }
 
-/* 
- * We want to init this mutex
- * super useful for debug
- * if bad return 1
- */
 int	init_table(t_table *table)
 {
 	int	i;
