@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:43:06 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 21:03:15 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:20:40 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	print_usage(char *program_name)
 		": [Optional] Number of times each must eat \n\n");
 }
 
-// return 1 failure. Return 0 success
+// return 1 failure, return 0 success
 static int	parse_and_check(char *arg, long *value, int zeroable)
 {
 	int	parse_result;
@@ -62,7 +62,7 @@ static int	parse_and_check(char *arg, long *value, int zeroable)
 	return (handle_argument_error(parse_result), FAILURE);
 }
 
-// return 1 failure. Return 0 success
+// return 1 failure, return 0 success
 static int	process_arguments(t_table *table, char *av[])
 {
 	if (parse_and_check(av[1], &table->philo_nbr, 0))

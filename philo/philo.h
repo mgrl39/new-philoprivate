@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:44:41 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 21:11:26 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:24:44 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,20 @@
 # define SUCCESS 	0
 
 /* ************************************************************************** */
-/* ERRORS */
 # define ERR_NOT_DIGIT	-1
 # define ERR_NEGATIVE	-2
 # define ERR_OVERFLOW	-3
 # define ERR_ZERO_VALUE	-4
 # define ERR_TIMESTAMP	-5
 
-# define ERR_DIT	"Error: Input contains non-numeric characters."
-# define ERR_NEG	"Error: Negative numbers are not allowed."
-# define ERR_LARGE	"Error: Number is too large."
-# define ERR_ZERO	"Error: Value cannot be zero."
-# define ERR_TIME	"Error: All timings must be at least 60ms."
-# define ERR_MALLOC	"Error: malloc"
-# define ERR_MUTEX	"Error: mutex"
-# define ERR_JOIN	"Error: Failed to join thread."
+# define ERR_DIT	"Error: Input contains non-numeric characters.\n"
+# define ERR_NEG	"Error: Negative numbers are not allowed.\n"
+# define ERR_LARGE	"Error: Number is too large.\n"
+# define ERR_ZERO	"Error: Value cannot be zero.\n"
+# define ERR_TIME	"Error: All timings must be at least 60ms.\n"
+# define ERR_MALLOC	"Error: malloc.\n"
+# define ERR_MUTEX	"Error: mutex.\n"
+# define ERR_JOIN	"Error: Failed to join thread.\n"
 
 # define MIN_TIMESTAMP	60e3
 
@@ -149,10 +148,10 @@ void	thinking(t_philo *philo, int pre_simulation);
 void	prevent_simultaneous_start(t_philo *philo);
 void	precise_usleep(long usec, t_table *table);
 void	wait_all_threads(t_table	*table);
-void	*monitor_dinner(void *data);
-void	*single_philo(void *arg);
 void	join_philos(t_table *table, int count);
 void	*dinner_simulation(void *data);
+void	*monitor_dinner(void *data);
+void	*single_philo(void *arg);
 
 long	gettime(t_time_code	time_code);
 long	get_long(t_mtx *mutex, long *value);
