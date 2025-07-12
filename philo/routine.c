@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/12 18:16:05 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/12 18:20:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,8 +145,8 @@ void	*dinner_simulation(void *data)
  */
 int	dinner_start(t_table *table)
 {
-	int	created;
-	long		start;
+	int		created;
+	long	start;
 
 	if (0 == table->nbr_limit_meals)
 		return (SUCCESS);
