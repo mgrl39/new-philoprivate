@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:56:40 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 01:38:17 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/12 17:55:41 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ int	all_threads_running(t_mtx *mtx, long *threads_count, long total_threads)
 		return (0);
 	if (pthread_mutex_lock(mtx))
 		return (-ft_alert(FAIL_LOCK_THREAD_RUN, A_ERROR));
-	//safe_mutex_handle(mtx, LOCK);
 	all_running = (*threads_count == total_threads);
 	if (pthread_mutex_unlock(mtx))
 		return (-ft_alert(FAIL_UNLOCK_THREAD_RUN, A_ERROR));
-	//safe_mutex_handle(mtx, UNLOCK);
 	return (all_running);
 }
 

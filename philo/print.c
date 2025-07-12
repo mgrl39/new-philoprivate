@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 01:09:35 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/12 18:19:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static void	write_status_debug(t_philo_status status, t_philo *philo,
 int	write_status(t_philo_status status, t_philo *philo)
 {
 	long	time;
+	long	current;
 
-	time = gettime(MSEC);
-	time -= philo->table->start_simulation;
+	current = gettime(MSEC);
+	time = current - philo->table->start_simulation;
 	if (get_int(&philo->philo_mtx, &philo->full))
 		return (0);
-	//safe_mutex_handle(&philo->table->write_mtx, LOCK);
 	if (pthread_mutex_lock(&philo->table->write_mtx))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	if (DEBUG_MODE)

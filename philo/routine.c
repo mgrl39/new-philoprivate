@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 22:06:26 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/12 18:20:59 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,7 @@ static int	eat(t_philo *philo)
 {
 	if (pthread_mutex_lock(&philo->first_fork->fork))
 		return (ft_alert(F_LOCK_1, A_ERROR));
-	// safe_mutex_handle(&philo->first_fork->fork, LOCK);
 	write_status(TAKE_FIRST_FORK, philo);
-	// safe_mutex_handle(&philo->second_fork->fork, LOCK);
 	if (pthread_mutex_lock(&philo->second_fork->fork))
 	{
 		if (pthread_mutex_unlock(&philo->first_fork->fork))
@@ -89,8 +87,6 @@ static int	eat(t_philo *philo)
 		set_int(&philo->philo_mtx, &philo->full, 1);
 	if (pthread_mutex_unlock(&philo->first_fork->fork))
 		return (ft_alert(F_UNLOCK_1, A_ERROR));
-	// safe_mutex_handle(&philo->first_fork->fork, UNLOCK);
-	// safe_mutex_handle(&philo->second_fork->fork, UNLOCK);
 	if (pthread_mutex_unlock(&philo->second_fork->fork))
 		return (ft_alert(F_UNLOCK_2, A_ERROR));
 	return (0);
@@ -104,20 +100,20 @@ static int	eat(t_philo *philo)
  * increase a table variable cunter, with al threads running
  * desynchronizing philos
  * until the dinner is not finished
- * 1) the philosopher has to check: I am full? 
- * in that case i exit.
+ * 1) the philosopher has to check: I am full? in that case i exit.
  * 2) EAT
- * sleep(philo);
  * 3) SLEEP -> write the actual status (write_status) & precise usleep
  * 4) THINK
  */
 void	*dinner_simulation(void *data)
 {
 	t_philo	*philo;
+	long	start_time;
 
 	philo = (t_philo *)data;
 	wait_all_threads(philo->table);
-	set_long(&philo->philo_mtx, &philo->last_meal_time, gettime(MSEC));
+	start_time = gettime(MSEC);
+	set_long(&philo->philo_mtx, &philo->last_meal_time, start_time);
 	increase_long(&philo->table->table_mtx, &philo->table->threads_running_nbr);
 	prevent_simultaneous_start(philo);
 	while (!simulation_finished(philo->table))
@@ -149,7 +145,8 @@ void	*dinner_simulation(void *data)
  */
 int	dinner_start(t_table *table)
 {
-	int	created;
+	int		created;
+	long	start;
 
 	if (0 == table->nbr_limit_meals)
 		return (SUCCESS);
@@ -166,7 +163,18 @@ int	dinner_start(t_table *table)
 		set_int(&table->table_mtx, &table->all_threads_ready, 1);
 		return (join_philos(table, created), FAILURE);
 	}
-	table->start_simulation = gettime(MSEC);
+	start = gettime(MSEC);
+	if (start == -1)
+	{
+		ft_alert(ERR_TIME_FN, A_ERROR);
+		set_int(&table->table_mtx, &table->end_simulation, 1);
+		set_int(&table->table_mtx, &table->all_threads_ready, 1);
+		join_philos(table, table->philo_nbr);
+		if (pthread_join(table->monitor, NULL))
+			ft_alert(F_JOIN_MONITOR_THR, A_WARN);
+		return (FAILURE);
+	}
+	table->start_simulation = start;
 	set_int(&table->table_mtx, &table->all_threads_ready, 1);
 	join_philos(table, table->philo_nbr);
 	set_int(&table->table_mtx, &table->end_simulation, 1);
