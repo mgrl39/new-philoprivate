@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/11 22:09:23 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/12 16:55:03 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,23 @@ void	precise_usleep(long usec, t_table *table)
 	long	start;
 	long	elapsed;
 	long	remaining;
+	long	current;
 
 	start = gettime(USEC);
 	if (start == -1)
 		ft_alert(ERR_TIME_FN, A_ERROR);
 	// TODO CHECK IF GETTIME IS -1
 	// TODO CHECK IF GETTIME IS -1
-	while (gettime(USEC) - start < usec)
+	while (1)
 	{
 		if (simulation_finished(table))
 			break ;
-		// TODO CHECK IF GETTIME IS -1
-		elapsed = gettime(USEC) - start;
+		current = gettime(USEC);
+		if (current == -1)
+			return (critical_error(table, ERR_TIME_FN));
+		elapsed = current - start;
+		if (elapsed >= usec)
+			break ;
 		remaining = usec - elapsed;
 		if (remaining > 1e3)
 			usleep(remaining / 2);
@@ -80,7 +85,7 @@ void	precise_usleep(long usec, t_table *table)
 			usleep(10);
 	}
 }
-
+/*
 void	critical_error(t_table *table, char *msg)
 {
 	ft_alert(msg, A_ERROR);
@@ -88,5 +93,14 @@ void	critical_error(t_table *table, char *msg)
 	{
 		table->end_simulation = 1;
 		ft_alert("Fatal: set_end_simulation failed", A_ERROR);
+	}
+}*/
+
+void	critical_error(t_table *table, char *msg)
+{
+	if (!get_int(&table->table_mtx, &table->end_simulation))
+	{
+		ft_alert(msg, A_ERROR);
+		set_int(&table->table_mtx, &table->end_simulation, 1);
 	}
 }
