@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:21:28 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/12 18:20:59 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:27:21 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,6 @@ void	*dinner_simulation(void *data)
 int	dinner_start(t_table *table)
 {
 	int		created;
-	long	start;
 
 	if (0 == table->nbr_limit_meals)
 		return (SUCCESS);
@@ -163,18 +162,7 @@ int	dinner_start(t_table *table)
 		set_int(&table->table_mtx, &table->all_threads_ready, 1);
 		return (join_philos(table, created), FAILURE);
 	}
-	start = gettime(MSEC);
-	if (start == -1)
-	{
-		ft_alert(ERR_TIME_FN, A_ERROR);
-		set_int(&table->table_mtx, &table->end_simulation, 1);
-		set_int(&table->table_mtx, &table->all_threads_ready, 1);
-		join_philos(table, table->philo_nbr);
-		if (pthread_join(table->monitor, NULL))
-			ft_alert(F_JOIN_MONITOR_THR, A_WARN);
-		return (FAILURE);
-	}
-	table->start_simulation = start;
+	table->start_simulation = gettime(MSEC);
 	set_int(&table->table_mtx, &table->all_threads_ready, 1);
 	join_philos(table, table->philo_nbr);
 	set_int(&table->table_mtx, &table->end_simulation, 1);
