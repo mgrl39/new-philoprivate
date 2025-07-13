@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/13 21:36:03 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:59:25 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,12 @@ static void	ft_putstr_fd(char *msg, int fd)
 		write(fd, s++, 1);
 }
 
-// TODO ADD MUTEX HERE OR NOT?
+/**
+ * If we're showing an alert, the program is already in an error state.
+ * If a mutex operation fails in ft_alert, it indicates a system-level issue
+ * that would affect any mutex we add here anyway.
+ * In case of critical mutex failures, ensuring ordered output is secondary
+ */
 int	ft_alert(char *msg, t_alert_type type)
 {
 	if (!msg)
