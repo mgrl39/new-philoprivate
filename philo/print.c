@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:50:39 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/12 18:19:33 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:28:33 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ static void	write_status_debug(t_philo_status status, t_philo *philo,
 int	write_status(t_philo_status status, t_philo *philo)
 {
 	long	time;
-	long	current;
 
-	current = gettime(MSEC);
-	time = current - philo->table->start_simulation;
+	time = gettime(MSEC) - philo->table->start_simulation;
 	if (get_int(&philo->philo_mtx, &philo->full))
 		return (0);
 	if (pthread_mutex_lock(&philo->table->write_mtx))
@@ -64,8 +62,6 @@ int	write_status(t_philo_status status, t_philo *philo)
 		else if (DIED == status)
 			printf(BOLD RED"%-6ld" S_DIED RESET, time, philo->id);
 	}
-	// safe_mutex_handle(&philo->table->write_mtx, UNLOCK);
-	// TODO: check if this later...
 	if (pthread_mutex_unlock(&philo->table->write_mtx))
 		return (ft_alert("ERROR UNLOCK MUTEX", A_ERROR));
 	return (0);
@@ -82,7 +78,7 @@ static void	ft_putstr_fd(char *msg, int fd)
 		write(fd, s++, 1);
 }
 
-// TODO: MAYBE MUST LOCK THIS...
+// TODO ADD MUTEX HERE OR NOT?
 int	ft_alert(char *msg, t_alert_type type)
 {
 	if (!msg)
