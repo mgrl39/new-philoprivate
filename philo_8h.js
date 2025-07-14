@@ -84,6 +84,7 @@ var philo_8h =
     ] ],
     [ "all_threads_running", "philo_8h.html#a1e1cd8cf5c3bd7d8f449cb092dcfbf12", null ],
     [ "create_philos", "philo_8h.html#aa31d4fc8459c3c8a027faffcf8f9b269", null ],
+    [ "critical_error", "philo_8h.html#a1b6c7ad136b61653156e80592fe1ec3e", null ],
     [ "dinner_simulation", "philo_8h.html#af3db4f49728131a53563eef43e2c9954", null ],
     [ "dinner_start", "philo_8h.html#a92e02f1eaf2c2db4097c328dc088c166", null ],
     [ "free_table", "philo_8h.html#a965a241099d9f27bfc260769801130bb", null ],

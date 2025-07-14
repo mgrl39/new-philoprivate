@@ -10,7 +10,8 @@ var searchData=
   ['precise_5fusleep_7',['precise_usleep',['../philo_8h.html#a9378c26262a9761809207ec96e047a53',1,'precise_usleep(long usec, t_table *table):&#160;utils.c'],['../utils_8c.html#a9378c26262a9761809207ec96e047a53',1,'precise_usleep(long usec, t_table *table):&#160;utils.c']]],
   ['prevent_5fsimultaneous_5fstart_8',['prevent_simultaneous_start',['../philo_8h.html#a21897b8581f471fff273cf4b0c69bf2f',1,'prevent_simultaneous_start(t_philo *philo):&#160;sync.c'],['../sync_8c.html#a21897b8581f471fff273cf4b0c69bf2f',1,'prevent_simultaneous_start(t_philo *philo):&#160;sync.c']]],
   ['print_2ec_9',['print.c',['../print_8c.html',1,'']]],
-  ['print_5fusage_10',['print_usage',['../main_8c.html#a8d34a3fc4104a1751d32536bfe4acd1d',1,'main.c']]],
-  ['process_5farguments_11',['process_arguments',['../main_8c.html#a69c069289922077c094249e6f0906dd4',1,'main.c']]],
-  ['purple_12',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
+  ['print_5fstatus_5fmessage_10',['print_status_message',['../print_8c.html#a8ce49772596129415a2c217e2a6e8c95',1,'print.c']]],
+  ['print_5fusage_11',['print_usage',['../main_8c.html#a8d34a3fc4104a1751d32536bfe4acd1d',1,'main.c']]],
+  ['process_5farguments_12',['process_arguments',['../main_8c.html#a69c069289922077c094249e6f0906dd4',1,'main.c']]],
+  ['purple_13',['PURPLE',['../philo_8h.html#a0bb0b009e7a7390473ace4d98bd843c0',1,'philo.h']]]
 ];

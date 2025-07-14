@@ -149,36 +149,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00031">31</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   32</span>{</div>
-<div class="line"><span class="lineno">   33</span>    <span class="keyword">struct </span>timeval  tv;</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (gettimeofday(&amp;tv, NULL))</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span> (-<a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a21322b2ca36d033ba93031abb26a0dc1">ERR_TIME_FN</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>));</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f">MSEC</a> == time_code)</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a> == time_code)</div>
-<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e6) + tv.tv_usec);</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">return</span> (-1);</div>
-<div class="line"><span class="lineno">   42</span>}</div>
-<div class="ttc" id="aphilo_8h_html_a21322b2ca36d033ba93031abb26a0dc1"><div class="ttname"><a href="philo_8h.html#a21322b2ca36d033ba93031abb26a0dc1">ERR_TIME_FN</a></div><div class="ttdeci">#define ERR_TIME_FN</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00059">philo.h:59</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54"><div class="ttname"><a href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a></div><div class="ttdeci">@ A_ERROR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00084">philo.h:84</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f"><div class="ttname"><a href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f">MSEC</a></div><div class="ttdeci">@ MSEC</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00078">philo.h:78</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c"><div class="ttname"><a href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a></div><div class="ttdeci">@ USEC</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00079">philo.h:79</a></div></div>
-<div class="ttc" id="aphilo_8h_html_a947bf0aaab32c425b437596100a37e92"><div class="ttname"><a href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a></div><div class="ttdeci">int ft_alert(char *msg, t_alert_type type)</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00086">print.c:86</a></div></div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00029">29</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>{</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keyword">struct </span>timeval  tv;</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>    gettimeofday(&amp;tv, NULL);</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f">MSEC</a> == time_code)</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a> == time_code)</div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span> ((tv.tv_sec * 1e6) + tv.tv_usec);</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">return</span> (-1);</div>
+<div class="line"><span class="lineno">   39</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f"><div class="ttname"><a href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a0476401badb12462e14fb93b5955bd1f">MSEC</a></div><div class="ttdeci">@ MSEC</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00076">philo.h:76</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c"><div class="ttname"><a href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a></div><div class="ttdeci">@ USEC</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00077">philo.h:77</a></div></div>
 </div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="utils_8c_abd85dc197341d03847c33008c616dbb3_cgraph.png" border="0" usemap="#autils_8c_abd85dc197341d03847c33008c616dbb3_cgraph" alt=""/></div>
-<map name="autils_8c_abd85dc197341d03847c33008c616dbb3_cgraph" id="autils_8c_abd85dc197341d03847c33008c616dbb3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,79,31"/>
-<area shape="rect" href="print_8c.html#a947bf0aaab32c425b437596100a37e92" title=" " alt="" coords="127,5,195,31"/>
-<area shape="poly" title=" " alt="" coords="79,15,113,15,113,21,79,21"/>
-<area shape="rect" href="print_8c.html#a7a419d95f0777ac8bb0fdc7ac383aaac" title=" " alt="" coords="243,5,339,31"/>
-<area shape="poly" title=" " alt="" coords="195,15,229,15,229,21,195,21"/>
-</map>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_abd85dc197341d03847c33008c616dbb3_icgraph.png" border="0" usemap="#autils_8c_abd85dc197341d03847c33008c616dbb3_icgraph" alt=""/></div>
@@ -259,52 +243,53 @@ Here is the caller graph for this function:</div>
 <p>1) USLEEP THE MAJORITY OF TIME, NOT CPU INTENSIVE 2) REFINE LAST USECS WITH SPINLOCK</p>
 <p>This will give us more precise than the actual system function usleep which is veey often not precise. </p>
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00059">59</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>{</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordtype">long</span>    start;</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordtype">long</span>    elapsed;</div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordtype">long</span>    remaining;</div>
-<div class="line"><span class="lineno">   64</span> </div>
-<div class="line"><span class="lineno">   65</span>    start = <a class="code hl_function" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a>);</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (start == -1)</div>
-<div class="line"><span class="lineno">   67</span>        <a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a21322b2ca36d033ba93031abb26a0dc1">ERR_TIME_FN</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>);</div>
-<div class="line"><span class="lineno">   68</span>    <span class="comment">// TODO CHECK IF GETTIME IS -1</span></div>
-<div class="line"><span class="lineno">   69</span>    <span class="comment">// TODO CHECK IF GETTIME IS -1</span></div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">while</span> (<a class="code hl_function" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a>) - start &lt; usec)</div>
-<div class="line"><span class="lineno">   71</span>    {</div>
-<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="philo_8h.html#a9cf7f5b32360824fc306e992f8775e58">simulation_finished</a>(table))</div>
-<div class="line"><span class="lineno">   73</span>            break ;</div>
-<div class="line"><span class="lineno">   74</span>        <span class="comment">// TODO CHECK IF GETTIME IS -1</span></div>
-<div class="line"><span class="lineno">   75</span>        elapsed = <a class="code hl_function" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a>) - start;</div>
-<div class="line"><span class="lineno">   76</span>        remaining = usec - elapsed;</div>
-<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (remaining &gt; 1e3)</div>
-<div class="line"><span class="lineno">   78</span>            usleep(remaining / 2);</div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (remaining &gt; 100)</div>
-<div class="line"><span class="lineno">   80</span>            usleep(100);</div>
-<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   82</span>            usleep(10);</div>
-<div class="line"><span class="lineno">   83</span>    }</div>
-<div class="line"><span class="lineno">   84</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00055">55</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordtype">long</span>    start;</div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordtype">long</span>    elapsed;</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordtype">long</span>    remaining;</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>    start = <a class="code hl_function" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a>);</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">if</span> (start == -1)</div>
+<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a>(<a class="code hl_define" href="philo_8h.html#a21322b2ca36d033ba93031abb26a0dc1">ERR_TIME_FN</a>, <a class="code hl_enumvalue" href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a>);</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><span class="lineno">   65</span>    {</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="philo_8h.html#a9cf7f5b32360824fc306e992f8775e58">simulation_finished</a>(table))</div>
+<div class="line"><span class="lineno">   67</span>            break ;</div>
+<div class="line"><span class="lineno">   68</span>        elapsed = <a class="code hl_function" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a>(<a class="code hl_enumvalue" href="philo_8h.html#a5c635789974cd7c0c6b41f540113ba40a3d01c6e0b0165370823964bcaa276e9c">USEC</a>) - start;</div>
+<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">if</span> (elapsed &gt;= usec)</div>
+<div class="line"><span class="lineno">   70</span>            break ;</div>
+<div class="line"><span class="lineno">   71</span>        remaining = usec - elapsed;</div>
+<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">if</span> (remaining &gt; 1e3)</div>
+<div class="line"><span class="lineno">   73</span>            usleep(remaining / 2);</div>
+<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (remaining &gt; 100)</div>
+<div class="line"><span class="lineno">   75</span>            usleep(100);</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   77</span>            usleep(10);</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span>}</div>
+<div class="ttc" id="aphilo_8h_html_a21322b2ca36d033ba93031abb26a0dc1"><div class="ttname"><a href="philo_8h.html#a21322b2ca36d033ba93031abb26a0dc1">ERR_TIME_FN</a></div><div class="ttdeci">#define ERR_TIME_FN</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00057">philo.h:57</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54"><div class="ttname"><a href="philo_8h.html#a2801583dc02f7baad9d15c9e0bdc6a12a12cb8f7a9305c10edc454926e4a34e54">A_ERROR</a></div><div class="ttdeci">@ A_ERROR</div><div class="ttdef"><b>Definition</b> <a href="philo_8h_source.html#l00082">philo.h:82</a></div></div>
+<div class="ttc" id="aphilo_8h_html_a947bf0aaab32c425b437596100a37e92"><div class="ttname"><a href="philo_8h.html#a947bf0aaab32c425b437596100a37e92">ft_alert</a></div><div class="ttdeci">int ft_alert(char *msg, t_alert_type type)</div><div class="ttdef"><b>Definition</b> <a href="print_8c_source.html#l00090">print.c:90</a></div></div>
 <div class="ttc" id="aphilo_8h_html_a9cf7f5b32360824fc306e992f8775e58"><div class="ttname"><a href="philo_8h.html#a9cf7f5b32360824fc306e992f8775e58">simulation_finished</a></div><div class="ttdeci">int simulation_finished(t_table *table)</div><div class="ttdef"><b>Definition</b> <a href="state_8c_source.html#l00066">state.c:66</a></div></div>
-<div class="ttc" id="autils_8c_html_abd85dc197341d03847c33008c616dbb3"><div class="ttname"><a href="utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a></div><div class="ttdeci">long gettime(t_time_code time_code)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00031">utils.c:31</a></div></div>
+<div class="ttc" id="autils_8c_html_abd85dc197341d03847c33008c616dbb3"><div class="ttname"><a href="utils_8c.html#abd85dc197341d03847c33008c616dbb3">gettime</a></div><div class="ttdeci">long gettime(t_time_code time_code)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00029">utils.c:29</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_a9378c26262a9761809207ec96e047a53_cgraph.png" border="0" usemap="#autils_8c_a9378c26262a9761809207ec96e047a53_cgraph" alt=""/></div>
 <map name="autils_8c_a9378c26262a9761809207ec96e047a53_cgraph" id="autils_8c_a9378c26262a9761809207ec96e047a53_cgraph">
-<area shape="rect" title=" " alt="" coords="5,26,124,51"/>
-<area shape="rect" href="print_8c.html#a947bf0aaab32c425b437596100a37e92" title=" " alt="" coords="491,26,559,51"/>
-<area shape="poly" title=" " alt="" coords="124,24,189,14,269,6,356,3,443,10,478,19,477,24,442,16,356,9,270,11,190,19,125,29"/>
-<area shape="rect" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3" title=" " alt="" coords="369,26,443,51"/>
-<area shape="poly" title=" " alt="" coords="124,36,356,36,356,41,124,41"/>
-<area shape="rect" href="state_8c.html#a9cf7f5b32360824fc306e992f8775e58" title=" " alt="" coords="172,76,321,102"/>
-<area shape="poly" title=" " alt="" coords="112,48,188,70,186,75,111,54"/>
-<area shape="rect" href="print_8c.html#a7a419d95f0777ac8bb0fdc7ac383aaac" title=" " alt="" coords="607,26,703,51"/>
-<area shape="poly" title=" " alt="" coords="559,36,593,36,593,41,559,41"/>
-<area shape="poly" title=" " alt="" coords="443,36,477,36,477,41,443,41"/>
-<area shape="rect" href="state_8c.html#a1cd5a985ffabb5d265950973674a8920" title=" " alt="" coords="373,75,439,100"/>
-<area shape="poly" title=" " alt="" coords="322,86,359,85,359,91,322,91"/>
-<area shape="poly" title=" " alt="" coords="436,72,480,54,482,59,438,77"/>
+<area shape="rect" title=" " alt="" coords="5,22,124,48"/>
+<area shape="rect" href="print_8c.html#a947bf0aaab32c425b437596100a37e92" title=" " alt="" coords="484,21,552,46"/>
+<area shape="poly" title=" " alt="" coords="108,20,172,7,254,3,337,6,471,23,470,28,336,11,254,8,172,12,109,25"/>
+<area shape="rect" href="utils_8c.html#abd85dc197341d03847c33008c616dbb3" title=" " alt="" coords="210,22,283,48"/>
+<area shape="poly" title=" " alt="" coords="124,32,196,32,196,38,124,38"/>
+<area shape="rect" href="state_8c.html#a9cf7f5b32360824fc306e992f8775e58" title=" " alt="" coords="172,72,321,97"/>
+<area shape="poly" title=" " alt="" coords="113,45,186,66,185,71,111,50"/>
+<area shape="rect" href="print_8c.html#a7a419d95f0777ac8bb0fdc7ac383aaac" title=" " alt="" coords="600,21,696,46"/>
+<area shape="poly" title=" " alt="" coords="552,31,586,31,586,36,552,36"/>
+<area shape="rect" href="state_8c.html#a1cd5a985ffabb5d265950973674a8920" title=" " alt="" coords="369,46,436,72"/>
+<area shape="poly" title=" " alt="" coords="321,70,355,64,356,69,322,75"/>
+<area shape="poly" title=" " alt="" coords="436,49,470,42,471,47,437,54"/>
 </map>
 </div>
 <div class="dynheader">
