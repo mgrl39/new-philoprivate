@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:18:54 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:09:13 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:10:53 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,22 @@ static void	cleanup_philo_mtxes(t_table *table, int count)
 }
 
 /**
- * Takes:
- * a pointer to philosopher.
- * A pointer to the actual forks
- * Relative position in the table.
- * EVEN odd fork assigment
-
-// We have our philos, we have this array of structs and mutexes.
-// When it comes to fork assigmnet.
-// philo_id != relative position in the array 
-// (we start by 0 and the first philo is id 1)
-// Right fork -> Position of the fork
-// Left fork is more treaky:
-// 	- We are going focus in philo number 5: LEFT FORK OF 
-// 	PhilO number 5 is 0
-// 	- left_fork = (philo_pos + 1) % philo_nbr;
-// 		(4 + 1) % 5 => 0 (left fork is 0)
-//
-// Indeed, every philo needs 2 forks to eat, that's what we need.
-//
-// == to position
-// to prevent deadlock if its even its one way its is odd is another way
-//
-// Deadhlock happends when we have multiple threads to be stuck.
-// We have a thread waiting.
-// if you are the odd philosopher first you will ttake the left
-// if you take the even takes the right
+ * philo_id != relative position in the array 
+ * (we start by 0 and the first philo is id 1)
+ * Right fork -> Position of the fork
+ * Left fork is more treaky:
+ * - We are going focus in philo number 5: LEFT FORK OF 
+ *   PhilO number 5 is 0
+ * - left_fork = (philo_pos + 1) % philo_nbr;
+ *   (4 + 1) % 5 => 0 (left fork is 0)
+ *
+ *   Indeed, every philo needs 2 forks to eat, that's what we need.
+ *   == to position
+ *   to prevent deadlock if its even its one way its is odd is another way
+ *   Deadhlock happends when we have multiple threads to be stuck.
+ *   We have a thread waiting.
+ *   if you are the odd philosopher first you will ttake the left
+ *   if you are the even takes the right
 */
 static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 {
@@ -69,9 +59,8 @@ static void	assign_forks(t_philo *philo, t_fork *forks, int philo_position)
 
 /**
  * We need to  initialize all the data of philo
+ * "i" es basically the position in the table
  */
-// super important function assign_forks
-// "i" es basically the position in the table
 static int	philo_init(t_table *table)
 {
 	t_philo	*philo;
@@ -95,7 +84,7 @@ static int	philo_init(t_table *table)
 	return (SUCCESS);
 }
 
-// Aux functin to clean mutexes
+// Function to destroy threads, destroy mutexes, free philos and free forks
 void	free_table(t_table *table, int initialized_forks)
 {
 	int	i;
@@ -122,11 +111,6 @@ void	free_table(t_table *table, int initialized_forks)
 	}
 }
 
-/* 
- * We want to init this mutex
- * super useful for debug
- * if bad return 1
- */
 int	init_table(t_table *table)
 {
 	int	i;

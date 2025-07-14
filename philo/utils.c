@@ -6,7 +6,7 @@
 /*   By: meghribe <meghribe@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 21:59:57 by meghribe          #+#    #+#             */
-/*   Updated: 2025/07/10 00:12:24 by meghribe         ###   ########.fr       */
+/*   Updated: 2025/07/12 17:56:42 by meghribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <unistd.h>
 
 /*
- * Embed controls on return status
  * pthread_mutex_init pthread_mutex_unlock pthread_mutex_lock 
  * and pthread_mutex_init()
  * This functions returns 0 if successful, otherwise we will get an error value.
@@ -24,16 +23,14 @@
 
 /*
  * We are gonna exploit gettimeofday
- * time_code -> SECONDS MSECS USECS
- * Is gonna set the seconds and the microseconds
- * TODO: IF I USE time_code that is not there the compiler will complain
+ * time_code -> MSEC USEC
+ * In a future version can we handle more the gettimeofday return
  */
 long	gettime(t_time_code	time_code)
 {
 	struct timeval	tv;
 
-	if (gettimeofday(&tv, NULL))
-		return (-ft_alert(ERR_TIME_FN, A_ERROR));
+	gettimeofday(&tv, NULL);
 	if (MSEC == time_code)
 		return ((tv.tv_sec * 1e3) + tv.tv_usec / 1e3);
 	else if (USEC == time_code)
@@ -55,7 +52,6 @@ long	gettime(t_time_code	time_code)
  * This will give us more precise than the actual system function usleep
  * which is veey often not precise.
  */
-// SPINLOCK
 void	precise_usleep(long usec, t_table *table)
 {
 	long	start;
@@ -65,14 +61,13 @@ void	precise_usleep(long usec, t_table *table)
 	start = gettime(USEC);
 	if (start == -1)
 		ft_alert(ERR_TIME_FN, A_ERROR);
-	// TODO CHECK IF GETTIME IS -1
-	// TODO CHECK IF GETTIME IS -1
-	while (gettime(USEC) - start < usec)
+	while (1)
 	{
 		if (simulation_finished(table))
 			break ;
-		// TODO CHECK IF GETTIME IS -1
 		elapsed = gettime(USEC) - start;
+		if (elapsed >= usec)
+			break ;
 		remaining = usec - elapsed;
 		if (remaining > 1e3)
 			usleep(remaining / 2);
